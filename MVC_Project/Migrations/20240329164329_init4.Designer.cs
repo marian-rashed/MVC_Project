@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Project.Migrations
 {
     [DbContext(typeof(BookStoreContext))]
-    [Migration("20240329152934_update")]
-    partial class update
+    [Migration("20240329164329_init4")]
+    partial class init4
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -273,14 +273,14 @@ namespace MVC_Project.Migrations
                         {
                             OrderId = 1,
                             CustomerId = 1,
-                            OrderDate = new DateTime(2024, 3, 29, 17, 29, 33, 376, DateTimeKind.Local).AddTicks(9264),
+                            OrderDate = new DateTime(2024, 3, 29, 18, 43, 28, 159, DateTimeKind.Local).AddTicks(2175),
                             TotalAmount = 10.99m
                         },
                         new
                         {
                             OrderId = 2,
                             CustomerId = 2,
-                            OrderDate = new DateTime(2024, 3, 28, 17, 29, 33, 376, DateTimeKind.Local).AddTicks(9320),
+                            OrderDate = new DateTime(2024, 3, 28, 18, 43, 28, 159, DateTimeKind.Local).AddTicks(2220),
                             TotalAmount = 25.00m
                         });
                 });

@@ -71,7 +71,7 @@ namespace MVC_Project.Controllers
                     if (found)
                     {
                         await signInManager.SignInAsync(userDB, UserVM.RememberMe);
-                        return RedirectToAction("Register");
+                        return RedirectToAction("Index","Home");
                     }
                 }
                 ModelState.AddModelError("", "Invalid Account");
