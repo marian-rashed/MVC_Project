@@ -1,0 +1,17 @@
+﻿@model List<Author>
+
+<table class="table">
+    <tr>
+        <th>Author Name</th>
+        <th>Author Biography</th>
+        <th>Author Country</th>
+    </tr>
+    @foreach(Author author in Model)
+    {
+        <tr>
+            <td>@author.AuthorName</td>
+            <td>@author.Biography</td>
+            <td>@author.Country</td>
+        </tr>
+    }
+</table>
