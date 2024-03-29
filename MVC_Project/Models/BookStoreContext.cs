@@ -16,6 +16,7 @@ namespace MVC_Project
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public BookStoreContext() : base() { }
 
         public BookStoreContext(DbContextOptions<BookStoreContext> options) : base(options)
         {

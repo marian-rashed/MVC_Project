@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace MVC_Project.Interfaces
 {
+
     public interface IOrder
+
     {
         List<Order> GetAllOrders();
         Order GetOrderById(int id);
