@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MVC_Project.Models;
+using MVC_Project.ViewModel;
 
 namespace MVC_Project.Controllers
 {
@@ -22,34 +23,38 @@ namespace MVC_Project.Controllers
         {
             return View();
         }
-        //[HttpPost]
-        //public async Task<IActionResult> Register(RegisterUserViewModel UserVM)
-        //{
-        //    if (ModelState.IsValid == true)
-        //    {
-        //        save
-        //        ApplicationUser user = new ApplicationUser()
-        //        {
-        //            UserName = UserVM.UserName,
-        //            Email = UserVM.Email,
-        //            PasswordHash = UserVM.Password,
-        //            Address = UserVM.Address
-        //        };
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterUserViewModel UserVM)
+        {
+            if (ModelState.IsValid == true)
+            {
+                //save
+                ApplicationUser user = new ApplicationUser()
+                {
+                    UserName = UserVM.UserName,
+                    Email = UserVM.Email,
+                    PasswordHash = UserVM.Password,
+                    Address = UserVM.Address
+                };
 
-        //        IdentityResult result = await userManager.CreateAsync(user, UserVM.Password);
-        //        if (result.Succeeded)
-        //        {
-        //            await signInManager.SignInAsync(user, false);
-        //            return RedirectToAction("BasePage", "Home");
-        //            createCookie
-        //        }
-        //        foreach (var item in result.Errors)
-        //            ModelState.AddModelError("", item.Description);
+                IdentityResult result = await userManager.CreateAsync(user, UserVM.Password);
+                if (result.Succeeded)
+                {
+                    await signInManager.SignInAsync(user, false);
+                    return RedirectToAction("Login");
+                    //createCookie
+                }
+                foreach (var item in result.Errors)
+                    ModelState.AddModelError("", item.Description);
 
-        //        createCookie
+                //createCookie
 
-        //    }
-        //    return View("Register", UserVM);
-        //}
+            }
+            return View("Register", UserVM);
+        }
+        public IActionResult Login()
+        {
+            return View("loginTest");
+        }
     }
 }

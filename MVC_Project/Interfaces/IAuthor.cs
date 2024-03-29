@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MVC_Project.Interfaces
 {
-    internal interface IAuthor
+    public interface IAuthor
     {
         List<Author> GetAllAuthors();
         Author GetAuthorById(int id);

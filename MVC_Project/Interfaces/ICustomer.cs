@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MVC_Project.Interfaces
 {
-    internal interface ICustomer
+    public interface ICustomer
     {
         List<Customer> GetAllCustomers();
         Customer GetCustomerById(int id);

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MVC_Project
 {
-    internal class Author
+    public class Author
     {
         [Key]
         public int AuthorId { get; set; }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MVC_Project
 {
-    internal class Book
+    public class Book
     {
         [Key]
         public int BookId { get; set; }
