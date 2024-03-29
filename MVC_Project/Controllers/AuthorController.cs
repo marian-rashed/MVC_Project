@@ -16,5 +16,10 @@ namespace MVC_Project.Controllers
             List<Author> authorList = author.GetAllAuthors();
             return View("Index", authorList);
         }
+        public IActionResult GetAuthorById(int id)
+        {
+            Author author1=author.GetAuthorById(id);
+            return View("GetAuthorById", author1);
+        }
     }
 }
