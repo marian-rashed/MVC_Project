@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MVC_Project.Interfaces
 {
-    internal interface IBook
+    public interface IBook
     {
         List<Book> GetAllBooks();
         Book GetBookById(int id);

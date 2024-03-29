@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MVC_Project
 {
-    internal class Order
+    public class Order
     {
         [Key]
         public int OrderId { get; set; }

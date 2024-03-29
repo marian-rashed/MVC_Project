@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MVC_Project
 {
-    internal class Customer
+    public class Customer
     {
         [Key]
         public int CustomerId { get; set; }
