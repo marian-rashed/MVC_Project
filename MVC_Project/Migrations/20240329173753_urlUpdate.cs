@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MVC_Project.Migrations
 {
     /// <inheritdoc />
-    public partial class update7 : Migration
+    public partial class urlUpdate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -299,8 +299,8 @@ namespace MVC_Project.Migrations
                 columns: new[] { "OrderId", "CustomerId", "OrderDate", "TotalAmount" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2024, 3, 29, 19, 31, 18, 10, DateTimeKind.Local).AddTicks(4237), 10.99m },
-                    { 2, 2, new DateTime(2024, 3, 28, 19, 31, 18, 10, DateTimeKind.Local).AddTicks(4301), 25.00m }
+                    { 1, 1, new DateTime(2024, 3, 29, 19, 37, 52, 618, DateTimeKind.Local).AddTicks(6695), 10.99m },
+                    { 2, 2, new DateTime(2024, 3, 28, 19, 37, 52, 618, DateTimeKind.Local).AddTicks(6780), 25.00m }
                 });
 
             migrationBuilder.InsertData(
