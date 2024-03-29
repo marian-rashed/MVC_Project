@@ -291,14 +291,14 @@ namespace MVC_Project.Migrations
                         {
                             OrderId = 1,
                             CustomerId = 1,
-                            OrderDate = new DateTime(2024, 3, 29, 19, 31, 18, 10, DateTimeKind.Local).AddTicks(4237),
+                            OrderDate = new DateTime(2024, 3, 29, 19, 37, 52, 618, DateTimeKind.Local).AddTicks(6695),
                             TotalAmount = 10.99m
                         },
                         new
                         {
                             OrderId = 2,
                             CustomerId = 2,
-                            OrderDate = new DateTime(2024, 3, 28, 19, 31, 18, 10, DateTimeKind.Local).AddTicks(4301),
+                            OrderDate = new DateTime(2024, 3, 28, 19, 37, 52, 618, DateTimeKind.Local).AddTicks(6780),
                             TotalAmount = 25.00m
                         });
                 });
