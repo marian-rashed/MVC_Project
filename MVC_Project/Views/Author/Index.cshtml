@@ -38,10 +38,16 @@
     @foreach(Author author in Model)
     {
         <section class="Contact">
-            <img class="Contact-avatar" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-80/newgirl-01.svg" />
+            <div class="card-img ">
+                <img class="Contact-avatar rounded-circle" src="/images/authors/@author.ImageUrl" />
+            </div>
             <h5 class="Contact-name">@author.AuthorName</h5>
         </section>
     }
     
     
 </div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/js/authorIndexScript.js"></script>
+<link rel="stylesheet" href="/css/AuthorIndex.css" />

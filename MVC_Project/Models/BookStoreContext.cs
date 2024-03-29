@@ -75,114 +75,103 @@ namespace MVC_Project
                    BirthDate = DateTime.Parse("1965-07-31"),
                    Country = "United Kingdom",
                    ImageUrl = "/images/author/jk_rowling.jpeg"
-               },
-    new Author
-    {
-        AuthorId = 7,
-        AuthorName = "Stephen King",
-        Biography = "Stephen King is an American author of horror, supernatural fiction, suspense, crime, science-fiction, and fantasy novels. His books have sold more than 350 million copies, and many have been adapted into films, television series, miniseries, and comic books.",
-        BirthDate = DateTime.Parse("1947-09-21"),
-        Country = "United States",
-        ImageUrl = "/images/author/stephen_king.jpeg"
-    },
-    new Author
-    {
-        AuthorId = 8,
-        AuthorName = "Haruki Murakami",
-        Biography = "Haruki Murakami is a Japanese writer. His books and stories have been bestsellers in Japan and internationally, with his work being translated into 50 languages and selling millions of copies outside his native country.",
-        BirthDate = DateTime.Parse("1949-01-12"),
-        Country = "Japan",
-        ImageUrl = "/images/author/haruki_murakami.jpeg"
-    }, new Author
-    {
-        AuthorId = 9,
-        AuthorName = "Margaret Atwood",
-        Biography = "Margaret Atwood is a Canadian poet, novelist, literary critic, essayist, inventor, teacher, and environmental activist. She has published over 17 books of poetry, 16 novels, 10 books of non-fiction, 8 collections of short fiction, 8 children's books, and 1 graphic novel.",
-        BirthDate = DateTime.Parse("1939-11-18"),
-        Country = "Canada",
-        ImageUrl = "/images/author/margaret_atwood.jpeg"
-    },
-    new Author
-    {
-        AuthorId = 10,
-        AuthorName = "George R.R. Martin",
-        Biography = "George R.R. Martin is an American novelist and short story writer, screenwriter, and television producer. He is best known for his series of epic fantasy novels, A Song of Ice and Fire, which was adapted into the HBO series Game of Thrones.",
-        BirthDate = DateTime.Parse("1948-09-20"),
-        Country = "United States",
-        ImageUrl = "/images/author/george_rr_martin.jpeg"
-    },
-    new Author
-    {
-        AuthorId = 11,
-        AuthorName = "Toni Morrison",
-        Biography = "Toni Morrison was an American novelist, essayist, editor, teacher, and professor emeritus at Princeton University. She won the Pulitzer Prize and the American Book Award in 1988 for Beloved.",
-        BirthDate = DateTime.Parse("1931-02-18"),
-        Country = "United States",
-        ImageUrl = "/images/author/toni_morrison.jpeg"
-    },
-    new Author
-    {
-        AuthorId = 12,
-        AuthorName = "Gabriel García Márquez",
-        Biography = "Gabriel García Márquez was a Colombian novelist, short-story writer, screenwriter, and journalist, known affectionately as Gabo throughout Latin America. He is considered one of the most significant authors of the 20th century.",
-        BirthDate = DateTime.Parse("1927-03-06"),
-        Country = "Colombia",
-        ImageUrl = "/images/author/gabriel_garcia_marquez.jpeg"
-    },
-    new Author
-    {
-        AuthorId = 13,
-        AuthorName = "Chimamanda Ngozi Adichie",
-        Biography = "Chimamanda Ngozi Adichie is a Nigerian writer whose works range from novels to short stories to nonfiction. She was described in The Times Literary Supplement as 'the most prominent' of a 'procession of critically acclaimed young anglophone authors [which] is succeeding in attracting a new generation of readers to African literature'.",
-        BirthDate = DateTime.Parse("1977-09-15"),
-        Country = "Nigeria",
-        ImageUrl = "/images/author/chimamanda_ngozi_adichie.jpeg"
-    },
-    new Author
-    {
-        AuthorId = 14,
-        AuthorName = "Neil Gaiman",
-        Biography = "Neil Gaiman is an English author of short fiction, novels, comic books, graphic novels, nonfiction, audio theatre, and films. His works include the comic book series The Sandman and novels Stardust, American Gods, Coraline, and The Graveyard Book.",
-        BirthDate = DateTime.Parse("1960-11-10"),
-        Country = "United Kingdom",
-        ImageUrl = "/images/author/neil_gaiman.jpeg"
-    },
-    new Author
-    {
-        AuthorId = 15,
-        AuthorName = "Virginia Woolf",
-        Biography = "Virginia Woolf was an English writer, considered one of the most important modernist 20th-century authors and also a pioneer in the use of stream of consciousness as a narrative device. Woolf was a significant figure in London literary society and a member of the Bloomsbury Group.",
-        BirthDate = DateTime.Parse("1882-01-25"),
-        Country = "United Kingdom",
-        ImageUrl = "/images/author/virginia_woolf.jpeg"
-    },
-    new Author
-    {
-        AuthorId = 16,
-        AuthorName = "Hermann Hesse",
-        Biography = "Hermann Hesse was a German-Swiss poet, novelist, and painter. His best-known works include Steppenwolf, Siddhartha, and The Glass Bead Game, each of which explores an individual's search for authenticity, self-knowledge, and spirituality.",
-        BirthDate = DateTime.Parse("1877-07-02"),
-        Country = "Germany",
-        ImageUrl = "/images/author/hermann_hesse.jpeg"
-    },
-    new Author
-    {
-        AuthorId = 17,
-        AuthorName = "Agatha Christie",
-        Biography = "Agatha Christie was an English writer known for her sixty-six detective novels and fourteen short story collections, particularly those revolving around fictional detectives Hercule Poirot and Miss Marple.",
-        BirthDate = DateTime.Parse("1890-09-15"),
-        Country = "United Kingdom",
-        ImageUrl = "/images/author/agatha_christie.jpeg"
-    },
-    new Author
-    {
-        AuthorId = 18,
-        AuthorName = "Octavia E. Butler",
-        Biography = "Octavia E. Butler was an American science fiction writer. A multiple recipient of both the Hugo and Nebula awards, she became in 1995 the first science-fiction writer to receive a MacArthur Fellowship.",
-        BirthDate = DateTime.Parse("1947-06-22"),
-        Country = "United States",
-        ImageUrl = "/images/author/octavia_e_butler.jpeg"
-    }
+               }, new Author
+               {
+                   AuthorId = 7,
+                   AuthorName = "Stephen King",
+                   Biography = "Stephen King is an American author of horror, supernatural fiction, suspense, crime, science-fiction, and fantasy novels. His books have sold more than 350 million copies, and many have been adapted into films, television series, miniseries, and comic books.",
+                   BirthDate = DateTime.Parse("1947-09-21"),
+                   Country = "United States",
+                   ImageUrl = "/images/author/stephen_king.jpeg"
+               }, new Author
+               {
+                   AuthorId = 8,
+                   AuthorName = "Haruki Murakami",
+                   Biography = "Haruki Murakami is a Japanese writer. His books and stories have been bestsellers in Japan and internationally, with his work being translated into 50 languages and selling millions of copies outside his native country.",
+                   BirthDate = DateTime.Parse("1949-01-12"),
+                   Country = "Japan",
+                   ImageUrl = "/images/author/haruki_murakami.jpeg"
+               }, new Author
+               {
+                   AuthorId = 9,
+                   AuthorName = "Margaret Atwood",
+                   Biography = "Margaret Atwood is a Canadian poet, novelist, literary critic, essayist, inventor, teacher, and environmental activist. She has published over 17 books of poetry, 16 novels, 10 books of non-fiction, 8 collections of short fiction, 8 children's books, and 1 graphic novel.",
+                   BirthDate = DateTime.Parse("1939-11-18"),
+                   Country = "Canada",
+                   ImageUrl = "/images/author/margaret_atwood.jpeg"
+               }, new Author
+               {
+                   AuthorId = 10,
+                   AuthorName = "George R.R. Martin",
+                   Biography = "George R.R. Martin is an American novelist and short story writer, screenwriter, and television producer. He is best known for his series of epic fantasy novels, A Song of Ice and Fire, which was adapted into the HBO series Game of Thrones.",
+                   BirthDate = DateTime.Parse("1948-09-20"),
+                   Country = "United States",
+                   ImageUrl = "/images/author/george_rr_martin.jpeg"
+               }, new Author
+               {
+                   AuthorId = 11,
+                   AuthorName = "Toni Morrison",
+                   Biography = "Toni Morrison was an American novelist, essayist, editor, teacher, and professor emeritus at Princeton University. She won the Pulitzer Prize and the American Book Award in 1988 for Beloved.",
+                   BirthDate = DateTime.Parse("1931-02-18"),
+                   Country = "United States",
+                   ImageUrl = "/images/author/toni_morrison.jpeg"
+               }, new Author
+               {
+                   AuthorId = 12,
+                   AuthorName = "Gabriel García Márquez",
+                   Biography = "Gabriel García Márquez was a Colombian novelist, short-story writer, screenwriter, and journalist, known affectionately as Gabo throughout Latin America. He is considered one of the most significant authors of the 20th century.",
+                   BirthDate = DateTime.Parse("1927-03-06"),
+                   Country = "Colombia",
+                   ImageUrl = "/images/author/gabriel_garcia_marquez.jpeg"
+               }, new Author
+               {
+                   AuthorId = 13,
+                   AuthorName = "Chimamanda Ngozi Adichie",
+                   Biography = "Chimamanda Ngozi Adichie is a Nigerian writer whose works range from novels to short stories to nonfiction. She was described in The Times Literary Supplement as 'the most prominent' of a 'procession of critically acclaimed young anglophone authors [which] is succeeding in attracting a new generation of readers to African literature'.",
+                   BirthDate = DateTime.Parse("1977-09-15"),
+                   Country = "Nigeria",
+                   ImageUrl = "/images/author/chimamanda_ngozi_adichie.jpeg"
+               }, new Author
+               {
+                   AuthorId = 14,
+                   AuthorName = "Neil Gaiman",
+                   Biography = "Neil Gaiman is an English author of short fiction, novels, comic books, graphic novels, nonfiction, audio theatre, and films. His works include the comic book series The Sandman and novels Stardust, American Gods, Coraline, and The Graveyard Book.",
+                   BirthDate = DateTime.Parse("1960-11-10"),
+                   Country = "United Kingdom",
+                   ImageUrl = "/images/author/neil_gaiman.jpeg"
+               }, new Author
+               {
+                   AuthorId = 15,
+                   AuthorName = "Virginia Woolf",
+                   Biography = "Virginia Woolf was an English writer, considered one of the most important modernist 20th-century authors and also a pioneer in the use of stream of consciousness as a narrative device. Woolf was a significant figure in London literary society and a member of the Bloomsbury Group.",
+                   BirthDate = DateTime.Parse("1882-01-25"),
+                   Country = "United Kingdom",
+                   ImageUrl = "/images/author/virginia_woolf.jpeg"
+               }, new Author
+               {
+                   AuthorId = 16,
+                   AuthorName = "Hermann Hesse",
+                   Biography = "Hermann Hesse was a German-Swiss poet, novelist, and painter. His best-known works include Steppenwolf, Siddhartha, and The Glass Bead Game, each of which explores an individual's search for authenticity, self-knowledge, and spirituality.",
+                   BirthDate = DateTime.Parse("1877-07-02"),
+                   Country = "Germany",
+                   ImageUrl = "/images/author/hermann_hesse.jpeg"
+               }, new Author
+               {
+                   AuthorId = 17,
+                   AuthorName = "Agatha Christie",
+                   Biography = "Agatha Christie was an English writer known for her sixty-six detective novels and fourteen short story collections, particularly those revolving around fictional detectives Hercule Poirot and Miss Marple.",
+                   BirthDate = DateTime.Parse("1890-09-15"),
+                   Country = "United Kingdom",
+                   ImageUrl = "/images/author/agatha_christie.jpeg"
+               }, new Author
+               {
+                   AuthorId = 18,
+                   AuthorName = "Octavia E. Butler",
+                   Biography = "Octavia E. Butler was an American science fiction writer. A multiple recipient of both the Hugo and Nebula awards, she became in 1995 the first science-fiction writer to receive a MacArthur Fellowship.",
+                   BirthDate = DateTime.Parse("1947-06-22"),
+                   Country = "United States",
+                   ImageUrl = "/images/author/octavia_e_butler.jpeg"
+               }
 
             );
             modelBuilder.Entity<Book>().HasData(
@@ -194,16 +183,15 @@ namespace MVC_Project
                      Price = 15.99m,
                      QuantityAvailable = 20,
                      ImageUrl = "/images/book/american_gods.jpeg"
+                 }, new Book
+                 {
+                     BookId = 2,
+                     Title = "Stardust",
+                     AuthorId = 9,
+                     Price = 12.99m,
+                     QuantityAvailable = 25,
+                     ImageUrl = "/images/book/stardust.jpeg"
                  },
-    new Book
-    {
-        BookId = 2,
-        Title = "Stardust",
-        AuthorId = 9,
-        Price = 12.99m,
-        QuantityAvailable = 25,
-        ImageUrl = "/images/book/stardust.jpeg"
-    },
     // Books for Virginia Woolf
     new Book
     {
