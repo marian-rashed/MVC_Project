@@ -1,6 +1,16 @@
-﻿@model List<Author>
+﻿@model IEnumerable<MVC_Project.Author>
 
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
 <table class="table">
+
     <tr>
         <th>Author Name</th>
         <th>Author Biography</th>
@@ -14,6 +24,8 @@
             <td>@author.Biography</td>
             <td>@author.Country</td>
             <td>@author.BirthDate</td>
+
         </tr>
-    }
+}
+    </tbody>
 </table>
