@@ -24,6 +24,7 @@ namespace MVC_Project.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterUserViewModel UserVM)
         {
             if (ModelState.IsValid == true)
@@ -52,9 +53,35 @@ namespace MVC_Project.Controllers
             }
             return View("Register", UserVM);
         }
+        [HttpGet]
         public IActionResult Login()
         {
-            return View("loginTest");
+            return View("Login");
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginViewModel UserVM)
+        {
+            if (ModelState.IsValid == true)
+            {
+                ApplicationUser userDB = await userManager.FindByNameAsync(UserVM.UserName);
+                if (userDB != null)
+                {
+                    bool found = await userManager.CheckPasswordAsync(userDB, UserVM.Password);
+                    if (found)
+                    {
+                        await signInManager.SignInAsync(userDB, UserVM.RememberMe);
+                        return RedirectToAction("Register");
+                    }
+                }
+                ModelState.AddModelError("", "Invalid Account");
+            }
+            return View(UserVM);
+        }
+        public async Task<IActionResult> SignOut()
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction("Login");
         }
     }
 }

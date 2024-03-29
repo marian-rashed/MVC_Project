@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using MVC_Project.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using MVC_Project.Interfaces;
+using MVC_Project.Repository;
 
 
 namespace MVC_Project
@@ -20,6 +22,7 @@ namespace MVC_Project
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("cs"));
             });
+            builder.Services.AddScoped<IAuthor,AuthorRepository>();
 
             builder.Services.AddDbContext<BookStoreContext>(options =>
             {
