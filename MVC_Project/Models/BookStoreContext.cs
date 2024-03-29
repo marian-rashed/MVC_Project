@@ -18,7 +18,11 @@ namespace MVC_Project
         public DbSet<OrderItem> OrderItems { get; set; }
         public BookStoreContext() : base() { }
 
-        public BookStoreContext(DbContextOptions<BookStoreContext>options) : base(options) { }
+        public BookStoreContext(DbContextOptions<BookStoreContext> options) : base(options)
+        {
+
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             

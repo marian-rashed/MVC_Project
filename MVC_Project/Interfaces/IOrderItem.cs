@@ -9,8 +9,8 @@ namespace MVC_Project.Interfaces
     public interface IOrderItem
     {
         List<OrderItem> GetAllOrderItems();
-        Book GetOrderItemsById(int id);
-        void InsertOrderItems(Book book);
+        OrderItem GetOrderItemsById(int id);
+        void InsertOrderItems(OrderItem orderitem);
         void UpdateOrderItems(int id);
         void DeleteOrderItems(int id);
         void Save();
