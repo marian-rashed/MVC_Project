@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace MVC_Project.Interfaces
 {
-    public interface Iorder
+
+    public interface IOrder
+
     {
         List<Order> GetAllOrders();
         Order GetOrderById(int id);
-        void InsertOrder(Book book);
+        void InsertOrder(Order order);
         void UpdateOrder(int id);
         void DeleteOrder(int id);
         //List<Customer> GetCustomersOrder(int orderid);
