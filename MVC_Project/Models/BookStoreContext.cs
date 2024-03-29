@@ -56,7 +56,7 @@ namespace MVC_Project
                     Country = "United States"
                 }
 
-            );
+            ); ;
             modelBuilder.Entity<Book>().HasData(
                 new Book
                 {
