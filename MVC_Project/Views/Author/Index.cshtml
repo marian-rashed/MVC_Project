@@ -5,6 +5,7 @@
         <th>Author Name</th>
         <th>Author Biography</th>
         <th>Author Country</th>
+        <th>Author BirthDate</th>
     </tr>
     @foreach(Author author in Model)
     {
@@ -12,6 +13,7 @@
             <td>@author.AuthorName</td>
             <td>@author.Biography</td>
             <td>@author.Country</td>
+            <td>@author.BirthDate</td>
         </tr>
     }
 </table>
