@@ -20,7 +20,7 @@ namespace MVC_Project
         public Author Author { get; set; }
 
         public decimal Price { get; set; }
-
+        public string ImageUrl { get; set; }
         public int QuantityAvailable { get; set; }
     }
 }
