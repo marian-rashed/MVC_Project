@@ -37,7 +37,8 @@ namespace MVC_Project
                     AuthorName = "Sandra Cisneros",
                     Biography = "Sandra Cisneros is an American writer best known for her acclaimed first novel The House on Mango Street.",
                     BirthDate = DateTime.Parse("1954-12-20"),
-                    Country = "United States"
+                    Country = "United States",
+                    ImageUrl="1.png"
                 },
                 new Author
                 {
@@ -45,7 +46,8 @@ namespace MVC_Project
                     AuthorName = "Gabriel Garcia Marquez",
                     Biography = "Gabriel García Márquez was a Colombian novelist, short-story writer, screenwriter, and journalist, known affectionately as Gabo or Gabito throughout Latin America.",
                     BirthDate = DateTime.Parse("1927-03-06"),
-                    Country = "Colombia"
+                    Country = "Colombia",
+                    ImageUrl = "1.png"
                 },
                 new Author
                 {
@@ -53,7 +55,8 @@ namespace MVC_Project
                     AuthorName = "Sarah J. Maas",
                     Biography = "Sarah J. Maas is the #1 New York Times and internationally bestselling author of the Crescent City, A Court of Thorns and Roses, and the Throne of Glass series. Her books have sold more than twelve million copies and are published in thirty-seven languages. A New York native, Sarah lives in Philadelphia with her husband, son, and dog. To find out more, visit sarahjmaas.com or follow @therealsjmaas on Instagram.",
                     BirthDate = DateTime.Parse("1986 -03-05"),
-                    Country = "United States"
+                    Country = "United States",
+                    ImageUrl = "1.png"
                 }
 
             ); ;
@@ -64,7 +67,8 @@ namespace MVC_Project
                     Title = "The House on Mango Street",
                     AuthorId = 1, // Assuming the author ID is 1 for Sandra Cisneros
                     Price = 10.99m,
-                    QuantityAvailable = 50
+                    QuantityAvailable = 50,
+                    ImageUrl = "1.png"
                 },
                 new Book
                 {
@@ -72,7 +76,8 @@ namespace MVC_Project
                     Title = "One Hundred Years of Solitude",
                     AuthorId = 2, // Assuming the author ID is 2 for Gabriel Garcia Marquez
                     Price = 12.50m,
-                    QuantityAvailable = 30
+                    QuantityAvailable = 30,
+                    ImageUrl = "1.png"
                 }
 
             );

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MVC_Project.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class update7 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -62,7 +62,8 @@ namespace MVC_Project.Migrations
                     AuthorName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Biography = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -202,6 +203,7 @@ namespace MVC_Project.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AuthorId = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     QuantityAvailable = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -266,11 +268,12 @@ namespace MVC_Project.Migrations
 
             migrationBuilder.InsertData(
                 table: "Authors",
-                columns: new[] { "AuthorId", "AuthorName", "Biography", "BirthDate", "Country" },
+                columns: new[] { "AuthorId", "AuthorName", "Biography", "BirthDate", "Country", "ImageUrl" },
                 values: new object[,]
                 {
-                    { 1, "Sandra Cisneros", "Sandra Cisneros is an American writer best known for her acclaimed first novel The House on Mango Street.", new DateTime(1954, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "United States" },
-                    { 2, "Gabriel Garcia Marquez", "Gabriel García Márquez was a Colombian novelist, short-story writer, screenwriter, and journalist, known affectionately as Gabo or Gabito throughout Latin America.", new DateTime(1927, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "Colombia" }
+                    { 1, "Sandra Cisneros", "Sandra Cisneros is an American writer best known for her acclaimed first novel The House on Mango Street.", new DateTime(1954, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "United States", "1.png" },
+                    { 2, "Gabriel Garcia Marquez", "Gabriel García Márquez was a Colombian novelist, short-story writer, screenwriter, and journalist, known affectionately as Gabo or Gabito throughout Latin America.", new DateTime(1927, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "Colombia", "1.png" },
+                    { 3, "Sarah J. Maas", "Sarah J. Maas is the #1 New York Times and internationally bestselling author of the Crescent City, A Court of Thorns and Roses, and the Throne of Glass series. Her books have sold more than twelve million copies and are published in thirty-seven languages. A New York native, Sarah lives in Philadelphia with her husband, son, and dog. To find out more, visit sarahjmaas.com or follow @therealsjmaas on Instagram.", new DateTime(1986, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "United States", "1.png" }
                 });
 
             migrationBuilder.InsertData(
@@ -284,11 +287,11 @@ namespace MVC_Project.Migrations
 
             migrationBuilder.InsertData(
                 table: "Books",
-                columns: new[] { "BookId", "AuthorId", "Price", "QuantityAvailable", "Title" },
+                columns: new[] { "BookId", "AuthorId", "ImageUrl", "Price", "QuantityAvailable", "Title" },
                 values: new object[,]
                 {
-                    { 1, 1, 10.99m, 50, "The House on Mango Street" },
-                    { 2, 2, 12.50m, 30, "One Hundred Years of Solitude" }
+                    { 1, 1, "1.png", 10.99m, 50, "The House on Mango Street" },
+                    { 2, 2, "1.png", 12.50m, 30, "One Hundred Years of Solitude" }
                 });
 
             migrationBuilder.InsertData(
@@ -296,8 +299,8 @@ namespace MVC_Project.Migrations
                 columns: new[] { "OrderId", "CustomerId", "OrderDate", "TotalAmount" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2024, 3, 29, 18, 27, 6, 608, DateTimeKind.Local).AddTicks(2583), 10.99m },
-                    { 2, 2, new DateTime(2024, 3, 28, 18, 27, 6, 608, DateTimeKind.Local).AddTicks(2666), 25.00m }
+                    { 1, 1, new DateTime(2024, 3, 29, 19, 31, 18, 10, DateTimeKind.Local).AddTicks(4237), 10.99m },
+                    { 2, 2, new DateTime(2024, 3, 28, 19, 31, 18, 10, DateTimeKind.Local).AddTicks(4301), 25.00m }
                 });
 
             migrationBuilder.InsertData(

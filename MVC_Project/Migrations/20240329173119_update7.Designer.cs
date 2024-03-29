@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Project.Migrations
 {
     [DbContext(typeof(BookStoreContext))]
-    [Migration("20240329162707_init")]
-    partial class init
+    [Migration("20240329173119_update7")]
+    partial class update7
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,6 +48,10 @@ namespace MVC_Project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("AuthorId");
 
                     b.ToTable("Authors");
@@ -59,7 +63,8 @@ namespace MVC_Project.Migrations
                             AuthorName = "Sandra Cisneros",
                             Biography = "Sandra Cisneros is an American writer best known for her acclaimed first novel The House on Mango Street.",
                             BirthDate = new DateTime(1954, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Country = "United States"
+                            Country = "United States",
+                            ImageUrl = "1.png"
                         },
                         new
                         {
@@ -67,7 +72,17 @@ namespace MVC_Project.Migrations
                             AuthorName = "Gabriel Garcia Marquez",
                             Biography = "Gabriel García Márquez was a Colombian novelist, short-story writer, screenwriter, and journalist, known affectionately as Gabo or Gabito throughout Latin America.",
                             BirthDate = new DateTime(1927, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Country = "Colombia"
+                            Country = "Colombia",
+                            ImageUrl = "1.png"
+                        },
+                        new
+                        {
+                            AuthorId = 3,
+                            AuthorName = "Sarah J. Maas",
+                            Biography = "Sarah J. Maas is the #1 New York Times and internationally bestselling author of the Crescent City, A Court of Thorns and Roses, and the Throne of Glass series. Her books have sold more than twelve million copies and are published in thirty-seven languages. A New York native, Sarah lives in Philadelphia with her husband, son, and dog. To find out more, visit sarahjmaas.com or follow @therealsjmaas on Instagram.",
+                            BirthDate = new DateTime(1986, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "United States",
+                            ImageUrl = "1.png"
                         });
                 });
 
@@ -81,6 +96,10 @@ namespace MVC_Project.Migrations
 
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -103,6 +122,7 @@ namespace MVC_Project.Migrations
                         {
                             BookId = 1,
                             AuthorId = 1,
+                            ImageUrl = "1.png",
                             Price = 10.99m,
                             QuantityAvailable = 50,
                             Title = "The House on Mango Street"
@@ -111,6 +131,7 @@ namespace MVC_Project.Migrations
                         {
                             BookId = 2,
                             AuthorId = 2,
+                            ImageUrl = "1.png",
                             Price = 12.50m,
                             QuantityAvailable = 30,
                             Title = "One Hundred Years of Solitude"
@@ -273,14 +294,14 @@ namespace MVC_Project.Migrations
                         {
                             OrderId = 1,
                             CustomerId = 1,
-                            OrderDate = new DateTime(2024, 3, 29, 18, 27, 6, 608, DateTimeKind.Local).AddTicks(2583),
+                            OrderDate = new DateTime(2024, 3, 29, 19, 31, 18, 10, DateTimeKind.Local).AddTicks(4237),
                             TotalAmount = 10.99m
                         },
                         new
                         {
                             OrderId = 2,
                             CustomerId = 2,
-                            OrderDate = new DateTime(2024, 3, 28, 18, 27, 6, 608, DateTimeKind.Local).AddTicks(2666),
+                            OrderDate = new DateTime(2024, 3, 28, 19, 31, 18, 10, DateTimeKind.Local).AddTicks(4301),
                             TotalAmount = 25.00m
                         });
                 });
