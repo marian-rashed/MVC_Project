@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MVC_Project.Interfaces
 {
-    internal interface IOrderItem
+    public interface IOrderItem
     {
         List<OrderItem> GetAllOrderItems();
         Book GetOrderItemsById(int id);
