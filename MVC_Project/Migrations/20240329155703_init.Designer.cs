@@ -4,6 +4,7 @@ using MVC_Project;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Project.Migrations
 {
     [DbContext(typeof(BookStoreContext))]
-    partial class BookStoreContextModelSnapshot : ModelSnapshot
+    [Migration("20240329155703_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,24 +51,6 @@ namespace MVC_Project.Migrations
                     b.HasKey("AuthorId");
 
                     b.ToTable("Authors");
-
-                    b.HasData(
-                        new
-                        {
-                            AuthorId = 1,
-                            AuthorName = "Sandra Cisneros",
-                            Biography = "Sandra Cisneros is an American writer best known for her acclaimed first novel The House on Mango Street.",
-                            BirthDate = new DateTime(1954, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Country = "United States"
-                        },
-                        new
-                        {
-                            AuthorId = 2,
-                            AuthorName = "Gabriel Garcia Marquez",
-                            Biography = "Gabriel García Márquez was a Colombian novelist, short-story writer, screenwriter, and journalist, known affectionately as Gabo or Gabito throughout Latin America.",
-                            BirthDate = new DateTime(1927, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Country = "Colombia"
-                        });
                 });
 
             modelBuilder.Entity("MVC_Project.Book", b =>
@@ -94,24 +79,6 @@ namespace MVC_Project.Migrations
                     b.HasIndex("AuthorId");
 
                     b.ToTable("Books");
-
-                    b.HasData(
-                        new
-                        {
-                            BookId = 1,
-                            AuthorId = 1,
-                            Price = 10.99m,
-                            QuantityAvailable = 50,
-                            Title = "The House on Mango Street"
-                        },
-                        new
-                        {
-                            BookId = 2,
-                            AuthorId = 2,
-                            Price = 12.50m,
-                            QuantityAvailable = 30,
-                            Title = "One Hundred Years of Solitude"
-                        });
                 });
 
             modelBuilder.Entity("MVC_Project.Customer", b =>
@@ -149,28 +116,6 @@ namespace MVC_Project.Migrations
                     b.HasKey("CustomerId");
 
                     b.ToTable("Customers");
-
-                    b.HasData(
-                        new
-                        {
-                            CustomerId = 1,
-                            Address = "123 Main St, Anytown, USA",
-                            Email = "john_doe@example.com",
-                            FullName = "John Doe",
-                            Password = "password123",
-                            PhoneNumber = "123-456-7890",
-                            Username = "john_doe"
-                        },
-                        new
-                        {
-                            CustomerId = 2,
-                            Address = "456 Oak St, Anycity, USA",
-                            Email = "jane_smith@example.com",
-                            FullName = "Jane Smith",
-                            Password = "password456",
-                            PhoneNumber = "987-654-3210",
-                            Username = "jane_smith"
-                        });
                 });
 
             modelBuilder.Entity("MVC_Project.Models.ApplicationUser", b =>
@@ -264,22 +209,6 @@ namespace MVC_Project.Migrations
                     b.HasIndex("CustomerId");
 
                     b.ToTable("Orders");
-
-                    b.HasData(
-                        new
-                        {
-                            OrderId = 1,
-                            CustomerId = 1,
-                            OrderDate = new DateTime(2024, 3, 29, 17, 29, 33, 376, DateTimeKind.Local).AddTicks(9264),
-                            TotalAmount = 10.99m
-                        },
-                        new
-                        {
-                            OrderId = 2,
-                            CustomerId = 2,
-                            OrderDate = new DateTime(2024, 3, 28, 17, 29, 33, 376, DateTimeKind.Local).AddTicks(9320),
-                            TotalAmount = 25.00m
-                        });
                 });
 
             modelBuilder.Entity("MVC_Project.OrderItem", b =>
@@ -309,24 +238,6 @@ namespace MVC_Project.Migrations
                     b.HasIndex("OrderId");
 
                     b.ToTable("OrderItems");
-
-                    b.HasData(
-                        new
-                        {
-                            OrderItemId = 1,
-                            BookId = 1,
-                            OrderId = 1,
-                            PricePerUnit = 10.99m,
-                            Quantity = 1
-                        },
-                        new
-                        {
-                            OrderItemId = 2,
-                            BookId = 2,
-                            OrderId = 2,
-                            PricePerUnit = 12.50m,
-                            Quantity = 2
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
