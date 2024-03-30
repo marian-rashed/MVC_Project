@@ -5,48 +5,41 @@
     Layout = "_RegisterLayout";
 }
 
-<h1>Register</h1>
-
-<h4>RegisterUserViewModel</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Register">
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="UserName" class="control-label"></label>
-                <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ConfirmPassword" class="control-label"></label>
-                <input asp-for="ConfirmPassword" class="form-control" />
-                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<br />
+<br />
+<br />
+<link rel="stylesheet" href="/register/index2.css" />
+<div class="col align-items-center flex-col sign-up">
+    <div class="form-wrapper align-items-center">
+        <div class="form sign-up">
+            <form asp-action="Register">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="input-group">
+                    <i class='bx bxs-user'></i>
+                    <input asp-for="UserName" type="text" placeholder="Username" class="form-control" />
+                </div>
+                <div class="input-group">
+                    <i class='bx bx-mail-send'></i>
+                    <input asp-for="Email" type="email" placeholder="Email" class="form-control" />
+                </div>
+                <div class="input-group">
+                    <i class='bx bxs-lock-alt'></i>
+                    <input asp-for="Password" type="password" placeholder="Password" class="form-control" />
+                </div>
+                <div class="input-group">
+                    <i class='bx bxs-lock-alt'></i>
+                    <input asp-for="ConfirmPassword" type="password" placeholder="Confirm password" class="form-control" />
+                </div>
+                <button type="submit">Sign up</button>
+                <p>
+                    <span>Already have an account?</span>
+                    <b  class="pointer">Sign in here</b>
+                </p>
+            </form>
+        </div>
     </div>
 </div>
-<a asp-action="Login">Login</a>
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<script src="~/register/index2.js"></script>
 <partial name="_ValidationScriptsPartial"></partial>
+
 
