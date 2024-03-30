@@ -3,51 +3,67 @@
 @{
     ViewData["Title"] = "Index";
 }
+<style>
+    .card-img-top {
+        width: 100%;
+        height: 50vh;
+        object-fit: contain;
+    }
+</style>
+<nav class="AlphabetNav">
+    <a href="#A">A</a>
+    <a href="#B">B</a>
+    <a href="#C">C</a>
+    <a href="#D">D</a>
+    <a href="#E">E</a>
+    <a href="#F">F</a>
+    <a href="#G">G</a>
+    <a href="#H">H</a>
+    <a href="#I">I</a>
+    <a href="#J">J</a>
+    <a href="#K">K</a>
+    <a href="#L">L</a>
+    <a href="#M">M</a>
+    <a href="#N">N</a>
+    <a href="#O">O</a>
+    <a href="#P">P</a>
+    <a href="#Q">Q</a>
+    <a href="#R">R</a>
+    <a href="#S">S</a>
+    <a href="#T">T</a>
+    <a href="#U">U</a>
+    <a href="#V">V</a>
+    <a href="#W">W</a>
+    <a href="#X">X</a>
+    <a href="#Y">Y</a>
+    <a href="#Z">Z</a>
+</nav>
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.AuthorName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Biography)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BirthDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Country)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AuthorName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Biography)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BirthDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Country)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AuthorId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AuthorId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AuthorId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="container-fluid">
+    <div class="row  row-cols-md-2">
+
+    @foreach(Author author in Model)
+    { <div class="col mb-2">
+                <div class="card w-100">
+                    <div class="card">
+                        <img class="card-img-top object-fit-scale  rounded-circle" src="@author.ImageUrl" />
+                        <div class="card-body">
+                            <h5 class="card-title">@author.AuthorName</h5>
+                            <h5 class="Contact-name">@author.AuthorName</h5> 
+                            <a href="/instructor/details/@author.AuthorId" class="btn btn-primary">See Details</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    }
+    </div>
+</div>
+
+    
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/js/authorIndexScript.js"></script>
+<link rel="stylesheet" href="/css/AuthorIndex.css" />
