@@ -61,7 +61,7 @@ namespace MVC_Project.Migrations
                             Biography = "Sandra Cisneros is an American writer best known for her acclaimed first novel The House on Mango Street.",
                             BirthDate = new DateTime(1954, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            ImageUrl = "1.png"
+                            ImageUrl = "/images/author/Sandra_Cisneros.jpg"
                         },
                         new
                         {
@@ -70,7 +70,7 @@ namespace MVC_Project.Migrations
                             Biography = "Gabriel García Márquez was a Colombian novelist, short-story writer, screenwriter, and journalist, known affectionately as Gabo throughout Latin America. He is considered one of the most significant authors of the 20th century.",
                             BirthDate = new DateTime(1927, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "Colombia",
-                            ImageUrl = "/images/author/gabriel_garcia_marquez.jpeg"
+                            ImageUrl = "/images/author/Gabriel_Garcia_Marquez.jpg"
                         },
                         new
                         {
@@ -79,7 +79,7 @@ namespace MVC_Project.Migrations
                             Biography = "Sarah J. Maas is the #1 New York Times and internationally bestselling author of the Crescent City, A Court of Thorns and Roses, and the Throne of Glass series. Her books have sold more than twelve million copies and are published in thirty-seven languages. A New York native, Sarah lives in Philadelphia with her husband, son, and dog. To find out more, visit sarahjmaas.com or follow @therealsjmaas on Instagram.",
                             BirthDate = new DateTime(1986, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            ImageUrl = "/images/author/Sarah J. Maas.jpeg"
+                            ImageUrl = "/images/author/Sarah_ J_Maas.jpeg"
                         },
                         new
                         {
@@ -88,7 +88,7 @@ namespace MVC_Project.Migrations
                             Biography = "Leigh Bardugo is an American fantasy author. She is best known for her young adult Grishaverse novels, which include the Shadow and Bone trilogy and the Six of Crows and King of Scars duologies. She also received acclaim for her paranormal fantasy adult debut, Ninth House",
                             BirthDate = new DateTime(1975, 4, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            ImageUrl = "/images/author/Leigh Bardugo.jpeg"
+                            ImageUrl = "/images/author/Leigh_Bardugo.jpeg"
                         },
                         new
                         {
@@ -97,7 +97,7 @@ namespace MVC_Project.Migrations
                             Biography = "Judith Lewis, better known by her pen name Cassandra Clare, is an American author of young adult fiction, best known for her bestselling series The Mortal Instruments.",
                             BirthDate = new DateTime(1975, 4, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            ImageUrl = "/images/author/Cassandra Clare.jpeg"
+                            ImageUrl = "/images/author/Cassandra_Clare.jpeg"
                         },
                         new
                         {
@@ -106,7 +106,7 @@ namespace MVC_Project.Migrations
                             Biography = "J.K. Rowling is a British author, philanthropist, film producer, television producer, and screenwriter. She is best known for writing the Harry Potter fantasy series, which has won multiple awards and sold more than 500 million copies, becoming the best-selling book series in history.",
                             BirthDate = new DateTime(1965, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United Kingdom",
-                            ImageUrl = "/images/author/jk_rowling.jpeg"
+                            ImageUrl = "/images/author/jk rowling.jpg"
                         },
                         new
                         {
@@ -115,7 +115,7 @@ namespace MVC_Project.Migrations
                             Biography = "Stephen King is an American author of horror, supernatural fiction, suspense, crime, science-fiction, and fantasy novels. His books have sold more than 350 million copies, and many have been adapted into films, television series, miniseries, and comic books.",
                             BirthDate = new DateTime(1947, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            ImageUrl = "/images/author/stephen_king.jpeg"
+                            ImageUrl = "/images/author/Stephen_king.jpg"
                         },
                         new
                         {
@@ -124,7 +124,7 @@ namespace MVC_Project.Migrations
                             Biography = "Haruki Murakami is a Japanese writer. His books and stories have been bestsellers in Japan and internationally, with his work being translated into 50 languages and selling millions of copies outside his native country.",
                             BirthDate = new DateTime(1949, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "Japan",
-                            ImageUrl = "/images/author/haruki_murakami.jpeg"
+                            ImageUrl = "/images/author/Haruki_Murakami.jpeg"
                         },
                         new
                         {
@@ -133,7 +133,7 @@ namespace MVC_Project.Migrations
                             Biography = "Margaret Atwood is a Canadian poet, novelist, literary critic, essayist, inventor, teacher, and environmental activist. She has published over 17 books of poetry, 16 novels, 10 books of non-fiction, 8 collections of short fiction, 8 children's books, and 1 graphic novel.",
                             BirthDate = new DateTime(1939, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "Canada",
-                            ImageUrl = "/images/author/margaret_atwood.jpeg"
+                            ImageUrl = "/images/author/Margaret_Atwood.jpg"
                         },
                         new
                         {
@@ -142,7 +142,7 @@ namespace MVC_Project.Migrations
                             Biography = "George R.R. Martin is an American novelist and short story writer, screenwriter, and television producer. He is best known for his series of epic fantasy novels, A Song of Ice and Fire, which was adapted into the HBO series Game of Thrones.",
                             BirthDate = new DateTime(1948, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            ImageUrl = "/images/author/george_rr_martin.jpeg"
+                            ImageUrl = "/images/author/George_R_R_Martin.jpg"
                         },
                         new
                         {
@@ -151,88 +151,79 @@ namespace MVC_Project.Migrations
                             Biography = "Toni Morrison was an American novelist, essayist, editor, teacher, and professor emeritus at Princeton University. She won the Pulitzer Prize and the American Book Award in 1988 for Beloved.",
                             BirthDate = new DateTime(1931, 2, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            ImageUrl = "/images/author/toni_morrison.jpeg"
+                            ImageUrl = "/images/author/Toni_Morrison.jpg"
                         },
                         new
                         {
                             AuthorId = 12,
-                            AuthorName = "Gabriel García Márquez",
-                            Biography = "Gabriel García Márquez was a Colombian novelist, short-story writer, screenwriter, and journalist, known affectionately as Gabo throughout Latin America. He is considered one of the most significant authors of the 20th century.",
-                            BirthDate = new DateTime(1927, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Country = "Colombia",
-                            ImageUrl = "/images/author/gabriel_garcia_marquez.jpeg"
-                        },
-                        new
-                        {
-                            AuthorId = 13,
                             AuthorName = "Chimamanda Ngozi Adichie",
                             Biography = "Chimamanda Ngozi Adichie is a Nigerian writer whose works range from novels to short stories to nonfiction. She was described in The Times Literary Supplement as 'the most prominent' of a 'procession of critically acclaimed young anglophone authors [which] is succeeding in attracting a new generation of readers to African literature'.",
                             BirthDate = new DateTime(1977, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "Nigeria",
-                            ImageUrl = "/images/author/chimamanda_ngozi_adichie.jpeg"
+                            ImageUrl = "/images/author/Chimamanda_Ngozi_Adichie.jpg"
                         },
                         new
                         {
-                            AuthorId = 14,
+                            AuthorId = 13,
                             AuthorName = "Neil Gaiman",
                             Biography = "Neil Gaiman is an English author of short fiction, novels, comic books, graphic novels, nonfiction, audio theatre, and films. His works include the comic book series The Sandman and novels Stardust, American Gods, Coraline, and The Graveyard Book.",
                             BirthDate = new DateTime(1960, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United Kingdom",
-                            ImageUrl = "/images/author/neil_gaiman.jpeg"
+                            ImageUrl = "/images/author/Neil_Gaiman.jpg"
                         },
                         new
                         {
-                            AuthorId = 15,
+                            AuthorId = 14,
                             AuthorName = "Virginia Woolf",
                             Biography = "Virginia Woolf was an English writer, considered one of the most important modernist 20th-century authors and also a pioneer in the use of stream of consciousness as a narrative device. Woolf was a significant figure in London literary society and a member of the Bloomsbury Group.",
                             BirthDate = new DateTime(1882, 1, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United Kingdom",
-                            ImageUrl = "/images/author/virginia_woolf.jpeg"
+                            ImageUrl = "/images/author/Virginia _Wolf.jpeg"
                         },
                         new
                         {
-                            AuthorId = 16,
+                            AuthorId = 15,
                             AuthorName = "Hermann Hesse",
                             Biography = "Hermann Hesse was a German-Swiss poet, novelist, and painter. His best-known works include Steppenwolf, Siddhartha, and The Glass Bead Game, each of which explores an individual's search for authenticity, self-knowledge, and spirituality.",
                             BirthDate = new DateTime(1877, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "Germany",
-                            ImageUrl = "/images/author/hermann_hesse.jpeg"
+                            ImageUrl = "/images/author/Hermman_Hesse.jpg"
                         },
                         new
                         {
-                            AuthorId = 17,
+                            AuthorId = 16,
                             AuthorName = "Agatha Christie",
                             Biography = "Agatha Christie was an English writer known for her sixty-six detective novels and fourteen short story collections, particularly those revolving around fictional detectives Hercule Poirot and Miss Marple.",
                             BirthDate = new DateTime(1890, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United Kingdom",
-                            ImageUrl = "/images/author/agatha_christie.jpeg"
+                            ImageUrl = "/images/author/Agatha_Christie.jpg"
                         },
                         new
                         {
-                            AuthorId = 18,
+                            AuthorId = 17,
                             AuthorName = "Octavia E. Butler",
                             Biography = "Octavia E. Butler was an American science fiction writer. A multiple recipient of both the Hugo and Nebula awards, she became in 1995 the first science-fiction writer to receive a MacArthur Fellowship.",
                             BirthDate = new DateTime(1947, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            ImageUrl = "/images/author/octavia_e_butler.jpeg"
+                            ImageUrl = "/images/author/Octivia_Butler.jpeg"
                         },
                         new
                         {
-                            AuthorId = 19,
+                            AuthorId = 18,
                             AuthorName = "Ernest Hemingway",
                             Biography = "Ernest Hemingway was an American novelist, short-story writer, journalist, and sportsman. His economical and understated style—which he termed the iceberg theory—had a strong influence on 20th-century fiction, while his adventurous lifestyle and his public image brought him admiration from later generations.",
                             BirthDate = new DateTime(1899, 7, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            ImageUrl = "/images/author/ernest_hemingway.jpeg"
+                            ImageUrl = "/images/author/Ernest_Hemingway.jpg"
                         },
                         new
                         {
-                            AuthorId = 20,
+                            AuthorId = 19,
                             AuthorName = "J.R.R. Tolkien",
                             Biography = "J.R.R. Tolkien was an English writer, poet, philologist, and university professor. He was best known as the author of the classic high fantasy works The Hobbit, The Lord of the Rings, and The Silmarillion.",
                             BirthDate = new DateTime(1892, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United Kingdom",
-                            ImageUrl = "/images/author/jrr_tolkien.jpeg"
+                            ImageUrl = "/images/author/JRR Tolkin.jpeg"
                         });
                 });
 
@@ -299,7 +290,7 @@ namespace MVC_Project.Migrations
                         {
                             BookId = 4,
                             AuthorId = 2,
-                            ImageUrl = "1.png",
+                            ImageUrl = "/images/book/one_hundred_years_of_solitude.jpeg",
                             Price = 12.50m,
                             QuantityAvailable = 30,
                             Title = "One Hundred Years of Solitude"
@@ -388,7 +379,7 @@ namespace MVC_Project.Migrations
                         new
                         {
                             BookId = 14,
-                            AuthorId = 9,
+                            AuthorId = 13,
                             ImageUrl = "/images/book/american_gods.jpeg",
                             Price = 15.99m,
                             QuantityAvailable = 20,
@@ -397,7 +388,7 @@ namespace MVC_Project.Migrations
                         new
                         {
                             BookId = 15,
-                            AuthorId = 9,
+                            AuthorId = 13,
                             ImageUrl = "/images/book/stardust.jpeg",
                             Price = 12.99m,
                             QuantityAvailable = 25,
@@ -406,7 +397,7 @@ namespace MVC_Project.Migrations
                         new
                         {
                             BookId = 16,
-                            AuthorId = 10,
+                            AuthorId = 14,
                             ImageUrl = "/images/book/to_the_lighthouse.jpeg",
                             Price = 9.99m,
                             QuantityAvailable = 15,
@@ -415,7 +406,7 @@ namespace MVC_Project.Migrations
                         new
                         {
                             BookId = 17,
-                            AuthorId = 10,
+                            AuthorId = 14,
                             ImageUrl = "/images/book/mrs_dalloway.jpeg",
                             Price = 10.99m,
                             QuantityAvailable = 18,
@@ -424,7 +415,7 @@ namespace MVC_Project.Migrations
                         new
                         {
                             BookId = 18,
-                            AuthorId = 11,
+                            AuthorId = 15,
                             ImageUrl = "/images/book/siddhartha.jpeg",
                             Price = 8.99m,
                             QuantityAvailable = 22,
@@ -433,7 +424,7 @@ namespace MVC_Project.Migrations
                         new
                         {
                             BookId = 19,
-                            AuthorId = 11,
+                            AuthorId = 15,
                             ImageUrl = "/images/book/steppenwolf.jpeg",
                             Price = 11.50m,
                             QuantityAvailable = 20,
@@ -442,7 +433,7 @@ namespace MVC_Project.Migrations
                         new
                         {
                             BookId = 20,
-                            AuthorId = 12,
+                            AuthorId = 16,
                             ImageUrl = "/images/book/murder_on_the_orient_express.jpeg",
                             Price = 7.99m,
                             QuantityAvailable = 30,
@@ -451,7 +442,7 @@ namespace MVC_Project.Migrations
                         new
                         {
                             BookId = 21,
-                            AuthorId = 12,
+                            AuthorId = 16,
                             ImageUrl = "/images/book/and_then_there_were_none.jpeg",
                             Price = 6.99m,
                             QuantityAvailable = 28,
@@ -460,7 +451,7 @@ namespace MVC_Project.Migrations
                         new
                         {
                             BookId = 22,
-                            AuthorId = 13,
+                            AuthorId = 17,
                             ImageUrl = "/images/book/kindred.jpeg",
                             Price = 13.99m,
                             QuantityAvailable = 20,
@@ -469,7 +460,7 @@ namespace MVC_Project.Migrations
                         new
                         {
                             BookId = 23,
-                            AuthorId = 13,
+                            AuthorId = 17,
                             ImageUrl = "/images/book/parable_of_the_sower.jpeg",
                             Price = 14.50m,
                             QuantityAvailable = 15,
@@ -478,7 +469,7 @@ namespace MVC_Project.Migrations
                         new
                         {
                             BookId = 24,
-                            AuthorId = 19,
+                            AuthorId = 18,
                             ImageUrl = "/images/book/the_old_man_and_the_sea.jpeg",
                             Price = 8.99m,
                             QuantityAvailable = 25,
@@ -487,7 +478,7 @@ namespace MVC_Project.Migrations
                         new
                         {
                             BookId = 25,
-                            AuthorId = 19,
+                            AuthorId = 18,
                             ImageUrl = "/images/book/a_farewell_to_arms.jpeg",
                             Price = 10.50m,
                             QuantityAvailable = 20,
@@ -496,7 +487,7 @@ namespace MVC_Project.Migrations
                         new
                         {
                             BookId = 26,
-                            AuthorId = 19,
+                            AuthorId = 18,
                             ImageUrl = "/images/book/for_whom_the_bell_tolls.jpeg",
                             Price = 12.99m,
                             QuantityAvailable = 30,
@@ -505,7 +496,7 @@ namespace MVC_Project.Migrations
                         new
                         {
                             BookId = 27,
-                            AuthorId = 20,
+                            AuthorId = 19,
                             ImageUrl = "/images/book/the_hobbit.jpeg",
                             Price = 9.99m,
                             QuantityAvailable = 40,
@@ -514,7 +505,7 @@ namespace MVC_Project.Migrations
                         new
                         {
                             BookId = 28,
-                            AuthorId = 20,
+                            AuthorId = 19,
                             ImageUrl = "/images/book/the_fellowship_of_the_ring.jpeg",
                             Price = 11.50m,
                             QuantityAvailable = 35,
@@ -523,11 +514,146 @@ namespace MVC_Project.Migrations
                         new
                         {
                             BookId = 29,
-                            AuthorId = 20,
+                            AuthorId = 19,
                             ImageUrl = "/images/book/the_silmarillion.jpeg",
                             Price = 14.50m,
                             QuantityAvailable = 30,
                             Title = "The Silmarillion"
+                        },
+                        new
+                        {
+                            BookId = 30,
+                            AuthorId = 6,
+                            ImageUrl = "/images/book/harry_potter_and_the_philosophers_stone.jpeg",
+                            Price = 12.99m,
+                            QuantityAvailable = 25,
+                            Title = "Harry Potter and the Philosopher's Stone"
+                        },
+                        new
+                        {
+                            BookId = 31,
+                            AuthorId = 6,
+                            ImageUrl = "/images/book/harry_potter_and_the_chamber_of_secrets.jpeg",
+                            Price = 13.99m,
+                            QuantityAvailable = 20,
+                            Title = "Harry Potter and the Chamber of Secrets"
+                        },
+                        new
+                        {
+                            BookId = 32,
+                            AuthorId = 6,
+                            ImageUrl = "/images/book/harry_potter_and_the_prisoner_of_azkaban.jpeg",
+                            Price = 14.99m,
+                            QuantityAvailable = 30,
+                            Title = "Harry Potter and the Prisoner of Azkaban"
+                        },
+                        new
+                        {
+                            BookId = 33,
+                            AuthorId = 6,
+                            ImageUrl = "/images/book/harry_potter_and_the_goblet_of_fire.jpeg",
+                            Price = 15.99m,
+                            QuantityAvailable = 28,
+                            Title = "Harry Potter and the Goblet of Fire"
+                        },
+                        new
+                        {
+                            BookId = 34,
+                            AuthorId = 7,
+                            ImageUrl = "/images/book/the_shining.jpeg",
+                            Price = 11.99m,
+                            QuantityAvailable = 20,
+                            Title = "The Shining"
+                        },
+                        new
+                        {
+                            BookId = 35,
+                            AuthorId = 7,
+                            ImageUrl = "/images/book/it.jpeg",
+                            Price = 14.50m,
+                            QuantityAvailable = 22,
+                            Title = "It"
+                        },
+                        new
+                        {
+                            BookId = 36,
+                            AuthorId = 8,
+                            ImageUrl = "/images/book/norwegian_wood.jpeg",
+                            Price = 12.99m,
+                            QuantityAvailable = 18,
+                            Title = "Norwegian Wood"
+                        },
+                        new
+                        {
+                            BookId = 37,
+                            AuthorId = 8,
+                            ImageUrl = "/images/book/kafka_on_the_shore.jpeg",
+                            Price = 13.50m,
+                            QuantityAvailable = 20,
+                            Title = "Kafka on the Shore"
+                        },
+                        new
+                        {
+                            BookId = 38,
+                            AuthorId = 9,
+                            ImageUrl = "/images/book/the_testaments.jpeg",
+                            Price = 15.99m,
+                            QuantityAvailable = 22,
+                            Title = "The Testaments"
+                        },
+                        new
+                        {
+                            BookId = 39,
+                            AuthorId = 9,
+                            ImageUrl = "/images/book/oryx_and_crake.jpeg",
+                            Price = 14.50m,
+                            QuantityAvailable = 20,
+                            Title = "Oryx and Crake"
+                        },
+                        new
+                        {
+                            BookId = 40,
+                            AuthorId = 10,
+                            ImageUrl = "/images/book/a_clash_of_kings.jpeg",
+                            Price = 12.99m,
+                            QuantityAvailable = 25,
+                            Title = "A Clash of Kings"
+                        },
+                        new
+                        {
+                            BookId = 41,
+                            AuthorId = 10,
+                            ImageUrl = "/images/book/a_storm_of_swords.jpeg",
+                            Price = 14.50m,
+                            QuantityAvailable = 30,
+                            Title = "A Storm of Swords"
+                        },
+                        new
+                        {
+                            BookId = 42,
+                            AuthorId = 10,
+                            ImageUrl = "/images/book/a_feast_for_crows.jpeg",
+                            Price = 13.99m,
+                            QuantityAvailable = 28,
+                            Title = "A Feast for Crows"
+                        },
+                        new
+                        {
+                            BookId = 43,
+                            AuthorId = 11,
+                            ImageUrl = "/images/book/beloved.jpeg",
+                            Price = 11.99m,
+                            QuantityAvailable = 20,
+                            Title = "Beloved"
+                        },
+                        new
+                        {
+                            BookId = 44,
+                            AuthorId = 12,
+                            ImageUrl = "/images/book/americanah.jpeg",
+                            Price = 13.50m,
+                            QuantityAvailable = 25,
+                            Title = "Americanah"
                         });
                 });
 
@@ -587,6 +713,136 @@ namespace MVC_Project.Migrations
                             Password = "password456",
                             PhoneNumber = "987-654-3210",
                             Username = "jane_smith"
+                        },
+                        new
+                        {
+                            CustomerId = 3,
+                            Address = "789 Oak St, Anytown, USA",
+                            Email = "mike_jackson@example.com",
+                            FullName = "Mike Jackson",
+                            Password = "strongpwd456",
+                            PhoneNumber = "555-123-4567",
+                            Username = "mike_jackson"
+                        },
+                        new
+                        {
+                            CustomerId = 4,
+                            Address = "321 Pine St, Anytown, USA",
+                            Email = "sarah_adams@example.com",
+                            FullName = "Sarah Adams",
+                            Password = "mypassword789",
+                            PhoneNumber = "444-222-3333",
+                            Username = "sarah_adams"
+                        },
+                        new
+                        {
+                            CustomerId = 5,
+                            Address = "567 Maple St, Anytown, USA",
+                            Email = "alex_miller@example.com",
+                            FullName = "Alex Miller",
+                            Password = "alexpass123",
+                            PhoneNumber = "111-999-8888",
+                            Username = "alex_miller"
+                        },
+                        new
+                        {
+                            CustomerId = 6,
+                            Address = "246 Birch St, Anytown, USA",
+                            Email = "emily_taylor@example.com",
+                            FullName = "Emily Taylor",
+                            Password = "password987",
+                            PhoneNumber = "777-666-5555",
+                            Username = "emily_taylor"
+                        },
+                        new
+                        {
+                            CustomerId = 7,
+                            Address = "135 Cedar St, Anytown, USA",
+                            Email = "ryan_carter@example.com",
+                            FullName = "Ryan Carter",
+                            Password = "carterpass456",
+                            PhoneNumber = "999-777-6666",
+                            Username = "ryan_carter"
+                        },
+                        new
+                        {
+                            CustomerId = 8,
+                            Address = "753 Walnut St, Anytown, USA",
+                            Email = "lisa_wilson@example.com",
+                            FullName = "Lisa Wilson",
+                            Password = "secure1234",
+                            PhoneNumber = "222-333-4444",
+                            Username = "lisa_wilson"
+                        },
+                        new
+                        {
+                            CustomerId = 9,
+                            Address = "987 Birch St, Anytown, USA",
+                            Email = "david_thompson@example.com",
+                            FullName = "David Thompson",
+                            Password = "davidpass789",
+                            PhoneNumber = "888-555-2222",
+                            Username = "david_thompson"
+                        },
+                        new
+                        {
+                            CustomerId = 10,
+                            Address = "369 Oak St, Anytown, USA",
+                            Email = "sophia_harris@example.com",
+                            FullName = "Sophia Harris",
+                            Password = "harrissafe123",
+                            PhoneNumber = "777-888-9999",
+                            Username = "sophia_harris"
+                        },
+                        new
+                        {
+                            CustomerId = 11,
+                            Address = "456 Pine St, Othertown, Canada",
+                            Email = "mark_johnson@example.com",
+                            FullName = "Mark Johnson",
+                            Password = "markpass123",
+                            PhoneNumber = "111-222-3333",
+                            Username = "mark_johnson"
+                        },
+                        new
+                        {
+                            CustomerId = 12,
+                            Address = "789 Maple St, Anothertown, Australia",
+                            Email = "emily_smith@example.com",
+                            FullName = "Emily Smith",
+                            Password = "emilypass456",
+                            PhoneNumber = "444-555-6666",
+                            Username = "emily_smith"
+                        },
+                        new
+                        {
+                            CustomerId = 13,
+                            Address = "987 Elm St, Yetanothertown, United Kingdom",
+                            Email = "alexander_brown@example.com",
+                            FullName = "Alexander Brown",
+                            Password = "brownsecure123",
+                            PhoneNumber = "777-888-9999",
+                            Username = "alexander_brown"
+                        },
+                        new
+                        {
+                            CustomerId = 14,
+                            Address = "321 Cedar St, Differenttown, Germany",
+                            Email = "olivia_davis@example.com",
+                            FullName = "Olivia Davis",
+                            Password = "oliviapass789",
+                            PhoneNumber = "888-999-0000",
+                            Username = "olivia_davis"
+                        },
+                        new
+                        {
+                            CustomerId = 15,
+                            Address = "654 Oak St, Anotherdifferenttown, France",
+                            Email = "william_taylor@example.com",
+                            FullName = "William Taylor",
+                            Password = "williampass123",
+                            PhoneNumber = "222-333-4444",
+                            Username = "william_taylor"
                         });
                 });
 
@@ -687,15 +943,141 @@ namespace MVC_Project.Migrations
                         {
                             OrderId = 1,
                             CustomerId = 1,
-                            OrderDate = new DateTime(2024, 3, 29, 22, 56, 56, 749, DateTimeKind.Local).AddTicks(2206),
+                            OrderDate = new DateTime(2024, 3, 30, 13, 8, 7, 836, DateTimeKind.Local).AddTicks(5909),
                             TotalAmount = 10.99m
                         },
                         new
                         {
                             OrderId = 2,
                             CustomerId = 2,
-                            OrderDate = new DateTime(2024, 3, 28, 22, 56, 56, 749, DateTimeKind.Local).AddTicks(2281),
+                            OrderDate = new DateTime(2024, 3, 29, 13, 8, 7, 836, DateTimeKind.Local).AddTicks(5988),
                             TotalAmount = 25.00m
+                        },
+                        new
+                        {
+                            OrderId = 3,
+                            CustomerId = 3,
+                            OrderDate = new DateTime(2024, 3, 28, 13, 8, 7, 836, DateTimeKind.Local).AddTicks(5995),
+                            TotalAmount = 18.50m
+                        },
+                        new
+                        {
+                            OrderId = 4,
+                            CustomerId = 4,
+                            OrderDate = new DateTime(2024, 3, 27, 13, 8, 7, 836, DateTimeKind.Local).AddTicks(5997),
+                            TotalAmount = 32.75m
+                        },
+                        new
+                        {
+                            OrderId = 5,
+                            CustomerId = 5,
+                            OrderDate = new DateTime(2024, 3, 26, 13, 8, 7, 836, DateTimeKind.Local).AddTicks(6000),
+                            TotalAmount = 14.99m
+                        },
+                        new
+                        {
+                            OrderId = 6,
+                            CustomerId = 6,
+                            OrderDate = new DateTime(2024, 3, 25, 13, 8, 7, 836, DateTimeKind.Local).AddTicks(6002),
+                            TotalAmount = 20.25m
+                        },
+                        new
+                        {
+                            OrderId = 7,
+                            CustomerId = 7,
+                            OrderDate = new DateTime(2024, 3, 24, 13, 8, 7, 836, DateTimeKind.Local).AddTicks(6004),
+                            TotalAmount = 27.50m
+                        },
+                        new
+                        {
+                            OrderId = 8,
+                            CustomerId = 8,
+                            OrderDate = new DateTime(2024, 3, 23, 13, 8, 7, 836, DateTimeKind.Local).AddTicks(6007),
+                            TotalAmount = 45.75m
+                        },
+                        new
+                        {
+                            OrderId = 9,
+                            CustomerId = 9,
+                            OrderDate = new DateTime(2024, 3, 22, 13, 8, 7, 836, DateTimeKind.Local).AddTicks(6009),
+                            TotalAmount = 62.99m
+                        },
+                        new
+                        {
+                            OrderId = 10,
+                            CustomerId = 10,
+                            OrderDate = new DateTime(2024, 3, 21, 13, 8, 7, 836, DateTimeKind.Local).AddTicks(6015),
+                            TotalAmount = 28.50m
+                        },
+                        new
+                        {
+                            OrderId = 11,
+                            CustomerId = 11,
+                            OrderDate = new DateTime(2024, 3, 20, 13, 8, 7, 836, DateTimeKind.Local).AddTicks(6018),
+                            TotalAmount = 35.99m
+                        },
+                        new
+                        {
+                            OrderId = 12,
+                            CustomerId = 12,
+                            OrderDate = new DateTime(2024, 3, 19, 13, 8, 7, 836, DateTimeKind.Local).AddTicks(6020),
+                            TotalAmount = 52.25m
+                        },
+                        new
+                        {
+                            OrderId = 13,
+                            CustomerId = 13,
+                            OrderDate = new DateTime(2024, 3, 18, 13, 8, 7, 836, DateTimeKind.Local).AddTicks(6022),
+                            TotalAmount = 75.99m
+                        },
+                        new
+                        {
+                            OrderId = 14,
+                            CustomerId = 14,
+                            OrderDate = new DateTime(2024, 3, 17, 13, 8, 7, 836, DateTimeKind.Local).AddTicks(6025),
+                            TotalAmount = 42.75m
+                        },
+                        new
+                        {
+                            OrderId = 15,
+                            CustomerId = 15,
+                            OrderDate = new DateTime(2024, 3, 16, 13, 8, 7, 836, DateTimeKind.Local).AddTicks(6027),
+                            TotalAmount = 55.50m
+                        },
+                        new
+                        {
+                            OrderId = 16,
+                            CustomerId = 12,
+                            OrderDate = new DateTime(2024, 3, 15, 13, 8, 7, 836, DateTimeKind.Local).AddTicks(6029),
+                            TotalAmount = 38.25m
+                        },
+                        new
+                        {
+                            OrderId = 17,
+                            CustomerId = 10,
+                            OrderDate = new DateTime(2024, 3, 14, 13, 8, 7, 836, DateTimeKind.Local).AddTicks(6032),
+                            TotalAmount = 49.99m
+                        },
+                        new
+                        {
+                            OrderId = 18,
+                            CustomerId = 8,
+                            OrderDate = new DateTime(2024, 3, 13, 13, 8, 7, 836, DateTimeKind.Local).AddTicks(6035),
+                            TotalAmount = 65.75m
+                        },
+                        new
+                        {
+                            OrderId = 19,
+                            CustomerId = 6,
+                            OrderDate = new DateTime(2024, 3, 12, 13, 8, 7, 836, DateTimeKind.Local).AddTicks(6037),
+                            TotalAmount = 80.50m
+                        },
+                        new
+                        {
+                            OrderId = 20,
+                            CustomerId = 10,
+                            OrderDate = new DateTime(2024, 3, 11, 13, 8, 7, 836, DateTimeKind.Local).AddTicks(6039),
+                            TotalAmount = 95.25m
                         });
                 });
 

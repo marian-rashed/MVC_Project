@@ -236,7 +236,7 @@ namespace MVC_Project
     {
         BookId = 4,
         Title = "One Hundred Years of Solitude",
-        AuthorId = 12, // Gabriel García Márquez
+        AuthorId = 2, // Gabriel García Márquez
         Price = 12.50m,
         QuantityAvailable = 30,
         ImageUrl = "/images/book/one_hundred_years_of_solitude.jpeg"
@@ -325,7 +325,7 @@ namespace MVC_Project
     {
         BookId = 14,
         Title = "American Gods",
-        AuthorId = 9, // Neil Gaiman
+        AuthorId = 13, // Neil Gaiman
         Price = 15.99m,
         QuantityAvailable = 20,
         ImageUrl = "/images/book/american_gods.jpeg"
@@ -334,7 +334,7 @@ namespace MVC_Project
     {
         BookId = 15,
         Title = "Stardust",
-        AuthorId = 9, // Neil Gaiman
+        AuthorId = 13, // Neil Gaiman
         Price = 12.99m,
         QuantityAvailable = 25,
         ImageUrl = "/images/book/stardust.jpeg"
@@ -343,7 +343,7 @@ namespace MVC_Project
     {
         BookId = 16,
         Title = "To the Lighthouse",
-        AuthorId = 10, // Virginia Woolf
+        AuthorId = 14, // Virginia Woolf
         Price = 9.99m,
         QuantityAvailable = 15,
         ImageUrl = "/images/book/to_the_lighthouse.jpeg"
@@ -352,7 +352,7 @@ namespace MVC_Project
     {
         BookId = 17,
         Title = "Mrs. Dalloway",
-        AuthorId = 10, // Virginia Woolf
+        AuthorId = 14, // Virginia Woolf
         Price = 10.99m,
         QuantityAvailable = 18,
         ImageUrl = "/images/book/mrs_dalloway.jpeg"
@@ -361,7 +361,7 @@ namespace MVC_Project
     {
         BookId = 18,
         Title = "Siddhartha",
-        AuthorId = 11, // Hermann Hesse
+        AuthorId = 15, // Hermann Hesse
         Price = 8.99m,
         QuantityAvailable = 22,
         ImageUrl = "/images/book/siddhartha.jpeg"
@@ -370,7 +370,7 @@ namespace MVC_Project
     {
         BookId = 19,
         Title = "Steppenwolf",
-        AuthorId = 11, // Hermann Hesse
+        AuthorId = 15, // Hermann Hesse
         Price = 11.50m,
         QuantityAvailable = 20,
         ImageUrl = "/images/book/steppenwolf.jpeg"
@@ -379,7 +379,7 @@ namespace MVC_Project
     {
         BookId = 20,
         Title = "Murder on the Orient Express",
-        AuthorId = 12, // Agatha Christie
+        AuthorId = 16, // Agatha Christie
         Price = 7.99m,
         QuantityAvailable = 30,
         ImageUrl = "/images/book/murder_on_the_orient_express.jpeg"
@@ -388,7 +388,7 @@ namespace MVC_Project
     {
         BookId = 21,
         Title = "And Then There Were None",
-        AuthorId = 12, // Agatha Christie
+        AuthorId = 16, // Agatha Christie
         Price = 6.99m,
         QuantityAvailable = 28,
         ImageUrl = "/images/book/and_then_there_were_none.jpeg"
@@ -397,7 +397,7 @@ namespace MVC_Project
     {
         BookId = 22,
         Title = "Kindred",
-        AuthorId = 13, // Octavia E. Butler
+        AuthorId = 17, // Octavia E. Butler
         Price = 13.99m,
         QuantityAvailable = 20,
         ImageUrl = "/images/book/kindred.jpeg"
@@ -406,7 +406,7 @@ namespace MVC_Project
     {
         BookId = 23,
         Title = "Parable of the Sower",
-        AuthorId = 13, // Octavia E. Butler
+        AuthorId = 17, // Octavia E. Butler
         Price = 14.50m,
         QuantityAvailable = 15,
         ImageUrl = "/images/book/parable_of_the_sower.jpeg"
@@ -415,7 +415,7 @@ namespace MVC_Project
     {
         BookId = 24,
         Title = "The Old Man and the Sea",
-        AuthorId = 19, // Ernest Hemingway
+        AuthorId = 18, // Ernest Hemingway
         Price = 8.99m,
         QuantityAvailable = 25,
         ImageUrl = "/images/book/the_old_man_and_the_sea.jpeg"
@@ -424,7 +424,7 @@ namespace MVC_Project
     {
         BookId = 25,
         Title = "A Farewell to Arms",
-        AuthorId = 19, // Ernest Hemingway
+        AuthorId = 18, // Ernest Hemingway
         Price = 10.50m,
         QuantityAvailable = 20,
         ImageUrl = "/images/book/a_farewell_to_arms.jpeg"
@@ -433,7 +433,7 @@ namespace MVC_Project
     {
         BookId = 26,
         Title = "For Whom the Bell Tolls",
-        AuthorId = 19, // Ernest Hemingway
+        AuthorId = 18, // Ernest Hemingway
         Price = 12.99m,
         QuantityAvailable = 30,
         ImageUrl = "/images/book/for_whom_the_bell_tolls.jpeg"
@@ -442,7 +442,7 @@ namespace MVC_Project
     {
         BookId = 27,
         Title = "The Hobbit",
-        AuthorId = 20, // J.R.R. Tolkien
+        AuthorId = 19, // J.R.R. Tolkien
         Price = 9.99m,
         QuantityAvailable = 40,
         ImageUrl = "/images/book/the_hobbit.jpeg"
@@ -451,7 +451,7 @@ namespace MVC_Project
     {
         BookId = 28,
         Title = "The Fellowship of the Ring",
-        AuthorId = 20, // J.R.R. Tolkien
+        AuthorId = 19, // J.R.R. Tolkien
         Price = 11.50m,
         QuantityAvailable = 35,
         ImageUrl = "/images/book/the_fellowship_of_the_ring.jpeg"
@@ -460,11 +460,139 @@ namespace MVC_Project
     {
         BookId = 29,
         Title = "The Silmarillion",
-        AuthorId = 20, // J.R.R. Tolkien
+        AuthorId = 19, // J.R.R. Tolkien
         Price = 14.50m,
         QuantityAvailable = 30,
         ImageUrl = "/images/book/the_silmarillion.jpeg"
-    }
+    }, new Book
+    {
+        BookId = 30,
+        Title = "Harry Potter and the Philosopher's Stone",
+        AuthorId = 6, // J.K. Rowling
+        Price = 12.99m,
+        QuantityAvailable = 25,
+        ImageUrl = "/images/book/harry_potter_and_the_philosophers_stone.jpeg"
+    },
+new Book
+{
+    BookId = 31,
+    Title = "Harry Potter and the Chamber of Secrets",
+    AuthorId = 6, // J.K. Rowling
+    Price = 13.99m,
+    QuantityAvailable = 20,
+    ImageUrl = "/images/book/harry_potter_and_the_chamber_of_secrets.jpeg"
+},
+new Book
+{
+    BookId = 32,
+    Title = "Harry Potter and the Prisoner of Azkaban",
+    AuthorId = 6, // J.K. Rowling
+    Price = 14.99m,
+    QuantityAvailable = 30,
+    ImageUrl = "/images/book/harry_potter_and_the_prisoner_of_azkaban.jpeg"
+},
+new Book
+{
+    BookId = 33,
+    Title = "Harry Potter and the Goblet of Fire",
+    AuthorId = 6, // J.K. Rowling
+    Price = 15.99m,
+    QuantityAvailable = 28,
+    ImageUrl = "/images/book/harry_potter_and_the_goblet_of_fire.jpeg"
+}, new Book
+{
+    BookId = 34,
+    Title = "The Shining",
+    AuthorId = 7, // Stephen King
+    Price = 11.99m,
+    QuantityAvailable = 20,
+    ImageUrl = "/images/book/the_shining.jpeg"
+},
+new Book
+{
+    BookId = 35,
+    Title = "It",
+    AuthorId = 7, // Stephen King
+    Price = 14.50m,
+    QuantityAvailable = 22,
+    ImageUrl = "/images/book/it.jpeg"
+}, new Book
+{
+    BookId = 36,
+    Title = "Norwegian Wood",
+    AuthorId = 8, // Haruki Murakami
+    Price = 12.99m,
+    QuantityAvailable = 18,
+    ImageUrl = "/images/book/norwegian_wood.jpeg"
+},
+new Book
+{
+    BookId = 37,
+    Title = "Kafka on the Shore",
+    AuthorId = 8, // Haruki Murakami
+    Price = 13.50m,
+    QuantityAvailable = 20,
+    ImageUrl = "/images/book/kafka_on_the_shore.jpeg"
+}, new Book
+{
+    BookId = 38,
+    Title = "The Testaments",
+    AuthorId = 9, // Margaret Atwood
+    Price = 15.99m,
+    QuantityAvailable = 22,
+    ImageUrl = "/images/book/the_testaments.jpeg"
+},
+new Book
+{
+    BookId = 39,
+    Title = "Oryx and Crake",
+    AuthorId = 9, // Margaret Atwood
+    Price = 14.50m,
+    QuantityAvailable = 20,
+    ImageUrl = "/images/book/oryx_and_crake.jpeg"
+}, new Book
+{
+    BookId = 40,
+    Title = "A Clash of Kings",
+    AuthorId = 10, // George R.R. Martin
+    Price = 12.99m,
+    QuantityAvailable = 25,
+    ImageUrl = "/images/book/a_clash_of_kings.jpeg"
+},
+new Book
+{
+    BookId = 41,
+    Title = "A Storm of Swords",
+    AuthorId = 10, // George R.R. Martin
+    Price = 14.50m,
+    QuantityAvailable = 30,
+    ImageUrl = "/images/book/a_storm_of_swords.jpeg"
+},
+new Book
+{
+    BookId = 42,
+    Title = "A Feast for Crows",
+    AuthorId = 10, // George R.R. Martin
+    Price = 13.99m,
+    QuantityAvailable = 28,
+    ImageUrl = "/images/book/a_feast_for_crows.jpeg"
+}, new Book
+{
+    BookId = 43,
+    Title = "Beloved",
+    AuthorId = 11, // Toni Morrison
+    Price = 11.99m,
+    QuantityAvailable = 20,
+    ImageUrl = "/images/book/beloved.jpeg"
+}, new Book
+{
+    BookId = 44,
+    Title = "Americanah",
+    AuthorId = 12, // Chimamanda Ngozi Adichie
+    Price = 13.50m,
+    QuantityAvailable = 25,
+    ImageUrl = "/images/book/americanah.jpeg"
+}
 
 );
 
