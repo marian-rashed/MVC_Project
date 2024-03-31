@@ -56,6 +56,7 @@ namespace MVC_Project.Controllers
         [HttpGet]
         public IActionResult Login()
         {
+            
             return View("Login");
         }
         [HttpPost]
@@ -71,7 +72,9 @@ namespace MVC_Project.Controllers
                     if (found)
                     {
                         await signInManager.SignInAsync(userDB, UserVM.RememberMe);
+
                         return RedirectToAction("Index","Home");
+
                     }
                 }
                 ModelState.AddModelError("", "Invalid Account");
