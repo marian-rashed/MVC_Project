@@ -21,5 +21,24 @@ namespace MVC_Project.Controllers
             Author author1=author.GetAuthorById(id);
             return View("GetAuthorById", author1);
         }
+        [HttpGet]
+        public IActionResult AddNewAuthor(Author author)
+        {
+            return View("AddNewAuthor");
+        }
+        [HttpPost]
+        public IActionResult SaveAuthor(Author auth)
+        {
+            if(ModelState.IsValid ==false) 
+            {
+                return View("AddNewAuthor", auth);
+            }
+            author.InsertAuthor(auth);
+            author.Save();
+
+            return RedirectToAction("Index");
+        }
+        
+
     }
 }
