@@ -1,0 +1,19 @@
+﻿@model Author
+<form class="form form-control" asp-action="SaveAuthor" asp-controller="Author">
+    <label asp-for="AuthorName"></label>
+    <input asp-for="AuthorName" class="form form-control" />
+
+    <label asp-for="Biography"></label>
+    <input asp-for="Biography" class="form form-control" />
+
+    <label asp-for="BirthDate"></label>
+    <input asp-for="BirthDate" class="form form-control" />
+
+    <label asp-for="Country"></label>
+    <input asp-for="Country" class="form form-control" />
+
+    <label asp-for="ImageUrl"></label>
+    <input asp-for="ImageUrl" class="form form-control" />
+    <input type="submit" class="btn btn-info" value="Add"/>
+
+</form>
