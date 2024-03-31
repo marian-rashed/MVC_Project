@@ -1,11 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MVC_Project.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MVC_Project
 {
@@ -596,7 +591,7 @@ new Book
 
 );
 
-           
+
             modelBuilder.Entity<Customer>().HasData(
                 new Customer
                 {
@@ -770,41 +765,41 @@ new Book
     new Order
     {
         OrderId = 4,
-        CustomerId = 4, 
+        CustomerId = 4,
         OrderDate = DateTime.Now.AddDays(-3), // Assuming the order was placed three days ago
         TotalAmount = 32.75m // Assuming a single order with a total amount of $32.75
     },
     new Order
     {
         OrderId = 5,
-        CustomerId = 5, 
+        CustomerId = 5,
         OrderDate = DateTime.Now.AddDays(-4), // Assuming the order was placed four days ago
         TotalAmount = 14.99m // Assuming a single order with a total amount of $14.99
     },
     new Order
     {
         OrderId = 6,
-        CustomerId = 6, 
+        CustomerId = 6,
         OrderDate = DateTime.Now.AddDays(-5), // Assuming the order was placed five days ago
         TotalAmount = 20.25m // Assuming a single order with a total amount of $20.25
     },
     new Order
     {
         OrderId = 7,
-        CustomerId = 7, 
+        CustomerId = 7,
         OrderDate = DateTime.Now.AddDays(-6), // Assuming the order was placed six days ago
         TotalAmount = 27.50m // Assuming a single order with a total amount of $27.50
     }, new Order
     {
         OrderId = 8,
-        CustomerId = 8, 
+        CustomerId = 8,
         OrderDate = DateTime.Now.AddDays(-7), // Assuming the order was placed seven days ago
         TotalAmount = 45.75m // Assuming a total amount of $45.75
     },
     new Order
     {
         OrderId = 9,
-        CustomerId = 9, 
+        CustomerId = 9,
         OrderDate = DateTime.Now.AddDays(-8), // Assuming the order was placed eight days ago
         TotalAmount = 62.99m // Assuming a total amount of $62.99
     },
@@ -818,41 +813,41 @@ new Book
     new Order
     {
         OrderId = 11,
-        CustomerId = 11, 
+        CustomerId = 11,
         OrderDate = DateTime.Now.AddDays(-10), // Assuming the order was placed ten days ago
         TotalAmount = 35.99m // Assuming a total amount of $35.99
     },
     new Order
     {
         OrderId = 12,
-        CustomerId = 12, 
+        CustomerId = 12,
         OrderDate = DateTime.Now.AddDays(-11), // Assuming the order was placed eleven days ago
         TotalAmount = 52.25m // Assuming a total amount of $52.25
     }, new Order
     {
         OrderId = 13,
-        CustomerId = 13, 
+        CustomerId = 13,
         OrderDate = DateTime.Now.AddDays(-12), // Assuming the order was placed twelve days ago
         TotalAmount = 75.99m // Assuming a total amount of $75.99
     },
     new Order
     {
         OrderId = 14,
-        CustomerId = 14, 
+        CustomerId = 14,
         OrderDate = DateTime.Now.AddDays(-13), // Assuming the order was placed thirteen days ago
         TotalAmount = 42.75m // Assuming a total amount of $42.75
     },
     new Order
     {
         OrderId = 15,
-        CustomerId = 15, 
+        CustomerId = 15,
         OrderDate = DateTime.Now.AddDays(-14), // Assuming the order was placed fourteen days ago
         TotalAmount = 55.50m // Assuming a total amount of $55.50
     },
     new Order
     {
         OrderId = 16,
-        CustomerId = 12, 
+        CustomerId = 12,
         OrderDate = DateTime.Now.AddDays(-15), // Assuming the order was placed fifteen days ago
         TotalAmount = 38.25m // Assuming a total amount of $38.25
     },
@@ -866,21 +861,21 @@ new Book
     new Order
     {
         OrderId = 18,
-        CustomerId = 8, 
+        CustomerId = 8,
         OrderDate = DateTime.Now.AddDays(-17), // Assuming the order was placed seventeen days ago
         TotalAmount = 65.75m // Assuming a total amount of $65.75
     },
     new Order
     {
         OrderId = 19,
-        CustomerId = 6, 
+        CustomerId = 6,
         OrderDate = DateTime.Now.AddDays(-18), // Assuming the order was placed eighteen days ago
         TotalAmount = 80.50m // Assuming a total amount of $80.50
     },
     new Order
     {
         OrderId = 20,
-        CustomerId = 10, 
+        CustomerId = 10,
         OrderDate = DateTime.Now.AddDays(-19), // Assuming the order was placed nineteen days ago
         TotalAmount = 95.25m // Assuming a total amount of $95.25
     }
