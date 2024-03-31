@@ -943,14 +943,22 @@ namespace MVC_Project.Migrations
                         {
                             OrderId = 1,
                             CustomerId = 1,
+
+                           
+
                             OrderDate = new DateTime(2024, 3, 30, 16, 59, 26, 363, DateTimeKind.Local).AddTicks(4827),
+
                             TotalAmount = 10.99m
                         },
                         new
                         {
                             OrderId = 2,
                             CustomerId = 2,
+
+                           
+
                             OrderDate = new DateTime(2024, 3, 29, 16, 59, 26, 363, DateTimeKind.Local).AddTicks(4880),
+
                             TotalAmount = 25.00m
                         },
                         new
