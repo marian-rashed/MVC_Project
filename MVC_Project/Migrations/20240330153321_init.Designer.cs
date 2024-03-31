@@ -12,11 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Project.Migrations
 {
     [DbContext(typeof(BookStoreContext))]
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-    [Migration("20240330142201_init")]
-========
-    [Migration("20240330133515_init")]
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+    [Migration("20240330153321_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -950,220 +946,140 @@ namespace MVC_Project.Migrations
                         {
                             OrderId = 1,
                             CustomerId = 1,
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-                            OrderDate = new DateTime(2024, 3, 30, 16, 22, 0, 967, DateTimeKind.Local).AddTicks(8403),
-========
-                            OrderDate = new DateTime(2024, 3, 30, 15, 35, 14, 708, DateTimeKind.Local).AddTicks(2603),
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+                            OrderDate = new DateTime(2024, 3, 30, 17, 33, 20, 675, DateTimeKind.Local).AddTicks(940),
                             TotalAmount = 10.99m
                         },
                         new
                         {
                             OrderId = 2,
                             CustomerId = 2,
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-                            OrderDate = new DateTime(2024, 3, 29, 16, 22, 0, 967, DateTimeKind.Local).AddTicks(8446),
-========
-                            OrderDate = new DateTime(2024, 3, 29, 15, 35, 14, 708, DateTimeKind.Local).AddTicks(2644),
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+                            OrderDate = new DateTime(2024, 3, 29, 17, 33, 20, 675, DateTimeKind.Local).AddTicks(987),
                             TotalAmount = 25.00m
                         },
                         new
                         {
                             OrderId = 3,
                             CustomerId = 3,
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-                            OrderDate = new DateTime(2024, 3, 28, 16, 22, 0, 967, DateTimeKind.Local).AddTicks(8453),
-========
-                            OrderDate = new DateTime(2024, 3, 28, 15, 35, 14, 708, DateTimeKind.Local).AddTicks(2648),
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+                            OrderDate = new DateTime(2024, 3, 28, 17, 33, 20, 675, DateTimeKind.Local).AddTicks(992),
                             TotalAmount = 18.50m
                         },
                         new
                         {
                             OrderId = 4,
                             CustomerId = 4,
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-                            OrderDate = new DateTime(2024, 3, 27, 16, 22, 0, 967, DateTimeKind.Local).AddTicks(8455),
-========
-                            OrderDate = new DateTime(2024, 3, 27, 15, 35, 14, 708, DateTimeKind.Local).AddTicks(2650),
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+                            OrderDate = new DateTime(2024, 3, 27, 17, 33, 20, 675, DateTimeKind.Local).AddTicks(995),
                             TotalAmount = 32.75m
                         },
                         new
                         {
                             OrderId = 5,
                             CustomerId = 5,
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-                            OrderDate = new DateTime(2024, 3, 26, 16, 22, 0, 967, DateTimeKind.Local).AddTicks(8458),
-========
-                            OrderDate = new DateTime(2024, 3, 26, 15, 35, 14, 708, DateTimeKind.Local).AddTicks(2652),
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+                            OrderDate = new DateTime(2024, 3, 26, 17, 33, 20, 675, DateTimeKind.Local).AddTicks(998),
                             TotalAmount = 14.99m
                         },
                         new
                         {
                             OrderId = 6,
                             CustomerId = 6,
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-                            OrderDate = new DateTime(2024, 3, 25, 16, 22, 0, 967, DateTimeKind.Local).AddTicks(8460),
-========
-                            OrderDate = new DateTime(2024, 3, 25, 15, 35, 14, 708, DateTimeKind.Local).AddTicks(2654),
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+                            OrderDate = new DateTime(2024, 3, 25, 17, 33, 20, 675, DateTimeKind.Local).AddTicks(1001),
                             TotalAmount = 20.25m
                         },
                         new
                         {
                             OrderId = 7,
                             CustomerId = 7,
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-                            OrderDate = new DateTime(2024, 3, 24, 16, 22, 0, 967, DateTimeKind.Local).AddTicks(8462),
-========
-                            OrderDate = new DateTime(2024, 3, 24, 15, 35, 14, 708, DateTimeKind.Local).AddTicks(2656),
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+                            OrderDate = new DateTime(2024, 3, 24, 17, 33, 20, 675, DateTimeKind.Local).AddTicks(1004),
                             TotalAmount = 27.50m
                         },
                         new
                         {
                             OrderId = 8,
                             CustomerId = 8,
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-                            OrderDate = new DateTime(2024, 3, 23, 16, 22, 0, 967, DateTimeKind.Local).AddTicks(8464),
-========
-                            OrderDate = new DateTime(2024, 3, 23, 15, 35, 14, 708, DateTimeKind.Local).AddTicks(2658),
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+                            OrderDate = new DateTime(2024, 3, 23, 17, 33, 20, 675, DateTimeKind.Local).AddTicks(1007),
                             TotalAmount = 45.75m
                         },
                         new
                         {
                             OrderId = 9,
                             CustomerId = 9,
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-                            OrderDate = new DateTime(2024, 3, 22, 16, 22, 0, 967, DateTimeKind.Local).AddTicks(8467),
-========
-                            OrderDate = new DateTime(2024, 3, 22, 15, 35, 14, 708, DateTimeKind.Local).AddTicks(2660),
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+                            OrderDate = new DateTime(2024, 3, 22, 17, 33, 20, 675, DateTimeKind.Local).AddTicks(1010),
                             TotalAmount = 62.99m
                         },
                         new
                         {
                             OrderId = 10,
                             CustomerId = 10,
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-                            OrderDate = new DateTime(2024, 3, 21, 16, 22, 0, 967, DateTimeKind.Local).AddTicks(8469),
-========
-                            OrderDate = new DateTime(2024, 3, 21, 15, 35, 14, 708, DateTimeKind.Local).AddTicks(2662),
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+                            OrderDate = new DateTime(2024, 3, 21, 17, 33, 20, 675, DateTimeKind.Local).AddTicks(1013),
                             TotalAmount = 28.50m
                         },
                         new
                         {
                             OrderId = 11,
                             CustomerId = 11,
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-                            OrderDate = new DateTime(2024, 3, 20, 16, 22, 0, 967, DateTimeKind.Local).AddTicks(8471),
-========
-                            OrderDate = new DateTime(2024, 3, 20, 15, 35, 14, 708, DateTimeKind.Local).AddTicks(2664),
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+                            OrderDate = new DateTime(2024, 3, 20, 17, 33, 20, 675, DateTimeKind.Local).AddTicks(1016),
                             TotalAmount = 35.99m
                         },
                         new
                         {
                             OrderId = 12,
                             CustomerId = 12,
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-                            OrderDate = new DateTime(2024, 3, 19, 16, 22, 0, 967, DateTimeKind.Local).AddTicks(8473),
-========
-                            OrderDate = new DateTime(2024, 3, 19, 15, 35, 14, 708, DateTimeKind.Local).AddTicks(2666),
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+                            OrderDate = new DateTime(2024, 3, 19, 17, 33, 20, 675, DateTimeKind.Local).AddTicks(1019),
                             TotalAmount = 52.25m
                         },
                         new
                         {
                             OrderId = 13,
                             CustomerId = 13,
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-                            OrderDate = new DateTime(2024, 3, 18, 16, 22, 0, 967, DateTimeKind.Local).AddTicks(8476),
-========
-                            OrderDate = new DateTime(2024, 3, 18, 15, 35, 14, 708, DateTimeKind.Local).AddTicks(2668),
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+                            OrderDate = new DateTime(2024, 3, 18, 17, 33, 20, 675, DateTimeKind.Local).AddTicks(1022),
                             TotalAmount = 75.99m
                         },
                         new
                         {
                             OrderId = 14,
                             CustomerId = 14,
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-                            OrderDate = new DateTime(2024, 3, 17, 16, 22, 0, 967, DateTimeKind.Local).AddTicks(8478),
-========
-                            OrderDate = new DateTime(2024, 3, 17, 15, 35, 14, 708, DateTimeKind.Local).AddTicks(2669),
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+                            OrderDate = new DateTime(2024, 3, 17, 17, 33, 20, 675, DateTimeKind.Local).AddTicks(1025),
                             TotalAmount = 42.75m
                         },
                         new
                         {
                             OrderId = 15,
                             CustomerId = 15,
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-                            OrderDate = new DateTime(2024, 3, 16, 16, 22, 0, 967, DateTimeKind.Local).AddTicks(8501),
-========
-                            OrderDate = new DateTime(2024, 3, 16, 15, 35, 14, 708, DateTimeKind.Local).AddTicks(2671),
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+                            OrderDate = new DateTime(2024, 3, 16, 17, 33, 20, 675, DateTimeKind.Local).AddTicks(1027),
                             TotalAmount = 55.50m
                         },
                         new
                         {
                             OrderId = 16,
                             CustomerId = 12,
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-                            OrderDate = new DateTime(2024, 3, 15, 16, 22, 0, 967, DateTimeKind.Local).AddTicks(8504),
-========
-                            OrderDate = new DateTime(2024, 3, 15, 15, 35, 14, 708, DateTimeKind.Local).AddTicks(2673),
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+                            OrderDate = new DateTime(2024, 3, 15, 17, 33, 20, 675, DateTimeKind.Local).AddTicks(1030),
                             TotalAmount = 38.25m
                         },
                         new
                         {
                             OrderId = 17,
                             CustomerId = 10,
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-                            OrderDate = new DateTime(2024, 3, 14, 16, 22, 0, 967, DateTimeKind.Local).AddTicks(8506),
-========
-                            OrderDate = new DateTime(2024, 3, 14, 15, 35, 14, 708, DateTimeKind.Local).AddTicks(2675),
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+                            OrderDate = new DateTime(2024, 3, 14, 17, 33, 20, 675, DateTimeKind.Local).AddTicks(1033),
                             TotalAmount = 49.99m
                         },
                         new
                         {
                             OrderId = 18,
                             CustomerId = 8,
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-                            OrderDate = new DateTime(2024, 3, 13, 16, 22, 0, 967, DateTimeKind.Local).AddTicks(8508),
-========
-                            OrderDate = new DateTime(2024, 3, 13, 15, 35, 14, 708, DateTimeKind.Local).AddTicks(2677),
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+                            OrderDate = new DateTime(2024, 3, 13, 17, 33, 20, 675, DateTimeKind.Local).AddTicks(1036),
                             TotalAmount = 65.75m
                         },
                         new
                         {
                             OrderId = 19,
                             CustomerId = 6,
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-                            OrderDate = new DateTime(2024, 3, 12, 16, 22, 0, 967, DateTimeKind.Local).AddTicks(8510),
-========
-                            OrderDate = new DateTime(2024, 3, 12, 15, 35, 14, 708, DateTimeKind.Local).AddTicks(2679),
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+                            OrderDate = new DateTime(2024, 3, 12, 17, 33, 20, 675, DateTimeKind.Local).AddTicks(1039),
                             TotalAmount = 80.50m
                         },
                         new
                         {
                             OrderId = 20,
                             CustomerId = 10,
-<<<<<<<< HEAD:MVC_Project/Migrations/20240330142201_init.Designer.cs
-                            OrderDate = new DateTime(2024, 3, 11, 16, 22, 0, 967, DateTimeKind.Local).AddTicks(8513),
-========
-                            OrderDate = new DateTime(2024, 3, 11, 15, 35, 14, 708, DateTimeKind.Local).AddTicks(2681),
->>>>>>>> 18e48d361b71e495d4d838425e58c7dafcad351d:MVC_Project/Migrations/20240330133515_init.Designer.cs
+                            OrderDate = new DateTime(2024, 3, 11, 17, 33, 20, 675, DateTimeKind.Local).AddTicks(1041),
                             TotalAmount = 95.25m
                         });
                 });
