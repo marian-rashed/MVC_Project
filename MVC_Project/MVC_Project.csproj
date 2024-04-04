@@ -22,4 +22,9 @@
 
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+    <Folder Include="Views\Book\" />
+  </ItemGroup>
+
 </Project>

@@ -2,39 +2,37 @@
 
 @{
     ViewData["Title"] = "Login";
+    Layout = "_LogInLayout";
 }
 
-<h1>Login</h1>
+<br />
+<br />
+<br />
+<link rel="stylesheet" href="/login/index2.css" />
 
-<h4>LoginViewModel</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Login">
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="UserName" class="control-label"></label>
-                <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName" class="text-danger"></span>
+        <!-- SIGN IN -->
+        <div class="col-md-4 align-items-center flex-col sign-in" id="form1">
+            <div class="form-wrapper align-items-center">
+                <div class="form sign-in">
+                    <form asp-action="Login">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="input-group">
+                            <i class='bx bxs-user'></i>
+                            <input asp-for="UserName" class="form-control" placeholder="Username">
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bxs-lock-alt'></i>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Password">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <button type="submit">Sign in</button>
+                        <p><b>Forgot password?</b></p>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="RememberMe" /> @Html.DisplayNameFor(model => model.RememberMe)
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Login" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+        </div>
+        <!-- END SIGN IN -->
 
-<div>
-    <a asp-action="Register">Back to List</a>
-</div>
+<script src="/login/index2.js"></script>
 <partial name="_ValidationScriptsPartial"></partial>

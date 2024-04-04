@@ -1,5 +1,7 @@
-﻿@model Author
-<form class="form form-control" asp-action="SaveAuthor" asp-controller="Author">
+﻿@using MVC_Project.ViewModel
+@model AuthorName_Biography_BD_Country_ImgUrlViewModel
+<form class="form form-control" asp-action="SaveAuthor" asp-controller="Author" enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
     <label asp-for="AuthorName"></label>
     <input asp-for="AuthorName" class="form form-control" />
 
@@ -13,7 +15,7 @@
     <input asp-for="Country" class="form form-control" />
 
     <label asp-for="ImageUrl"></label>
-    <input asp-for="ImageUrl" class="form form-control" />
+    <input type="file" asp-for="ImageUrl" class="form form-control" />
     <input type="submit" class="btn btn-info" value="Add"/>
 
 </form>

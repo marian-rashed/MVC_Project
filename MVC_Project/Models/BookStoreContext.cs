@@ -1,11 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MVC_Project.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MVC_Project
 {
@@ -596,7 +591,7 @@ new Book
 
 );
 
-           
+
             modelBuilder.Entity<Customer>().HasData(
                 new Customer
                 {
@@ -770,41 +765,41 @@ new Book
     new Order
     {
         OrderId = 4,
-        CustomerId = 4, 
+        CustomerId = 4,
         OrderDate = DateTime.Now.AddDays(-3), // Assuming the order was placed three days ago
         TotalAmount = 32.75m // Assuming a single order with a total amount of $32.75
     },
     new Order
     {
         OrderId = 5,
-        CustomerId = 5, 
+        CustomerId = 5,
         OrderDate = DateTime.Now.AddDays(-4), // Assuming the order was placed four days ago
         TotalAmount = 14.99m // Assuming a single order with a total amount of $14.99
     },
     new Order
     {
         OrderId = 6,
-        CustomerId = 6, 
+        CustomerId = 6,
         OrderDate = DateTime.Now.AddDays(-5), // Assuming the order was placed five days ago
         TotalAmount = 20.25m // Assuming a single order with a total amount of $20.25
     },
     new Order
     {
         OrderId = 7,
-        CustomerId = 7, 
+        CustomerId = 7,
         OrderDate = DateTime.Now.AddDays(-6), // Assuming the order was placed six days ago
         TotalAmount = 27.50m // Assuming a single order with a total amount of $27.50
     }, new Order
     {
         OrderId = 8,
-        CustomerId = 8, 
+        CustomerId = 8,
         OrderDate = DateTime.Now.AddDays(-7), // Assuming the order was placed seven days ago
         TotalAmount = 45.75m // Assuming a total amount of $45.75
     },
     new Order
     {
         OrderId = 9,
-        CustomerId = 9, 
+        CustomerId = 9,
         OrderDate = DateTime.Now.AddDays(-8), // Assuming the order was placed eight days ago
         TotalAmount = 62.99m // Assuming a total amount of $62.99
     },
@@ -818,41 +813,41 @@ new Book
     new Order
     {
         OrderId = 11,
-        CustomerId = 11, 
+        CustomerId = 11,
         OrderDate = DateTime.Now.AddDays(-10), // Assuming the order was placed ten days ago
         TotalAmount = 35.99m // Assuming a total amount of $35.99
     },
     new Order
     {
         OrderId = 12,
-        CustomerId = 12, 
+        CustomerId = 12,
         OrderDate = DateTime.Now.AddDays(-11), // Assuming the order was placed eleven days ago
         TotalAmount = 52.25m // Assuming a total amount of $52.25
     }, new Order
     {
         OrderId = 13,
-        CustomerId = 13, 
+        CustomerId = 13,
         OrderDate = DateTime.Now.AddDays(-12), // Assuming the order was placed twelve days ago
         TotalAmount = 75.99m // Assuming a total amount of $75.99
     },
     new Order
     {
         OrderId = 14,
-        CustomerId = 14, 
+        CustomerId = 14,
         OrderDate = DateTime.Now.AddDays(-13), // Assuming the order was placed thirteen days ago
         TotalAmount = 42.75m // Assuming a total amount of $42.75
     },
     new Order
     {
         OrderId = 15,
-        CustomerId = 15, 
+        CustomerId = 15,
         OrderDate = DateTime.Now.AddDays(-14), // Assuming the order was placed fourteen days ago
         TotalAmount = 55.50m // Assuming a total amount of $55.50
     },
     new Order
     {
         OrderId = 16,
-        CustomerId = 12, 
+        CustomerId = 12,
         OrderDate = DateTime.Now.AddDays(-15), // Assuming the order was placed fifteen days ago
         TotalAmount = 38.25m // Assuming a total amount of $38.25
     },
@@ -866,21 +861,21 @@ new Book
     new Order
     {
         OrderId = 18,
-        CustomerId = 8, 
+        CustomerId = 8,
         OrderDate = DateTime.Now.AddDays(-17), // Assuming the order was placed seventeen days ago
         TotalAmount = 65.75m // Assuming a total amount of $65.75
     },
     new Order
     {
         OrderId = 19,
-        CustomerId = 6, 
+        CustomerId = 6,
         OrderDate = DateTime.Now.AddDays(-18), // Assuming the order was placed eighteen days ago
         TotalAmount = 80.50m // Assuming a total amount of $80.50
     },
     new Order
     {
         OrderId = 20,
-        CustomerId = 10, 
+        CustomerId = 10,
         OrderDate = DateTime.Now.AddDays(-19), // Assuming the order was placed nineteen days ago
         TotalAmount = 95.25m // Assuming a total amount of $95.25
     }
@@ -901,7 +896,152 @@ new Book
           BookId = 2, // Assuming book ID 2 is "One Hundred Years of Solitude"
           Quantity = 2,
           PricePerUnit = 12.50m // Assuming the price per unit of "One Hundred Years of Solitude"
-      }
+      },
+      new OrderItem
+      {
+          OrderItemId = 3,
+          OrderId = 3, // Assuming order ID 3 belongs to Alice Johnson
+          BookId = 3, // Assuming book ID 3 is "Woman Hollering Creek and Other Stories"
+          Quantity = 1,
+          PricePerUnit = 9.99m // Assuming the price per unit of "Woman Hollering Creek and Other Stories"
+      },
+new OrderItem
+{
+    OrderItemId = 4,
+    OrderId = 4,
+    BookId = 4,
+    Quantity = 3,
+    PricePerUnit = 12.50m // Assuming the price per unit of "One Hundred Years of Solitude"
+},
+new OrderItem
+{
+    OrderItemId = 5,
+    OrderId = 5,
+    BookId = 5,
+    Quantity = 1,
+    PricePerUnit = 11.99m // Assuming the price per unit of "Throne of Glass"
+},
+new OrderItem
+{
+    OrderItemId = 6,
+    OrderId = 6,
+    BookId = 6,
+    Quantity = 2,
+    PricePerUnit = 14.99m // Assuming the price per unit of "A Court of Thorns and Roses"
+},
+new OrderItem
+{
+    OrderItemId = 7,
+    OrderId = 7,
+    BookId = 7,
+    Quantity = 1,
+    PricePerUnit = 16.99m // Assuming the price per unit of "Crescent City: House of Earth and Blood"
+},
+new OrderItem
+{
+    OrderItemId = 8,
+    OrderId = 8,
+    BookId = 8,
+    Quantity = 2,
+    PricePerUnit = 13.99m // Assuming the price per unit of "Shadow and Bone"
+},
+new OrderItem
+{
+    OrderItemId = 9,
+    OrderId = 9,
+    BookId = 9,
+    Quantity = 1,
+    PricePerUnit = 15.99m // Assuming the price per unit of "Six of Crows"
+},
+new OrderItem
+{
+    OrderItemId = 10,
+    OrderId = 10,
+    BookId = 10,
+    Quantity = 2,
+    PricePerUnit = 14.50m // Assuming the price per unit of "King of Scars"
+},
+new OrderItem
+{
+    OrderItemId = 11,
+    OrderId = 11,
+    BookId = 11,
+    Quantity = 3,
+    PricePerUnit = 11.99m // Assuming the price per unit of "City of Bones"
+},
+new OrderItem
+{
+    OrderItemId = 12,
+    OrderId = 12,
+    BookId = 12,
+    Quantity = 2,
+    PricePerUnit = 10.99m // Assuming the price per unit of "Clockwork Angel"
+},
+new OrderItem
+{
+    OrderItemId = 13,
+    OrderId = 13,
+    BookId = 13,
+    Quantity = 1,
+    PricePerUnit = 12.50m // Assuming the price per unit of "Lady Midnight"
+},
+new OrderItem
+{
+    OrderItemId = 14,
+    OrderId = 14,
+    BookId = 14,
+    Quantity = 2,
+    PricePerUnit = 15.99m // Assuming the price per unit of "American Gods"
+},
+new OrderItem
+{
+    OrderItemId = 15,
+    OrderId = 15,
+    BookId = 15,
+    Quantity = 1,
+    PricePerUnit = 12.99m // Assuming the price per unit of "Stardust"
+},
+new OrderItem
+{
+    OrderItemId = 16,
+    OrderId = 16,
+    BookId = 16,
+    Quantity = 3,
+    PricePerUnit = 9.99m // Assuming the price per unit of "To the Lighthouse"
+},
+new OrderItem
+{
+    OrderItemId = 17,
+    OrderId = 17,
+    BookId = 17,
+    Quantity = 2,
+    PricePerUnit = 10.99m // Assuming the price per unit of "Mrs. Dalloway"
+},
+new OrderItem
+{
+    OrderItemId = 18,
+    OrderId = 18,
+    BookId = 18,
+    Quantity = 1,
+    PricePerUnit = 8.99m // Assuming the price per unit of "Siddhartha"
+},
+new OrderItem
+{
+    OrderItemId = 19,
+    OrderId = 19,
+    BookId = 19,
+    Quantity = 2,
+    PricePerUnit = 11.50m // Assuming the price per unit of "Steppenwolf"
+},
+new OrderItem
+{
+    OrderItemId = 20,
+    OrderId = 20,
+    BookId = 20,
+    Quantity = 3,
+    PricePerUnit = 7.99m // Assuming the price per unit of "Murder on the Orient Express"
+}
+
   );
 
 
