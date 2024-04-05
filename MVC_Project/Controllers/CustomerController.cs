@@ -17,11 +17,17 @@ namespace MVC_Project.Controllers
         }
 
 
-        //by name
+        
         public IActionResult GetCustomerById(int id)
         {
             Customer cust = customer.GetCustomerById(id);
             return View("GetCustomerById", cust);
+        }
+
+        public IActionResult GetCustomersByName(string name)
+        {
+            var customers = customer.GetCustomersByName(name);
+            return View("GetCustomersByName", customers);
         }
 
         //[HttpGet]

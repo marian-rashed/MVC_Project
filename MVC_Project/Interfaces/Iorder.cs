@@ -16,6 +16,8 @@ namespace MVC_Project.Interfaces
         void UpdateOrder(int id);
         void DeleteOrder(int id);
         //List<Customer> GetCustomersOrder(int orderid);
+
+        List<Order> GetOrdersByCustomerName(string customername);
         void Save();
     }
 }

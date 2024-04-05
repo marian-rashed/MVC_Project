@@ -43,5 +43,10 @@ namespace MVC_Project.Repository
             Order order = bookStoreContext.Orders.FirstOrDefault(o => o.OrderId == id);
             bookStoreContext.Orders.Update(order);
         }
+        public List<Order> GetOrdersByCustomerName(string customername)
+        {
+            List<Order> orders = bookStoreContext.Orders.Where(o => o.Customer.FullName == customername).ToList();
+            return orders;
+        }
     }
 }
