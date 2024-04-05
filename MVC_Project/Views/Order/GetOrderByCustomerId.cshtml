@@ -1,0 +1,29 @@
+﻿@model List<MVC_Project.ViewModel.OrderWithCustomerAndOrderListVM>
+
+@foreach (var order in Model)
+{
+    <div class="card">
+        <div class="card-header">Order ID: @order.OrderId</div>
+        <div class="card-body">
+            <h5 class="card-title">Customer Name: @order.Customer.FullName</h5>
+            <p class="card-text">Order Date: @order.OrderDate.ToShortDateString()</p>
+            <p class="card-text">Total Amount: @order.TotalAmount.ToString("C")</p>
+        </div>
+        <div class="card-footer">
+            @if (order.OrderItems.Any())
+            {
+                <h6>Order Items:</h6>
+                <ul>
+                    @foreach (var orderItem in order.OrderItems)
+                    {
+                        <li>@orderItem.Book.Title - Quantity: @orderItem.Quantity</li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No items in this order.</p>
+            }
+        </div>
+    </div>
+}

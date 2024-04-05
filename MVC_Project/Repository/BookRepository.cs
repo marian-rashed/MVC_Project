@@ -45,6 +45,11 @@ namespace MVC_Project.Repository
         {
             bookStoreContext.SaveChanges();
         }
+        public List<Book> GetBooksByName(string name)
+        {
+            var books = bookStoreContext.Books.Where(b => b.Title.Contains(name)).ToList();
+            return books;
+        }
 
     }
 }
