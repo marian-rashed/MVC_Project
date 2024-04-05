@@ -1,0 +1,34 @@
+﻿@* @model Order
+
+<div class="card">
+    <div class="card-header">Customer Id: @Model.CustomerId</div>
+    <div class="card-body">Order Date: @Model.OrderDate</div>
+    <div class="card-body">Total Amount: @Model.TotalAmount</div>
+</div> *@
+
+@model MVC_Project.ViewModel.OrderWithCustomerAndOrderListVM
+
+<div class="card">
+    <div class="card-header">Order ID: @Model.OrderId</div>
+    <div class="card-body">
+        <h5 class="card-title">Customer Name: @Model.Customer.FullName</h5>
+        <p class="card-text">Order Date: @Model.OrderDate.ToShortDateString()</p>
+        <p class="card-text">Total Amount: @Model.TotalAmount.ToString("C")</p>
+    </div>
+    <div class="card-footer">
+        @if (Model.OrderItems.Any())
+        {
+            <h6>Order Items:</h6>
+            <ul>
+                @foreach (var orderItem in Model.OrderItems)
+                {
+                    <li>@orderItem.Book.Title - Quantity: @orderItem.Quantity</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>No items in this order.</p>
+        }
+    </div>
+</div>
