@@ -14,6 +14,7 @@ namespace MVC_Project.Controllers
         {
             List<Book> BookList = book.GetAllBooks();
             return View("index", BookList);
+
         }
 
        
@@ -46,8 +47,38 @@ namespace MVC_Project.Controllers
             return View("GetBooksByName", books);
         }
 
-        //edit book
-        //delete book
-    }
+		[HttpGet]
+		public IActionResult EditBook(int id)
+		{
+			// Retrieve the book by ID
+			var book1 = book.GetBookById(id);
+
+			if (book1 == null)
+			{
+				// Handle case where book with given ID is not found
+				return NotFound();
+			}
+
+			return View("EditBook", book1);
+		}
+
+		[HttpPost]
+		public IActionResult SaveEditedBook(Book editedBook)
+		{
+			if (ModelState.IsValid)
+			{
+				book.EditBook(editedBook);
+                return RedirectToAction("Index");
+			}
+			else
+			{
+				// If the model state is not valid, return to the edit view with the model
+				return View("EditBook", editedBook);
+			}
+		}
+
+		//edit book
+		//delete book
+	}
 }
 
