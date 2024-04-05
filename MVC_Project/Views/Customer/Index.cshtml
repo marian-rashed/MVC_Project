@@ -1,0 +1,75 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<MVC_Project.Customer>
+
+@{
+    ViewData["Title"] = "index";
+}
+<style>
+    .card-img-top {
+        width: 100%;
+        height: 50vh;
+        object-fit: contain;
+    }
+</style>
+<a href="\Customer\AddNewCustomer">AddNewCustomer</a>
+<nav class="AlphabetNav">
+    <a href="#A">A</a>
+    <a href="#B">B</a>
+    <a href="#C">C</a>
+    <a href="#D">D</a>
+    <a href="#E">E</a>
+    <a href="#F">F</a>
+    <a href="#G">G</a>
+    <a href="#H">H</a>
+    <a href="#I">I</a>
+    <a href="#J">J</a>
+    <a href="#K">K</a>
+    <a href="#L">L</a>
+    <a href="#M">M</a>
+    <a href="#N">N</a>
+    <a href="#O">O</a>
+    <a href="#P">P</a>
+    <a href="#Q">Q</a>
+    <a href="#R">R</a>
+    <a href="#S">S</a>
+    <a href="#T">T</a>
+    <a href="#U">U</a>
+    <a href="#V">V</a>
+    <a href="#W">W</a>
+    <a href="#X">X</a>
+    <a href="#Y">Y</a>
+    <a href="#Z">Z</a>
+</nav>
+
+
+<div class="container-fluid">
+    <div class="row  row-cols-md-2">
+        @foreach (Customer cust in Model)
+        {
+            <div class="col mb-2">
+                <div class="card w-100">
+                    <div class="card-body">
+                        <h5 class="card-title">@cust.FullName</h5>
+                        <p class="card-text">Username: @cust.Username</p>
+                        <p class="card-text">Email: @cust.Email</p>
+                        <p class="card-text">Address: @cust.Address</p>
+                        <p class="card-text">Phone Number: @cust.PhoneNumber</p>
+                        <a href="/customer/GetCustomerById/@cust.CustomerId" class="btn btn-primary">See Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/js/authorIndexScript.js"></script>
+<link rel="stylesheet" href="/css/AuthorIndex.css" />

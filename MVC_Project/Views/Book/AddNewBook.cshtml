@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "AddNewBook";
+}
+
+@model Book
+<form class="form form-control" asp-action="SaveBook" asp-controller="Book">
+    <label asp-for="Title"></label>
+    <input asp-for="Title" class="form form-control" />
+
+    <label asp-for="AuthorId"></label>
+    <input asp-for="AuthorId" class="form form-control" />
+
+    <label asp-for="Price"></label>
+    <input asp-for="Price" class="form form-control" />
+
+    <label asp-for="ImageUrl"></label>
+    <input asp-for="ImageUrl" class="form form-control" />
+
+    <label asp-for="QuantityAvailable"></label>
+    <input asp-for="QuantityAvailable" class="form form-control" />
+
+    <input type="submit" class="btn btn-info" value="Add"   />
+</form>
