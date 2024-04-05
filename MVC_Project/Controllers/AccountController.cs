@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MVC_Project.Interfaces;
 using MVC_Project.Models;
 using MVC_Project.ViewModel;
 
@@ -9,11 +10,17 @@ namespace MVC_Project.Controllers
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
-        public AccountController(UserManager<ApplicationUser> UserManager, SignInManager<ApplicationUser> SignInManager)
-        {
+		BookStoreContext bookStoreContext;
+		ICustomer customerModel;
+
+		public AccountController(UserManager<ApplicationUser> UserManager,
+            SignInManager<ApplicationUser> SignInManager, BookStoreContext _bookStoreContext, ICustomer customer)
+
+		{
             userManager = UserManager;
             signInManager = SignInManager;
-
+            bookStoreContext = _bookStoreContext;
+            customerModel = customer;
         }
         public IActionResult Index()
         {
@@ -30,6 +37,7 @@ namespace MVC_Project.Controllers
         {
             if (ModelState.IsValid == true)
             {
+
                 //save
                 ApplicationUser user = new ApplicationUser()
                 {
@@ -39,15 +47,32 @@ namespace MVC_Project.Controllers
                     Address = UserVM.Address
                 };
 
+                 
+
                 IdentityResult result = await userManager.CreateAsync(user, UserVM.Password);
                 if (result.Succeeded)
                 {
                    // IdentityResult ResultRole = await userManager.AddToRoleAsync(user, "Admin");//to register user as admin
                     await signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Login");
+					Customer customer = new Customer()
+					{
+						Username = user.UserName,
+                        FullName=user.UserName,
+						Password = user.PasswordHash,
+						Email = user.Email,
+						Address = user.Address,
+						ApplicationUserId = user.Id
+					};
+					customerModel.InsertCustomer(customer);
+                    customerModel.Save();
+					user.CustomerID = customer.CustomerId;
+					IdentityResult resultUpdate = await userManager.UpdateAsync(user);
+					return RedirectToAction("Login");
                     //createCookie
                 }
-                foreach (var item in result.Errors)
+                
+
+				foreach (var item in result.Errors)
                     ModelState.AddModelError("", item.Description);
 
                 //createCookie
