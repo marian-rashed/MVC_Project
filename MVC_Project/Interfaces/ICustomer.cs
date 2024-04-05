@@ -9,11 +9,15 @@ namespace MVC_Project.Interfaces
     public interface ICustomer
     {
         List<Customer> GetAllCustomers();
-        Customer GetCustomerById(int id);
+        Customer GetCustomerById(string id);
         void InsertCustomer(Customer customer);
-        void UpdateCustomer(int id);
-        void DeleteCustomer(int id);
-        List<Customer> GetCustomersByName(string name);
+
+       
+
+        void UpdateCustomer(string id);
+        void DeleteCustomer(string id);
+      List<Customer> GetCustomersByName(string name);
+
         void Save();
     }
 }

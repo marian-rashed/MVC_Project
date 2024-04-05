@@ -10,7 +10,7 @@ namespace MVC_Project.Repository
             bookStoreContext = _bookStoreContext;
         }
 
-        public void DeleteCustomer(int id)
+        public void DeleteCustomer(string id)
         {
             Customer customer = bookStoreContext.Customers.FirstOrDefault(c => c.CustomerId == id);
             bookStoreContext.Customers.Remove(customer);
@@ -21,7 +21,7 @@ namespace MVC_Project.Repository
             bookStoreContext.SaveChanges();
         }
 
-        public void UpdateCustomer(int id)
+        public void UpdateCustomer(string id)
         {
             Customer customer = bookStoreContext.Customers.FirstOrDefault(c => c.CustomerId == id);
             bookStoreContext.Customers.Update(customer);
@@ -33,7 +33,7 @@ namespace MVC_Project.Repository
             return customers;
         }
 
-        Customer ICustomer.GetCustomerById(int id)
+        Customer ICustomer.GetCustomerById(string id)
         {
             Customer customer = bookStoreContext.Customers.FirstOrDefault(c => c.CustomerId == id);
             return customer;

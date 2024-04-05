@@ -1,84 +1,82 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MVC_Project.Interfaces;
-using MVC_Project.Repository;
-using Microsoft.AspNetCore.Hosting;
 using MVC_Project.ViewModel;
 
 namespace MVC_Project.Controllers
 {
-    public class AuthorController :Controller
-    {
-        IAuthor author;
-        private readonly IWebHostEnvironment hostingEnvironment;
-        public AuthorController(IAuthor _author, IWebHostEnvironment _hostingEnvironment)
-        {
-            author = _author;
-            hostingEnvironment= _hostingEnvironment;
-        }
-        public IActionResult Index()
-        {
-            List<Author> authorList = author.GetAllAuthors();
-            return View("Index", authorList);
-        }
-        public IActionResult GetAuthorsByName(string name)
-        {
-            var authors = author.GetAuthorsByName(name);
-            return View("GetAuthorByName", authors);
-        }
-        
-        //public IActionResult GetAuthorById(int id)
-        //{
-        //    Author author1 = author.GetAuthorById(id);
-        //    return View("GetAuthorById", author1);
-        //}
-        [HttpGet]
-        //add authorize
-        public IActionResult AddNewAuthor(Author author)
-        {
-            return View("AddNewAuthor");
-        }
-        [HttpPost]
-        public async Task<IActionResult> SaveAuthorAsync(AuthorName_Biography_BD_Country_ImgUrlViewModel AuthModel, IFormFile ImageUrl)
-        {
-            if (ModelState.IsValid == false)
-            {
-                return View("AddNewAuthor", AuthModel);
-            }
+	public class AuthorController : Controller
+	{
+	    IAuthor author;
+		private readonly IWebHostEnvironment hostingEnvironment;
+		public AuthorController(IAuthor _author, IWebHostEnvironment _hostingEnvironment)
+		{
+			author = _author;
+			hostingEnvironment = _hostingEnvironment;
+		}
+		public IActionResult Index()
+		{
+			List<Author> authorList = author.GetAllAuthors();
+			return View("Index", authorList);
+		}
+		public IActionResult GetAuthorsByName(string name)
+		{
+			var authors = author.GetAuthorsByName(name);
+			return View("GetAuthorByName", authors);
+		}
 
-            Author authorData = new Author()
-            {
-                AuthorName = AuthModel.AuthorName,
-                BirthDate = AuthModel.BirthDate,
-                Biography = AuthModel.Biography,
-                Country = AuthModel.Country
-            };
+		//public IActionResult GetAuthorById(int id)
+		//{
+		//    Author author1 = author.GetAuthorById(id);
+		//    return View("GetAuthorById", author1);
+		//}
+		[HttpGet]
+		//add authorize
+		public IActionResult AddNewAuthor(Author author)
+		{
+			return View("AddNewAuthor");
+		}
+		[HttpPost]
+		public async Task<IActionResult> SaveAuthorAsync(AuthorName_Biography_BD_Country_ImgUrlViewModel AuthModel, IFormFile ImageUrl)
+		{
+			if (ModelState.IsValid == false)
+			{
+				return View("AddNewAuthor", AuthModel);
+			}
 
-            if (ImageUrl != null && ImageUrl.Length > 0)
-            {
-                var fileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(ImageUrl.FileName);
-                var filePath = Path.Combine("wwwroot/images", fileName);
+			Author authorData = new Author()
+			{
+				AuthorName = AuthModel.AuthorName,
+				BirthDate = AuthModel.BirthDate,
+				Biography = AuthModel.Biography,
+				Country = AuthModel.Country
+			};
 
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    await ImageUrl.CopyToAsync(stream);
-                }
+			if (ImageUrl != null && ImageUrl.Length > 0)
+			{
+				var fileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(ImageUrl.FileName);
+				var filePath = Path.Combine("wwwroot/images", fileName);
 
-                authorData.ImageUrl = "/images/" + fileName;
-            }
+				using (var stream = new FileStream(filePath, FileMode.Create))
+				{
+					await ImageUrl.CopyToAsync(stream);
+				}
 
-            author.InsertAuthor(authorData);
-            author.Save();
+				authorData.ImageUrl = "/images/" + fileName;
+			}
 
-            return RedirectToAction("Index");
-        }
+			author.InsertAuthor(authorData);
+			author.Save();
 
-        //edit author
-        //delete author
+			return RedirectToAction("Index");
+		}
 
-
-       
+		//edit author
+		//delete author
 
 
 
-    }
+
+
+
+	}
 }
