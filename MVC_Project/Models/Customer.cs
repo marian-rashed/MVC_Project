@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace MVC_Project
 {
@@ -14,7 +9,7 @@ namespace MVC_Project
 
         public string Username { get; set; }
 
-        public string Password { get; set; } 
+        public string Password { get; set; }
 
         public string Email { get; set; }
 
@@ -24,6 +19,6 @@ namespace MVC_Project
 
         public string PhoneNumber { get; set; }
 
-        public ICollection<Order> Orders { get; set; }
+        public ICollection<Order>? Orders { get; set; }
     }
 }
