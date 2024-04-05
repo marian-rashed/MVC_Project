@@ -16,6 +16,7 @@ namespace MVC_Project.Controllers
             return View("index", BookList);
         }
 
+        //by name
         public IActionResult GetBookById(int id)
         {
             Book boo = book.GetBookById(id);
@@ -39,6 +40,9 @@ namespace MVC_Project.Controllers
 
             return RedirectToAction("Index");
         }
+
+        //edit book
+        //delete book
     }
 }
 

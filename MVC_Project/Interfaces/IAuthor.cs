@@ -16,5 +16,7 @@ namespace MVC_Project.Interfaces
         List<Book> GetAuthorBooks(string name);
         void Save();
 
+        List<Author> GetAuthorsByName(string name);
+
     }
 }
