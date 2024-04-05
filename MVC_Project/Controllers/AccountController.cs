@@ -20,6 +20,7 @@ namespace MVC_Project.Controllers
             return View();
         }
         public IActionResult Register()
+
         {
             return View();
         }
@@ -41,6 +42,7 @@ namespace MVC_Project.Controllers
                 IdentityResult result = await userManager.CreateAsync(user, UserVM.Password);
                 if (result.Succeeded)
                 {
+                   // IdentityResult ResultRole = await userManager.AddToRoleAsync(user, "Admin");//to register user as admin
                     await signInManager.SignInAsync(user, false);
                     return RedirectToAction("Login");
                     //createCookie
@@ -84,7 +86,7 @@ namespace MVC_Project.Controllers
         public async Task<IActionResult> SignOut()
         {
             await signInManager.SignOutAsync();
-            return RedirectToAction("Login");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
