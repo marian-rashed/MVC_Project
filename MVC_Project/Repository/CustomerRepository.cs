@@ -43,7 +43,19 @@ namespace MVC_Project.Repository
         {
             bookStoreContext.Customers.Add(customer);
         }
+
 		
+
+        public List<Customer> GetCustomersByName(string name)
+        {
+            var keywords = name.Split(new char[] { ' ', '_' }, StringSplitOptions.RemoveEmptyEntries);
+
+            var customers = bookStoreContext.Customers
+                .Where(c => keywords.Any(k => c.FullName.Contains(k)))
+                .ToList();
+            return customers;
+        }
+
 
 
 	}

@@ -24,10 +24,14 @@
 
   <ItemGroup>
 
-    <Folder Include="Views\Book\" />
+    <Folder Include="Migrations\" />
 
 
     <Folder Include="Views\Book\" />
+
+
+ 
+
 
   </ItemGroup>
 

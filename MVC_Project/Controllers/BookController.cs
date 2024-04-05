@@ -16,7 +16,7 @@ namespace MVC_Project.Controllers
             return View("index", BookList);
         }
 
-        //by name
+       
         public IActionResult GetBookById(int id)
         {
             Book boo = book.GetBookById(id);
@@ -39,6 +39,11 @@ namespace MVC_Project.Controllers
             book.Save();
 
             return RedirectToAction("Index");
+        }
+        public IActionResult GetBooksByName(string name)
+        {
+            var books = book.GetBooksByName(name);
+            return View("GetBooksByName", books);
         }
 
         //edit book
