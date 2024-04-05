@@ -25,7 +25,11 @@ namespace MVC_Project
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Author>().HasData(
+			modelBuilder.Entity<ApplicationUser>()
+			   .HasOne(u => u.Customer)
+			   .WithOne(c => c.ApplicationUser)
+			   .HasForeignKey<Customer>(c => c.ApplicationUserId);
+			modelBuilder.Entity<Author>().HasData(
     new Author
     {
         AuthorId = 1,

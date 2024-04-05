@@ -39,6 +39,8 @@ namespace MVC_Project.Controllers
                     Address = UserVM.Address
                 };
 
+                 
+
                 IdentityResult result = await userManager.CreateAsync(user, UserVM.Password);
                 if (result.Succeeded)
                 {
