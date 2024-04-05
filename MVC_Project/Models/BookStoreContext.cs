@@ -896,7 +896,152 @@ new Book
           BookId = 2, // Assuming book ID 2 is "One Hundred Years of Solitude"
           Quantity = 2,
           PricePerUnit = 12.50m // Assuming the price per unit of "One Hundred Years of Solitude"
-      }
+      },
+      new OrderItem
+      {
+          OrderItemId = 3,
+          OrderId = 3, // Assuming order ID 3 belongs to Alice Johnson
+          BookId = 3, // Assuming book ID 3 is "Woman Hollering Creek and Other Stories"
+          Quantity = 1,
+          PricePerUnit = 9.99m // Assuming the price per unit of "Woman Hollering Creek and Other Stories"
+      },
+new OrderItem
+{
+    OrderItemId = 4,
+    OrderId = 4,
+    BookId = 4,
+    Quantity = 3,
+    PricePerUnit = 12.50m // Assuming the price per unit of "One Hundred Years of Solitude"
+},
+new OrderItem
+{
+    OrderItemId = 5,
+    OrderId = 5,
+    BookId = 5,
+    Quantity = 1,
+    PricePerUnit = 11.99m // Assuming the price per unit of "Throne of Glass"
+},
+new OrderItem
+{
+    OrderItemId = 6,
+    OrderId = 6,
+    BookId = 6,
+    Quantity = 2,
+    PricePerUnit = 14.99m // Assuming the price per unit of "A Court of Thorns and Roses"
+},
+new OrderItem
+{
+    OrderItemId = 7,
+    OrderId = 7,
+    BookId = 7,
+    Quantity = 1,
+    PricePerUnit = 16.99m // Assuming the price per unit of "Crescent City: House of Earth and Blood"
+},
+new OrderItem
+{
+    OrderItemId = 8,
+    OrderId = 8,
+    BookId = 8,
+    Quantity = 2,
+    PricePerUnit = 13.99m // Assuming the price per unit of "Shadow and Bone"
+},
+new OrderItem
+{
+    OrderItemId = 9,
+    OrderId = 9,
+    BookId = 9,
+    Quantity = 1,
+    PricePerUnit = 15.99m // Assuming the price per unit of "Six of Crows"
+},
+new OrderItem
+{
+    OrderItemId = 10,
+    OrderId = 10,
+    BookId = 10,
+    Quantity = 2,
+    PricePerUnit = 14.50m // Assuming the price per unit of "King of Scars"
+},
+new OrderItem
+{
+    OrderItemId = 11,
+    OrderId = 11,
+    BookId = 11,
+    Quantity = 3,
+    PricePerUnit = 11.99m // Assuming the price per unit of "City of Bones"
+},
+new OrderItem
+{
+    OrderItemId = 12,
+    OrderId = 12,
+    BookId = 12,
+    Quantity = 2,
+    PricePerUnit = 10.99m // Assuming the price per unit of "Clockwork Angel"
+},
+new OrderItem
+{
+    OrderItemId = 13,
+    OrderId = 13,
+    BookId = 13,
+    Quantity = 1,
+    PricePerUnit = 12.50m // Assuming the price per unit of "Lady Midnight"
+},
+new OrderItem
+{
+    OrderItemId = 14,
+    OrderId = 14,
+    BookId = 14,
+    Quantity = 2,
+    PricePerUnit = 15.99m // Assuming the price per unit of "American Gods"
+},
+new OrderItem
+{
+    OrderItemId = 15,
+    OrderId = 15,
+    BookId = 15,
+    Quantity = 1,
+    PricePerUnit = 12.99m // Assuming the price per unit of "Stardust"
+},
+new OrderItem
+{
+    OrderItemId = 16,
+    OrderId = 16,
+    BookId = 16,
+    Quantity = 3,
+    PricePerUnit = 9.99m // Assuming the price per unit of "To the Lighthouse"
+},
+new OrderItem
+{
+    OrderItemId = 17,
+    OrderId = 17,
+    BookId = 17,
+    Quantity = 2,
+    PricePerUnit = 10.99m // Assuming the price per unit of "Mrs. Dalloway"
+},
+new OrderItem
+{
+    OrderItemId = 18,
+    OrderId = 18,
+    BookId = 18,
+    Quantity = 1,
+    PricePerUnit = 8.99m // Assuming the price per unit of "Siddhartha"
+},
+new OrderItem
+{
+    OrderItemId = 19,
+    OrderId = 19,
+    BookId = 19,
+    Quantity = 2,
+    PricePerUnit = 11.50m // Assuming the price per unit of "Steppenwolf"
+},
+new OrderItem
+{
+    OrderItemId = 20,
+    OrderId = 20,
+    BookId = 20,
+    Quantity = 3,
+    PricePerUnit = 7.99m // Assuming the price per unit of "Murder on the Orient Express"
+}
+
   );
 
 
