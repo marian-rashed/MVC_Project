@@ -20,12 +20,19 @@ namespace MVC_Project.Controllers
             List<Author> authorList = author.GetAllAuthors();
             return View("Index", authorList);
         }
-        public IActionResult GetAuthorById(int id)
+        public IActionResult GetAuthorsByName(string name)
         {
-            Author author1=author.GetAuthorById(id);
-            return View("GetAuthorById", author1);
+            var authors = author.GetAuthorsByName(name);
+            return View("GetAuthorByName", authors);
         }
+        
+        //public IActionResult GetAuthorById(int id)
+        //{
+        //    Author author1 = author.GetAuthorById(id);
+        //    return View("GetAuthorById", author1);
+        //}
         [HttpGet]
+        //add authorize
         public IActionResult AddNewAuthor(Author author)
         {
             return View("AddNewAuthor");
@@ -64,6 +71,13 @@ namespace MVC_Project.Controllers
 
             return RedirectToAction("Index");
         }
+
+        //edit author
+        //delete author
+
+
+       
+
 
 
     }

@@ -16,29 +16,31 @@ namespace MVC_Project.Controllers
             return View("index", CustomerList);
         }
 
+
+        //by name
         public IActionResult GetCustomerById(int id)
         {
             Customer cust = customer.GetCustomerById(id);
             return View("GetCustomerById", cust);
         }
 
-        [HttpGet]
-        public IActionResult AddNewCustomer(Customer customer)
-        {
-            return View("AddNewCustomer");
-        }
-        [HttpPost]
-        public IActionResult SaveCustomer(Customer cust)
-        {
-            if (ModelState.IsValid == false)
-            {
-                return View("AddNewCustomer", cust);
-            }
-            customer.InsertCustomer(cust);
-            customer.Save();
+        //[HttpGet]
+        //public IActionResult AddNewCustomer(Customer customer)
+        //{
+        //    return View("AddNewCustomer");
+        //}
+        //[HttpPost]
+        //public IActionResult SaveCustomer(Customer cust)
+        //{
+        //    if (ModelState.IsValid == false)
+        //    {
+        //        return View("AddNewCustomer", cust);
+        //    }
+        //    customer.InsertCustomer(cust);
+        //    customer.Save();
 
-            return RedirectToAction("Index");
-        }
+        //    return RedirectToAction("Index");
+        //}
 
     }
 }
