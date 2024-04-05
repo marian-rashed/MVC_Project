@@ -16,11 +16,11 @@ namespace MVC_Project.Controllers
             return View("index", CustomerList);
         }
 
-        public IActionResult GetCustomerById(string id)
+       // public IActionResult GetCustomerById(string id) { }
 
 
         
-        public IActionResult GetCustomerById(int id)
+        public IActionResult GetCustomerById(string id)
 
         {
             Customer cust = customer.GetCustomerById(id);

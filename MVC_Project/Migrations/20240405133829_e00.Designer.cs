@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Project.Migrations
 {
     [DbContext(typeof(BookStoreContext))]
-    [Migration("20240405073837_l")]
-    partial class l
+    [Migration("20240405133829_e00")]
+    partial class e00
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,11 +35,13 @@ namespace MVC_Project.Migrations
 
                     b.Property<string>("AuthorName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
 
                     b.Property<string>("Biography")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
@@ -51,6 +53,9 @@ namespace MVC_Project.Migrations
                     b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("isDeleted")
+                        .HasColumnType("bit");
 
                     b.HasKey("AuthorId");
 
@@ -241,6 +246,9 @@ namespace MVC_Project.Migrations
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("CategoryID")
+                        .HasColumnType("int");
+
                     b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -255,9 +263,17 @@ namespace MVC_Project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool?>("isDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("isOutOfStock")
+                        .HasColumnType("bit");
+
                     b.HasKey("BookId");
 
                     b.HasIndex("AuthorId");
+
+                    b.HasIndex("CategoryID");
 
                     b.ToTable("Books");
 
@@ -662,11 +678,8 @@ namespace MVC_Project.Migrations
 
             modelBuilder.Entity("MVC_Project.Customer", b =>
                 {
-                    b.Property<int>("CustomerId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CustomerId"));
+                    b.Property<string>("CustomerId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -678,6 +691,9 @@ namespace MVC_Project.Migrations
 
                     b.Property<string>("FullName")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImgURL")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
@@ -699,7 +715,7 @@ namespace MVC_Project.Migrations
                     b.HasData(
                         new
                         {
-                            CustomerId = 1,
+                            CustomerId = "1",
                             Address = "123 Main St, Anytown, USA",
                             Email = "john_doe@example.com",
                             FullName = "John Doe",
@@ -709,7 +725,7 @@ namespace MVC_Project.Migrations
                         },
                         new
                         {
-                            CustomerId = 2,
+                            CustomerId = "2",
                             Address = "456 Oak St, Anycity, USA",
                             Email = "jane_smith@example.com",
                             FullName = "Jane Smith",
@@ -719,7 +735,7 @@ namespace MVC_Project.Migrations
                         },
                         new
                         {
-                            CustomerId = 3,
+                            CustomerId = "3",
                             Address = "789 Oak St, Anytown, USA",
                             Email = "mike_jackson@example.com",
                             FullName = "Mike Jackson",
@@ -729,7 +745,7 @@ namespace MVC_Project.Migrations
                         },
                         new
                         {
-                            CustomerId = 4,
+                            CustomerId = "4",
                             Address = "321 Pine St, Anytown, USA",
                             Email = "sarah_adams@example.com",
                             FullName = "Sarah Adams",
@@ -739,7 +755,7 @@ namespace MVC_Project.Migrations
                         },
                         new
                         {
-                            CustomerId = 5,
+                            CustomerId = "5",
                             Address = "567 Maple St, Anytown, USA",
                             Email = "alex_miller@example.com",
                             FullName = "Alex Miller",
@@ -749,7 +765,7 @@ namespace MVC_Project.Migrations
                         },
                         new
                         {
-                            CustomerId = 6,
+                            CustomerId = "6",
                             Address = "246 Birch St, Anytown, USA",
                             Email = "emily_taylor@example.com",
                             FullName = "Emily Taylor",
@@ -759,7 +775,7 @@ namespace MVC_Project.Migrations
                         },
                         new
                         {
-                            CustomerId = 7,
+                            CustomerId = "7",
                             Address = "135 Cedar St, Anytown, USA",
                             Email = "ryan_carter@example.com",
                             FullName = "Ryan Carter",
@@ -769,7 +785,7 @@ namespace MVC_Project.Migrations
                         },
                         new
                         {
-                            CustomerId = 8,
+                            CustomerId = "8",
                             Address = "753 Walnut St, Anytown, USA",
                             Email = "lisa_wilson@example.com",
                             FullName = "Lisa Wilson",
@@ -779,7 +795,7 @@ namespace MVC_Project.Migrations
                         },
                         new
                         {
-                            CustomerId = 9,
+                            CustomerId = "9",
                             Address = "987 Birch St, Anytown, USA",
                             Email = "david_thompson@example.com",
                             FullName = "David Thompson",
@@ -789,7 +805,7 @@ namespace MVC_Project.Migrations
                         },
                         new
                         {
-                            CustomerId = 10,
+                            CustomerId = "10",
                             Address = "369 Oak St, Anytown, USA",
                             Email = "sophia_harris@example.com",
                             FullName = "Sophia Harris",
@@ -799,7 +815,7 @@ namespace MVC_Project.Migrations
                         },
                         new
                         {
-                            CustomerId = 11,
+                            CustomerId = "11",
                             Address = "456 Pine St, Othertown, Canada",
                             Email = "mark_johnson@example.com",
                             FullName = "Mark Johnson",
@@ -809,7 +825,7 @@ namespace MVC_Project.Migrations
                         },
                         new
                         {
-                            CustomerId = 12,
+                            CustomerId = "12",
                             Address = "789 Maple St, Anothertown, Australia",
                             Email = "emily_smith@example.com",
                             FullName = "Emily Smith",
@@ -819,7 +835,7 @@ namespace MVC_Project.Migrations
                         },
                         new
                         {
-                            CustomerId = 13,
+                            CustomerId = "13",
                             Address = "987 Elm St, Yetanothertown, United Kingdom",
                             Email = "alexander_brown@example.com",
                             FullName = "Alexander Brown",
@@ -829,7 +845,7 @@ namespace MVC_Project.Migrations
                         },
                         new
                         {
-                            CustomerId = 14,
+                            CustomerId = "14",
                             Address = "321 Cedar St, Differenttown, Germany",
                             Email = "olivia_davis@example.com",
                             FullName = "Olivia Davis",
@@ -839,7 +855,7 @@ namespace MVC_Project.Migrations
                         },
                         new
                         {
-                            CustomerId = 15,
+                            CustomerId = "15",
                             Address = "654 Oak St, Anotherdifferenttown, France",
                             Email = "william_taylor@example.com",
                             FullName = "William Taylor",
@@ -918,6 +934,54 @@ namespace MVC_Project.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("MVC_Project.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Category");
+                });
+
+            modelBuilder.Entity("MVC_Project.Models.Review", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BookID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CustomerID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("StarNum")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookID");
+
+                    b.HasIndex("CustomerID");
+
+                    b.ToTable("Reviews");
+                });
+
             modelBuilder.Entity("MVC_Project.Order", b =>
                 {
                     b.Property<int>("OrderId")
@@ -926,8 +990,9 @@ namespace MVC_Project.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"));
 
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("int");
+                    b.Property<string>("CustomerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
@@ -945,141 +1010,141 @@ namespace MVC_Project.Migrations
                         new
                         {
                             OrderId = 1,
-                            CustomerId = 1,
-                            OrderDate = new DateTime(2024, 4, 5, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(651),
+                            CustomerId = "1",
+                            OrderDate = new DateTime(2024, 4, 5, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7554),
                             TotalAmount = 10.99m
                         },
                         new
                         {
                             OrderId = 2,
-                            CustomerId = 2,
-                            OrderDate = new DateTime(2024, 4, 4, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(700),
+                            CustomerId = "2",
+                            OrderDate = new DateTime(2024, 4, 4, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7608),
                             TotalAmount = 25.00m
                         },
                         new
                         {
                             OrderId = 3,
-                            CustomerId = 3,
-                            OrderDate = new DateTime(2024, 4, 3, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(705),
+                            CustomerId = "3",
+                            OrderDate = new DateTime(2024, 4, 3, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7617),
                             TotalAmount = 18.50m
                         },
                         new
                         {
                             OrderId = 4,
-                            CustomerId = 4,
-                            OrderDate = new DateTime(2024, 4, 2, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(708),
+                            CustomerId = "4",
+                            OrderDate = new DateTime(2024, 4, 2, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7627),
                             TotalAmount = 32.75m
                         },
                         new
                         {
                             OrderId = 5,
-                            CustomerId = 5,
-                            OrderDate = new DateTime(2024, 4, 1, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(711),
+                            CustomerId = "5",
+                            OrderDate = new DateTime(2024, 4, 1, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7634),
                             TotalAmount = 14.99m
                         },
                         new
                         {
                             OrderId = 6,
-                            CustomerId = 6,
-                            OrderDate = new DateTime(2024, 3, 31, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(714),
+                            CustomerId = "6",
+                            OrderDate = new DateTime(2024, 3, 31, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7640),
                             TotalAmount = 20.25m
                         },
                         new
                         {
                             OrderId = 7,
-                            CustomerId = 7,
-                            OrderDate = new DateTime(2024, 3, 30, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(716),
+                            CustomerId = "7",
+                            OrderDate = new DateTime(2024, 3, 30, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7646),
                             TotalAmount = 27.50m
                         },
                         new
                         {
                             OrderId = 8,
-                            CustomerId = 8,
-                            OrderDate = new DateTime(2024, 3, 29, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(720),
+                            CustomerId = "8",
+                            OrderDate = new DateTime(2024, 3, 29, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7652),
                             TotalAmount = 45.75m
                         },
                         new
                         {
                             OrderId = 9,
-                            CustomerId = 9,
-                            OrderDate = new DateTime(2024, 3, 28, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(723),
+                            CustomerId = "9",
+                            OrderDate = new DateTime(2024, 3, 28, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7658),
                             TotalAmount = 62.99m
                         },
                         new
                         {
                             OrderId = 10,
-                            CustomerId = 10,
-                            OrderDate = new DateTime(2024, 3, 27, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(730),
+                            CustomerId = "10",
+                            OrderDate = new DateTime(2024, 3, 27, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7664),
                             TotalAmount = 28.50m
                         },
                         new
                         {
                             OrderId = 11,
-                            CustomerId = 11,
-                            OrderDate = new DateTime(2024, 3, 26, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(732),
+                            CustomerId = "11",
+                            OrderDate = new DateTime(2024, 3, 26, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7670),
                             TotalAmount = 35.99m
                         },
                         new
                         {
                             OrderId = 12,
-                            CustomerId = 12,
-                            OrderDate = new DateTime(2024, 3, 25, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(735),
+                            CustomerId = "12",
+                            OrderDate = new DateTime(2024, 3, 25, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7679),
                             TotalAmount = 52.25m
                         },
                         new
                         {
                             OrderId = 13,
-                            CustomerId = 13,
-                            OrderDate = new DateTime(2024, 3, 24, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(738),
+                            CustomerId = "13",
+                            OrderDate = new DateTime(2024, 3, 24, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7685),
                             TotalAmount = 75.99m
                         },
                         new
                         {
                             OrderId = 14,
-                            CustomerId = 14,
-                            OrderDate = new DateTime(2024, 3, 23, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(740),
+                            CustomerId = "14",
+                            OrderDate = new DateTime(2024, 3, 23, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7691),
                             TotalAmount = 42.75m
                         },
                         new
                         {
                             OrderId = 15,
-                            CustomerId = 15,
-                            OrderDate = new DateTime(2024, 3, 22, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(743),
+                            CustomerId = "15",
+                            OrderDate = new DateTime(2024, 3, 22, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7697),
                             TotalAmount = 55.50m
                         },
                         new
                         {
                             OrderId = 16,
-                            CustomerId = 12,
-                            OrderDate = new DateTime(2024, 3, 21, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(746),
+                            CustomerId = "12",
+                            OrderDate = new DateTime(2024, 3, 21, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7703),
                             TotalAmount = 38.25m
                         },
                         new
                         {
                             OrderId = 17,
-                            CustomerId = 10,
-                            OrderDate = new DateTime(2024, 3, 20, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(748),
+                            CustomerId = "10",
+                            OrderDate = new DateTime(2024, 3, 20, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7709),
                             TotalAmount = 49.99m
                         },
                         new
                         {
                             OrderId = 18,
-                            CustomerId = 8,
-                            OrderDate = new DateTime(2024, 3, 19, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(751),
+                            CustomerId = "8",
+                            OrderDate = new DateTime(2024, 3, 19, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7715),
                             TotalAmount = 65.75m
                         },
                         new
                         {
                             OrderId = 19,
-                            CustomerId = 6,
-                            OrderDate = new DateTime(2024, 3, 18, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(754),
+                            CustomerId = "6",
+                            OrderDate = new DateTime(2024, 3, 18, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7720),
                             TotalAmount = 80.50m
                         },
                         new
                         {
                             OrderId = 20,
-                            CustomerId = 10,
-                            OrderDate = new DateTime(2024, 3, 17, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(756),
+                            CustomerId = "10",
+                            OrderDate = new DateTime(2024, 3, 17, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7729),
                             TotalAmount = 95.25m
                         });
                 });
@@ -1416,7 +1481,32 @@ namespace MVC_Project.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("MVC_Project.Models.Category", "Category")
+                        .WithMany("Books")
+                        .HasForeignKey("CategoryID");
+
                     b.Navigation("Author");
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("MVC_Project.Models.Review", b =>
+                {
+                    b.HasOne("MVC_Project.Book", "Book")
+                        .WithMany("Reviews")
+                        .HasForeignKey("BookID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MVC_Project.Customer", "Customer")
+                        .WithMany("Reviews")
+                        .HasForeignKey("CustomerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("MVC_Project.Order", b =>
@@ -1505,9 +1595,21 @@ namespace MVC_Project.Migrations
                     b.Navigation("Books");
                 });
 
+            modelBuilder.Entity("MVC_Project.Book", b =>
+                {
+                    b.Navigation("Reviews");
+                });
+
             modelBuilder.Entity("MVC_Project.Customer", b =>
                 {
                     b.Navigation("Orders");
+
+                    b.Navigation("Reviews");
+                });
+
+            modelBuilder.Entity("MVC_Project.Models.Category", b =>
+                {
+                    b.Navigation("Books");
                 });
 
             modelBuilder.Entity("MVC_Project.Order", b =>

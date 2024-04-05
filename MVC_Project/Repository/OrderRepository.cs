@@ -105,7 +105,7 @@ namespace MVC_Project.Repository
 
             return orders;
         }
-        public List<OrderWithCustomerAndOrderListVM> GetOrderByCustomerId(int customerId)
+        public List<OrderWithCustomerAndOrderListVM> GetOrderByCustomerId(string customerId)
         {
             var orders = bookStoreContext.Orders
         .Where(o => o.CustomerId == customerId)
