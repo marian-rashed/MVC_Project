@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC_Project.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,12 +11,15 @@ namespace MVC_Project.Interfaces
     public interface IOrder
 
     {
-        List<Order> GetAllOrders();
-        Order GetOrderById(int id);
-        void InsertOrder(Order order);
+        List<OrderWithCustomerAndOrderListVM> GetAllOrdersWithCustomerAndOrderList();
+        OrderWithCustomerAndOrderListVM GetOrderByIdWithCustomerAndOrderList(int id);
+        void InsertOrder(OrderWithCustomerAndOrderListVM orderVM);
         void UpdateOrder(int id);
         void DeleteOrder(int id);
-        //List<Customer> GetCustomersOrder(int orderid);
         void Save();
+
+        List<OrderWithCustomerAndOrderListVM> GetOrdersByCustomerName(string customername);
+        List<OrderWithCustomerAndOrderListVM> GetOrderByCustomerId(int customerid);
+        
     }
 }
