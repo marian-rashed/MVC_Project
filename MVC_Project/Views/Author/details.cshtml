@@ -1,0 +1,103 @@
+﻿@model Author
+
+<section id="billboard">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pattern-overlay my-5 p-3">
+                    <div class="slider-item d-flex flex-md-row flex-column justify-content-around align-items-center">
+                        <div class="banner-content col-md-6">
+                            <h2 class="banner-title">@Model.AuthorName</h2>
+                            <p class="">
+                                @Model.Biography
+                            </p>
+                            <div class="col-md-6">
+
+                                <ul class="list-unstyled d-flex flex-row align-items-baseline justify-content-between">
+                                    <li class="">
+                                        <div>
+                                            <div class="fw-bold text-primary">BirthDate</div>
+                                            <div class="text-muted text-secondary">@Model.BirthDate.ToString("yyyy-MM-dd")</div>
+                                        </div>
+
+                                    </li>
+                                    <li class="">
+                                        <div>
+                                            <div class="fw-bold text-primary">Country</div>
+                                            <div class="text-muted text-secondary">@Model.Country</div>
+                                        </div>
+
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="btn-wrap">
+                                <a href="/author/index" class="btn btn-outline-accent btn-accent-arrow">
+                                    Browse Authors <i class="icon icon-ns-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-5 order-md-last order-first">
+                            <img src="@Model.ImageUrl" alt="banner" class="banner-image">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="featured-books" class="py-5 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="section-header align-center">
+                    <h2 class="section-title">Featured Books</h2>
+                </div>
+
+                <div class="product-list" data-aos="fade-up">
+                    <div class="row">
+
+                        @foreach (Book book in Model.Books)
+                        {
+                            <div class="col-md-4">
+                                <div class="product-item">
+                                    <figure class="product-style">
+                                        <img src="@book.ImageUrl" alt="Books" class="product-item">
+                                        <button type="button" class="add-to-cart" data-product-tile="add-to-cart">
+                                            Add to
+                                            Cart
+                                        </button>
+                                    </figure>
+                                    <figcaption>
+                                        <h3>@book.Title</h3>
+                                        <span>@Model.AuthorName</span>
+                                        <div class="item-price">$ @book.Price</div>
+                                    </figcaption>
+                                </div>
+                            </div>
+                        }
+
+                    </div><!--ft-books-slider-->
+                </div><!--grid-->
+
+
+            </div><!--inner-content-->
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="btn-wrap align-right">
+                    <a href="/book/index" class="btn-accent-arrow">
+                        View all Books <i class="icon icon-ns-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
