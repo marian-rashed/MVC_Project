@@ -1,8 +1,9 @@
-﻿using MVC_Project.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using MVC_Project.Interfaces;
 
 namespace MVC_Project.Repository
 {
-    public class BookRepository:IBook
+    public class BookRepository : IBook
     {
         BookStoreContext bookStoreContext;
         public BookRepository(BookStoreContext _bookStoreContext)
@@ -13,12 +14,12 @@ namespace MVC_Project.Repository
 
         public List<Book> GetAllBooks()
         {
-            List<Book> books = bookStoreContext.Books.ToList();
+            List<Book> books = bookStoreContext.Books.Include(b => b.Author).ToList();
             return books;
         }
         public Book GetBookById(int id)
         {
-            Book book = bookStoreContext.Books.FirstOrDefault(b => b.BookId == id);
+            Book book = bookStoreContext.Books.Include(b => b.Author).FirstOrDefault(b => b.BookId == id);
             return book;
         }
         public void InsertBook(Book book)
@@ -27,7 +28,7 @@ namespace MVC_Project.Repository
         }
         public void UpdateBook(int id)
         {
-            Book book = bookStoreContext.Books.FirstOrDefault(b => b.BookId == id);
+            Book book = bookStoreContext.Books.Include(b => b.Author).FirstOrDefault(b => b.BookId == id);
             bookStoreContext.Books.Update(book);
         }
         public void DeleteBook(int id)

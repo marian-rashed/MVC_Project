@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewData["Title"] = "GetBookById";
+}
+@model Book
+<div class="card">
+    <div class="card-header">@Model.Title</div>
+    <div class="card-body">@Model.Author.AuthorName</div>
+    <div class="card-body">@Model.Price</div>
+    <div class="card-footer">@Model.QuantityAvailable</div>
+    <div class="card-footer">@Model.ImageUrl</div>
+</div>
