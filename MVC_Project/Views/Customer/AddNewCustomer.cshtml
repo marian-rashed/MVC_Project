@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "AddNewCustomer";
+}
+
+<h1>AddNewCustomer</h1>
+
+@model Customer
+<form class="form form-control" asp-action="SaveCustomer" asp-controller="customer">
+    <label asp-for="Username"></label>
+    <input asp-for="Username" class="form form-control" />
+
+    <label asp-for="FullName"></label>
+    <input asp-for="FullName" class="form form-control" />
+
+    <label asp-for="PhoneNumber"></label>
+    <input asp-for="PhoneNumber" class="form form-control" />
+
+    <label asp-for="Address"></label>
+    <input asp-for="Address" class="form form-control" />
+
+    <label asp-for="Email"></label>
+    <input asp-for="Email" class="form form-control" />
+
+    <label asp-for="Password"></label>
+    <input asp-for="Password" class="form form-control" />
+
+    <input type="submit" class="btn btn-info" value="Add"   />
+</form>
