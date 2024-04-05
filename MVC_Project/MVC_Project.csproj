@@ -22,4 +22,15 @@
 
   </ItemGroup>
 
+  <ItemGroup>
+
+
+    <Folder Include="Views\Book\" />
+
+
+ 
+
+
+  </ItemGroup>
+
 </Project>
