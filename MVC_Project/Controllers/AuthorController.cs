@@ -6,7 +6,7 @@ namespace MVC_Project.Controllers
 {
 	public class AuthorController : Controller
 	{
-		IAuthor author;
+	    IAuthor author;
 		private readonly IWebHostEnvironment hostingEnvironment;
 		public AuthorController(IAuthor _author, IWebHostEnvironment _hostingEnvironment)
 		{
