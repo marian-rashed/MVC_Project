@@ -71,6 +71,15 @@ namespace MVC_Project.Controllers
 		}
 
 		//edit author
+
+		[HttpGet]
+		public IActionResult EditAuthor(int id)
+		{
+			author.UpdateAuthor(id);
+			return View("Edit");
+			
+		}
+
 		//delete author
 
 
