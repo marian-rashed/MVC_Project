@@ -4,6 +4,7 @@ using MVC_Project;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Project.Migrations
 {
     [DbContext(typeof(BookStoreContext))]
-    partial class BookStoreContextModelSnapshot : ModelSnapshot
+    [Migration("20240405114517_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1012,10 +1015,8 @@ namespace MVC_Project.Migrations
                         new
                         {
                             OrderId = 2,
-
                             CustomerId = "2",
                             OrderDate = new DateTime(2024, 4, 4, 13, 45, 17, 88, DateTimeKind.Local).AddTicks(1810),
-
                             TotalAmount = 25.00m
                         },
                         new
@@ -1070,7 +1071,6 @@ namespace MVC_Project.Migrations
                         new
                         {
                             OrderId = 10,
-
                             CustomerId = "10",
                             OrderDate = new DateTime(2024, 3, 27, 13, 45, 17, 88, DateTimeKind.Local).AddTicks(1868),
                             TotalAmount = 28.50m
@@ -1080,7 +1080,6 @@ namespace MVC_Project.Migrations
                             OrderId = 11,
                             CustomerId = "11",
                             OrderDate = new DateTime(2024, 3, 26, 13, 45, 17, 88, DateTimeKind.Local).AddTicks(1871),
-
                             TotalAmount = 35.99m
                         },
                         new
@@ -1121,7 +1120,6 @@ namespace MVC_Project.Migrations
                         new
                         {
                             OrderId = 17,
-
                             CustomerId = "10",
                             OrderDate = new DateTime(2024, 3, 20, 13, 45, 17, 88, DateTimeKind.Local).AddTicks(1890),
                             TotalAmount = 49.99m
@@ -1131,7 +1129,6 @@ namespace MVC_Project.Migrations
                             OrderId = 18,
                             CustomerId = "8",
                             OrderDate = new DateTime(2024, 3, 19, 13, 45, 17, 88, DateTimeKind.Local).AddTicks(1893),
-
                             TotalAmount = 65.75m
                         },
                         new
