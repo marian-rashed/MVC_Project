@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MVC_Project.Migrations
 {
     /// <inheritdoc />
-    public partial class final : Migration
+    public partial class l : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -370,26 +370,26 @@ namespace MVC_Project.Migrations
                 columns: new[] { "OrderId", "CustomerId", "OrderDate", "TotalAmount" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2024, 3, 31, 19, 46, 38, 385, DateTimeKind.Local).AddTicks(8530), 10.99m },
-                    { 2, 2, new DateTime(2024, 3, 30, 19, 46, 38, 385, DateTimeKind.Local).AddTicks(8577), 25.00m },
-                    { 3, 3, new DateTime(2024, 3, 29, 19, 46, 38, 385, DateTimeKind.Local).AddTicks(8581), 18.50m },
-                    { 4, 4, new DateTime(2024, 3, 28, 19, 46, 38, 385, DateTimeKind.Local).AddTicks(8584), 32.75m },
-                    { 5, 5, new DateTime(2024, 3, 27, 19, 46, 38, 385, DateTimeKind.Local).AddTicks(8588), 14.99m },
-                    { 6, 6, new DateTime(2024, 3, 26, 19, 46, 38, 385, DateTimeKind.Local).AddTicks(8591), 20.25m },
-                    { 7, 7, new DateTime(2024, 3, 25, 19, 46, 38, 385, DateTimeKind.Local).AddTicks(8593), 27.50m },
-                    { 8, 8, new DateTime(2024, 3, 24, 19, 46, 38, 385, DateTimeKind.Local).AddTicks(8596), 45.75m },
-                    { 9, 9, new DateTime(2024, 3, 23, 19, 46, 38, 385, DateTimeKind.Local).AddTicks(8599), 62.99m },
-                    { 10, 10, new DateTime(2024, 3, 22, 19, 46, 38, 385, DateTimeKind.Local).AddTicks(8603), 28.50m },
-                    { 11, 11, new DateTime(2024, 3, 21, 19, 46, 38, 385, DateTimeKind.Local).AddTicks(8606), 35.99m },
-                    { 12, 12, new DateTime(2024, 3, 20, 19, 46, 38, 385, DateTimeKind.Local).AddTicks(8609), 52.25m },
-                    { 13, 13, new DateTime(2024, 3, 19, 19, 46, 38, 385, DateTimeKind.Local).AddTicks(8612), 75.99m },
-                    { 14, 14, new DateTime(2024, 3, 18, 19, 46, 38, 385, DateTimeKind.Local).AddTicks(8615), 42.75m },
-                    { 15, 15, new DateTime(2024, 3, 17, 19, 46, 38, 385, DateTimeKind.Local).AddTicks(8618), 55.50m },
-                    { 16, 12, new DateTime(2024, 3, 16, 19, 46, 38, 385, DateTimeKind.Local).AddTicks(8621), 38.25m },
-                    { 17, 10, new DateTime(2024, 3, 15, 19, 46, 38, 385, DateTimeKind.Local).AddTicks(8623), 49.99m },
-                    { 18, 8, new DateTime(2024, 3, 14, 19, 46, 38, 385, DateTimeKind.Local).AddTicks(8626), 65.75m },
-                    { 19, 6, new DateTime(2024, 3, 13, 19, 46, 38, 385, DateTimeKind.Local).AddTicks(8629), 80.50m },
-                    { 20, 10, new DateTime(2024, 3, 12, 19, 46, 38, 385, DateTimeKind.Local).AddTicks(8632), 95.25m }
+                    { 1, 1, new DateTime(2024, 4, 5, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(651), 10.99m },
+                    { 2, 2, new DateTime(2024, 4, 4, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(700), 25.00m },
+                    { 3, 3, new DateTime(2024, 4, 3, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(705), 18.50m },
+                    { 4, 4, new DateTime(2024, 4, 2, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(708), 32.75m },
+                    { 5, 5, new DateTime(2024, 4, 1, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(711), 14.99m },
+                    { 6, 6, new DateTime(2024, 3, 31, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(714), 20.25m },
+                    { 7, 7, new DateTime(2024, 3, 30, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(716), 27.50m },
+                    { 8, 8, new DateTime(2024, 3, 29, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(720), 45.75m },
+                    { 9, 9, new DateTime(2024, 3, 28, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(723), 62.99m },
+                    { 10, 10, new DateTime(2024, 3, 27, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(730), 28.50m },
+                    { 11, 11, new DateTime(2024, 3, 26, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(732), 35.99m },
+                    { 12, 12, new DateTime(2024, 3, 25, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(735), 52.25m },
+                    { 13, 13, new DateTime(2024, 3, 24, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(738), 75.99m },
+                    { 14, 14, new DateTime(2024, 3, 23, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(740), 42.75m },
+                    { 15, 15, new DateTime(2024, 3, 22, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(743), 55.50m },
+                    { 16, 12, new DateTime(2024, 3, 21, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(746), 38.25m },
+                    { 17, 10, new DateTime(2024, 3, 20, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(748), 49.99m },
+                    { 18, 8, new DateTime(2024, 3, 19, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(751), 65.75m },
+                    { 19, 6, new DateTime(2024, 3, 18, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(754), 80.50m },
+                    { 20, 10, new DateTime(2024, 3, 17, 9, 38, 34, 755, DateTimeKind.Local).AddTicks(756), 95.25m }
                 });
 
             migrationBuilder.InsertData(
@@ -398,7 +398,25 @@ namespace MVC_Project.Migrations
                 values: new object[,]
                 {
                     { 1, 1, 1, 10.99m, 1 },
-                    { 2, 2, 2, 12.50m, 2 }
+                    { 2, 2, 2, 12.50m, 2 },
+                    { 3, 3, 3, 9.99m, 1 },
+                    { 4, 4, 4, 12.50m, 3 },
+                    { 5, 5, 5, 11.99m, 1 },
+                    { 6, 6, 6, 14.99m, 2 },
+                    { 7, 7, 7, 16.99m, 1 },
+                    { 8, 8, 8, 13.99m, 2 },
+                    { 9, 9, 9, 15.99m, 1 },
+                    { 10, 10, 10, 14.50m, 2 },
+                    { 11, 11, 11, 11.99m, 3 },
+                    { 12, 12, 12, 10.99m, 2 },
+                    { 13, 13, 13, 12.50m, 1 },
+                    { 14, 14, 14, 15.99m, 2 },
+                    { 15, 15, 15, 12.99m, 1 },
+                    { 16, 16, 16, 9.99m, 3 },
+                    { 17, 17, 17, 10.99m, 2 },
+                    { 18, 18, 18, 8.99m, 1 },
+                    { 19, 19, 19, 11.50m, 2 },
+                    { 20, 20, 20, 7.99m, 3 }
                 });
 
             migrationBuilder.CreateIndex(

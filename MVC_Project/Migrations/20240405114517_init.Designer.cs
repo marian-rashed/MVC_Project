@@ -4,6 +4,7 @@ using MVC_Project;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Project.Migrations
 {
     [DbContext(typeof(BookStoreContext))]
-    partial class BookStoreContextModelSnapshot : ModelSnapshot
+    [Migration("20240405114517_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -680,9 +683,6 @@ namespace MVC_Project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -707,10 +707,6 @@ namespace MVC_Project.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CustomerId");
-
-                    b.HasIndex("ApplicationUserId")
-                        .IsUnique()
-                        .HasFilter("[ApplicationUserId] IS NOT NULL");
 
                     b.ToTable("Customers");
 
@@ -883,9 +879,6 @@ namespace MVC_Project.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CustomerID")
-                        .HasColumnType("int");
-
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -1022,10 +1015,8 @@ namespace MVC_Project.Migrations
                         new
                         {
                             OrderId = 2,
-
                             CustomerId = "2",
                             OrderDate = new DateTime(2024, 4, 4, 13, 45, 17, 88, DateTimeKind.Local).AddTicks(1810),
-
                             TotalAmount = 25.00m
                         },
                         new
@@ -1080,7 +1071,6 @@ namespace MVC_Project.Migrations
                         new
                         {
                             OrderId = 10,
-
                             CustomerId = "10",
                             OrderDate = new DateTime(2024, 3, 27, 13, 45, 17, 88, DateTimeKind.Local).AddTicks(1868),
                             TotalAmount = 28.50m
@@ -1090,7 +1080,6 @@ namespace MVC_Project.Migrations
                             OrderId = 11,
                             CustomerId = "11",
                             OrderDate = new DateTime(2024, 3, 26, 13, 45, 17, 88, DateTimeKind.Local).AddTicks(1871),
-
                             TotalAmount = 35.99m
                         },
                         new
@@ -1131,7 +1120,6 @@ namespace MVC_Project.Migrations
                         new
                         {
                             OrderId = 17,
-
                             CustomerId = "10",
                             OrderDate = new DateTime(2024, 3, 20, 13, 45, 17, 88, DateTimeKind.Local).AddTicks(1890),
                             TotalAmount = 49.99m
@@ -1141,7 +1129,6 @@ namespace MVC_Project.Migrations
                             OrderId = 18,
                             CustomerId = "8",
                             OrderDate = new DateTime(2024, 3, 19, 13, 45, 17, 88, DateTimeKind.Local).AddTicks(1893),
-
                             TotalAmount = 65.75m
                         },
                         new
@@ -1520,15 +1507,6 @@ namespace MVC_Project.Migrations
                     b.Navigation("Customer");
                 });
 
-            modelBuilder.Entity("MVC_Project.Customer", b =>
-                {
-                    b.HasOne("MVC_Project.Models.ApplicationUser", "ApplicationUser")
-                        .WithOne("Customer")
-                        .HasForeignKey("MVC_Project.Customer", "ApplicationUserId");
-
-                    b.Navigation("ApplicationUser");
-                });
-
             modelBuilder.Entity("MVC_Project.Order", b =>
                 {
                     b.HasOne("MVC_Project.Customer", "Customer")
@@ -1630,11 +1608,6 @@ namespace MVC_Project.Migrations
             modelBuilder.Entity("MVC_Project.Models.Category", b =>
                 {
                     b.Navigation("Books");
-                });
-
-            modelBuilder.Entity("MVC_Project.Models.ApplicationUser", b =>
-                {
-                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("MVC_Project.Order", b =>

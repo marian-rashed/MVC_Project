@@ -1,4 +1,5 @@
-﻿using MVC_Project.Interfaces;
+﻿using Microsoft.AspNetCore.Mvc;
+using MVC_Project.Interfaces;
 
 namespace MVC_Project.Repository
 {
@@ -50,5 +51,18 @@ namespace MVC_Project.Repository
             Author author = bookStoreContext.Authors.FirstOrDefault(a => a.AuthorId == id);
             bookStoreContext.Authors.Update(author);
         }
+
+        public Author GetAuthorByName(string name) 
+        { 
+            Author author=bookStoreContext.Authors.FirstOrDefault(a=>a.AuthorName == name);
+            return author;
+        }
+
+        public List<Author> GetAuthorsByName(string name)
+        {
+            var authors = bookStoreContext.Authors.Where(a => a.AuthorName.Contains(name)).ToList();
+            return authors;
+        }
+        
     }
 }

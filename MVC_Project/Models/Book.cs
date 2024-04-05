@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MVC_Project.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MVC_Project
 {
@@ -17,10 +13,19 @@ namespace MVC_Project
 
         [ForeignKey("Author")]
         public int AuthorId { get; set; }
-        public Author Author { get; set; }
+        public Author? Author { get; set; }
 
         public decimal Price { get; set; }
         public string ImageUrl { get; set; }
         public int QuantityAvailable { get; set; }
+
+        [ForeignKey("Category")]
+        public int? CategoryID { get; set; }
+        public Category? Category { get; set; }
+
+        public ICollection<Review> Reviews { get; set;}
+
+       public bool? isOutOfStock { get; set; }
+       public bool? isDeleted { get; set; }
     }
 }

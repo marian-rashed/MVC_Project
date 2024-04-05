@@ -12,11 +12,15 @@ namespace MVC_Project
     public class Customer
     {
         [Key]
-        public int CustomerId { get; set; }
-
+        public string CustomerId { get; set; }
+        public Customer()
+        {
+                CustomerId = Guid.NewGuid().ToString();
+        }
+        public string? ImgURL { get; set; }
         public string Username { get; set; }
 
-        public string Password { get; set; } 
+        public string Password { get; set; }
 
         public string Email { get; set; }
 

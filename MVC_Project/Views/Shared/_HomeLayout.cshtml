@@ -21,6 +21,7 @@
 	<link rel="stylesheet" type="text/css" href="/icomoon/icomoon.css">
 	<link rel="stylesheet" type="text/css" href="/css/vendor.css">
 	<link rel="stylesheet" type="text/css" href="/style.css">
+	
 
 </head>
 
@@ -67,12 +68,12 @@
 							</a>
 						
 							}
-							@if (User.IsInRole("Admin") == true)
-							{
+							
+							
 								<a href="/Role/AddRole" class="user-account for-buy">
 									<i class="icon">&#x1F512;</i><span>Add Role</span>
 								</a>
-							}
+							
 							<a href="#" class="cart for-buy">
 								<i class="icon icon-clipboard"></i><span>
 									Cart:(0
@@ -86,10 +87,14 @@
 									<a href="#" class="search-button search-toggle" data-selector="#header-wrap">
 										<i class="icon icon-search"></i>
 									</a>
-									<form role="search" method="get" class="search-box">
-										<input class="search-field text search-input" placeholder="Search"
+									@using (Html.BeginForm("Search", "Home", FormMethod.Get))
+										{
+									<form role="search" method="get" class="search-box ">
+										<input class="search-field text search-input" name="query" placeholder="Search"
 											   type="search">
+								
 									</form>
+										}
 								</div>
 							</div>
 
@@ -188,6 +193,8 @@
 		</header>
 
 	</div><!--header-wrap-->
+	
+
 
 	<div>
 		@RenderBody()

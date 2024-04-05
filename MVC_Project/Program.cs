@@ -23,6 +23,14 @@ namespace MVC_Project
                 options.UseSqlServer(builder.Configuration.GetConnectionString("cs"));
             });
             builder.Services.AddScoped<IAuthor,AuthorRepository>();
+            builder.Services.AddScoped<IBook,BookRepository>();
+            builder.Services.AddScoped<IOrder, OrderRepository>();
+            builder.Services.AddScoped<IOrderItem, OrderItemsRepository>();
+            builder.Services.AddScoped<ICustomer, CustomerRepository>();
+
+
+
+
 
             builder.Services.AddDbContext<BookStoreContext>(options =>
             {
