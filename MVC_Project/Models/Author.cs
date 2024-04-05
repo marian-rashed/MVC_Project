@@ -22,6 +22,8 @@ namespace MVC_Project
 
         public string ImageUrl { get; set; }
 
+        public bool? isDeleted { get; set; }
+
         public ICollection<Book> Books { get; set; }
     }
 }
