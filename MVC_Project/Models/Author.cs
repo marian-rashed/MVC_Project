@@ -16,7 +16,7 @@ namespace MVC_Project
         [RegularExpression(@"^[A-Za-z ]+$", ErrorMessage = "Name must be Letters only")]
         public string AuthorName { get; set; }
 
-        [MaxLength(100), MinLength(50)]
+        [MaxLength(1000), MinLength(50)]
         public string Biography { get; set; }
 
         public DateTime BirthDate { get; set; }

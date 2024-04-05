@@ -47,6 +47,7 @@ namespace MVC_Project
                    options.Password.RequireDigit= false;
 
                }).AddEntityFrameworkStores<BookStoreContext>();
+            
             builder.Services.AddControllersWithViews();
             var app = builder.Build();
 
