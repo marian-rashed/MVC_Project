@@ -19,7 +19,7 @@ namespace MVC_Project.Interfaces
         void Save();
 
         List<OrderWithCustomerAndOrderListVM> GetOrdersByCustomerName(string customername);
-        List<OrderWithCustomerAndOrderListVM> GetOrderByCustomerId(int customerid);
+        List<OrderWithCustomerAndOrderListVM> GetOrderByCustomerId(string customerid);
         
     }
 }

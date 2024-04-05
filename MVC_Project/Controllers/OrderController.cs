@@ -70,7 +70,7 @@ namespace MVC_Project.Controllers
             List<OrderWithCustomerAndOrderListVM> orders = orderRepository.GetOrdersByCustomerName(customerName);
             return View("GetOrdersByCustomerName", orders);
         }
-        public IActionResult GetOrderByCustomerId(int customerId)
+        public IActionResult GetOrderByCustomerId(string customerId)
         {
             List<OrderWithCustomerAndOrderListVM> orders = orderRepository.GetOrderByCustomerId(customerId);
             return View("GetOrderByCustomerId", orders);
