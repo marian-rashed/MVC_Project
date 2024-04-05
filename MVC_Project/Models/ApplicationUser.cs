@@ -7,7 +7,7 @@ namespace MVC_Project.Models
     {
         public string Address {  get; set; }
         [ForeignKey("Customer")]
-        public int CustomerID; 
+        public String? CustomerID; 
         public Customer? Customer { get; set; }
     }
 }

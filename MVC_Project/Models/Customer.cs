@@ -28,7 +28,7 @@ namespace MVC_Project
 
         public string Address { get; set; }
 
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
         public ICollection<Order> Orders { get; set; }
 		[ForeignKey("ApplicationUser")]
