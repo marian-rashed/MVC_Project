@@ -1,0 +1,11 @@
+﻿@model List<Customer>
+
+@foreach (var customer in Model)
+{
+    <div class="card">
+        <div class="card-header">@customer.FullName</div>
+        <div class="card-body">@customer.PhoneNumber</div>
+        <div class="card-body">@customer.Email</div>
+        <div class="card-footer">@customer.Address</div>
+    </div>
+}

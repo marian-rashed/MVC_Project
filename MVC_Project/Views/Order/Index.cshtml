@@ -1,0 +1,80 @@
+﻿@model IEnumerable<MVC_Project.ViewModel.OrderWithCustomerAndOrderListVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<a href="\Order\AddNewOrder">AddNewOrder</a>
+<style>
+    .card-img-top {
+        width: 100%;
+        height: 50vh;
+        object-fit: contain;
+    }
+</style>
+
+<nav class="AlphabetNav">
+    <a href="#A">A</a>
+    <a href="#B">B</a>
+    <a href="#C">C</a>
+    <a href="#D">D</a>
+    <a href="#E">E</a>
+    <a href="#F">F</a>
+    <a href="#G">G</a>
+    <a href="#H">H</a>
+    <a href="#I">I</a>
+    <a href="#J">J</a>
+    <a href="#K">K</a>
+    <a href="#L">L</a>
+    <a href="#M">M</a>
+    <a href="#N">N</a>
+    <a href="#O">O</a>
+    <a href="#P">P</a>
+    <a href="#Q">Q</a>
+    <a href="#R">R</a>
+    <a href="#S">S</a>
+    <a href="#T">T</a>
+    <a href="#U">U</a>
+    <a href="#V">V</a>
+    <a href="#W">W</a>
+    <a href="#X">X</a>
+    <a href="#Y">Y</a>
+    <a href="#Z">Z</a>
+</nav>
+
+<div class="container-fluid">
+    <div class="row row-cols-md-2">
+        @foreach (var orderVM in Model)
+        {
+            <div class="col mb-2">
+                <div class="card w-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Order ID: @orderVM.OrderId</h5>
+                        <p class="card-text">Customer Name: @orderVM.Customer.FullName</p>
+                        <p class="card-text">Order Date: @orderVM.OrderDate.ToShortDateString()</p>
+                        <p class="card-text">Total Amount: @orderVM.TotalAmount.ToString("C")</p>
+                        @if (orderVM.OrderItems.Any())
+                        {
+                            <h6>Order Items:</h6>
+                            <ul>
+                                @foreach (var orderItem in orderVM.OrderItems)
+                                {
+                                    <li>@orderItem.Book.Title  -  @orderItem.Quantity </li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <p>No items in this order.</p>
+                        }
+                        <a href="/order/GetOrderById/@orderVM.OrderId" class="btn btn-primary">See Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/js/authorIndexScript.js"></script>
+<link rel="stylesheet" href="/css/AuthorIndex.css" />
