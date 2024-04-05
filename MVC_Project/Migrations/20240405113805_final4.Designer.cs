@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Project.Migrations
 {
     [DbContext(typeof(BookStoreContext))]
-    [Migration("20240404223522_final3")]
-    partial class final3
+    [Migration("20240405113805_final4")]
+    partial class final4
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -688,7 +688,6 @@ namespace MVC_Project.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
@@ -956,140 +955,140 @@ namespace MVC_Project.Migrations
                         {
                             OrderId = 1,
                             CustomerId = 1,
-                            OrderDate = new DateTime(2024, 4, 5, 0, 35, 18, 84, DateTimeKind.Local).AddTicks(5101),
+                            OrderDate = new DateTime(2024, 4, 5, 13, 38, 2, 110, DateTimeKind.Local).AddTicks(7952),
                             TotalAmount = 10.99m
                         },
                         new
                         {
                             OrderId = 2,
                             CustomerId = 2,
-                            OrderDate = new DateTime(2024, 4, 4, 0, 35, 18, 84, DateTimeKind.Local).AddTicks(5153),
+                            OrderDate = new DateTime(2024, 4, 4, 13, 38, 2, 110, DateTimeKind.Local).AddTicks(8001),
                             TotalAmount = 25.00m
                         },
                         new
                         {
                             OrderId = 3,
                             CustomerId = 3,
-                            OrderDate = new DateTime(2024, 4, 3, 0, 35, 18, 84, DateTimeKind.Local).AddTicks(5162),
+                            OrderDate = new DateTime(2024, 4, 3, 13, 38, 2, 110, DateTimeKind.Local).AddTicks(8006),
                             TotalAmount = 18.50m
                         },
                         new
                         {
                             OrderId = 4,
                             CustomerId = 4,
-                            OrderDate = new DateTime(2024, 4, 2, 0, 35, 18, 84, DateTimeKind.Local).AddTicks(5166),
+                            OrderDate = new DateTime(2024, 4, 2, 13, 38, 2, 110, DateTimeKind.Local).AddTicks(8010),
                             TotalAmount = 32.75m
                         },
                         new
                         {
                             OrderId = 5,
                             CustomerId = 5,
-                            OrderDate = new DateTime(2024, 4, 1, 0, 35, 18, 84, DateTimeKind.Local).AddTicks(5171),
+                            OrderDate = new DateTime(2024, 4, 1, 13, 38, 2, 110, DateTimeKind.Local).AddTicks(8014),
                             TotalAmount = 14.99m
                         },
                         new
                         {
                             OrderId = 6,
                             CustomerId = 6,
-                            OrderDate = new DateTime(2024, 3, 31, 0, 35, 18, 84, DateTimeKind.Local).AddTicks(5174),
+                            OrderDate = new DateTime(2024, 3, 31, 13, 38, 2, 110, DateTimeKind.Local).AddTicks(8017),
                             TotalAmount = 20.25m
                         },
                         new
                         {
                             OrderId = 7,
                             CustomerId = 7,
-                            OrderDate = new DateTime(2024, 3, 30, 0, 35, 18, 84, DateTimeKind.Local).AddTicks(5178),
+                            OrderDate = new DateTime(2024, 3, 30, 13, 38, 2, 110, DateTimeKind.Local).AddTicks(8021),
                             TotalAmount = 27.50m
                         },
                         new
                         {
                             OrderId = 8,
                             CustomerId = 8,
-                            OrderDate = new DateTime(2024, 3, 29, 0, 35, 18, 84, DateTimeKind.Local).AddTicks(5181),
+                            OrderDate = new DateTime(2024, 3, 29, 13, 38, 2, 110, DateTimeKind.Local).AddTicks(8024),
                             TotalAmount = 45.75m
                         },
                         new
                         {
                             OrderId = 9,
                             CustomerId = 9,
-                            OrderDate = new DateTime(2024, 3, 28, 0, 35, 18, 84, DateTimeKind.Local).AddTicks(5184),
+                            OrderDate = new DateTime(2024, 3, 28, 13, 38, 2, 110, DateTimeKind.Local).AddTicks(8027),
                             TotalAmount = 62.99m
                         },
                         new
                         {
                             OrderId = 10,
                             CustomerId = 10,
-                            OrderDate = new DateTime(2024, 3, 27, 0, 35, 18, 84, DateTimeKind.Local).AddTicks(5187),
+                            OrderDate = new DateTime(2024, 3, 27, 13, 38, 2, 110, DateTimeKind.Local).AddTicks(8030),
                             TotalAmount = 28.50m
                         },
                         new
                         {
                             OrderId = 11,
                             CustomerId = 11,
-                            OrderDate = new DateTime(2024, 3, 26, 0, 35, 18, 84, DateTimeKind.Local).AddTicks(5191),
+                            OrderDate = new DateTime(2024, 3, 26, 13, 38, 2, 110, DateTimeKind.Local).AddTicks(8033),
                             TotalAmount = 35.99m
                         },
                         new
                         {
                             OrderId = 12,
                             CustomerId = 12,
-                            OrderDate = new DateTime(2024, 3, 25, 0, 35, 18, 84, DateTimeKind.Local).AddTicks(5194),
+                            OrderDate = new DateTime(2024, 3, 25, 13, 38, 2, 110, DateTimeKind.Local).AddTicks(8036),
                             TotalAmount = 52.25m
                         },
                         new
                         {
                             OrderId = 13,
                             CustomerId = 13,
-                            OrderDate = new DateTime(2024, 3, 24, 0, 35, 18, 84, DateTimeKind.Local).AddTicks(5197),
+                            OrderDate = new DateTime(2024, 3, 24, 13, 38, 2, 110, DateTimeKind.Local).AddTicks(8039),
                             TotalAmount = 75.99m
                         },
                         new
                         {
                             OrderId = 14,
                             CustomerId = 14,
-                            OrderDate = new DateTime(2024, 3, 23, 0, 35, 18, 84, DateTimeKind.Local).AddTicks(5200),
+                            OrderDate = new DateTime(2024, 3, 23, 13, 38, 2, 110, DateTimeKind.Local).AddTicks(8042),
                             TotalAmount = 42.75m
                         },
                         new
                         {
                             OrderId = 15,
                             CustomerId = 15,
-                            OrderDate = new DateTime(2024, 3, 22, 0, 35, 18, 84, DateTimeKind.Local).AddTicks(5203),
+                            OrderDate = new DateTime(2024, 3, 22, 13, 38, 2, 110, DateTimeKind.Local).AddTicks(8045),
                             TotalAmount = 55.50m
                         },
                         new
                         {
                             OrderId = 16,
                             CustomerId = 12,
-                            OrderDate = new DateTime(2024, 3, 21, 0, 35, 18, 84, DateTimeKind.Local).AddTicks(5206),
+                            OrderDate = new DateTime(2024, 3, 21, 13, 38, 2, 110, DateTimeKind.Local).AddTicks(8048),
                             TotalAmount = 38.25m
                         },
                         new
                         {
                             OrderId = 17,
                             CustomerId = 10,
-                            OrderDate = new DateTime(2024, 3, 20, 0, 35, 18, 84, DateTimeKind.Local).AddTicks(5209),
+                            OrderDate = new DateTime(2024, 3, 20, 13, 38, 2, 110, DateTimeKind.Local).AddTicks(8052),
                             TotalAmount = 49.99m
                         },
                         new
                         {
                             OrderId = 18,
                             CustomerId = 8,
-                            OrderDate = new DateTime(2024, 3, 19, 0, 35, 18, 84, DateTimeKind.Local).AddTicks(5212),
+                            OrderDate = new DateTime(2024, 3, 19, 13, 38, 2, 110, DateTimeKind.Local).AddTicks(8055),
                             TotalAmount = 65.75m
                         },
                         new
                         {
                             OrderId = 19,
                             CustomerId = 6,
-                            OrderDate = new DateTime(2024, 3, 18, 0, 35, 18, 84, DateTimeKind.Local).AddTicks(5216),
+                            OrderDate = new DateTime(2024, 3, 18, 13, 38, 2, 110, DateTimeKind.Local).AddTicks(8058),
                             TotalAmount = 80.50m
                         },
                         new
                         {
                             OrderId = 20,
                             CustomerId = 10,
-                            OrderDate = new DateTime(2024, 3, 17, 0, 35, 18, 84, DateTimeKind.Local).AddTicks(5220),
+                            OrderDate = new DateTime(2024, 3, 17, 13, 38, 2, 110, DateTimeKind.Local).AddTicks(8062),
                             TotalAmount = 95.25m
                         });
                 });
@@ -1138,6 +1137,150 @@ namespace MVC_Project.Migrations
                             OrderId = 2,
                             PricePerUnit = 12.50m,
                             Quantity = 2
+                        },
+                        new
+                        {
+                            OrderItemId = 3,
+                            BookId = 3,
+                            OrderId = 3,
+                            PricePerUnit = 9.99m,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            OrderItemId = 4,
+                            BookId = 4,
+                            OrderId = 4,
+                            PricePerUnit = 12.50m,
+                            Quantity = 3
+                        },
+                        new
+                        {
+                            OrderItemId = 5,
+                            BookId = 5,
+                            OrderId = 5,
+                            PricePerUnit = 11.99m,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            OrderItemId = 6,
+                            BookId = 6,
+                            OrderId = 6,
+                            PricePerUnit = 14.99m,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            OrderItemId = 7,
+                            BookId = 7,
+                            OrderId = 7,
+                            PricePerUnit = 16.99m,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            OrderItemId = 8,
+                            BookId = 8,
+                            OrderId = 8,
+                            PricePerUnit = 13.99m,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            OrderItemId = 9,
+                            BookId = 9,
+                            OrderId = 9,
+                            PricePerUnit = 15.99m,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            OrderItemId = 10,
+                            BookId = 10,
+                            OrderId = 10,
+                            PricePerUnit = 14.50m,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            OrderItemId = 11,
+                            BookId = 11,
+                            OrderId = 11,
+                            PricePerUnit = 11.99m,
+                            Quantity = 3
+                        },
+                        new
+                        {
+                            OrderItemId = 12,
+                            BookId = 12,
+                            OrderId = 12,
+                            PricePerUnit = 10.99m,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            OrderItemId = 13,
+                            BookId = 13,
+                            OrderId = 13,
+                            PricePerUnit = 12.50m,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            OrderItemId = 14,
+                            BookId = 14,
+                            OrderId = 14,
+                            PricePerUnit = 15.99m,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            OrderItemId = 15,
+                            BookId = 15,
+                            OrderId = 15,
+                            PricePerUnit = 12.99m,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            OrderItemId = 16,
+                            BookId = 16,
+                            OrderId = 16,
+                            PricePerUnit = 9.99m,
+                            Quantity = 3
+                        },
+                        new
+                        {
+                            OrderItemId = 17,
+                            BookId = 17,
+                            OrderId = 17,
+                            PricePerUnit = 10.99m,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            OrderItemId = 18,
+                            BookId = 18,
+                            OrderId = 18,
+                            PricePerUnit = 8.99m,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            OrderItemId = 19,
+                            BookId = 19,
+                            OrderId = 19,
+                            PricePerUnit = 11.50m,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            OrderItemId = 20,
+                            BookId = 20,
+                            OrderId = 20,
+                            PricePerUnit = 7.99m,
+                            Quantity = 3
                         });
                 });
 

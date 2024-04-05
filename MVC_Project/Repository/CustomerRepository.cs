@@ -43,7 +43,8 @@ namespace MVC_Project.Repository
         {
             bookStoreContext.Customers.Add(customer);
         }
+		
 
 
-    }
+	}
 }
