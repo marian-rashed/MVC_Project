@@ -8,5 +8,15 @@ namespace MVC_Project.Controllers
         {
             return View();
         }
+        //list<order>
+        //get order by customer name
+
+        //get order by customer id
+
+        //save order to database
+
+
+
+
     }
 }
