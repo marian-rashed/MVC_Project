@@ -28,6 +28,9 @@
 
     <Folder Include="Views\Book\" />
 
+
+    <Folder Include="Views\Book\" />
+
   </ItemGroup>
 
 </Project>

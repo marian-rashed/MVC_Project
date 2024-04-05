@@ -10,11 +10,13 @@ namespace MVC_Project
 {
     public class Order
     {
+        public Order() { CustomerId = Guid.NewGuid().ToString(); }
+
         [Key]
         public int OrderId { get; set; }
 
         [ForeignKey("Customer")]
-        public int CustomerId { get; set; }
+        public string CustomerId { get; set; }
         public Customer Customer { get; set; }
 
         public DateTime OrderDate { get; set; }
