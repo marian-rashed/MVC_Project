@@ -21,6 +21,35 @@
 	<link rel="stylesheet" type="text/css" href="/icomoon/icomoon.css">
 	<link rel="stylesheet" type="text/css" href="/css/vendor.css">
 	<link rel="stylesheet" type="text/css" href="/style.css">
+	<style>
+		.search-section {
+			text-align: center;
+			margin-top: 20px;
+		}
+
+			.search-section input[type="text"] {
+				padding: 10px;
+				width: 300px;
+				border-radius: 5px;
+				border: 1px solid #ccc;
+				font-size: 16px;
+			}
+
+			.search-section button {
+				padding: 10px 20px;
+				background-color: #007bff;
+				color: #fff;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+				font-size: 16px;
+			}
+
+				.search-section button:hover {
+					background-color: #0056b3;
+				}
+
+	</style>
 
 </head>
 
@@ -188,6 +217,14 @@
 		</header>
 
 	</div><!--header-wrap-->
+	@using (Html.BeginForm("Search", "Home", FormMethod.Get))
+	{
+		<div class="search-section">
+			<input type="text" name="query" placeholder="Search...">
+			<button type="submit">Search</button>
+		</div>
+	}
+
 
 	<div>
 		@RenderBody()

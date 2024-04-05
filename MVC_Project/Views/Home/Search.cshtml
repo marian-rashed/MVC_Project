@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Search";
+}
+@model List<Author> // Define the model type that the view expects
+
+@{
+    Layout = null; // Set layout to null if you don't want to use a shared layout
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <div>
+        @foreach (var author in Model)
+        {
+            <div class="card">
+                <div class="card-header">@author.AuthorName</div>
+                <div class="card-body">@author.Biography</div>
+                <div class="card-body">@author.BirthDate</div>
+                <div class="card-footer">@author.Country</div>
+            </div>
+        }
+    </div>
+</body>
+</html>
+
+
+
