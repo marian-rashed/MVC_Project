@@ -31,7 +31,7 @@ namespace MVC_Project.Controllers
         [HttpPost]
         public IActionResult SaveBook(Book boo)
         {
-            if (ModelState.IsValid == false)
+            if (boo.Title==null ||boo.Price==0||boo.AuthorId==0||boo.QuantityAvailable==0)
             {
                 return View("AddNewBook", boo);
             }

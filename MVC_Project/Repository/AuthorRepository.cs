@@ -49,7 +49,18 @@ namespace MVC_Project.Repository
         public void UpdateAuthor(int id)
         {
             Author author = bookStoreContext.Authors.FirstOrDefault(a => a.AuthorId == id);
-            bookStoreContext.Authors.Update(author);
+            Author auth = new Author()
+            {
+                AuthorName=author.AuthorName,
+                AuthorId=author.AuthorId,
+                Biography=author.Biography,
+                BirthDate=author.BirthDate,
+                Country=author.Country,
+                ImageUrl=author.ImageUrl,
+                Books=author.Books,
+            };
+            //return auth;
+            bookStoreContext.SaveChanges();
         }
 
         public Author GetAuthorByName(string name) 
