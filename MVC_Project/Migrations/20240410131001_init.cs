@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MVC_Project.Migrations
 {
     /// <inheritdoc />
-    public partial class e00 : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,6 +33,7 @@ namespace MVC_Project.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CustomerID = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -82,24 +83,6 @@ namespace MVC_Project.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Category", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Customers",
-                columns: table => new
-                {
-                    CustomerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ImgURL = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Customers", x => x.CustomerId);
                 });
 
             migrationBuilder.CreateTable(
@@ -206,6 +189,30 @@ namespace MVC_Project.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Customers",
+                columns: table => new
+                {
+                    CustomerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ImgURL = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Customers", x => x.CustomerId);
+                    table.ForeignKey(
+                        name: "FK_Customers_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -344,24 +351,24 @@ namespace MVC_Project.Migrations
 
             migrationBuilder.InsertData(
                 table: "Customers",
-                columns: new[] { "CustomerId", "Address", "Email", "FullName", "ImgURL", "Password", "PhoneNumber", "Username" },
+                columns: new[] { "CustomerId", "Address", "ApplicationUserId", "Email", "FullName", "ImgURL", "Password", "PhoneNumber", "Username" },
                 values: new object[,]
                 {
-                    { "1", "123 Main St, Anytown, USA", "john_doe@example.com", "John Doe", null, "password123", "123-456-7890", "john_doe" },
-                    { "10", "369 Oak St, Anytown, USA", "sophia_harris@example.com", "Sophia Harris", null, "harrissafe123", "777-888-9999", "sophia_harris" },
-                    { "11", "456 Pine St, Othertown, Canada", "mark_johnson@example.com", "Mark Johnson", null, "markpass123", "111-222-3333", "mark_johnson" },
-                    { "12", "789 Maple St, Anothertown, Australia", "emily_smith@example.com", "Emily Smith", null, "emilypass456", "444-555-6666", "emily_smith" },
-                    { "13", "987 Elm St, Yetanothertown, United Kingdom", "alexander_brown@example.com", "Alexander Brown", null, "brownsecure123", "777-888-9999", "alexander_brown" },
-                    { "14", "321 Cedar St, Differenttown, Germany", "olivia_davis@example.com", "Olivia Davis", null, "oliviapass789", "888-999-0000", "olivia_davis" },
-                    { "15", "654 Oak St, Anotherdifferenttown, France", "william_taylor@example.com", "William Taylor", null, "williampass123", "222-333-4444", "william_taylor" },
-                    { "2", "456 Oak St, Anycity, USA", "jane_smith@example.com", "Jane Smith", null, "password456", "987-654-3210", "jane_smith" },
-                    { "3", "789 Oak St, Anytown, USA", "mike_jackson@example.com", "Mike Jackson", null, "strongpwd456", "555-123-4567", "mike_jackson" },
-                    { "4", "321 Pine St, Anytown, USA", "sarah_adams@example.com", "Sarah Adams", null, "mypassword789", "444-222-3333", "sarah_adams" },
-                    { "5", "567 Maple St, Anytown, USA", "alex_miller@example.com", "Alex Miller", null, "alexpass123", "111-999-8888", "alex_miller" },
-                    { "6", "246 Birch St, Anytown, USA", "emily_taylor@example.com", "Emily Taylor", null, "password987", "777-666-5555", "emily_taylor" },
-                    { "7", "135 Cedar St, Anytown, USA", "ryan_carter@example.com", "Ryan Carter", null, "carterpass456", "999-777-6666", "ryan_carter" },
-                    { "8", "753 Walnut St, Anytown, USA", "lisa_wilson@example.com", "Lisa Wilson", null, "secure1234", "222-333-4444", "lisa_wilson" },
-                    { "9", "987 Birch St, Anytown, USA", "david_thompson@example.com", "David Thompson", null, "davidpass789", "888-555-2222", "david_thompson" }
+                    { "1", "123 Main St, Anytown, USA", null, "john_doe@example.com", "John Doe", null, "password123", "123-456-7890", "john_doe" },
+                    { "10", "369 Oak St, Anytown, USA", null, "sophia_harris@example.com", "Sophia Harris", null, "harrissafe123", "777-888-9999", "sophia_harris" },
+                    { "11", "456 Pine St, Othertown, Canada", null, "mark_johnson@example.com", "Mark Johnson", null, "markpass123", "111-222-3333", "mark_johnson" },
+                    { "12", "789 Maple St, Anothertown, Australia", null, "emily_smith@example.com", "Emily Smith", null, "emilypass456", "444-555-6666", "emily_smith" },
+                    { "13", "987 Elm St, Yetanothertown, United Kingdom", null, "alexander_brown@example.com", "Alexander Brown", null, "brownsecure123", "777-888-9999", "alexander_brown" },
+                    { "14", "321 Cedar St, Differenttown, Germany", null, "olivia_davis@example.com", "Olivia Davis", null, "oliviapass789", "888-999-0000", "olivia_davis" },
+                    { "15", "654 Oak St, Anotherdifferenttown, France", null, "william_taylor@example.com", "William Taylor", null, "williampass123", "222-333-4444", "william_taylor" },
+                    { "2", "456 Oak St, Anycity, USA", null, "jane_smith@example.com", "Jane Smith", null, "password456", "987-654-3210", "jane_smith" },
+                    { "3", "789 Oak St, Anytown, USA", null, "mike_jackson@example.com", "Mike Jackson", null, "strongpwd456", "555-123-4567", "mike_jackson" },
+                    { "4", "321 Pine St, Anytown, USA", null, "sarah_adams@example.com", "Sarah Adams", null, "mypassword789", "444-222-3333", "sarah_adams" },
+                    { "5", "567 Maple St, Anytown, USA", null, "alex_miller@example.com", "Alex Miller", null, "alexpass123", "111-999-8888", "alex_miller" },
+                    { "6", "246 Birch St, Anytown, USA", null, "emily_taylor@example.com", "Emily Taylor", null, "password987", "777-666-5555", "emily_taylor" },
+                    { "7", "135 Cedar St, Anytown, USA", null, "ryan_carter@example.com", "Ryan Carter", null, "carterpass456", "999-777-6666", "ryan_carter" },
+                    { "8", "753 Walnut St, Anytown, USA", null, "lisa_wilson@example.com", "Lisa Wilson", null, "secure1234", "222-333-4444", "lisa_wilson" },
+                    { "9", "987 Birch St, Anytown, USA", null, "david_thompson@example.com", "David Thompson", null, "davidpass789", "888-555-2222", "david_thompson" }
                 });
 
             migrationBuilder.InsertData(
@@ -420,26 +427,26 @@ namespace MVC_Project.Migrations
                 columns: new[] { "OrderId", "CustomerId", "OrderDate", "TotalAmount" },
                 values: new object[,]
                 {
-                    { 1, "1", new DateTime(2024, 4, 5, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7554), 10.99m },
-                    { 2, "2", new DateTime(2024, 4, 4, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7608), 25.00m },
-                    { 3, "3", new DateTime(2024, 4, 3, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7617), 18.50m },
-                    { 4, "4", new DateTime(2024, 4, 2, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7627), 32.75m },
-                    { 5, "5", new DateTime(2024, 4, 1, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7634), 14.99m },
-                    { 6, "6", new DateTime(2024, 3, 31, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7640), 20.25m },
-                    { 7, "7", new DateTime(2024, 3, 30, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7646), 27.50m },
-                    { 8, "8", new DateTime(2024, 3, 29, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7652), 45.75m },
-                    { 9, "9", new DateTime(2024, 3, 28, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7658), 62.99m },
-                    { 10, "10", new DateTime(2024, 3, 27, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7664), 28.50m },
-                    { 11, "11", new DateTime(2024, 3, 26, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7670), 35.99m },
-                    { 12, "12", new DateTime(2024, 3, 25, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7679), 52.25m },
-                    { 13, "13", new DateTime(2024, 3, 24, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7685), 75.99m },
-                    { 14, "14", new DateTime(2024, 3, 23, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7691), 42.75m },
-                    { 15, "15", new DateTime(2024, 3, 22, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7697), 55.50m },
-                    { 16, "12", new DateTime(2024, 3, 21, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7703), 38.25m },
-                    { 17, "10", new DateTime(2024, 3, 20, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7709), 49.99m },
-                    { 18, "8", new DateTime(2024, 3, 19, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7715), 65.75m },
-                    { 19, "6", new DateTime(2024, 3, 18, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7720), 80.50m },
-                    { 20, "10", new DateTime(2024, 3, 17, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7729), 95.25m }
+                    { 1, "1", new DateTime(2024, 4, 10, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9326), 10.99m },
+                    { 2, "2", new DateTime(2024, 4, 9, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9418), 25.00m },
+                    { 3, "3", new DateTime(2024, 4, 8, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9453), 18.50m },
+                    { 4, "4", new DateTime(2024, 4, 7, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9472), 32.75m },
+                    { 5, "5", new DateTime(2024, 4, 6, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9487), 14.99m },
+                    { 6, "6", new DateTime(2024, 4, 5, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9502), 20.25m },
+                    { 7, "7", new DateTime(2024, 4, 4, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9516), 27.50m },
+                    { 8, "8", new DateTime(2024, 4, 3, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9530), 45.75m },
+                    { 9, "9", new DateTime(2024, 4, 2, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9544), 62.99m },
+                    { 10, "10", new DateTime(2024, 4, 1, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9559), 28.50m },
+                    { 11, "11", new DateTime(2024, 3, 31, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9584), 35.99m },
+                    { 12, "12", new DateTime(2024, 3, 30, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9599), 52.25m },
+                    { 13, "13", new DateTime(2024, 3, 29, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9613), 75.99m },
+                    { 14, "14", new DateTime(2024, 3, 28, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9626), 42.75m },
+                    { 15, "15", new DateTime(2024, 3, 27, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9641), 55.50m },
+                    { 16, "12", new DateTime(2024, 3, 26, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9655), 38.25m },
+                    { 17, "10", new DateTime(2024, 3, 25, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9669), 49.99m },
+                    { 18, "8", new DateTime(2024, 3, 24, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9683), 65.75m },
+                    { 19, "6", new DateTime(2024, 3, 23, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9708), 80.50m },
+                    { 20, "10", new DateTime(2024, 3, 22, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9722), 95.25m }
                 });
 
             migrationBuilder.InsertData(
@@ -519,6 +526,13 @@ namespace MVC_Project.Migrations
                 column: "CategoryID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Customers_ApplicationUserId",
+                table: "Customers",
+                column: "ApplicationUserId",
+                unique: true,
+                filter: "[ApplicationUserId] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_OrderItems_BookId",
                 table: "OrderItems",
                 column: "BookId");
@@ -572,9 +586,6 @@ namespace MVC_Project.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
                 name: "Orders");
 
             migrationBuilder.DropTable(
@@ -588,6 +599,9 @@ namespace MVC_Project.Migrations
 
             migrationBuilder.DropTable(
                 name: "Category");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
         }
     }
 }
