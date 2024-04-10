@@ -27,6 +27,8 @@ namespace MVC_Project.Repository
             // bookStoreContext.Authors.Where(a => a.AuthorName == name).Select(a => a.Books).ToList();
 
             Author author = bookStoreContext.Authors.FirstOrDefault(a => a.AuthorName == name);
+            List<Book> books=bookStoreContext.Books.Where(b=>b.AuthorId == author.AuthorId).ToList();
+            author.Books= books;
             return author.Books.ToList();
         }
 
