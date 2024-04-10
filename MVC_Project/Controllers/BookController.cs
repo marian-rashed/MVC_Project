@@ -27,7 +27,7 @@ namespace MVC_Project.Controllers
 
         }
 
-        public IActionResult GetBookById(int id)
+        public IActionResult details(int id)
         {
             Book boo = book.GetBookById(id);
             return View("GetBookById", boo);
