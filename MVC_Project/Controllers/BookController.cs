@@ -7,7 +7,7 @@ namespace MVC_Project.Controllers
     public class BookController : Controller
     {
         IBook book;
-		private const int PageSize = 10;
+		private const int PageSize = 8;
 
 		public BookController(IBook book)
         {
