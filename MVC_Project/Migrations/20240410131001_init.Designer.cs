@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Project.Migrations
 {
     [DbContext(typeof(BookStoreContext))]
-    [Migration("20240405133829_e00")]
-    partial class e00
+    [Migration("20240410131001_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -685,6 +685,9 @@ namespace MVC_Project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -701,7 +704,6 @@ namespace MVC_Project.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
@@ -709,6 +711,10 @@ namespace MVC_Project.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CustomerId");
+
+                    b.HasIndex("ApplicationUserId")
+                        .IsUnique()
+                        .HasFilter("[ApplicationUserId] IS NOT NULL");
 
                     b.ToTable("Customers");
 
@@ -881,6 +887,9 @@ namespace MVC_Project.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CustomerID")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -1011,140 +1020,140 @@ namespace MVC_Project.Migrations
                         {
                             OrderId = 1,
                             CustomerId = "1",
-                            OrderDate = new DateTime(2024, 4, 5, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7554),
+                            OrderDate = new DateTime(2024, 4, 10, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9326),
                             TotalAmount = 10.99m
                         },
                         new
                         {
                             OrderId = 2,
                             CustomerId = "2",
-                            OrderDate = new DateTime(2024, 4, 4, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7608),
+                            OrderDate = new DateTime(2024, 4, 9, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9418),
                             TotalAmount = 25.00m
                         },
                         new
                         {
                             OrderId = 3,
                             CustomerId = "3",
-                            OrderDate = new DateTime(2024, 4, 3, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7617),
+                            OrderDate = new DateTime(2024, 4, 8, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9453),
                             TotalAmount = 18.50m
                         },
                         new
                         {
                             OrderId = 4,
                             CustomerId = "4",
-                            OrderDate = new DateTime(2024, 4, 2, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7627),
+                            OrderDate = new DateTime(2024, 4, 7, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9472),
                             TotalAmount = 32.75m
                         },
                         new
                         {
                             OrderId = 5,
                             CustomerId = "5",
-                            OrderDate = new DateTime(2024, 4, 1, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7634),
+                            OrderDate = new DateTime(2024, 4, 6, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9487),
                             TotalAmount = 14.99m
                         },
                         new
                         {
                             OrderId = 6,
                             CustomerId = "6",
-                            OrderDate = new DateTime(2024, 3, 31, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7640),
+                            OrderDate = new DateTime(2024, 4, 5, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9502),
                             TotalAmount = 20.25m
                         },
                         new
                         {
                             OrderId = 7,
                             CustomerId = "7",
-                            OrderDate = new DateTime(2024, 3, 30, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7646),
+                            OrderDate = new DateTime(2024, 4, 4, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9516),
                             TotalAmount = 27.50m
                         },
                         new
                         {
                             OrderId = 8,
                             CustomerId = "8",
-                            OrderDate = new DateTime(2024, 3, 29, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7652),
+                            OrderDate = new DateTime(2024, 4, 3, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9530),
                             TotalAmount = 45.75m
                         },
                         new
                         {
                             OrderId = 9,
                             CustomerId = "9",
-                            OrderDate = new DateTime(2024, 3, 28, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7658),
+                            OrderDate = new DateTime(2024, 4, 2, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9544),
                             TotalAmount = 62.99m
                         },
                         new
                         {
                             OrderId = 10,
                             CustomerId = "10",
-                            OrderDate = new DateTime(2024, 3, 27, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7664),
+                            OrderDate = new DateTime(2024, 4, 1, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9559),
                             TotalAmount = 28.50m
                         },
                         new
                         {
                             OrderId = 11,
                             CustomerId = "11",
-                            OrderDate = new DateTime(2024, 3, 26, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7670),
+                            OrderDate = new DateTime(2024, 3, 31, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9584),
                             TotalAmount = 35.99m
                         },
                         new
                         {
                             OrderId = 12,
                             CustomerId = "12",
-                            OrderDate = new DateTime(2024, 3, 25, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7679),
+                            OrderDate = new DateTime(2024, 3, 30, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9599),
                             TotalAmount = 52.25m
                         },
                         new
                         {
                             OrderId = 13,
                             CustomerId = "13",
-                            OrderDate = new DateTime(2024, 3, 24, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7685),
+                            OrderDate = new DateTime(2024, 3, 29, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9613),
                             TotalAmount = 75.99m
                         },
                         new
                         {
                             OrderId = 14,
                             CustomerId = "14",
-                            OrderDate = new DateTime(2024, 3, 23, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7691),
+                            OrderDate = new DateTime(2024, 3, 28, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9626),
                             TotalAmount = 42.75m
                         },
                         new
                         {
                             OrderId = 15,
                             CustomerId = "15",
-                            OrderDate = new DateTime(2024, 3, 22, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7697),
+                            OrderDate = new DateTime(2024, 3, 27, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9641),
                             TotalAmount = 55.50m
                         },
                         new
                         {
                             OrderId = 16,
                             CustomerId = "12",
-                            OrderDate = new DateTime(2024, 3, 21, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7703),
+                            OrderDate = new DateTime(2024, 3, 26, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9655),
                             TotalAmount = 38.25m
                         },
                         new
                         {
                             OrderId = 17,
                             CustomerId = "10",
-                            OrderDate = new DateTime(2024, 3, 20, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7709),
+                            OrderDate = new DateTime(2024, 3, 25, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9669),
                             TotalAmount = 49.99m
                         },
                         new
                         {
                             OrderId = 18,
                             CustomerId = "8",
-                            OrderDate = new DateTime(2024, 3, 19, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7715),
+                            OrderDate = new DateTime(2024, 3, 24, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9683),
                             TotalAmount = 65.75m
                         },
                         new
                         {
                             OrderId = 19,
                             CustomerId = "6",
-                            OrderDate = new DateTime(2024, 3, 18, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7720),
+                            OrderDate = new DateTime(2024, 3, 23, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9708),
                             TotalAmount = 80.50m
                         },
                         new
                         {
                             OrderId = 20,
                             CustomerId = "10",
-                            OrderDate = new DateTime(2024, 3, 17, 15, 38, 28, 499, DateTimeKind.Local).AddTicks(7729),
+                            OrderDate = new DateTime(2024, 3, 22, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9722),
                             TotalAmount = 95.25m
                         });
                 });
@@ -1490,6 +1499,15 @@ namespace MVC_Project.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("MVC_Project.Customer", b =>
+                {
+                    b.HasOne("MVC_Project.Models.ApplicationUser", "ApplicationUser")
+                        .WithOne("Customer")
+                        .HasForeignKey("MVC_Project.Customer", "ApplicationUserId");
+
+                    b.Navigation("ApplicationUser");
+                });
+
             modelBuilder.Entity("MVC_Project.Models.Review", b =>
                 {
                     b.HasOne("MVC_Project.Book", "Book")
@@ -1499,7 +1517,7 @@ namespace MVC_Project.Migrations
                         .IsRequired();
 
                     b.HasOne("MVC_Project.Customer", "Customer")
-                        .WithMany("Reviews")
+                        .WithMany()
                         .HasForeignKey("CustomerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1603,8 +1621,11 @@ namespace MVC_Project.Migrations
             modelBuilder.Entity("MVC_Project.Customer", b =>
                 {
                     b.Navigation("Orders");
+                });
 
-                    b.Navigation("Reviews");
+            modelBuilder.Entity("MVC_Project.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("MVC_Project.Models.Category", b =>

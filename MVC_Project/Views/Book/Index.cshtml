@@ -1,80 +1,111 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+
 
 @model IEnumerable<MVC_Project.Book>
 
-@{
-    ViewData["Title"] = "Index";
-}
-<style>
-    .card-img-top {
-        width: 100%;
-        height: 50vh;
-        object-fit: contain;
-    }
-</style>
-<a href="\Book\AddNewBook">AddNewBook</a>
 
-<nav class="AlphabetNav">
-    <a href="#A">A</a>
-    <a href="#B">B</a>
-    <a href="#C">C</a>
-    <a href="#D">D</a>
-    <a href="#E">E</a>
-    <a href="#F">F</a>
-    <a href="#G">G</a>
-    <a href="#H">H</a>
-    <a href="#I">I</a>
-    <a href="#J">J</a>
-    <a href="#K">K</a>
-    <a href="#L">L</a>
-    <a href="#M">M</a>
-    <a href="#N">N</a>
-    <a href="#O">O</a>
-    <a href="#P">P</a>
-    <a href="#Q">Q</a>
-    <a href="#R">R</a>
-    <a href="#S">S</a>
-    <a href="#T">T</a>
-    <a href="#U">U</a>
-    <a href="#V">V</a>
-    <a href="#W">W</a>
-    <a href="#X">X</a>
-    <a href="#Y">Y</a>
-    <a href="#Z">Z</a>
-</nav>
+@* <a href="\Book\AddNewBook">AddNewBook</a>
+ *@
 
-<div class="container-fluid">
-    <div class="row row-cols-md-2">
-        @foreach (Book book in Model)
-        {
-            <div class="col mb-3">
-                <div class="card w-100">
-                    <div class="card">
-                        <div style="display: flex;">
-                            <div class="py-3 px-3">
-                                <img class="card-img-top object-fit-scale rounded-circle" src="@book.ImageUrl" />
-                            </div>
-                            <div style="display: flex; flex-wrap: nowrap; flex-direction: column; justify-content: center;">
+<section id="popular-books" class="bookshelf py-5 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
 
-                                <h5 class="Contact-name">@book.Title</h5>
-                                <p class="card-text">Author Name: @book.Author.AuthorName</p>
-                                <p class="card-text">Price: @book.Price</p>
-                                <p class="card-text">Quantity Available: @book.QuantityAvailable</p>
-                                <a href="/Book/GetBookById/@book.BookId" class="btn btn-primary mx-2">See Details</a>
+                <div class="section-header align-center">
+                    <div class="title">
+                        <span>Happy Reading</span>
+                    </div>
+                    <h2 class="section-title">Our Books</h2>
+                </div>
 
-                            </div>
+                <ul class="tabs">
+                    <li data-tab-target="#all-genre" class="active tab">All Genre</li>
+                    <li data-tab-target="#business" class="tab">Business</li>
+                    <li data-tab-target="#technology" class="tab">Technology</li>
+                    <li data-tab-target="#romantic" class="tab">Romantic</li>
+                    <li data-tab-target="#adventure" class="tab">Adventure</li>
+                    <li data-tab-target="#fictional" class="tab">Fictional</li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="all-genre" data-tab-content class="active">
+                        <div class="row row-cols-md-1">
+                            @foreach (Book book in Model)
+                            {
+                                <div class="col-md-3">
+                                    <div class="product-item">
+                                        <figure class="product-style">
+                                            <img src="@book.ImageUrl" alt="Books" class="product-item">
+                                            <button type="button" class="add-to-cart"
+                                                    data-product-tile="add-to-cart">
+                                                Add to
+                                                Cart
+                                            </button>
+                                        </figure>
+                                        <figcaption>
+                                            <h3>@book.Title</h3>
+                                            <span>@book.Author.AuthorName</span>
+                                            <div class="item-price">$ @book.Price</div>
+                                            
+                                        </figcaption>
+                                    </div>
+                                </div>
+
+                            }
+
+                        </div>
+                        <div class="row">
+
+                        
+
+                        </div>
+
+                    </div>
+                    <div id="business" data-tab-content>
+                        <div class="row">
+           
+
                         </div>
                     </div>
+
+                    <div id="technology" data-tab-content>
+                        <div class="row">
+                  
+                        </div>
+                    </div>
+
+                    <div id="romantic" data-tab-content>
+                        <div class="row">
+                         
+                        </div>
+                    </div>
+
+                    <div id="adventure" data-tab-content>
+                        <div class="row">
+                          
+                        </div>
+                    </div>
+
+                    <div id="fictional" data-tab-content>
+                        <div class="row">
+                           
+                          
+                        </div>
+                    </div>
+
                 </div>
-            </div>
-        }
+
+            </div><!--inner-tabs-->
+
+        </div>
     </div>
-</div>
+</section>
+
+
 
 <!-- Pagination -->
 <nav aria-label="Page navigation example">
