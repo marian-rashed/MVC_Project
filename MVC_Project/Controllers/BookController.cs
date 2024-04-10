@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Abstractions;
 using MVC_Project.Interfaces;
 
 namespace MVC_Project.Controllers
@@ -6,18 +7,26 @@ namespace MVC_Project.Controllers
     public class BookController : Controller
     {
         IBook book;
-        public BookController(IBook book)
+		private const int PageSize = 10;
+
+		public BookController(IBook book)
         {
             this.book = book;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            List<Book> BookList = book.GetAllBooks();
+            int totalBooks = book.GetAllBooks().Count();
+            List<Book> BookList = book.GetAllBooks()
+                .Skip((page - 1) * PageSize) // Correct calculation for skipping items
+                .Take(PageSize)
+                .ToList();
+
+            ViewBag.TotalPages = (int)System.Math.Ceiling(totalBooks / (double)PageSize);
+            ViewBag.CurrentPage = page;
             return View("index", BookList);
 
         }
 
-       
         public IActionResult GetBookById(int id)
         {
             Book boo = book.GetBookById(id);
@@ -30,16 +39,30 @@ namespace MVC_Project.Controllers
             return View("AddNewBook");
         }
         [HttpPost]
-        public IActionResult SaveBook(Book boo)
+        public async Task< IActionResult> SaveBook(Book boo, IFormFile ImageUrl)
         {
-            if (ModelState.IsValid == false)
+            if (boo.Title!=null && boo.AuthorId!=null && boo.Price!=null && ImageUrl!=null && boo.QuantityAvailable!=null)
             {
-                return View("AddNewBook", boo);
-            }
-            book.InsertBook(boo);
-            book.Save();
+                if (ImageUrl != null && ImageUrl.Length > 0)
+                {
+                    var fileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(ImageUrl.FileName);
+                    var filePath = Path.Combine("wwwroot/images", fileName);
 
-            return RedirectToAction("Index");
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await ImageUrl.CopyToAsync(stream);
+                    }
+
+                    boo.ImageUrl = "/images/" + fileName;
+                    book.InsertBook(boo);
+                    book.Save();
+                    return RedirectToAction("Index");
+                }
+              
+            }
+
+            return View("AddNewBook", boo);
+
         }
         public IActionResult GetBooksByName(string name)
         {
