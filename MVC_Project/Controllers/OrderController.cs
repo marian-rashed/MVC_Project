@@ -76,13 +76,6 @@ namespace MVC_Project.Controllers
             return View("GetOrderByCustomerId", orders);
         }
 
-
-
-
-
-
-        
-
         //save order to database
 
 

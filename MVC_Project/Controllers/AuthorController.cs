@@ -21,14 +21,17 @@ namespace MVC_Project.Controllers
 		public IActionResult GetAuthorsByName(string name)
 		{
 			var authors = author.GetAuthorsByName(name);
+
 			return View("GetAuthorByName", authors);
 		}
 
-		//public IActionResult GetAuthorById(int id)
-		//{
-		//    Author author1 = author.GetAuthorById(id);
-		//    return View("GetAuthorById", author1);
-		//}
+		public IActionResult details(int id)
+		{
+			Author author1 = author.GetAuthorById(id);
+			author1.Books = author.GetAuthorBooks(author1.AuthorName);
+
+			return View("details", author1);
+		}
 		[HttpGet]
 		//add authorize
 		public IActionResult AddNewAuthor(Author author)
@@ -71,6 +74,15 @@ namespace MVC_Project.Controllers
 		}
 
 		//edit author
+
+		[HttpGet]
+		public IActionResult EditAuthor(int id)
+		{
+			author.UpdateAuthor(id);
+			return View("Edit");
+			
+		}
+
 		//delete author
 
 
