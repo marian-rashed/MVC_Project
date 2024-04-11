@@ -27,7 +27,7 @@
 
 							<div class="products-content">
                                 <div class="author-name"><a href="/author/details/@Model.Author.AuthorId">@Model.Author.AuthorName</a></div>
-								<h3 class="item-title">hehe</h3>
+								<h3 class="item-title"></h3>
 								<p>
 									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero
 									ipsum enim pharetra hac. Urna commodo, lacus ut magna velit eleifend. Amet, quis
@@ -73,7 +73,7 @@
 
                         @foreach (Book book in Model.Author.Books)
                         {
-                            @if (book.AuthorId != Model.AuthorId)
+                            @if (book.BookId != Model.BookId)
                             {
                                 <div class="col-md-4">
                                     <div class="product-item">
