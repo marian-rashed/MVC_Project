@@ -18,6 +18,12 @@ namespace MVC_Project.Controllers
 			List<Author> authorList = author.GetAllAuthors();
 			return View("Index", authorList);
 		}
+
+		/// <summary>
+		/// should not return a view
+		/// </summary>
+		/// <param name="name"></param>
+		/// <returns></returns>
 		public IActionResult GetAuthorsByName(string name)
 		{
 			var authors = author.GetAuthorsByName(name);

@@ -6,7 +6,7 @@
 
 @* <a href="\Book\AddNewBook">AddNewBook</a>
  *@
- <section id="popular-books" class="bookshelf py-5">
+ <section id="popular-books" class="bookshelf">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -32,7 +32,7 @@
                         <div class="row row-cols-md-1">
                             @foreach (Book book in Model)
                             {
-                                <div class="col-md-3">
+                                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
                                     <div class="product-item">
                                         <figure class="product-style">
                                             <a href="/book/details/@book.BookId">
@@ -55,11 +55,6 @@
                                 </div>
 
                             }
-
-                        </div>
-                        <div class="row">
-
-                        
 
                         </div>
 
