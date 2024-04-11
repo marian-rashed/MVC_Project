@@ -7,11 +7,13 @@ namespace MVC_Project.Controllers
     public class BookController : Controller
     {
         IBook book;
+        IAuthor author;
 		private const int PageSize = 8;
 
-		public BookController(IBook book)
+		public BookController(IBook book,IAuthor author)
         {
             this.book = book;
+            this.author = author;
         }
         public IActionResult Index(int page = 1)
         {
@@ -27,9 +29,10 @@ namespace MVC_Project.Controllers
 
         }
 
-        public IActionResult GetBookById(int id)
+        public IActionResult details(int id)
         {
             Book boo = book.GetBookById(id);
+            boo.Author = author.GetAuthorById(boo.AuthorId);
             return View("GetBookById", boo);
         }
 
@@ -67,6 +70,7 @@ namespace MVC_Project.Controllers
         public IActionResult GetBooksByName(string name)
         {
             var books = book.GetBooksByName(name);
+
             return View("GetBooksByName", books);
         }
 

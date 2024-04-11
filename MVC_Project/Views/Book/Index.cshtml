@@ -1,16 +1,12 @@
-﻿@{
+﻿@model IEnumerable<MVC_Project.Book>
+@{
     ViewData["Title"] = "Index";
 }
 
 
-
-@model IEnumerable<MVC_Project.Book>
-
-
 @* <a href="\Book\AddNewBook">AddNewBook</a>
  *@
-
-<section id="popular-books" class="bookshelf py-5 my-5">
+ <section id="popular-books" class="bookshelf">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -21,7 +17,7 @@
                     </div>
                     <h2 class="section-title">Our Books</h2>
                 </div>
-
+<!--
                 <ul class="tabs">
                     <li data-tab-target="#all-genre" class="active tab">All Genre</li>
                     <li data-tab-target="#business" class="tab">Business</li>
@@ -30,21 +26,24 @@
                     <li data-tab-target="#adventure" class="tab">Adventure</li>
                     <li data-tab-target="#fictional" class="tab">Fictional</li>
                 </ul>
-
+                -->
                 <div class="tab-content">
                     <div id="all-genre" data-tab-content class="active">
                         <div class="row row-cols-md-1">
                             @foreach (Book book in Model)
                             {
-                                <div class="col-md-3">
+                                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
                                     <div class="product-item">
                                         <figure class="product-style">
-                                            <img src="@book.ImageUrl" alt="Books" class="product-item">
+                                            <a href="/book/details/@book.BookId">
+                                                <img src="@book.ImageUrl" alt="Books" class="product-item">
+                                            </a>
                                             <button type="button" class="add-to-cart"
-                                                    data-product-tile="add-to-cart">
-                                                Add to
-                                                Cart
+                                                    data-product-tile="add-to-cart"
+                                            >
+                                                Add To Cart
                                             </button>
+                                           
                                         </figure>
                                         <figcaption>
                                             <h3>@book.Title</h3>
@@ -58,13 +57,9 @@
                             }
 
                         </div>
-                        <div class="row">
-
-                        
-
-                        </div>
 
                     </div>
+                    <!--
                     <div id="business" data-tab-content>
                         <div class="row">
            
@@ -96,7 +91,7 @@
                           
                         </div>
                     </div>
-
+                    -->
                 </div>
 
             </div><!--inner-tabs-->
@@ -120,8 +115,7 @@
 </nav>
 
 
-
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="/js/authorIndexScript.js"></script>
-<link rel="stylesheet" href="/css/AuthorIndex.css"   />
+<link rel="stylesheet" href="/css/AuthorIndex.css"/>
