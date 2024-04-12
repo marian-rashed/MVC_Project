@@ -6,6 +6,7 @@
 
     <h3 class="section-title " style="font-size:2rem;margin:45px 0px ">All you need to know</h3>
 </div>
+
 <section id="best-selling" class="leaf-pattern-overlay">
     
 	<div class="container">
@@ -117,3 +118,35 @@
         </div>
     </div>
 </section>
+
+
+<input type="text" class="form form-control" id="Name" placeholder="Enter Your Name" />
+<input type="text" class="form form-control" id="Msg" placeholder="Enter Your Comment" />
+<input type="button" onclick="Send_Review()" value="Send" class="btn btn-success" />
+<ul id="Conv">
+    <li>Evret Blue</li>
+</ul>
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/microsoft-signalr/signalr.min.js"></script>
+<script>
+    var hub = new signalR.HubConnectionBuilder().withUrl("/ReviewHub").build();
+
+     hub.start().then(function () {
+         console.log("Connection Success")
+     });
+    hub.on("ReceiveNewReview", function (name, message, bookID) {
+        if (bookID == @Model.BookId) {
+            $("#Conv").append("<li>" + name + " " + ":" + " " + message + " " + "To Product : " + bookID + "</li>")
+        }
+    })
+    
+    function Send_Review() {
+        var name = $("#Name").val();
+        var Msg = $("#Msg").val();
+        var bookID=parseInt(@Model.BookId)
+        console.log(name + " " + Msg +" "+ bookID)
+        hub.invoke("SendReview", name, Msg, bookID)
+    }
+</script>
+
+
