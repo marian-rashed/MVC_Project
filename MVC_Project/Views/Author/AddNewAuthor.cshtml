@@ -1,21 +1,34 @@
 ﻿@using MVC_Project.ViewModel
+
 @model AuthorName_Biography_BD_Country_ImgUrlViewModel
+
 <form class="form form-control" asp-action="SaveAuthor" asp-controller="Author" enctype="multipart/form-data">
-    <div asp-validation-summary="All" class="text-danger"></div>
     <label asp-for="AuthorName"></label>
     <input asp-for="AuthorName" class="form form-control" />
+    <span asp-validation-for="AuthorName"></span>
 
     <label asp-for="Biography"></label>
     <input asp-for="Biography" class="form form-control" />
+    <span asp-validation-for="Biography"></span>
 
     <label asp-for="BirthDate"></label>
     <input asp-for="BirthDate" class="form form-control" />
+    <span asp-validation-for="BirthDate"></span>
 
     <label asp-for="Country"></label>
     <input asp-for="Country" class="form form-control" />
+    <span asp-validation-for="Country"></span>
 
     <label asp-for="ImageUrl"></label>
     <input type="file" asp-for="ImageUrl" class="form form-control" />
+    <span asp-validation-for="ImageUrl"></span>
     <input type="submit" class="btn btn-info" value="Add"/>
 
 </form>
+<partial name="_ValidationScriptsPartial"></partial>
+<style>
+    span
+    {
+        color:red;
+    }
+</style>
