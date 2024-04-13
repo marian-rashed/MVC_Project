@@ -4,7 +4,7 @@
 }
 
 @model Book
-<form class="form form-control" asp-action="SaveBook" asp-controller="Book">
+<form class="form form-control" asp-action="SaveBook" asp-controller="Book" enctype="multipart/form-data">
     <label asp-for="Title"></label>
     <input asp-for="Title" class="form form-control" />
     <span asp-validation-for="Title"></span>
@@ -18,8 +18,10 @@
     <span asp-validation-for="Price"></span>
 
     <label asp-for="ImageUrl"></label>
+
     <input asp-for="ImageUrl" class="form form-control" />
     <span asp-validation-for="ImageUrl"></span>
+
 
     <label asp-for="QuantityAvailable"></label>
     <input asp-for="QuantityAvailable" class="form form-control" />

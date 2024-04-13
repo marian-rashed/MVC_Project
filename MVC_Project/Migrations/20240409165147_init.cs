@@ -6,312 +6,305 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MVC_Project.Migrations
 {
     /// <inheritdoc />
-    public partial class final2 : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<string>(
-                name: "PhoneNumber",
-                table: "Customers",
+            migrationBuilder.AddColumn<string>(
+                name: "UserName",
+                table: "Reviews",
                 type: "nvarchar(max)",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
+                nullable: false,
+                defaultValue: "");
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 1,
                 column: "OrderDate",
-                value: new DateTime(2024, 4, 5, 15, 43, 43, 246, DateTimeKind.Local).AddTicks(7914));
+                value: new DateTime(2024, 4, 9, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(554));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 2,
                 column: "OrderDate",
-                value: new DateTime(2024, 4, 4, 15, 43, 43, 246, DateTimeKind.Local).AddTicks(7984));
+                value: new DateTime(2024, 4, 8, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(680));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 3,
                 column: "OrderDate",
-                value: new DateTime(2024, 4, 3, 15, 43, 43, 246, DateTimeKind.Local).AddTicks(8029));
+                value: new DateTime(2024, 4, 7, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(703));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 4,
                 column: "OrderDate",
-                value: new DateTime(2024, 4, 2, 15, 43, 43, 246, DateTimeKind.Local).AddTicks(8039));
+                value: new DateTime(2024, 4, 6, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(721));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 5,
                 column: "OrderDate",
-                value: new DateTime(2024, 4, 1, 15, 43, 43, 246, DateTimeKind.Local).AddTicks(8049));
+                value: new DateTime(2024, 4, 5, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(740));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 6,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 31, 15, 43, 43, 246, DateTimeKind.Local).AddTicks(8059));
+                value: new DateTime(2024, 4, 4, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(756));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 7,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 30, 15, 43, 43, 246, DateTimeKind.Local).AddTicks(8068));
+                value: new DateTime(2024, 4, 3, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(6748));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 8,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 29, 15, 43, 43, 246, DateTimeKind.Local).AddTicks(8079));
+                value: new DateTime(2024, 4, 2, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(6834));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 9,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 28, 15, 43, 43, 246, DateTimeKind.Local).AddTicks(8089));
+                value: new DateTime(2024, 4, 1, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(6875));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 10,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 27, 15, 43, 43, 246, DateTimeKind.Local).AddTicks(8104));
+                value: new DateTime(2024, 3, 31, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(6894));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 11,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 26, 15, 43, 43, 246, DateTimeKind.Local).AddTicks(8114));
+                value: new DateTime(2024, 3, 30, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(6922));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 12,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 25, 15, 43, 43, 246, DateTimeKind.Local).AddTicks(8124));
+                value: new DateTime(2024, 3, 29, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(6940));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 13,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 24, 15, 43, 43, 246, DateTimeKind.Local).AddTicks(8133));
+                value: new DateTime(2024, 3, 28, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(6957));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 14,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 23, 15, 43, 43, 246, DateTimeKind.Local).AddTicks(8143));
+                value: new DateTime(2024, 3, 27, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(6972));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 15,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 22, 15, 43, 43, 246, DateTimeKind.Local).AddTicks(8152));
+                value: new DateTime(2024, 3, 26, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(7319));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 16,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 21, 15, 43, 43, 246, DateTimeKind.Local).AddTicks(8162));
+                value: new DateTime(2024, 3, 25, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(7382));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 17,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 20, 15, 43, 43, 246, DateTimeKind.Local).AddTicks(8173));
+                value: new DateTime(2024, 3, 24, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(7478));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 18,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 19, 15, 43, 43, 246, DateTimeKind.Local).AddTicks(8187));
+                value: new DateTime(2024, 3, 23, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(7497));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 19,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 18, 15, 43, 43, 246, DateTimeKind.Local).AddTicks(8197));
+                value: new DateTime(2024, 3, 22, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(7513));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 20,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 17, 15, 43, 43, 246, DateTimeKind.Local).AddTicks(8208));
+                value: new DateTime(2024, 3, 21, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(7529));
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<string>(
-                name: "PhoneNumber",
-                table: "Customers",
-                type: "nvarchar(max)",
-                nullable: false,
-                defaultValue: "",
-                oldClrType: typeof(string),
-                oldType: "nvarchar(max)",
-                oldNullable: true);
+            migrationBuilder.DropColumn(
+                name: "UserName",
+                table: "Reviews");
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 1,
                 column: "OrderDate",
-                value: new DateTime(2024, 4, 5, 15, 40, 48, 52, DateTimeKind.Local).AddTicks(3339));
+                value: new DateTime(2024, 4, 5, 16, 16, 16, 916, DateTimeKind.Local).AddTicks(411));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 2,
                 column: "OrderDate",
-                value: new DateTime(2024, 4, 4, 15, 40, 48, 52, DateTimeKind.Local).AddTicks(3407));
+                value: new DateTime(2024, 4, 4, 16, 16, 16, 916, DateTimeKind.Local).AddTicks(493));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 3,
                 column: "OrderDate",
-                value: new DateTime(2024, 4, 3, 15, 40, 48, 52, DateTimeKind.Local).AddTicks(3420));
+                value: new DateTime(2024, 4, 3, 16, 16, 16, 916, DateTimeKind.Local).AddTicks(503));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 4,
                 column: "OrderDate",
-                value: new DateTime(2024, 4, 2, 15, 40, 48, 52, DateTimeKind.Local).AddTicks(3430));
+                value: new DateTime(2024, 4, 2, 16, 16, 16, 916, DateTimeKind.Local).AddTicks(510));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 5,
                 column: "OrderDate",
-                value: new DateTime(2024, 4, 1, 15, 40, 48, 52, DateTimeKind.Local).AddTicks(3439));
+                value: new DateTime(2024, 4, 1, 16, 16, 16, 916, DateTimeKind.Local).AddTicks(517));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 6,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 31, 15, 40, 48, 52, DateTimeKind.Local).AddTicks(3449));
+                value: new DateTime(2024, 3, 31, 16, 16, 16, 916, DateTimeKind.Local).AddTicks(524));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 7,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 30, 15, 40, 48, 52, DateTimeKind.Local).AddTicks(3458));
+                value: new DateTime(2024, 3, 30, 16, 16, 16, 916, DateTimeKind.Local).AddTicks(537));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 8,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 29, 15, 40, 48, 52, DateTimeKind.Local).AddTicks(3475));
+                value: new DateTime(2024, 3, 29, 16, 16, 16, 916, DateTimeKind.Local).AddTicks(545));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 9,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 28, 15, 40, 48, 52, DateTimeKind.Local).AddTicks(3484));
+                value: new DateTime(2024, 3, 28, 16, 16, 16, 916, DateTimeKind.Local).AddTicks(560));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 10,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 27, 15, 40, 48, 52, DateTimeKind.Local).AddTicks(3493));
+                value: new DateTime(2024, 3, 27, 16, 16, 16, 916, DateTimeKind.Local).AddTicks(573));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 11,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 26, 15, 40, 48, 52, DateTimeKind.Local).AddTicks(3501));
+                value: new DateTime(2024, 3, 26, 16, 16, 16, 916, DateTimeKind.Local).AddTicks(593));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 12,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 25, 15, 40, 48, 52, DateTimeKind.Local).AddTicks(3511));
+                value: new DateTime(2024, 3, 25, 16, 16, 16, 916, DateTimeKind.Local).AddTicks(601));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 13,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 24, 15, 40, 48, 52, DateTimeKind.Local).AddTicks(3520));
+                value: new DateTime(2024, 3, 24, 16, 16, 16, 916, DateTimeKind.Local).AddTicks(608));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 14,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 23, 15, 40, 48, 52, DateTimeKind.Local).AddTicks(3530));
+                value: new DateTime(2024, 3, 23, 16, 16, 16, 916, DateTimeKind.Local).AddTicks(614));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 15,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 22, 15, 40, 48, 52, DateTimeKind.Local).AddTicks(3539));
+                value: new DateTime(2024, 3, 22, 15, 40, 54, 480, DateTimeKind.Local).AddTicks(6774));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 16,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 21, 15, 40, 48, 52, DateTimeKind.Local).AddTicks(3555));
+                value: new DateTime(2024, 3, 21, 16, 16, 16, 916, DateTimeKind.Local).AddTicks(780));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 17,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 20, 15, 40, 48, 52, DateTimeKind.Local).AddTicks(3565));
+                value: new DateTime(2024, 3, 20, 16, 16, 16, 916, DateTimeKind.Local).AddTicks(791));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 18,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 19, 15, 40, 48, 52, DateTimeKind.Local).AddTicks(3573));
+                value: new DateTime(2024, 3, 19, 15, 40, 54, 480, DateTimeKind.Local).AddTicks(6797));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 19,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 18, 15, 40, 48, 52, DateTimeKind.Local).AddTicks(3582));
+                value: new DateTime(2024, 3, 18, 16, 16, 16, 916, DateTimeKind.Local).AddTicks(810));
 
             migrationBuilder.UpdateData(
                 table: "Orders",
                 keyColumn: "OrderId",
                 keyValue: 20,
                 column: "OrderDate",
-                value: new DateTime(2024, 3, 17, 15, 40, 48, 52, DateTimeKind.Local).AddTicks(3592));
+                value: new DateTime(2024, 3, 17, 15, 40, 54, 480, DateTimeKind.Local).AddTicks(6817));
         }
     }
 }
