@@ -36,8 +36,8 @@ namespace MVC_Project.Controllers
                 }
                 else
                 {
-                    foreach (var item in Result.Errors)
-                        ModelState.AddModelError("", item.Description);
+                    //foreach (var item in Result.Errors)
+                    //    ModelState.AddModelError("", item.Description);
                 }
             }
 
