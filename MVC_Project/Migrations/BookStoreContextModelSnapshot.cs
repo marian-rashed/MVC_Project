@@ -32,8 +32,7 @@ namespace MVC_Project.Migrations
 
                     b.Property<string>("AuthorName")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Biography")
                         .IsRequired()
@@ -259,7 +258,8 @@ namespace MVC_Project.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<bool?>("isDeleted")
                         .HasColumnType("bit");
@@ -969,10 +969,6 @@ namespace MVC_Project.Migrations
                     b.Property<int>("BookID")
                         .HasColumnType("int");
 
-                    b.Property<string>("CustomerID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("StarNum")
                         .HasColumnType("int");
 
@@ -980,15 +976,14 @@ namespace MVC_Project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("BookID");
 
-                    b.HasIndex("CustomerID");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Reviews");
                 });
@@ -1022,11 +1017,7 @@ namespace MVC_Project.Migrations
                         {
                             OrderId = 1,
                             CustomerId = "1",
-
-
-                            OrderDate = new DateTime(2024, 4, 9, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(554),
-
-
+                            OrderDate = new DateTime(2024, 4, 13, 21, 5, 26, 31, DateTimeKind.Local).AddTicks(8167),
                             TotalAmount = 10.99m
                         },
                         new
@@ -1038,17 +1029,13 @@ namespace MVC_Project.Migrations
                             OrderDate = new DateTime(2024, 4, 8, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(680),
 
 
-
                             TotalAmount = 25.00m
                         },
                         new
                         {
                             OrderId = 3,
                             CustomerId = "3",
-
-
-                            OrderDate = new DateTime(2024, 4, 7, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(703),
-
+                            OrderDate = new DateTime(2024, 4, 11, 21, 5, 26, 31, DateTimeKind.Local).AddTicks(8294),
                             TotalAmount = 18.50m
                         },
                         new
@@ -1058,28 +1045,20 @@ namespace MVC_Project.Migrations
 
                             OrderDate = new DateTime(2024, 4, 6, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(721),
 
-
                             TotalAmount = 32.75m
                         },
                         new
                         {
                             OrderId = 5,
                             CustomerId = "5",
-
-
-                            OrderDate = new DateTime(2024, 4, 6, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9487),
-
+                            OrderDate = new DateTime(2024, 4, 9, 21, 5, 26, 31, DateTimeKind.Local).AddTicks(8316),
                             TotalAmount = 14.99m
                         },
                         new
                         {
                             OrderId = 6,
                             CustomerId = "6",
-
-
-                            OrderDate = new DateTime(2024, 4, 5, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9502),
-
-
+                            OrderDate = new DateTime(2024, 4, 8, 21, 5, 26, 31, DateTimeKind.Local).AddTicks(8326),
                             TotalAmount = 20.25m
                         },
                         new
@@ -1090,43 +1069,33 @@ namespace MVC_Project.Migrations
 
                             OrderDate = new DateTime(2024, 4, 3, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(6748),
 
-
                             TotalAmount = 27.50m
                         },
                         new
                         {
                             OrderId = 8,
                             CustomerId = "8",
-
-                            OrderDate = new DateTime(2024, 4, 3, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9530),
-
+                            OrderDate = new DateTime(2024, 4, 6, 21, 5, 26, 31, DateTimeKind.Local).AddTicks(8351),
                             TotalAmount = 45.75m
                         },
                         new
                         {
                             OrderId = 9,
                             CustomerId = "9",
-
-
-                            OrderDate = new DateTime(2024, 4, 2, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9544),
-
+                            OrderDate = new DateTime(2024, 4, 5, 21, 5, 26, 31, DateTimeKind.Local).AddTicks(8361),
                             TotalAmount = 62.99m
                         },
                         new
                         {
                             OrderId = 10,
                             CustomerId = "10",
-
-
-                            OrderDate = new DateTime(2024, 4, 1, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9559),
-
+                            OrderDate = new DateTime(2024, 4, 4, 21, 5, 26, 31, DateTimeKind.Local).AddTicks(8378),
                             TotalAmount = 28.50m
                         },
                         new
                         {
                             OrderId = 11,
                             CustomerId = "11",
-
 
 
                             OrderDate = new DateTime(2024, 3, 30, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(6922),
@@ -1140,6 +1109,7 @@ namespace MVC_Project.Migrations
 
               OrderDate = new DateTime(2024, 3, 30, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9599),
 
+
                             TotalAmount = 52.25m
                         },
                         new
@@ -1149,23 +1119,20 @@ namespace MVC_Project.Migrations
 
                             OrderDate = new DateTime(2024, 3, 28, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(6957),
 
+
                             TotalAmount = 75.99m
                         },
                         new
                         {
                             OrderId = 14,
                             CustomerId = "14",
-
-             
-                            OrderDate = new DateTime(2024, 3, 27, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(6972),
-
+                            OrderDate = new DateTime(2024, 3, 31, 21, 5, 26, 31, DateTimeKind.Local).AddTicks(8417),
                             TotalAmount = 42.75m
                         },
                         new
                         {
                             OrderId = 15,
                             CustomerId = "15",
-
 
 
                             OrderDate = new DateTime(2024, 3, 26, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(7319),
@@ -1178,9 +1145,7 @@ namespace MVC_Project.Migrations
                             CustomerId = "12",
 
 
-
                             OrderDate = new DateTime(2024, 3, 25, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(7382),
-
 
 
                             TotalAmount = 38.25m
@@ -1191,9 +1156,7 @@ namespace MVC_Project.Migrations
                             CustomerId = "10",
 
 
-
                             OrderDate = new DateTime(2024, 3, 24, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(7478),
-
 
                             TotalAmount = 49.99m
                         },
@@ -1206,17 +1169,14 @@ namespace MVC_Project.Migrations
                             OrderDate = new DateTime(2024, 3, 23, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(7497),
 
 
-
                             TotalAmount = 65.75m
                         },
                         new
                         {
                             OrderId = 19,
 
-
 CustomerId = "6",
                             OrderDate = new DateTime(2024, 3, 22, 18, 51, 45, 463, DateTimeKind.Local).AddTicks(7513),
-
 
 
                             TotalAmount = 80.50m
@@ -1226,9 +1186,7 @@ CustomerId = "6",
                             OrderId = 20,
                             CustomerId = "10",
 
-
                             OrderDate = new DateTime(2024, 3, 22, 15, 9, 58, 193, DateTimeKind.Local).AddTicks(9722),
-
 
 
                             TotalAmount = 95.25m
@@ -1593,15 +1551,13 @@ CustomerId = "6",
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MVC_Project.Customer", "customer")
+                    b.HasOne("MVC_Project.Models.ApplicationUser", "User")
                         .WithMany()
-                        .HasForeignKey("CustomerID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Book");
 
-                    b.Navigation("customer");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MVC_Project.Order", b =>
