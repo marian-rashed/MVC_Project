@@ -35,6 +35,7 @@ namespace MVC_Project.Repository
         public Author GetAuthorById(int id)
         {
             Author author = bookStoreContext.Authors.FirstOrDefault(a => a.AuthorId == id);
+            author.Books=bookStoreContext.Books.Where(b=>b.AuthorId==author.AuthorId).ToList();
             return author;
         }
 
