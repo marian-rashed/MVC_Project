@@ -44,7 +44,9 @@ namespace MVC_Project.Controllers
         [HttpPost]
         public async Task< IActionResult> SaveBook(Book boo, IFormFile ImageUrl)
         {
-            if (boo.Title!=null && boo.AuthorId!=null && boo.Price!=null && ImageUrl!=null && boo.QuantityAvailable!=null)
+
+            if (boo.Title==null ||boo.Price==0||boo.AuthorId==0||boo.QuantityAvailable==0)
+
             {
                 if (ImageUrl != null && ImageUrl.Length > 0)
                 {
