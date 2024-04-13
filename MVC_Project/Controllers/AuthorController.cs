@@ -18,17 +18,26 @@ namespace MVC_Project.Controllers
 			List<Author> authorList = author.GetAllAuthors();
 			return View("Index", authorList);
 		}
+
+		/// <summary>
+		/// should not return a view
+		/// </summary>
+		/// <param name="name"></param>
+		/// <returns></returns>
 		public IActionResult GetAuthorsByName(string name)
 		{
 			var authors = author.GetAuthorsByName(name);
+
 			return View("GetAuthorByName", authors);
 		}
 
-		//public IActionResult GetAuthorById(int id)
-		//{
-		//    Author author1 = author.GetAuthorById(id);
-		//    return View("GetAuthorById", author1);
-		//}
+		public IActionResult details(int id)
+		{
+			Author author1 = author.GetAuthorById(id);
+			author1.Books = author.GetAuthorBooks(author1.AuthorName);
+
+			return View("details", author1);
+		}
 		[HttpGet]
 		//add authorize
 		public IActionResult AddNewAuthor(Author author)
@@ -38,7 +47,8 @@ namespace MVC_Project.Controllers
 		[HttpPost]
 		public async Task<IActionResult> SaveAuthorAsync(AuthorName_Biography_BD_Country_ImgUrlViewModel AuthModel, IFormFile ImageUrl)
 		{
-			if (ModelState.IsValid == false)
+			if (AuthModel.AuthorName ==null || AuthModel.Biography==null ||
+                AuthModel.BirthDate==null || AuthModel.Country==null || ImageUrl ==null)
 			{
 				return View("AddNewAuthor", AuthModel);
 			}
@@ -71,12 +81,23 @@ namespace MVC_Project.Controllers
 		}
 
 		//edit author
+
+		//[HttpGet]
+		//public IActionResult EditAuthor(int id)
+		//{
+		//	//Author auth=author.UpdateAuthor(id);
+		//	//author.Save();
+		//	//return View("Edit",auth);
+		//	if (ModelState.IsValid)
+		//	{
+		//		author.UpdateAuthor(id);
+		//		author.Save();
+		//		return RedirectToAction("Index");
+		//	}
+		//	return View("Edit", author);
+
+		//}
+
 		//delete author
-
-
-
-
-
-
 	}
 }
