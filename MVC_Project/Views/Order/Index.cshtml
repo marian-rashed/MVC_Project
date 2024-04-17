@@ -1,80 +1,135 @@
 ﻿@model IEnumerable<MVC_Project.ViewModel.OrderWithCustomerAndOrderListVM>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Order List";
 }
-<a href="\Order\AddNewOrder">AddNewOrder</a>
 <style>
-    .card-img-top {
-        width: 100%;
-        height: 50vh;
-        object-fit: contain;
+    .table-primary {
+        --bs-table-color: var(--dark-text-color); /* Dark text color */
+        --bs-table-bg: var(--light-color); /* Light background color */
+        --bs-table-border-color: var(--dark-color); /* Dark border color */
+        --bs-table-striped-bg: var(--light-color); /* Light striped background color */
+        --bs-table-striped-color: var(--dark-text-color); /* Dark striped text color */
+        --bs-table-active-bg: var(--accent-color); /* Accent color for active background */
+        --bs-table-active-color: var(--light-color); /* Light color for active text */
+        --bs-table-hover-bg: var(--secondary-color); /* Secondary color for hover background */
+        --bs-table-hover-color: var(--light-color); /* Light color for hover text */
+        color: var(--bs-table-color);
+        border-color: var(--bs-table-border-color);
     }
-</style>
+    /* Override Bootstrap Table Classes */
+    .table,
+    .table-primary,
+    .table-striped tbody tr:nth-of-type(odd) {
+        color: var(--dark-text-color); /* Dark text color */
+        background-color: var(--light-color); /* Light background color */
+        border-color: var(--dark-color); /* Dark border color */
+        font-family: var(--body-font); /* Theme body font */
+        --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    }
 
-<nav class="AlphabetNav">
-    <a href="#A">A</a>
-    <a href="#B">B</a>
-    <a href="#C">C</a>
-    <a href="#D">D</a>
-    <a href="#E">E</a>
-    <a href="#F">F</a>
-    <a href="#G">G</a>
-    <a href="#H">H</a>
-    <a href="#I">I</a>
-    <a href="#J">J</a>
-    <a href="#K">K</a>
-    <a href="#L">L</a>
-    <a href="#M">M</a>
-    <a href="#N">N</a>
-    <a href="#O">O</a>
-    <a href="#P">P</a>
-    <a href="#Q">Q</a>
-    <a href="#R">R</a>
-    <a href="#S">S</a>
-    <a href="#T">T</a>
-    <a href="#U">U</a>
-    <a href="#V">V</a>
-    <a href="#W">W</a>
-    <a href="#X">X</a>
-    <a href="#Y">Y</a>
-    <a href="#Z">Z</a>
-</nav>
-
-<div class="container-fluid">
-    <div class="row row-cols-md-2">
-        @foreach (var orderVM in Model)
-        {
-            <div class="col mb-2">
-                <div class="card w-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Order ID: @orderVM.OrderId</h5>
-                        <p class="card-text">Customer Name: @orderVM.Customer.FullName</p>
-                        <p class="card-text">Order Date: @orderVM.OrderDate.ToShortDateString()</p>
-                        <p class="card-text">Total Amount: @orderVM.TotalAmount.ToString("C")</p>
-                        @if (orderVM.OrderItems.Any())
-                        {
-                            <h6>Order Items:</h6>
-                            <ul>
-                                @foreach (var orderItem in orderVM.OrderItems)
-                                {
-                                    <li>@orderItem.Book.Title  -  @orderItem.Quantity </li>
-                                }
-                            </ul>
-                        }
-                        else
-                        {
-                            <p>No items in this order.</p>
-                        }
-                        <a href="/order/GetOrderById/@orderVM.OrderId" class="btn btn-primary">See Details</a>
-                    </div>
-                </div>
-            </div>
+        .table-primary thead {
+            color: var(--dark-text-color); /* Dark text color */
+            background-color: var(--secondary-color); /* Secondary color for table header */
+            font-family: var(--heading-font); /* Theme heading font */
         }
 
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: var(--light-color); /* Light striped background color */
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: var(--accent-color); /* Accent color for hover background */
+        color: var(--light-color); /* Light color for hover text */
+        font-family: var(--body-font); /* Theme body font */
+    }
+
+    .table > :not(caption) > * > * {
+        padding: 1.7rem 1.5rem !important;
+    }
+
+    .table > a {
+        color: var(--secondary-color) !important;
+    }
+
+        .table > a:hover {
+            color: var(--light-color) !important;
+        }
+
+    .table-hover tbody tr:hover a {
+        color: var(--dark-color) !important;
+    }
+
+        .table-hover tbody tr:hover a:hover {
+            color: var(--light-color) !important;
+        }
+
+    .table-hover tbody tr:hover div.btn-wrap a {
+        color: var(--dark-color) !important;
+        border-color: var( --light-color);
+    }
+
+   
+        .table-hover tbody tr:hover div.btn-wrap a:hover {
+            color: var(--light-color) !important;
+            border-color: var(--dark-color);
+        }
+</style>
+
+<section id="special-offer" class="bookshelf pb-5 mb-5">
+
+    <div class="section-header align-center">
+        <div class="title">
+            <span>Admin Exclusive</span>
+        </div>
+        <h2 class="section-title ">Order List</h2>
     </div>
-</div>
+
+    <div class="container ">
+        <table class="table table-primary table-striped table-hover shadow">
+            <thead>
+                <tr>
+
+                    <th scope="col">&nbsp;&nbsp;#</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Order Date</th>
+                    <th scope="col">Total Amount</th>
+
+                    <th scope="col">More info</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var orderVM in Model)
+                {
+                    <tr class="p-3">
+
+                        <td> <a href="/order/GetOrderById/@orderVM.OrderId"><b>&nbsp;&nbsp;#@orderVM.OrderId</b></a></td>
+                       
+                        <td>@orderVM.Customer.Username</td>
+                        <td>@orderVM.OrderDate.ToShortDateString()</td>
+                        <td>@orderVM.TotalAmount.ToString("C")</td>
+                        <td>
+                            <div class="btn-wrap " >
+                                <a href="/order/GetOrderById/@orderVM.OrderId" class="btn btn-outline-accent btn-accent-arrow" style="margin:0px ">
+                                    See Details<i class="icon icon-ns-arrow-right"></i>
+                                </a>
+                            </div>
+                        </td>
+
+                    </tr>
+                }
+
+        </table>
+       @*  <div class="btn-wrap">
+            <a href="\Customer\AddNewCustomer" class="btn btn-outline-accent btn-accent-arrow">
+                Add New Customer<i class="icon icon-ns-arrow-right"></i>
+            </a>
+        </div> *@
+    </div>
+
+
+</section>
+
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="/js/authorIndexScript.js"></script>
-<link rel="stylesheet" href="/css/AuthorIndex.css" />
