@@ -1,11 +1,69 @@
 ﻿@model List<Book>
+<section id="popular-books" class="bookshelf">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
 
-@foreach (var book in Model)
-{
-    <div class="card">
-        <div class="card-header">@book.BookId</div>
-        <div class="card-body">@book.Title</div>
-        <div class="card-body">@book.Price</div>
-        <div class="card-footer">@book.ImageUrl</div>
+                <div class="section-header align-center">
+                    <div class="title">
+                        <span>Happy Reading</span>
+                    </div>
+                    <h2 class="section-title">Our Books</h2>
+                </div>
+                <div id="all-genre" data-tab-content class="active">
+                    <div class="row row-cols-md-1">
+                        @foreach (Book book in Model)
+                        {
+                            <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                                <div class="product-item">
+                                    <figure class="product-style">
+                                        <a href="/book/details/@book.BookId">
+                                            <img src="@book.ImageUrl" alt="Books" class="product-item">
+                                        </a>
+                                        <button type="button" class="add-to-cart"
+                                                data-product-tile="add-to-cart">
+                                            Add To Cart
+                                        </button>
+
+                                    </figure>
+                                    <figcaption>
+                                        <h3>@book.Title</h3>
+                                        <span>@book.Author.AuthorName</span>
+                                        <div class="item-price">$ @book.Price</div>
+
+                                    </figcaption>
+                                </div>
+                            </div>
+
+                        }
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div><!--inner-tabs-->
+
     </div>
-}
+    </div>
+</section>
+
+
+
+<!-- Pagination -->
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+        {
+            <li class="page-item @(ViewBag.CurrentPage == i ? "active" : "")">
+                <a class="page-link" href="/Book/Index?page=@i">@i</a>
+            </li>
+        }
+    </ul>
+</nav>
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/js/authorIndexScript.js"></script>
+<link rel="stylesheet" href="/css/AuthorIndex.css" />

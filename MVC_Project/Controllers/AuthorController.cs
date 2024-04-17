@@ -18,17 +18,26 @@ namespace MVC_Project.Controllers
 			List<Author> authorList = author.GetAllAuthors();
 			return View("Index", authorList);
 		}
+
+		/// <summary>
+		/// should not return a view
+		/// </summary>
+		/// <param name="name"></param>
+		/// <returns></returns>
 		public IActionResult GetAuthorsByName(string name)
 		{
 			var authors = author.GetAuthorsByName(name);
+
 			return View("GetAuthorByName", authors);
 		}
 
-		//public IActionResult GetAuthorById(int id)
-		//{
-		//    Author author1 = author.GetAuthorById(id);
-		//    return View("GetAuthorById", author1);
-		//}
+		public IActionResult details(int id)
+		{
+			Author author1 = author.GetAuthorById(id);
+			author1.Books = author.GetAuthorBooks(author1.AuthorName);
+
+			return View("details", author1);
+		}
 		[HttpGet]
 		//add authorize
 		public IActionResult AddNewAuthor(Author author)
