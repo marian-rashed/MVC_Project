@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MVC_Project.Migrations
 {
     /// <inheritdoc />
-    public partial class update : Migration
+    public partial class o : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -426,26 +426,26 @@ namespace MVC_Project.Migrations
                 columns: new[] { "OrderId", "CustomerId", "OrderDate", "TotalAmount" },
                 values: new object[,]
                 {
-                    { 1, "1", new DateTime(2024, 4, 17, 15, 43, 46, 395, DateTimeKind.Local).AddTicks(4945), 10.99m },
-                    { 2, "2", new DateTime(2024, 4, 16, 15, 43, 46, 395, DateTimeKind.Local).AddTicks(5009), 25.00m },
-                    { 3, "3", new DateTime(2024, 4, 15, 15, 43, 46, 395, DateTimeKind.Local).AddTicks(5021), 18.50m },
-                    { 4, "4", new DateTime(2024, 4, 14, 15, 43, 46, 395, DateTimeKind.Local).AddTicks(5035), 32.75m },
-                    { 5, "5", new DateTime(2024, 4, 13, 15, 43, 46, 395, DateTimeKind.Local).AddTicks(5044), 14.99m },
-                    { 6, "6", new DateTime(2024, 4, 12, 15, 43, 46, 395, DateTimeKind.Local).AddTicks(5053), 20.25m },
-                    { 7, "7", new DateTime(2024, 4, 11, 15, 43, 46, 395, DateTimeKind.Local).AddTicks(5064), 27.50m },
-                    { 8, "8", new DateTime(2024, 4, 10, 15, 43, 46, 395, DateTimeKind.Local).AddTicks(5073), 45.75m },
-                    { 9, "9", new DateTime(2024, 4, 9, 15, 43, 46, 395, DateTimeKind.Local).AddTicks(5082), 62.99m },
-                    { 10, "10", new DateTime(2024, 4, 8, 15, 43, 46, 395, DateTimeKind.Local).AddTicks(5091), 28.50m },
-                    { 11, "11", new DateTime(2024, 4, 7, 15, 43, 46, 395, DateTimeKind.Local).AddTicks(5100), 35.99m },
-                    { 12, "12", new DateTime(2024, 4, 6, 15, 43, 46, 395, DateTimeKind.Local).AddTicks(5113), 52.25m },
-                    { 13, "13", new DateTime(2024, 4, 5, 15, 43, 46, 395, DateTimeKind.Local).AddTicks(5122), 75.99m },
-                    { 14, "14", new DateTime(2024, 4, 4, 15, 43, 46, 395, DateTimeKind.Local).AddTicks(5132), 42.75m },
-                    { 15, "15", new DateTime(2024, 4, 3, 15, 43, 46, 395, DateTimeKind.Local).AddTicks(5238), 55.50m },
-                    { 16, "12", new DateTime(2024, 4, 2, 15, 43, 46, 395, DateTimeKind.Local).AddTicks(5250), 38.25m },
-                    { 17, "10", new DateTime(2024, 4, 1, 15, 43, 46, 395, DateTimeKind.Local).AddTicks(5260), 49.99m },
-                    { 18, "8", new DateTime(2024, 3, 31, 15, 43, 46, 395, DateTimeKind.Local).AddTicks(5269), 65.75m },
-                    { 19, "6", new DateTime(2024, 3, 30, 15, 43, 46, 395, DateTimeKind.Local).AddTicks(5277), 80.50m },
-                    { 20, "10", new DateTime(2024, 3, 29, 15, 43, 46, 395, DateTimeKind.Local).AddTicks(5292), 95.25m }
+                    { 1, "1", new DateTime(2024, 4, 17, 18, 15, 25, 675, DateTimeKind.Local).AddTicks(405), 10.99m },
+                    { 2, "2", new DateTime(2024, 4, 16, 18, 15, 25, 675, DateTimeKind.Local).AddTicks(456), 25.00m },
+                    { 3, "3", new DateTime(2024, 4, 15, 18, 15, 25, 675, DateTimeKind.Local).AddTicks(466), 18.50m },
+                    { 4, "4", new DateTime(2024, 4, 14, 18, 15, 25, 675, DateTimeKind.Local).AddTicks(476), 32.75m },
+                    { 5, "5", new DateTime(2024, 4, 13, 18, 15, 25, 675, DateTimeKind.Local).AddTicks(483), 14.99m },
+                    { 6, "6", new DateTime(2024, 4, 12, 18, 15, 25, 675, DateTimeKind.Local).AddTicks(543), 20.25m },
+                    { 7, "7", new DateTime(2024, 4, 11, 18, 15, 25, 675, DateTimeKind.Local).AddTicks(562), 27.50m },
+                    { 8, "8", new DateTime(2024, 4, 10, 18, 15, 25, 675, DateTimeKind.Local).AddTicks(570), 45.75m },
+                    { 9, "9", new DateTime(2024, 4, 9, 18, 15, 25, 675, DateTimeKind.Local).AddTicks(576), 62.99m },
+                    { 10, "10", new DateTime(2024, 4, 8, 18, 15, 25, 675, DateTimeKind.Local).AddTicks(583), 28.50m },
+                    { 11, "11", new DateTime(2024, 4, 7, 18, 15, 25, 675, DateTimeKind.Local).AddTicks(589), 35.99m },
+                    { 12, "12", new DateTime(2024, 4, 6, 18, 15, 25, 675, DateTimeKind.Local).AddTicks(599), 52.25m },
+                    { 13, "13", new DateTime(2024, 4, 5, 18, 15, 25, 675, DateTimeKind.Local).AddTicks(606), 75.99m },
+                    { 14, "14", new DateTime(2024, 4, 4, 18, 15, 25, 675, DateTimeKind.Local).AddTicks(612), 42.75m },
+                    { 15, "15", new DateTime(2024, 4, 3, 18, 15, 25, 675, DateTimeKind.Local).AddTicks(619), 55.50m },
+                    { 16, "12", new DateTime(2024, 4, 2, 18, 15, 25, 675, DateTimeKind.Local).AddTicks(625), 38.25m },
+                    { 17, "10", new DateTime(2024, 4, 1, 18, 15, 25, 675, DateTimeKind.Local).AddTicks(632), 49.99m },
+                    { 18, "8", new DateTime(2024, 3, 31, 18, 15, 25, 675, DateTimeKind.Local).AddTicks(638), 65.75m },
+                    { 19, "6", new DateTime(2024, 3, 30, 18, 15, 25, 675, DateTimeKind.Local).AddTicks(647), 80.50m },
+                    { 20, "10", new DateTime(2024, 3, 29, 18, 15, 25, 675, DateTimeKind.Local).AddTicks(656), 95.25m }
                 });
 
             migrationBuilder.InsertData(
