@@ -23,38 +23,7 @@
 	<link rel="stylesheet" type="text/css" href="/style.css">
 
 
-	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
-	<link href="/css/main.css" rel="stylesheet" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-	<style>
-
-		.search-container {
-			margin: auto;
-			width: 50%;
-			background-color: white;
-			padding: 20px;
-			border-radius: 8px;
-			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-			display: flex;
-			align-items: center;
-			gap: 10px; /* Creates space between elements */
-		}
-
-		select, input[type="text"] {
-			padding: 10px;
-			margin-right: 10px;
-			border-radius: 5px;
-			border: 1px solid #ccc;
-			font-size: 16px;
-			color: #333;
-		}
-
-		
-
-		.fa-search {
-			margin-right: 5px;
-		}
-	</style>
+	
 
 </head>
 
@@ -67,19 +36,7 @@
 	
 	<!-- Assuming this is within a Razor view file -->
 	@using (Html.BeginForm()) { /* This is a placeholder and will be overwritten by JavaScript */ }
-	<div class="search-container">
-		<form id="searchForm" style="display: flex; align-items: center; width: 100%;">
-			<select id="searchOption" name="searchOption">
-				<option value="">search by</option>
-				<option value="Book">Book</option>
-				<option value="Author">Author</option>
-			</select>
-			<input type="text" id="searchQuery" name="query" placeholder="Enter your search..." style="flex-grow: 1;">
-			<button type="submit">
-				<i class="fas fa-search"></i> Search
-			</button>
-		</form>
-	</div>
+	
 
 
 	<div>
@@ -1132,26 +1089,7 @@
 	<script src="/js/plugins.js"></script>
 	<script src="/js/script.js"></script>
 
-	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			document.getElementById('searchOption').addEventListener('change', function () {
-				var form = document.getElementById('searchForm');
-				var action = '';
 
-				switch (this.value) {
-					case 'Author':
-						action = '@Url.Action("SearchByAuthor", "Home")';
-						break;
-					case 'Book':
-						action = '@Url.Action("SearchByBook", "Home")';
-						break;
-				}
-
-				// Update the form's action dynamically
-				form.action = action;
-			});
-		});
-	</script>
 
 
 	<script src="/js/extention/choices.js"></script>
