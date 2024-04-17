@@ -2442,3 +2442,17 @@ footer#footer {
     width: 100%;
   }
 }
+/* Override Bootstrap Table Class */
+.table-primary {
+    --bs-table-color: var(--dark-text-color); /* Dark text color */
+    --bs-table-bg: var(--light-color); /* Light background color */
+    --bs-table-border-color: var(--dark-color); /* Dark border color */
+    --bs-table-striped-bg: var(--light-color); /* Light striped background color */
+    --bs-table-striped-color: var(--dark-text-color); /* Dark striped text color */
+    --bs-table-active-bg: var(--accent-color); /* Accent color for active background */
+    --bs-table-active-color: var(--light-color); /* Light color for active text */
+    --bs-table-hover-bg: var(--secondary-color); /* Secondary color for hover background */
+    --bs-table-hover-color: var(--light-color); /* Light color for hover text */
+    color: var(--bs-table-color);
+    border-color: var(--bs-table-border-color);
+}
