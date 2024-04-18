@@ -17,9 +17,10 @@
         }
     }
 
-    .inputValidation{
+    .inputValidation {
         color: var(--accent-color);
     }
+
     .form-control[type=file] {
         -webkit-text-size-adjust: 100%;
         -webkit-tap-highlight-color: transparent;
@@ -59,18 +60,18 @@
     input[type="tel"],
     input[type="url"],
     input[type="password"],
-    textarea, 
+    textarea,
     select {
         margin-bottom: 0px;
     }
 
-    div.btn-wrap .btn.btn-outline-accent{
+    div.btn-wrap .btn.btn-outline-accent {
         color: var(--dark-color) !important;
         border-color: var(--accent-color) !important;
     }
 
 
-    div.btn-wrap .btn.btn-outline-accent:hover  {
+        div.btn-wrap .btn.btn-outline-accent:hover {
             color: var(--accent-color) !important;
             border-color: var(--dark-color) !important;
         }
@@ -95,71 +96,50 @@
             ">
                     <div class="card-body p-5 shadow-5 ">
                         <h2 class="fw-bold mb-5 text-center">New Author</h2>
-                        <form class="form" asp-action="SaveAuthor" asp-controller="Author" enctype="multipart/form-data">
-
-
-                            <!-- Name input -->
-
-                            <div data-mdb-input-init class="form-outline mb-4">
-
-                                <label asp-for="AuthorName" class="form-label"></label>
+                        <form class="form " asp-action="SaveAuthor" asp-controller="Author" enctype="multipart/form-data">
+                            <div data-mdb-input-init class=" form-outline mb-4">
+                                <label asp-for="AuthorName"></label>
                                 <input asp-for="AuthorName" class="form form-control" />
-                                <span asp-validation-for="AuthorName" class="inputValidation"></span>
+                                <span asp-validation-for="AuthorName"></span>
                             </div>
-                            <!-- 2 column grid layout with text inputs for the first and last names -->
+                           
+                            <div >
+                                <label asp-for="Biography"></label>
+                                <input asp-for="Biography" class="form form-control" />
+                                <span asp-validation-for="Biography"></span>
+                            </div>
+                            
                             <div class="row">
-
                                 <div class="col-md-6 mb-4">
-                                    <label asp-for="Country" class="form-label"></label>
+                                    <label asp-for="Country"></label>
                                     <input asp-for="Country" class="form form-control" />
-                                    <span asp-validation-for="Country" class="inputValidation"></span>
+                                    <span asp-validation-for="Country"></span>
                                 </div>
-                                <div class="col-md-6 mb-4">
-                                    <label asp-for="BirthDate" class="form-label"></label>
+                               <div class="col-md-6 mb-4">
+                                    <label asp-for="BirthDate"></label>
                                     <input asp-for="BirthDate" class="form form-control" />
-                                    <span asp-validation-for="BirthDate" class="inputValidation"></span>
-                                </div>
+                                    <span asp-validation-for="BirthDate"></span>
+                               </div>
                             </div>
+                            
 
-
-                            <!-- Password input -->
-                            <div data-mdb-input-init class="form-outline mb-4">
-                            </div>
+                           
                             <div class="file-loading">
-                                <label asp-for="ImageUrl"></label>
-                                <input asp-for="ImageUrl" id="input-dim-1" name="input-dim-1[]" type="file" accept="image/*" class="form form-control" value="Upload Author Image">
-                                <span asp-validation-for="ImageUrl" class="inputValidation"></span>
+                                <label asp-for="ImageUrl">Image</label>
+                                <input type="file" asp-for="ImageUrl" class="form form-control" />
+                                <span asp-validation-for="ImageUrl"></span>
                             </div>
-
-
-                            <!-- Submit button -->
+                            
+                            @* <div class="btn-wrap m-5 text-center">
+                                <input type="submit"  value=" " data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-accent btn-accent-arrow" style="margin:0px;font-weight:600;"/>
+                                Add New Author<i class="icon icon-ns-arrow-right"></i>
+                            </div> *@
                             <div class="btn-wrap m-5 text-center">
                                 <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-accent btn-accent-arrow" style="margin:0px ;font-family: var(--heading-font);    font-weight: 600; ">
                                     Add New Author<i class="icon icon-ns-arrow-right"></i>
                                 </button>
                             </div>
                            
-
-                            <!-- Register buttons -->
-                            @*  <div class="text-center">
-                            <p>or sign up with:</p>
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                            <i class="fab fa-facebook-f"></i>
-                            </button>
-
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                            <i class="fab fa-google"></i>
-                            </button>
-
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                            <i class="fab fa-twitter"></i>
-                            </button>
-
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                            <i class="fab fa-github"></i>
-                            </button>
-                            </div> *@
-
                         </form>
                     </div>
                 </div>
@@ -180,7 +160,7 @@
 <partial name="_ValidationScriptsPartial"></partial>
 <script src="/js/bootstrap-FileUpload.min.js"></script>
 
-   @*  <script>
+@*  <script>
         $("#input-dim-1").fileinput({
             uploadUrl: "/file-upload-batch/2",
             allowedFileExtensions: ["jpg", "png", "gif"],
@@ -188,12 +168,12 @@
             maxImageHeight: 250
         });
 </script> *@
-<script>
+@* <script>
     $("#myUpload").bootstrapFileUpload({
         url: "",
         fileTypes: {
             images: [],
-            
+
         }
     });
-</script>
+</script> *@
