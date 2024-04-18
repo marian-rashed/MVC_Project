@@ -28,11 +28,11 @@ namespace MVC_Project.Controllers
             return View("GetOrderById", orderVM);
         }
 
-        [HttpGet]
-        public IActionResult AddNewOrder()
-        {
-            return View("AddNewOrder");
-        }
+        //[HttpGet]
+        //public IActionResult AddNewOrder()
+        //{
+        //    return View("AddNewOrder");
+        //}
 
         [HttpPost]
         //public IActionResult SaveOrder(OrderWithCustomerAndOrderListVM orderVM)
@@ -75,13 +75,6 @@ namespace MVC_Project.Controllers
             List<OrderWithCustomerAndOrderListVM> orders = orderRepository.GetOrderByCustomerId(customerId);
             return View("GetOrderByCustomerId", orders);
         }
-
-
-
-
-
-
-        
 
         //save order to database
 

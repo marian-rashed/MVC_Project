@@ -53,6 +53,61 @@ namespace MVC_Project.Repository
             var books = bookStoreContext.Books.Where(b => b.Title.Contains(name)).ToList();
             return books;
         }
+		public void EditBook(Book book)
+		{
+			// Retrieve the existing book from the database
+			var existingBook = bookStoreContext.Books.FirstOrDefault(b => b.BookId == book.BookId);
+
+			if (existingBook != null)
+			{
+				// Update the existing book properties with the new values
+				existingBook.Title = book.Title;
+				existingBook.Author = book.Author;
+				//existingBook.ISBN = book.ISBN;
+
+				// You can update other properties as well
+
+				// Save changes to the database
+				//bookStoreContext.SaveChanges();
+			}
+			else
+			{
+				// Handle case where the book to be updated is not found
+				throw new ArgumentException("Book not found");
+			}
+		}
+
+        //random books
+        public List<Book> GetRandomBooks(int count)
+        {
+            Random random = new Random();
+            List<int> validIndices = bookStoreContext.Books.Select(b => b.BookId).ToList();
+
+            // Ensure count does not exceed totalBooks
+            count = Math.Min(count, validIndices.Count);
+
+            // Shuffle the list of valid indices
+            for (int i = validIndices.Count - 1; i > 0; i--)
+            {
+                int j = random.Next(0, i + 1);
+                int temp = validIndices[i];
+                validIndices[i] = validIndices[j];
+                validIndices[j] = temp;
+            }
+
+            // Take the first 'count' indices
+            List<int> selectedIndices = validIndices.Take(count).ToList();
+
+            // Retrieve books corresponding to the selected indices
+            var randomBooks = bookStoreContext.Books
+                .Where(b => selectedIndices.Contains(b.BookId))
+                .Include(b => b.Author)
+                .ToList();
+
+            return randomBooks;
+        }
+
+
 
     }
 }

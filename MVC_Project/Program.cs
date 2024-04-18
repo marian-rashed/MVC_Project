@@ -1,9 +1,9 @@
 
 using Microsoft.AspNetCore.Identity;
-using MVC_Project.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using MVC_Project.Hubs;
 using MVC_Project.Interfaces;
+using MVC_Project.Models;
 using MVC_Project.Repository;
 using MVC_Project.Hubs;
 
@@ -23,8 +23,8 @@ namespace MVC_Project
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("cs"));
             });
-            builder.Services.AddScoped<IAuthor,AuthorRepository>();
-            builder.Services.AddScoped<IBook,BookRepository>();
+            builder.Services.AddScoped<IAuthor, AuthorRepository>();
+            builder.Services.AddScoped<IBook, BookRepository>();
             builder.Services.AddScoped<IOrder, OrderRepository>();
             builder.Services.AddScoped<IOrderItem, OrderItemsRepository>();
             builder.Services.AddScoped<ICustomer, CustomerRepository>();
@@ -38,20 +38,30 @@ namespace MVC_Project
                 options.UseSqlServer(builder.Configuration.GetConnectionString("cs"));
             });
             builder.Services.AddSession();
-            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(
+            _ = builder.Services.AddIdentity<ApplicationUser, IdentityRole>(
                options =>
                {
+
                    options.Password.RequireNonAlphanumeric = false;
                    options.Password.RequireUppercase = false;
                    options.Password.RequireLowercase = false;
                    options.Password.RequireDigit = false;
-                   options.Password.RequireDigit= false;
+                   options.Password.RequireDigit = false;
+                   options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                   // Minimum username length of 4 characters
+
 
                }).AddEntityFrameworkStores<BookStoreContext>();
-            
+
             builder.Services.AddControllersWithViews();
+
             builder.Services.AddSignalR();
+
             var app = builder.Build();
+
+
+
+
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -68,7 +78,9 @@ namespace MVC_Project
             app.UseAuthorization();
             app.UseSession();
 
-            app.MapHub<ReviewHub>("/ReviewHub");
+
+
+            app.MapHub<ReviewsHub>("/ReviewHub");
             app.MapHub<BookHub>("/BookHub");
 
             app.MapControllerRoute(
