@@ -47,10 +47,16 @@ namespace MVC_Project.Controllers
 			List<Book> dummybooks = book.GetBooksByName(query);
 			return dummybooks;
 		}
+		public IActionResult Contact()
+		{
+			return View("Contact");
+		}
+        public IActionResult Thanks()
+        {
+            return View("Thanks");
+        }
 
-
-
-		public IActionResult Index()
+        public IActionResult Index()
 		{
 			return View();
 		}
