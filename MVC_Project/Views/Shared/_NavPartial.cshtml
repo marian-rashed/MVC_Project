@@ -95,17 +95,21 @@
 
                         }
 
-                        
+                        @if (User.IsInRole("Admin"))
+                        {
                             <a href="/Role/AddRole" class="user-account for-buy">
                                 <i class="icon">&#x1F512;</i><span>Add Role</span>
                             </a>
                             <button type="button" onclick="window.location.href='/Dashboard/index'">Dashboard</button>
 
-
-                        
+                            <a href="/Role/AssignRole" class="user-account for-buy">
+                                <i class="icon">&#x1F512;</i><span>Assign Role</span>
+                            </a>
+                        }
                         <a href="#" class="cart for-buy">
                             <i class="icon icon-clipboard"></i><span>
                                 Cart:(0
+                                   @*  <span id="cartPrice">0</span> *@
                                 $)
                             </span>
                         </a>
@@ -166,12 +170,11 @@
                                 </li>
 
                                 <li class="menu-item">
-                                    @if (User.Identity.IsAuthenticated == true)
-                                    {
+                                   
                                         <a href="/Author/Index" class="nav-link">
                                             Authors<span class="badge bg-dark"></span>
                                         </a>
-                                    }
+                                    
                                 </li>
 
                                 <li class="menu-item">
@@ -192,11 +195,7 @@
                                     </a>
                                 </li>
 
-                                <li class="menu-item">
-                                    <a href="/Role/AddRole" class="nav-link">
-                                        Role <span class="badge bg-dark"></span>
-                                    </a>
-                                </li>
+                               
                                 <li class="menu-item">
                                     <a href="contact.html" class="nav-link">
                                         Contact <span class="badge bg-dark"></span>
