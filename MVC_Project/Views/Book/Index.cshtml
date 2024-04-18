@@ -30,9 +30,6 @@
                 -->
                 <!-- Sidebar for Cart -->
               
-                <div id="cart-sidebar" class="sidebar" style="">
-                    
-                </div>
 
                 <div class="tab-content">
                     <div id="all-genre" data-tab-content class="active">
@@ -124,20 +121,4 @@
 <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="/js/authorIndexScript.js"></script>
 <link rel="stylesheet" href="/css/AuthorIndex.css"/>
-
-<script>
-    $(document).ready(function () {
-       
-        var selectedBooksID = [];
-
-       
-        $('.add-to-cart').click(function () {
-            var bookId = $(this).data('book-id');
-            selectedBooksID.push(bookId);
-            $('#cart-sidebar').append('<div>' + bookId+  '</div>');
-
-        });
-
-        
-    });
-</script>
+@Html.RenderPartialAsync("_SelectedBookParial");

@@ -13,31 +13,36 @@
     <div class="form-wrapper align-items-center">
         <div class="form sign-up">
             <form asp-action="Register">
-                <div asp-validation-summary="All" class="text-danger"></div>
+                <div asp-validation-summary="All" class="text-danger"></div> 
                 <div class="input-group">
                     <i class='bx bxs-user'></i>
                     <input asp-for="UserName" type="text" placeholder="Username" class="form-control" />
+                    <span asp-validation-for="UserName"></span>
                 </div>
                 <div class="input-group">
                     <i class='bx bx-mail-send'></i>
                     <input asp-for="Email" type="email" placeholder="Email" class="form-control" />
+                    <span asp-validation-for="Email"></span>
                 </div>
                 <div class="input-group">
                     <i class='bx bxs-lock-alt'></i>
                     <input asp-for="Password" type="password" placeholder="Password" class="form-control" />
+                    <span asp-validation-for="Password"></span>
                 </div>
                 <div class="input-group">
                     <i class='bx bxs-lock-alt'></i>
                     <input asp-for="ConfirmPassword" type="password" placeholder="Confirm password" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword"></span>
                 </div>
                 <div class="input-group">
                     <i class='bx bxs-lock-alt'></i>
                     <input asp-for="Address" type="text" placeholder="Address" class="form-control" />
+                    <span asp-validation-for="Address"></span>
                 </div>
                 <button type="submit">Sign up</button>
                 <p>
                     <span>Already have an account?</span>
-                    <b  class="pointer">Sign in here</b>
+                    <a href="/Account/Login" class="pointer">Sign in here</a>
                 </p>
             </form>
         </div>

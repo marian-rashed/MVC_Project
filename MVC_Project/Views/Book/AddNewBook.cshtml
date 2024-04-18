@@ -1,4 +1,6 @@
-﻿@model Book
+
+@model Book
+
 @{
     ViewData["Title"] = "NewBook";
 }
@@ -197,23 +199,7 @@
         }
     });
 </script>
-@* <form class="form form-control" asp-action="SaveBook" asp-controller="Book" enctype="multipart/form-data">
-    
-
-    <label asp-for="AuthorId"></label>
-    <input asp-for="AuthorId" class="form form-control" />
-    <span asp-validation-for="AuthorId"></span>
-
-   
-
-    <label asp-for="ImageUrl"></label>
-
-    <input asp-for="ImageUrl" class="form form-control" type="file" />
-    <span asp-validation-for="ImageUrl"></span>
 
 
 
-    <input type="submit" class="btn btn-info" value="Add"   />
-</form>
- *@
 

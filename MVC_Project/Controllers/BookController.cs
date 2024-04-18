@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.IdentityModel.Abstractions;
+
 using MVC_Project.Interfaces;
 
 namespace MVC_Project.Controllers
@@ -8,9 +11,9 @@ namespace MVC_Project.Controllers
     {
         IBook book;
         IAuthor author;
-		private const int PageSize = 8;
+        private const int PageSize = 8;
 
-		public BookController(IBook book,IAuthor author)
+        public BookController(IBook book, IAuthor author)
         {
             this.book = book;
             this.author = author;
@@ -37,13 +40,27 @@ namespace MVC_Project.Controllers
         }
 
         [HttpGet]
-        public IActionResult AddNewBook(Book book)
+        public IActionResult AddNewBook()
         {
+            var authors = author.GetAllAuthors();
+
+            if (authors != null)
+            {
+                SelectList authorList = new SelectList(authors, "AuthorId", "AuthorName");
+                ViewBag.Authors = authorList;
+            }
+            else
+            {
+                ViewBag.Authors = new SelectList(new List<Author>(), "AuthorId", "AuthorName");
+            }
+
             return View("AddNewBook");
         }
+
         [HttpPost]
-        public async Task< IActionResult> SaveBook(Book boo, IFormFile ImageUrl)
+        public async Task<IActionResult> SaveBook(Book boo, IFormFile ImageUrl)
         {
+
 
             if (boo.Title!=null ||boo.Price!=0||boo.AuthorId!=0||boo.QuantityAvailable!=0)
 
@@ -63,11 +80,28 @@ namespace MVC_Project.Controllers
                     book.Save();
                     return RedirectToAction("Index");
                 }
-              
+
             }
 
             return View("AddNewBook", boo);
 
+        }
+        public ActionResult SearchByBook(string query)
+        {
+            // Here you would perform your search logic
+            // For simplicity, let's assume you already have a method to fetch authors based on the search query
+            List<Book> books = YourSearchLogicMethod2(query);
+
+            // Pass the list of authors to the view
+            return View("GetBooksByName", books);
+        }
+
+        // This is a placeholder for your search logic
+
+        private List<Book> YourSearchLogicMethod2(string query)
+        {
+            List<Book> dummybooks = book.GetBooksByName(query);
+            return dummybooks;
         }
         public IActionResult GetBooksByName(string name)
         {
@@ -76,38 +110,38 @@ namespace MVC_Project.Controllers
             return View("GetBooksByName", books);
         }
 
-		[HttpGet]
-		public IActionResult EditBook(int id)
-		{
-			// Retrieve the book by ID
-			var book1 = book.GetBookById(id);
+        [HttpGet]
+        public IActionResult EditBook(int id)
+        {
+            // Retrieve the book by ID
+            var book1 = book.GetBookById(id);
 
-			if (book1 == null)
-			{
-				// Handle case where book with given ID is not found
-				return NotFound();
-			}
+            if (book1 == null)
+            {
+                // Handle case where book with given ID is not found
+                return NotFound();
+            }
 
-			return View("EditBook", book1);
-		}
+            return View("EditBook", book1);
+        }
 
-		[HttpPost]
-		public IActionResult SaveEditedBook(Book editedBook)
-		{
-			if (ModelState.IsValid)
-			{
-				book.EditBook(editedBook);
+        [HttpPost]
+        public IActionResult SaveEditedBook(Book editedBook)
+        {
+            if (ModelState.IsValid)
+            {
+                book.EditBook(editedBook);
                 return RedirectToAction("Index");
-			}
-			else
-			{
-				// If the model state is not valid, return to the edit view with the model
-				return View("EditBook", editedBook);
-			}
-		}
+            }
+            else
+            {
+                // If the model state is not valid, return to the edit view with the model
+                return View("EditBook", editedBook);
+            }
+        }
 
-		//edit book
-		//delete book
-	}
+        //edit book
+        //delete book
+    }
 }
 
