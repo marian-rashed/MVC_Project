@@ -16,9 +16,6 @@ namespace MVC_Project.Controllers
 
 
 
-
-
-
         public IActionResult Index()
         {
             return View();
