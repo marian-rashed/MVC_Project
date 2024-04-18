@@ -1,0 +1,16 @@
+﻿<!-- Your partial view content here -->
+<script src="~/js/SelectedBooks.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.add-to-cart').click(function () {
+            var bookId = $(this).data('book-id');
+            selectedBooksID.push(bookId);
+            console.log(selectedBooksID[count]);
+            count++;
+            $('#num-book-cart').text(count);
+        });
+    });
+</script>
+
