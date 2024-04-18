@@ -47,8 +47,8 @@ namespace MVC_Project.Controllers
 		[HttpPost]
 		public async Task<IActionResult> SaveAuthorAsync(AuthorName_Biography_BD_Country_ImgUrlViewModel AuthModel, IFormFile ImageUrl)
 		{
-			if (AuthModel.AuthorName ==null || AuthModel.Biography==null ||
-                AuthModel.BirthDate==null || AuthModel.Country==null || ImageUrl ==null)
+			if (AuthModel.AuthorName == null || AuthModel.Biography == null ||
+						 AuthModel.BirthDate == null || AuthModel.Country == null || ImageUrl == null)
 			{
 				return View("AddNewAuthor", AuthModel);
 			}
@@ -80,24 +80,6 @@ namespace MVC_Project.Controllers
 			return RedirectToAction("Index");
 		}
 
-		//edit author
-
-		//[HttpGet]
-		//public IActionResult EditAuthor(int id)
-		//{
-		//	//Author auth=author.UpdateAuthor(id);
-		//	//author.Save();
-		//	//return View("Edit",auth);
-		//	if (ModelState.IsValid)
-		//	{
-		//		author.UpdateAuthor(id);
-		//		author.Save();
-		//		return RedirectToAction("Index");
-		//	}
-		//	return View("Edit", author);
-
-		//}
-
-		//delete author
+		
 	}
 }

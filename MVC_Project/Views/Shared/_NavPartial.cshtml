@@ -1,4 +1,58 @@
-﻿<div id="header-wrap">
+﻿
+
+<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+<link href="/css/main.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<style>
+
+
+
+
+    #searchForm {
+        border: none; /* removes any default border */
+    }
+
+    #searchOption {
+        margin-top: 12px;
+        margin-right: 10px; /* space between select box and input */
+        padding: 8px; /* padding inside the select box */
+        border: 1px solid #ccc; /* light grey border */
+        border-radius: 4px; /* rounded corners for select */
+        background-color: white; /* white background color */
+        height: 2.5em;
+    }
+
+    #searchQuery {
+        margin-top: 12px;
+        padding: 8px; /* padding inside the input box */
+        border: 1px solid #ccc; /* light grey border */
+        border-radius: 4px; /* rounded corners for input */
+        outline: none;
+        width: 50%;
+        height: 2.5em;
+    }
+
+    #searchBtn {
+        height: 2.5em;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        margin-top: 10px;
+        border: 1px solid #ccc; /* light grey border */
+        border-radius: 4px;
+        margin-left: 8px;
+    }
+
+    .search-container {
+        width: 50%;
+        margin: auto;
+    }
+
+    button i.fas {
+        margin-right: 5px; /* space between icon and text */
+    }
+</style>
+<div id="header-wrap">
 
     <div class="top-content">
         <div class="container-fluid">
@@ -41,14 +95,17 @@
 
                         }
 
-                        
+                        @if (User.IsInRole("Admin"))
+                        {
                             <a href="/Role/AddRole" class="user-account for-buy">
                                 <i class="icon">&#x1F512;</i><span>Add Role</span>
                             </a>
                             <button type="button" onclick="window.location.href='/Dashboard/index'">Dashboard</button>
 
-
-                        
+                            <a href="/Role/AssignRole" class="user-account for-buy">
+                                <i class="icon">&#x1F512;</i><span>Assign Role</span>
+                            </a>
+                        }
                         <a href="#" class="cart for-buy">
                             <i class="icon icon-clipboard"></i><span>
                                 Cart:(0
@@ -112,12 +169,11 @@
                                 </li>
 
                                 <li class="menu-item">
-                                    @if (User.Identity.IsAuthenticated == true)
-                                    {
+                                   
                                         <a href="/Author/Index" class="nav-link">
                                             Authors<span class="badge bg-dark"></span>
                                         </a>
-                                    }
+                                    
                                 </li>
 
                                 <li class="menu-item">
@@ -138,11 +194,7 @@
                                     </a>
                                 </li>
 
-                                <li class="menu-item">
-                                    <a href="/Role/AddRole" class="nav-link">
-                                        Role <span class="badge bg-dark"></span>
-                                    </a>
-                                </li>
+                               
                                 <li class="menu-item">
                                     <a href="contact.html" class="nav-link">
                                         Contact <span class="badge bg-dark"></span>
@@ -182,3 +234,37 @@
     </header>
 
 </div><!--header-wrap-->
+<div class="search-container">
+    <form id="searchForm" style="display: flex; align-items: center; width: 100%;">
+        <select id="searchOption" name="searchOption">
+            <option value="">search by</option>
+            <option value="Book">Book</option>
+            <option value="Author">Author</option>
+        </select>
+        <input type="search" class="form-control rounded" id="searchQuery" name="query" placeholder="Enter your search..." style="flex-grow: 1;">
+        <button id="searchBtn" type="submit">
+            <i class="fas fa-search"></i> 
+        </button>
+    </form>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById('searchOption').addEventListener('change', function () {
+            var form = document.getElementById('searchForm');
+            var action = '';
+
+            switch (this.value) {
+                case 'Author':
+                    action = '@Url.Action("SearchByAuthor", "Home")';
+                    break;
+                case 'Book':
+                    action = '@Url.Action("SearchByBook", "Home")';
+                    break;
+            }
+
+            // Update the form's action dynamically
+            form.action = action;
+        });
+    });
+</script>
