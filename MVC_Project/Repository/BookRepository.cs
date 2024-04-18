@@ -74,6 +74,37 @@ namespace MVC_Project.Repository
 			}
 		}
 
+        //random books
+        public List<Book> GetRandomBooks(int count)
+        {
+            Random random = new Random();
+            List<int> validIndices = bookStoreContext.Books.Select(b => b.BookId).ToList();
 
-	}
+            // Ensure count does not exceed totalBooks
+            count = Math.Min(count, validIndices.Count);
+
+            // Shuffle the list of valid indices
+            for (int i = validIndices.Count - 1; i > 0; i--)
+            {
+                int j = random.Next(0, i + 1);
+                int temp = validIndices[i];
+                validIndices[i] = validIndices[j];
+                validIndices[j] = temp;
+            }
+
+            // Take the first 'count' indices
+            List<int> selectedIndices = validIndices.Take(count).ToList();
+
+            // Retrieve books corresponding to the selected indices
+            var randomBooks = bookStoreContext.Books
+                .Where(b => selectedIndices.Contains(b.BookId))
+                .Include(b => b.Author)
+                .ToList();
+
+            return randomBooks;
+        }
+
+
+
+    }
 }
