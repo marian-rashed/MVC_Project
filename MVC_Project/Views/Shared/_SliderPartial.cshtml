@@ -1,6 +1,7 @@
-﻿<section id="billboard">
+﻿@model List<Book>
+<section id="billboard">
 
-	<div class="container">
+	<div class="container" style="--bs-gutter-x: 6rem;">
 		<div class="row">
 			<div class="col-md-12">
 
@@ -9,39 +10,32 @@
 				</button>
 
 				<div class="main-slider pattern-overlay">
-					<div class="slider-item">
-						<div class="banner-content">
-							<h2 class="banner-title">Life of the Wild</h2>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero
-								ipsum enim pharetra hac. Urna commodo, lacus ut magna velit eleifend. Amet, quis
-								urna, a eu.
-							</p>
-							<div class="btn-wrap">
-								<a href="#" class="btn btn-outline-accent btn-accent-arrow">
-									Read More<i class="icon icon-ns-arrow-right"></i>
-								</a>
-							</div>
-						</div><!--banner-content-->
-						<img src="/images/main-banner1.jpg" alt="banner" class="banner-image">
-					</div><!--slider-item-->
+					
 
-					<div class="slider-item">
-						<div class="banner-content">
-							<h2 class="banner-title">Birds gonna be Happy</h2>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero
-								ipsum enim pharetra hac. Urna commodo, lacus ut magna velit eleifend. Amet, quis
-								urna, a eu.
-							</p>
-							<div class="btn-wrap">
-								<a href="#" class="btn btn-outline-accent btn-accent-arrow">
-									Read More<i class="icon icon-ns-arrow-right"></i>
-								</a>
-							</div>
-						</div><!--banner-content-->
-						<img src="/images/main-banner2.jpg" alt="banner" class="banner-image">
-					</div><!--slider-item-->
+					@foreach(Book book in Model)
+					{
+						<div class="slider-item d-flex ">
+							<div class="row flex-nowrap">
+							<div class="banner-content col-md-3">
+								<h2 class="banner-title">@book.Title</h2>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero
+									ipsum enim pharetra hac. Urna commodo, lacus ut magna velit eleifend. Amet, quis
+									urna, a eu.
+								</p>
+								<div class="btn-wrap">
+									<a href="/book/getbookbyid/@book.BookId" class="btn btn-outline-accent btn-accent-arrow">
+										Read More<i class="icon icon-ns-arrow-right"></i>
+									</a>
+								</div>
+							</div><!--banner-content-->
+								<div class="col=md-9">	<img src="@book.ImageUrl" alt="banner" class="banner-image" style="width:40%;"></div>
+						
+						</div>
+						</div>
+						<!--slider-item-->
+					}
+				
 
 				</div><!--slider-->
 
