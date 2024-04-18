@@ -2,33 +2,110 @@
 
 @model AuthorName_Biography_BD_Country_ImgUrlViewModel
 
-<form class="form form-control" asp-action="SaveAuthor" asp-controller="Author" enctype="multipart/form-data">
-    <label asp-for="AuthorName"></label>
-    <input asp-for="AuthorName" class="form form-control" />
-    <span asp-validation-for="AuthorName"></span>
+<!-- Section: Design Block -->
+<section class="text-center text-lg-start">
+    <style>
+        .cascading-right {
+            margin-right: -40px;
+        }
 
-    <label asp-for="Biography"></label>
-    <input asp-for="Biography" class="form form-control" />
-    <span asp-validation-for="Biography"></span>
+        @@media (max-width: 991.98px) {
+            .cascading-right {
+                margin-right: 0;
+            }
+        }
+    </style>
 
-    <label asp-for="BirthDate"></label>
-    <input asp-for="BirthDate" class="form form-control" />
-    <span asp-validation-for="BirthDate"></span>
+    <!-- Jumbotron -->
+    <div class="container py-4">
+        <div class="row g-0 align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="card cascading-right" style="
+            background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);
+            ">
+                    <div class="card-body p-5 shadow-5 ">
+                        <h2 class="fw-bold mb-5 text-center">New Author</h2>
+                        <form class="form" asp-action="SaveAuthor" asp-controller="Author" enctype="multipart/form-data">
 
-    <label asp-for="Country"></label>
-    <input asp-for="Country" class="form form-control" />
-    <span asp-validation-for="Country"></span>
 
-    <label asp-for="ImageUrl"></label>
-    <input type="file" asp-for="ImageUrl" class="form form-control" />
-    <span asp-validation-for="ImageUrl"></span>
-    <input type="submit" class="btn btn-info" value="Add"/>
+                            <!-- Name input -->
 
-</form>
+                            <div data-mdb-input-init class="form-outline mb-4">
+
+                                <label asp-for="AuthorName" class="form-label"></label>
+                                <input asp-for="AuthorName" class="form form-control" />
+                                <span asp-validation-for="AuthorName" class="valid-feedback"></span>
+                            </div>
+                            <!-- 2 column grid layout with text inputs for the first and last names -->
+                            <div class="row">
+
+                                <div class="col-md-6 mb-4">
+                                    <label asp-for="Country" class="form-label"></label>
+                                    <input asp-for="Country" class="form form-control" />
+                                    <span asp-validation-for="Country"></span>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label asp-for="BirthDate" class="form-label"></label>
+                                    <input asp-for="BirthDate" class="form form-control" />
+                                    <span asp-validation-for="BirthDate"></span>
+                                </div>
+                            </div>
+
+
+                            <!-- Password input -->
+                            <div data-mdb-input-init class="form-outline mb-4">
+                                <label asp-for="ImageUrl"></label>
+                                <input type="file" asp-for="ImageUrl" class="form form-control" />
+                                
+                                <span asp-validation-for="ImageUrl"></span>
+                            </div>
+                            <div class="file-loading">
+                                <input id="input-dim-1" name="input-dim-1[]" multiple type="file" accept="image/*">
+                            </div>
+
+
+                            <!-- Submit button -->
+                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4 mdi-border-radius">
+                                Add Author
+                            </button>
+
+                            <!-- Register buttons -->
+                            <div class="text-center">
+                                <p>or sign up with:</p>
+                                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                                    <i class="fab fa-facebook-f"></i>
+                                </button>
+
+                                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                                    <i class="fab fa-google"></i>
+                                </button>
+
+                                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                                    <i class="fab fa-twitter"></i>
+                                </button>
+
+                                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                                    <i class="fab fa-github"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-lg-0">
+                <div class="">
+        <img src="/images/Wallpaper/AuthorBG.jpg" class="w-100 rounded-4 shadow-4"
+             alt="" />
+             </<div>
+    </div>
+    </div>
+            </div>
+            <!-- Jumbotron -->
+</section>
+<!-- Section: Design Block -->
+
 <partial name="_ValidationScriptsPartial"></partial>
-<style>
-    span
-    {
-        color:red;
-    }
-</style>
+
+
