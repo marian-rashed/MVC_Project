@@ -35,7 +35,7 @@ namespace MVC_Project.Controllers
         public IActionResult details(int id)
         {
             Book boo = book.GetBookById(id);
-            boo.Author = author.GetAuthorById(boo.AuthorId);
+            boo.Author = author.GetAuthorById((int)boo.AuthorId);
             return View("GetBookById", boo);
         }
 
