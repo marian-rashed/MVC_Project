@@ -29,12 +29,12 @@
                 url: '/Cart/SelectedBooks',
                 method: 'POST',
                 contentType: 'application/json',
-                data: JSON.stringify({ selectedBooksID: selectedBooksID }),
+                data: JSON.stringify(selectedBooksID),
                 success: function (response) {
                     console.log('Selected books sent to the server successfully');
-                    console.log("after success:", selectedBooksID);
+
                     // Redirect to the displayproduct page after successful submission
-                   // window.location.href = '/Cart/displayproduct';
+                    window.location.href = '/Cart/DisplayProduct';
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     console.error('Error sending selected books to the server:', errorThrown);

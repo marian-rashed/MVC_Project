@@ -36,7 +36,11 @@ namespace MVC_Project
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("cs"));
             });
-            builder.Services.AddSession();
+           builder.Services.AddSession(options =>
+            {
+                options.Cookie.Name = "CartSession";
+                options.IdleTimeout = TimeSpan.FromMinutes(30); // Session timeout
+            });
             _ = builder.Services.AddIdentity<ApplicationUser, IdentityRole>(
                options =>
                {

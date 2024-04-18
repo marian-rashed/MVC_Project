@@ -1,8 +1,9 @@
 ﻿@model int[]
-<h1>hello from selected books</h1>
+
+<h1>Selected Books</h1>
+
 @if (Model != null && Model.Length > 0)
 {
-    <h2>Selected Books</h2>
     <ul>
         @foreach (var bookId in Model)
         {
