@@ -2,6 +2,7 @@
 
 <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
 <link href="/css/main.css" rel="stylesheet" />
+<link href="/css/search.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
 <style>
@@ -55,7 +56,7 @@
 <div id="header-wrap">
 
     <div class="top-content">
-        <div class="container-fluid">
+        <div class="container-fluid" >
             <div class="row">
                 <div class="col-md-6">
                     <div class="social-links">
@@ -76,6 +77,20 @@
                     </div><!--social-links-->
                 </div>
                 <div class="col-md-6">
+                   <form id="searchForm" >
+                <div class="input-group ">
+                    <button class="btnclass " style=" border-radius:  2.3rem 0rem 0rem 2.3rem ;" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+                            <ul class="dropdown-menu" id="searchOption" name="searchOption">
+                                <li class="dropdown-item" value="">search by</li>
+                                <li class="dropdown-item" value="Book">Book</li>
+                                <li class="dropdown-item" value="Author">Author<</li>
+                    </ul>
+                        <input style=" margin-bottom: 1rem; margin-top: 1rem;" type="search" class="form-control"  name="query"  aria-label="Text input with dropdown button">
+                    <button class="btnclass " style=" border-radius: 0rem 2.3rem 2.3rem 0rem;" type="submit" id="button-addon2">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                </form>
                     <div class="right-element">
 
                         @if (User.Identity.IsAuthenticated == true)
@@ -198,12 +213,12 @@
 
                                
                                 <li class="menu-item">
-                                    <a href="contact.html" class="nav-link">
+                                    <a href="/home/contact" class="nav-link">
                                         Contact <span class="badge bg-dark"></span>
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="thank-you.html" class="nav-link">
+                                    <a href="/home/thanks" class="nav-link">
                                         Thank You <span class="badge bg-dark"></span>
                                     </a>
                                 </li>
@@ -236,19 +251,9 @@
     </header>
 
 </div><!--header-wrap-->
-<div class="search-container">
-    <form id="searchForm" style="display: flex; align-items: center; width: 100%;">
-        <select id="searchOption" name="searchOption">
-            <option value="">search by</option>
-            <option value="Book">Book</option>
-            <option value="Author">Author</option>
-        </select>
-        <input type="search" class="form-control rounded" id="searchQuery" name="query" placeholder="Enter your search..." style="flex-grow: 1;">
-        <button id="searchBtn" type="submit">
-            <i class="fas fa-search"></i> 
-        </button>
-    </form>
-</div>
+
+
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {

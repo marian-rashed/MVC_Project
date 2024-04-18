@@ -1,5 +1,7 @@
 ﻿@model int[]
-<h1>hello from display</h1>
+
+<h1>Display Product</h1>
+
 @if (Model != null && Model.Length > 0)
 {
     <h2>Selected Books</h2>
@@ -14,6 +16,7 @@ else
 {
     <p>No books selected.</p>
 }
+
 
 <partial name="_SelectedBookParial"> </partial>
 

@@ -4,6 +4,7 @@ namespace MVC_Project.Controllers
 {
     public class CartController : Controller
     {
+        
 
         public IActionResult SelectedBooks([FromBody] int[] selectedBooksID)
         {
@@ -16,8 +17,10 @@ namespace MVC_Project.Controllers
         public IActionResult DisplayProduct()
         {
             // Retrieve selectedBooksID from TempData and pass it to the view
-            int[] selectedBooksID = TempData["SelectedBooksID"] as int[];
-            return View(selectedBooksID);
+            var selectedBooksID = TempData["SelectedBooksID"] as int[];
+            return View(selectedBooksID ?? new int[0]); // Return an empty array if null
         }
+
+
     }
 }
