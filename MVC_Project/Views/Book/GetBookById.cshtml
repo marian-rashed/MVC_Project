@@ -1,12 +1,157 @@
-﻿
+﻿@model Book
 @{
     ViewData["Title"] = "GetBookById";
 }
-@model Book
-<div class="card">
-    <div class="card-header">@Model.Title</div>
-    <div class="card-body">@Model.Author.AuthorName</div>
-    <div class="card-body">@Model.Price</div>
-    <div class="card-footer">@Model.QuantityAvailable</div>
-    <div class="card-footer">@Model.ImageUrl</div>
+<div class="section-header align-center" >
+
+    <h3 class="section-title " style="font-size:2rem;margin:45px 0px ">All you need to know</h3>
 </div>
+
+<section id="best-selling" class="leaf-pattern-overlay">
+    
+	<div class="container">
+		<div class="row justify-content-center ">
+
+			<div class="col-md-10">
+
+				<div class="row">
+
+					<div class="col-md-6">
+						<figure class="products-thumb pattern-overlay">
+							<img src="@Model.ImageUrl" alt="book" class="single-image">
+						</figure>
+					</div>
+
+					<div class="col-md-6">
+						<div class="product-entry ">
+							<h2 class="section-title divider">@Model.Title</h2>
+
+							<div class="products-content">
+                                <div class="author-name"><a href="/author/details/@Model.Author.AuthorId">@Model.Author.AuthorName</a></div>
+								<h3 class="item-title"></h3>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero
+									ipsum enim pharetra hac. Urna commodo, lacus ut magna velit eleifend. Amet, quis
+									urna, a eu.
+									
+								</p>
+								<div class="item-price" style=" margin-bottom: 0"> Price : $ @Model.Price</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+				
+				<div class="btn-wrap">
+					<div class="item-price"> In stock :@Model.QuantityAvailable Copies</div>
+						<a href="#" class="btn btn-outline-accent btn-accent-arrow">
+						Buy now <i class="icon icon-ns-arrow-right"></i>
+					</a>
+				</div>
+				<!-- / row -->
+
+			</div>
+
+		</div>
+	</div>
+</section>
+
+<section id="featured-books" class="py-5 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="section-header align-center">
+                    <div class="title">
+                        <span>More by @Model.Author.AuthorName</span>
+                    </div>
+                    <h2 class="section-title">Featured Books</h2>
+                </div>
+
+                <div class="product-list" data-aos="fade-up">
+                    <div class="row">
+
+                        @foreach (Book book in Model.Author.Books)
+                        {
+                            @if (book.BookId != Model.BookId)
+                            {
+                                <div class="col-md-4">
+                                    <div class="product-item">
+                                        <figure class="product-style">
+                                            <a href="/book/details/@book.BookId">
+                                                <img src="@book.ImageUrl" alt="Books" class="product-item">
+                                            </a>
+                                            <button type="button" class="add-to-cart" data-product-tile="add-to-cart">
+                                                Add to
+                                                Cart
+                                            </button>
+                                        </figure>
+                                        <figcaption>
+                                            <h3>@book.Title</h3>
+                                            <span>@book.Author.AuthorName</span>
+                                            <div class="item-price">$ @book.Price</div>
+                                        </figcaption>
+                                    </div>
+                                </div>
+                            }
+                          
+                        }
+
+                    </div><!--ft-books-slider-->
+                </div><!--grid-->
+
+
+            </div><!--inner-content-->
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="btn-wrap align-right">
+                    <a href="/book/index" class="btn-accent-arrow">
+                        View all Books <i class="icon icon-ns-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--<input type="text" class="form form-control" id="Name" placeholder="Enter Your Name" />-->
+<input type="text" class="form form-control" id="Msg" placeholder="Enter Your Comment" />
+<input type="button" onclick="Send_Review()" value="Send" class="btn btn-success" />
+<ul id="Conv">
+   
+</ul>
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/microsoft-signalr/signalr.min.js"></script>
+
+<script>
+    var hub = new signalR.HubConnectionBuilder().withUrl("/ReviewHub").build();
+
+    hub.start().then(function () {
+        console.log("Connection Success.");
+    });
+
+    hub.on("RecieveNewComment", function (name, message, bookID) {
+        if (bookID === @Model.BookId) {
+            $("#Conv").append("<li>" + name + ": " + message + "</li>");
+        }
+    });
+
+    function Send_Review() {
+        var name = $("#Name").val();
+        var Msg = $("#Msg").val();
+        var bookID = parseInt(@Model.BookId);
+
+        hub.invoke("SendReview", Msg, bookID).catch(function (err) {
+            console.error("Error sending review: " + err.toString());
+        });
+    }
+
+</script>
+
+

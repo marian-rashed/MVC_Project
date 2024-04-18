@@ -1,0 +1,272 @@
+﻿
+
+<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+<link href="/css/main.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<style>
+
+
+
+
+    #searchForm {
+        border: none; /* removes any default border */
+    }
+
+    #searchOption {
+        margin-top: 12px;
+        margin-right: 10px; /* space between select box and input */
+        padding: 8px; /* padding inside the select box */
+        border: 1px solid #ccc; /* light grey border */
+        border-radius: 4px; /* rounded corners for select */
+        background-color: white; /* white background color */
+        height: 2.5em;
+    }
+
+    #searchQuery {
+        margin-top: 12px;
+        padding: 8px; /* padding inside the input box */
+        border: 1px solid #ccc; /* light grey border */
+        border-radius: 4px; /* rounded corners for input */
+        outline: none;
+        width: 50%;
+        height: 2.5em;
+    }
+
+    #searchBtn {
+        height: 2.5em;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        margin-top: 10px;
+        border: 1px solid #ccc; /* light grey border */
+        border-radius: 4px;
+        margin-left: 8px;
+    }
+
+    .search-container {
+        width: 50%;
+        margin: auto;
+    }
+
+    button i.fas {
+        margin-right: 5px; /* space between icon and text */
+    }
+</style>
+<div id="header-wrap">
+
+    <div class="top-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="social-links">
+                        <ul>
+                            <li>
+                                <a href="#"><i class="icon icon-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon icon-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon icon-youtube-play"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon icon-behance-square"></i></a>
+                            </li>
+                        </ul>
+                    </div><!--social-links-->
+                </div>
+                <div class="col-md-6">
+                    <div class="right-element">
+
+                        @if (User.Identity.IsAuthenticated == true)
+                        {
+                            <a href="/Account/SignOut" class="user-account for-buy">
+                                <i class="icon icon-user"></i><span>Sign Out</span>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="/Account/Login" class="user-account for-buy">
+                                <i class="icon icon-user"></i><span>Sign In</span>
+                            </a>
+                            <a href="/Account/Register" class="user-account for-buy">
+                                <i class="icon icon-user"></i><span>Register</span>
+                            </a>
+
+                        }
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a href="/Role/AddRole" class="user-account for-buy">
+                                <i class="icon">&#x1F512;</i><span>Add Role</span>
+                            </a>
+                            <button type="button" onclick="window.location.href='/Dashboard/index'">Dashboard</button>
+
+                            <a href="/Role/AssignRole" class="user-account for-buy">
+                                <i class="icon">&#x1F512;</i><span>Assign Role</span>
+                            </a>
+                        }
+                        <a href="#" class="cart for-buy">
+
+                            <i class="icon icon-clipboard"></i>
+                                                       <span>
+                                Cart:(<span id="num-book-cart"> 0 </span>
+                                $)
+                            </span>
+                        </a>
+
+                        <div class="action-menu">
+
+                            <div class="search-bar">
+                                <a href="#" class="search-button search-toggle" data-selector="#header-wrap">
+                                    <i class="icon icon-search"></i>
+                                </a>
+                                @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+                                {
+                                    <form role="search" method="get" class="search-box ">
+                                        <input class="search-field text search-input" name="query" placeholder="Search"
+                                               type="search">
+
+                                    </form>
+                                }
+                            </div>
+                        </div>
+
+                    </div><!--top-right-->
+                </div>
+
+            </div>
+        </div>
+    </div><!--top-content-->
+
+    <header id="header">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-md-2">
+                    <div class="main-logo">
+                        <a href="/Home/Index"><img src="/images/main-logo.png" alt="logo"></a>
+                    </div>
+
+                </div>
+
+                <div class="col-md-10">
+
+                    <nav id="navbar">
+                        <div class="main-menu stellarnav">
+                            <ul class="menu-list">
+                                <li class="menu-item active has-sub">
+                                    <a href="/Home/Index">Home</a>
+
+                                    <ul>
+                                       @*  style="color:#757575;" *@
+                                        <li class="menu-item "><a href="/Home/Index#featured-books" class="nav-link" >Featured</a></li>
+                                        <li class="menu-item"><a href="/Home/Index#popular-books" class="nav-link">Popular</a></li>
+                                        <li class="menu-item"><a href="/Home/Index#special-offer" class="nav-link">Offer</a></li>
+                                        <li class="menu-item"><a href="/Home/Index#latest-blog" class="nav-link">Articles</a></li>
+                                        <li class="menu-item"><a href="/Home/Index#download-app" class="nav-link">Download App</a></li>
+
+
+                                    </ul>
+                                </li>
+
+                                <li class="menu-item">
+                                   
+                                        <a href="/Author/Index" class="nav-link">
+                                            Authors<span class="badge bg-dark"></span>
+                                        </a>
+                                    
+                                </li>
+
+                                <li class="menu-item">
+                                    <a href="/Book/Index" class="nav-link">
+                                        Books<span class="badge bg-dark"></span>
+                                    </a>
+                                </li>
+
+                                <li class="menu-item">
+                                    <a href="/Customer/Index">
+                                        Customers <span class="badge bg-dark"></span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/Order/Index" class="nav-link">
+                                        Order <span class="badge bg-dark"></span>
+                                    </a>
+                                </li>
+
+                               
+                                <li class="menu-item">
+                                    <a href="/home/contact" class="nav-link">
+                                        Contact <span class="badge bg-dark"></span>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/home/thanks" class="nav-link">
+                                        Thank You <span class="badge bg-dark"></span>
+                                    </a>
+                                </li>
+
+
+
+
+                                @* 	<li class="menu-item">
+                                <a href="https://templatesjungle.gumroad.com/l/booksaw-free-html-bookstore-template"
+                                class="nav-link btn btn-outline-dark rounded-pill m-0" target="_blank">
+                                Get
+
+                                </a>
+                                </li> *@
+                            </ul>
+
+                            <div class="hamburger">
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                            </div>
+
+                        </div>
+                    </nav>
+
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+</div><!--header-wrap-->
+<div class="search-container">
+    <form id="searchForm" style="display: flex; align-items: center; width: 100%;">
+        <select id="searchOption" name="searchOption">
+            <option value="">search by</option>
+            <option value="Book">Book</option>
+            <option value="Author">Author</option>
+        </select>
+        <input type="search" class="form-control rounded" id="searchQuery" name="query" placeholder="Enter your search..." style="flex-grow: 1;">
+        <button id="searchBtn" type="submit">
+            <i class="fas fa-search"></i> 
+        </button>
+    </form>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById('searchOption').addEventListener('change', function () {
+            var form = document.getElementById('searchForm');
+            var action = '';
+
+            switch (this.value) {
+                case 'Author':
+                    action = '@Url.Action("SearchByAuthor", "Author")';
+                    break;
+                case 'Book':
+                    action = '@Url.Action("SearchByBook", "Book")';
+                    break;
+            }
+
+            // Update the form's action dynamically
+            form.action = action;
+        });
+    });
+</script>

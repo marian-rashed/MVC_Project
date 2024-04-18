@@ -10,13 +10,13 @@ namespace MVC_Project.Controllers
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
-		BookStoreContext bookStoreContext;
-		ICustomer customerModel;
+        BookStoreContext bookStoreContext;
+        ICustomer customerModel;
 
-		public AccountController(UserManager<ApplicationUser> UserManager,
+        public AccountController(UserManager<ApplicationUser> UserManager,
             SignInManager<ApplicationUser> SignInManager, BookStoreContext _bookStoreContext, ICustomer customer)
 
-		{
+        {
             userManager = UserManager;
             signInManager = SignInManager;
             bookStoreContext = _bookStoreContext;
@@ -47,35 +47,36 @@ namespace MVC_Project.Controllers
                     Address = UserVM.Address
                 };
 
-                 
+
 
                 IdentityResult result = await userManager.CreateAsync(user, UserVM.Password);
                 if (result.Succeeded)
                 {
-                   // IdentityResult ResultRole = await userManager.AddToRoleAsync(user, "Admin");//to register user as admin
+                    IdentityResult ResultRole = await userManager.AddToRoleAsync(user, "User");//to register user as admin
                     await signInManager.SignInAsync(user, false);
-					Customer customer = new Customer()
-					{
-						Username = user.UserName,
-                        FullName=user.UserName,
-						Password = user.PasswordHash,
-						Email = user.Email,
-						Address = user.Address,
-						ApplicationUserId = user.Id
-					};
-					customerModel.InsertCustomer(customer);
+                    Customer customer = new Customer()
+                    {
+                        Username = user.UserName,
+                        FullName = user.UserName,
+                        Password = user.PasswordHash,
+                        Email = user.Email,
+                        Address = user.Address,
+                        ApplicationUserId = user.Id
+                    };
+                    customerModel.InsertCustomer(customer);
                     customerModel.Save();
-					user.CustomerID = customer.CustomerId;
-					IdentityResult resultUpdate = await userManager.UpdateAsync(user);
-					return RedirectToAction("Login");
+                    user.CustomerID = customer.CustomerId;
+                    IdentityResult resultUpdate = await userManager.UpdateAsync(user);
+                    return RedirectToAction("Login");
                     //createCookie
                 }
-                
 
-				foreach (var item in result.Errors)
+
+                foreach (var item in result.Errors)
                     ModelState.AddModelError("", item.Description);
 
                 //createCookie
+                //ModelState.AddModelError("UserName", "The username must be at least 4 characters long.");
 
             }
             return View("Register", UserVM);
@@ -83,7 +84,7 @@ namespace MVC_Project.Controllers
         [HttpGet]
         public IActionResult Login()
         {
-            
+
             return View("Login");
         }
         [HttpPost]
@@ -100,7 +101,7 @@ namespace MVC_Project.Controllers
                     {
                         await signInManager.SignInAsync(userDB, UserVM.RememberMe);
 
-                        return RedirectToAction("Index","Home");
+                        return RedirectToAction("Index", "Home");
 
                     }
                 }
