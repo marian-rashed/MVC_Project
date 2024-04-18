@@ -15,7 +15,8 @@ namespace MVC_Project.Interfaces
         void DeleteBook(int id);
         Author GetBookAuthor(string name);
         List<Book> GetBooksByName(string name);
-        void EditBook(Book book);
+		List<Book> GetRandomBooks(int count);   
+		void EditBook(Book book);
 
 		void Save();
     }
