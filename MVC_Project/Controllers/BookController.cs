@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.IdentityModel.Abstractions;
 using MVC_Project.Interfaces;
 
@@ -37,10 +38,23 @@ namespace MVC_Project.Controllers
         }
 
         [HttpGet]
-        public IActionResult AddNewBook(Book book)
+        public IActionResult AddNewBook()
         {
+            var authors = author.GetAllAuthors();
+
+            if (authors != null)
+            {
+                SelectList authorList = new SelectList(authors, "AuthorId", "AuthorName");
+                ViewBag.Authors = authorList;
+            }
+            else
+            {
+                ViewBag.Authors = new SelectList(new List<Author>(), "AuthorId", "AuthorName");
+            }
+
             return View("AddNewBook");
         }
+
         [HttpPost]
         public async Task< IActionResult> SaveBook(Book boo, IFormFile ImageUrl)
         {

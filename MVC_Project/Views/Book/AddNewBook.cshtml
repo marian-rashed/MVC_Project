@@ -1,4 +1,4 @@
-﻿
+﻿@* 
 @{
     ViewData["Title"] = "AddNewBook";
 }
@@ -18,7 +18,7 @@
     <span asp-validation-for="Price"></span>
 
     <label asp-for="ImageUrl"></label>
-    <input asp-for="ImageUrl" class="form form-control" type="file" />
+    <input asp-for="ImageUrl" class="form form-control" type="file"/>
     <span asp-validation-for="ImageUrl"></span>
 
 
@@ -33,5 +33,41 @@
     span
     {
         color:red
+    }
+</style>
+ *@
+@{
+    ViewData["Title"] = "AddNewBook";
+}
+
+@model Book
+<form class="form form-control" asp-action="SaveBook" asp-controller="Book" enctype="multipart/form-data">
+    <label asp-for="Title"></label>
+    <input asp-for="Title" class="form form-control" />
+    <span asp-validation-for="Title"></span>
+
+    <label>Author</label>
+    <!-- Render dropdown list for authors -->
+    <select asp-for="AuthorId" class="form-control" asp-items="@ViewBag.Authors"></select>
+    <span asp-validation-for="AuthorId"></span>
+
+    <label asp-for="Price"></label>
+    <input asp-for="Price" class="form form-control" />
+    <span asp-validation-for="Price"></span>
+
+    <label asp-for="ImageUrl"></label>
+    <input asp-for="ImageUrl" class="form form-control" type="file" />
+    <span asp-validation-for="ImageUrl"></span>
+
+    <label asp-for="QuantityAvailable"></label>
+    <input asp-for="QuantityAvailable" class="form form-control" />
+    <span asp-validation-for="QuantityAvailable"></span>
+
+    <input type="submit" class="btn btn-info" value="Add" />
+</form>
+<partial name="_ValidationScriptsPartial"></partial>
+<style>
+    span {
+        color: red
     }
 </style>
