@@ -14,7 +14,10 @@ namespace MVC_Project.Repository
 
         public List<Book> GetAllBooks()
         {
-            List<Book> books = bookStoreContext.Books.Include(b => b.Author).OrderBy(b=>b.Title).ToList();
+            List<Book> books = bookStoreContext.Books
+                .Include(b => b.Author)
+                .Where(b => b.isDeleted != true)
+                .ToList();
             return books;
         }
         public Book GetBookById(int id)

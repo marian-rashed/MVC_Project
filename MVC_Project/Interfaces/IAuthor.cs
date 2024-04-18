@@ -17,6 +17,5 @@ namespace MVC_Project.Interfaces
         void Save();
 
         List<Author> GetAuthorsByName(string name);
-
-    }
+	}
 }

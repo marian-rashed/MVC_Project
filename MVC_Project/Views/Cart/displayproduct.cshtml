@@ -1,0 +1,173 @@
+﻿@model List<Book>
+
+@{
+    decimal TotalPrice = 0;
+    int count = 0;
+}
+
+<style>
+    .table-primary {
+        --bs-table-color: var(--dark-text-color); /* Dark text color */
+        --bs-table-bg: var(--light-color); /* Light background color */
+        --bs-table-border-color: var(--dark-color); /* Dark border color */
+        --bs-table-striped-bg: var(--light-color); /* Light striped background color */
+        --bs-table-striped-color: var(--dark-text-color); /* Dark striped text color */
+        --bs-table-active-bg: var(--accent-color); /* Accent color for active background */
+        --bs-table-active-color: var(--light-color); /* Light color for active text */
+        --bs-table-hover-bg: var(--secondary-color); /* Secondary color for hover background */
+        --bs-table-hover-color: var(--light-color); /* Light color for hover text */
+        color: var(--bs-table-color);
+        border-color: var(--bs-table-border-color);
+    }
+    /* Override Bootstrap Table Classes */
+    .table,
+    .table-primary,
+    .table-striped tbody tr:nth-of-type(odd) {
+        color: var(--dark-text-color); /* Dark text color */
+        background-color: var(--light-color); /* Light background color */
+        border-color: var(--dark-color); /* Dark border color */
+        font-family: var(--body-font); /* Theme body font */
+        --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    }
+
+        .table-primary thead {
+            color: var(--dark-text-color); /* Dark text color */
+            background-color: var(--secondary-color); /* Secondary color for table header */
+            font-family: var(--heading-font); /* Theme heading font */
+        }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: var(--light-color); /* Light striped background color */
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: var(--accent-color); /* Accent color for hover background */
+        color: var(--light-color); /* Light color for hover text */
+        font-family: var(--body-font); /* Theme body font */
+    }
+
+    .table > :not(caption) > * > * {
+        padding: 1.7rem 1.5rem !important;
+    }
+
+    .table > a {
+        color: var(--secondary-color) !important;
+    }
+
+        .table > a:hover {
+            color: var(--light-color) !important;
+        }
+
+    .table-hover tbody tr:hover a {
+        color: var(--dark-color) !important;
+    }
+
+        .table-hover tbody tr:hover a:hover {
+            color: var(--light-color) !important;
+        }
+
+    .table-hover tbody tr:hover div.btn-wrap a {
+        color: var(--dark-color) !important;
+        border-color: var( --light-color);
+    }
+
+
+        .table-hover tbody tr:hover div.btn-wrap a:hover {
+            color: var(--light-color) !important;
+            border-color: var(--dark-color);
+        }
+</style>
+
+<section id="special-offer" class="bookshelf pb-5 mb-5">
+
+    <div class="section-header align-center">
+        <div class="title">
+            <span>Admin Exclusive</span>
+        </div>
+        <h2 class="section-title ">Order List</h2>
+    </div>
+    @if (Model != null && Model.Count > 0)
+    {
+        <div class="container ">
+            <table class="table table-primary table-striped table-hover shadow">
+                <thead>
+                    <tr>
+
+                        <th scope="col">&nbsp;&nbsp;#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Price</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var book in Model)
+                    {
+                        <tr class="p-3">
+                            @{
+                                TotalPrice += book.Price;
+                                count++;
+                            }
+                            <td> <a href="/Book/Details/@book.BookId"><b>&nbsp;&nbsp;#@count</b></a></td>
+
+                            <td>@book.Title</td>
+                            <td>@book.Price</td>
+
+
+                            <td>
+                                <div class="btn-wrap ">
+                                    <a href="/Book/Details/@book.BookId" class="btn btn-outline-accent btn-accent-arrow" style="margin:0px ">
+                                        See Details<i class="icon icon-ns-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </td>
+
+                        </tr>
+                    }
+             <tr>
+                        
+                        <td>Total Price</td>
+                        <td></td>
+                        <td>$ @TotalPrice</td>
+                    
+             </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+        <div class="container d-flex text-right">
+            <div class="row md-12">
+                <div>
+                    <h2 class="ms-5">Total Price:@TotalPrice</h2>
+
+                </div>
+                <div class="btn-wrap">
+                    <a href="#" class="btn btn-outline-accent btn-accent-arrow">
+                        Buy now <i class="icon icon-ns-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    }
+    else
+    {
+
+        <h1 class="ms-5">No books selected.</h1>
+
+    }
+</section>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/js/authorIndexScript.js"></script>
+<partial name="_SelectedBookParial"> </partial>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/js/SelectedBooks.js"></script>
+<script src="/js/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
