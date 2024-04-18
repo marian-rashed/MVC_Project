@@ -123,12 +123,30 @@
                                 </div>
                             </div>
 
-
+                            @* <div data-mdb-input-init class="form-outline mb-4">
+                                <div class="dropdown dropdown-center">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="authorDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Select Author
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="authorDropdown">
+                                        @foreach (var author in ViewBag.Authors)
+                                        {
+                                            <li><a class="dropdown-item" href="#">@(author.Text)</a></li>
+                                        }
+                                    </ul>
+                                </div>
+                                <span asp-validation-for="AuthorId" class="inputValidation"></span>
+                            </div> *@
+                            <div data-mdb-input-init class="form-outline mb-4">
+                                <label asp-for="AuthorId" class="form-label">Author</label>
+                                <select asp-for="AuthorId" class="form-control dropdown-menu-bottom" asp-items="@ViewBag.Authors"></select>
+                                <span asp-validation-for="AuthorId" class="inputValidation"></span>
+                            </div>
                             <!-- Password input -->
                             <div data-mdb-input-init class="form-outline mb-4">
                             </div>
                             <div class="file-loading">
-                                <label asp-for="ImageUrl"></label>
+                                <label asp-for="ImageUrl" class="form-label"></label>
                                 <input asp-for="ImageUrl" id="input-dim-1" name="input-dim-1[]" type="file" accept="image/*" class="form form-control" value="Upload Author Image">
                                 <span asp-validation-for="ImageUrl" class="inputValidation"></span>
                             </div>
