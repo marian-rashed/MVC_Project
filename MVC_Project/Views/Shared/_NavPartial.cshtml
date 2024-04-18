@@ -107,8 +107,10 @@
                             </a>
                         }
                         <a href="#" class="cart for-buy">
-                            <i class="icon icon-clipboard"></i><span>
-                                Cart:(0
+
+                            <i class="icon icon-clipboard"></i>
+                                                       <span>
+                                Cart:(<span id="num-book-cart"> 0 </span>
                                 $)
                             </span>
                         </a>
@@ -196,12 +198,12 @@
 
                                
                                 <li class="menu-item">
-                                    <a href="contact.html" class="nav-link">
+                                    <a href="/home/contact" class="nav-link">
                                         Contact <span class="badge bg-dark"></span>
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="thank-you.html" class="nav-link">
+                                    <a href="/home/thanks" class="nav-link">
                                         Thank You <span class="badge bg-dark"></span>
                                     </a>
                                 </li>
@@ -256,10 +258,10 @@
 
             switch (this.value) {
                 case 'Author':
-                    action = '@Url.Action("SearchByAuthor", "Home")';
+                    action = '@Url.Action("SearchByAuthor", "Author")';
                     break;
                 case 'Book':
-                    action = '@Url.Action("SearchByBook", "Home")';
+                    action = '@Url.Action("SearchByBook", "Book")';
                     break;
             }
 
