@@ -107,8 +107,9 @@
                             </a>
                         }
                         <a href="#" class="cart for-buy">
+
                             <i class="icon icon-clipboard"></i>
-                            <span>
+                                                       <span>
                                 Cart:(<span id="num-book-cart"> 0 </span>
                                 $)
                             </span>
@@ -257,10 +258,10 @@
 
             switch (this.value) {
                 case 'Author':
-                    action = '@Url.Action("SearchByAuthor", "Home")';
+                    action = '@Url.Action("SearchByAuthor", "Author")';
                     break;
                 case 'Book':
-                    action = '@Url.Action("SearchByBook", "Home")';
+                    action = '@Url.Action("SearchByBook", "Book")';
                     break;
             }
 
