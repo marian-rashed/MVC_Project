@@ -1,21 +1,90 @@
 ﻿@using MVC_Project.ViewModel
-
 @model AuthorName_Biography_BD_Country_ImgUrlViewModel
+@{
+    ViewData["Title"] = "NewAuthor";
+}
+
+<link rel="stylesheet" type="text/css" href="/css/bootstrap-FileUpload.min.css" />
+
+<style>
+    .cascading-right {
+        margin-right: -40px;
+    }
+
+    @@media (max-width: 991.98px) {
+        .cascading-right {
+            margin-right: 0;
+        }
+    }
+
+    .inputValidation{
+        color: var(--accent-color);
+    }
+    .form-control[type=file] {
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
+        word-wrap: break-word;
+        box-sizing: border-box;
+        margin: 0;
+        font-family: inherit;
+        outline: 0;
+        display: block;
+        width: 100%;
+        padding: .375rem .75rem;
+        font-weight: 400;
+        line-height: 1.5;
+        appearance: none;
+        background: var(--accent-color);
+        text-decoration: none !important;
+        position: relative;
+        border: 1px solid transparent;
+        border-radius: 1rem;
+        font-size: 15px;
+        text-align: center;
+        color: #fff;
+        z-index: 1;
+        white-space: nowrap;
+        vertical-align: middle;
+        transition: all 0.3s ease-in;
+        touch-action: manipulation;
+        user-select: none;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    input[type="email"],
+    input[type="number"],
+    input[type="search"],
+    input[type="text"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="password"],
+    textarea, 
+    select {
+        margin-bottom: 0px;
+    }
+
+    div.btn-wrap .btn.btn-outline-accent{
+        color: var(--dark-color) !important;
+        border-color: var(--accent-color) !important;
+    }
+
+
+    div.btn-wrap .btn.btn-outline-accent:hover  {
+            color: var(--accent-color) !important;
+            border-color: var(--dark-color) !important;
+        }
+</style>
+
+<div class="section-header align-center">
+    <div class="title">
+        <span>Grow Our Family</span>
+    </div>
+    <h2 class="section-title">New Author</h2>
+</div>
 
 <!-- Section: Design Block -->
 <section class="text-center text-lg-start">
-    <style>
-        .cascading-right {
-            margin-right: -40px;
-        }
-
-        @@media (max-width: 991.98px) {
-            .cascading-right {
-                margin-right: 0;
-            }
-        }
-    </style>
-
     <!-- Jumbotron -->
     <div class="container py-4">
         <div class="row g-0 align-items-center">
@@ -35,7 +104,7 @@
 
                                 <label asp-for="AuthorName" class="form-label"></label>
                                 <input asp-for="AuthorName" class="form form-control" />
-                                <span asp-validation-for="AuthorName" class="valid-feedback"></span>
+                                <span asp-validation-for="AuthorName" class="inputValidation"></span>
                             </div>
                             <!-- 2 column grid layout with text inputs for the first and last names -->
                             <div class="row">
@@ -43,52 +112,54 @@
                                 <div class="col-md-6 mb-4">
                                     <label asp-for="Country" class="form-label"></label>
                                     <input asp-for="Country" class="form form-control" />
-                                    <span asp-validation-for="Country"></span>
+                                    <span asp-validation-for="Country" class="inputValidation"></span>
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <label asp-for="BirthDate" class="form-label"></label>
                                     <input asp-for="BirthDate" class="form form-control" />
-                                    <span asp-validation-for="BirthDate"></span>
+                                    <span asp-validation-for="BirthDate" class="inputValidation"></span>
                                 </div>
                             </div>
 
 
                             <!-- Password input -->
                             <div data-mdb-input-init class="form-outline mb-4">
-                                <label asp-for="ImageUrl"></label>
-                                <input type="file" asp-for="ImageUrl" class="form form-control" />
-                                
-                                <span asp-validation-for="ImageUrl"></span>
                             </div>
                             <div class="file-loading">
-                                <input id="input-dim-1" name="input-dim-1[]" multiple type="file" accept="image/*">
+                                <label asp-for="ImageUrl"></label>
+                                <input asp-for="ImageUrl" id="input-dim-1" name="input-dim-1[]" type="file" accept="image/*" class="form form-control" value="Upload Author Image">
+                                <span asp-validation-for="ImageUrl" class="inputValidation"></span>
                             </div>
 
 
                             <!-- Submit button -->
-                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4 mdi-border-radius">
-                                Add Author
-                            </button>
-
-                            <!-- Register buttons -->
-                            <div class="text-center">
-                                <p>or sign up with:</p>
-                                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                                    <i class="fab fa-facebook-f"></i>
-                                </button>
-
-                                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                                    <i class="fab fa-google"></i>
-                                </button>
-
-                                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                                    <i class="fab fa-twitter"></i>
-                                </button>
-
-                                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                                    <i class="fab fa-github"></i>
+                            <div class="btn-wrap m-5 text-center">
+                                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-accent btn-accent-arrow" style="margin:0px ;font-family: var(--heading-font);    font-weight: 600; ">
+                                    Add New Author<i class="icon icon-ns-arrow-right"></i>
                                 </button>
                             </div>
+                           
+
+                            <!-- Register buttons -->
+                            @*  <div class="text-center">
+                            <p>or sign up with:</p>
+                            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                            <i class="fab fa-facebook-f"></i>
+                            </button>
+
+                            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                            <i class="fab fa-google"></i>
+                            </button>
+
+                            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                            <i class="fab fa-twitter"></i>
+                            </button>
+
+                            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                            <i class="fab fa-github"></i>
+                            </button>
+                            </div> *@
+
                         </form>
                     </div>
                 </div>
@@ -96,16 +167,33 @@
 
             <div class="col-lg-6 mb-lg-0">
                 <div class="">
-        <img src="/images/Wallpaper/AuthorBG.jpg" class="w-100 rounded-4 shadow-4"
-             alt="" />
-             </<div>
-    </div>
-    </div>
+                    <img src="/images/Wallpaper/AuthorBG.jpg" class="w-100 rounded-4 shadow-4"
+                         alt="" />
+                    </<div>
+                    </div>
+                </div>
             </div>
             <!-- Jumbotron -->
 </section>
 <!-- Section: Design Block -->
 
 <partial name="_ValidationScriptsPartial"></partial>
+<script src="/js/bootstrap-FileUpload.min.js"></script>
 
-
+   @*  <script>
+        $("#input-dim-1").fileinput({
+            uploadUrl: "/file-upload-batch/2",
+            allowedFileExtensions: ["jpg", "png", "gif"],
+            maxImageWidth: 250,
+            maxImageHeight: 250
+        });
+</script> *@
+<script>
+    $("#myUpload").bootstrapFileUpload({
+        url: "",
+        fileTypes: {
+            images: [],
+            
+        }
+    });
+</script>
