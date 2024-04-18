@@ -46,8 +46,15 @@ namespace MVC_Project.Controllers
             return View("GetBooksByName", books);
         }
 
+        public IActionResult Delete(int id)
+        {
+            Book bookToDelete = book.GetBookById(id);
+            bookToDelete.isDeleted = true;
+            book.Save();
+            return RedirectToAction("Index");
+        }
+
         //edit book
-        //delete book
     }
 }
 

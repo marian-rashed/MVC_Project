@@ -18,7 +18,9 @@ namespace MVC_Project.Repository
 
         public List<Author> GetAllAuthors()
         {
-            List<Author> authors = bookStoreContext.Authors.ToList();
+            List<Author> authors = bookStoreContext.Authors
+                .Where(a=> a.isDeleted != true)
+                .ToList();
             return authors;
         }
 

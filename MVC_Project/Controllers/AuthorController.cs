@@ -71,8 +71,13 @@ namespace MVC_Project.Controllers
 		}
 
 		//edit author
-		//delete author
-
+		public IActionResult Delete(int id)
+		{
+            Author authorToDelete = author.GetAuthorById(id);
+            authorToDelete.isDeleted = true;
+            author.Save();
+            return RedirectToAction("Index");
+        }
 
 
 

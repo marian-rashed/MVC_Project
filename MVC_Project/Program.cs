@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using MVC_Project.Interfaces;
 using MVC_Project.Repository;
+using MVC_Project.Hubs;
 
 
 namespace MVC_Project
@@ -49,6 +50,7 @@ namespace MVC_Project
                }).AddEntityFrameworkStores<BookStoreContext>();
             
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSignalR();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -65,6 +67,9 @@ namespace MVC_Project
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseSession();
+
+            app.MapHub<ReviewHub>("/ReviewHub");
+            app.MapHub<BookHub>("/BookHub");
 
             app.MapControllerRoute(
                 name: "default",
