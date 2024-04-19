@@ -11,14 +11,19 @@
 					</div>
 					<h2 class="section-title">Popular Books</h2>
 				</div>
-
+			
 				<ul class="tabs">
-					<li data-tab-target="#all-genre" class="active tab">All Genre</li>
-					<li data-tab-target="#business" class="tab">Business</li>
-					<li data-tab-target="#technology" class="tab">Technology</li>
-					<li data-tab-target="#romantic" class="tab">Romantic</li>
-					<li data-tab-target="#adventure" class="tab">Adventure</li>
-					<li data-tab-target="#fictional" class="tab">Fictional</li>
+					<li data-tab-target="#all-genre" class="active tab">All</li>
+					<li data-tab-target="#Fantasy" class="tab">Fantasy</li>
+					<li data-tab-target="#MysteryThriller" class="tab">Mystery/Thriller</li>
+					<li data-tab-target="#Adventure" class="tab">Adventure</li>
+					<li data-tab-target="#ScienceFiction" class="tab">Sci Fi</li>
+					<li data-tab-target="#HistoricalFiction" class="tab">Historical Fiction</li>
+					<li data-tab-target="#ClassicLiterature" class="tab">Classics</li>
+					<li data-tab-target="#ModernFiction" class="tab">Modern Fiction</li>
+				
+					
+					
 				</ul>
 
 				<div class="tab-content">
@@ -49,314 +54,268 @@
 						}
 						</div>
 					</div>
-@* 					<div id="business" data-tab-content>
-						<div class="row">
-							<div class="col-md-3">
-								<div class="product-item">
-									<figure class="product-style">
-										<img src="/images/tab-item2.jpg" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart"
-												data-product-tile="add-to-cart">
-											Add to
-											Cart
-										</button>
-									</figure>
-									<figcaption>
-										<h3>Peaceful Enlightment</h3>
-										<span>Marmik Lama</span>
-										<div class="item-price">$ 40.00</div>
-									</figcaption>
-								</div>
-							</div>
 
-							<div class="col-md-3">
-								<div class="product-item">
-									<figure class="product-style">
-										<img src="/images/tab-item4.jpg" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart"
-												data-product-tile="add-to-cart">
-											Add to
-											Cart
-										</button>
-									</figure>
-									<figcaption>
-										<h3>Great travel at desert</h3>
-										<span>Sanchit Howdy</span>
-										<div class="item-price">$ 40.00</div>
-									</figcaption>
-								</div>
-							</div>
+					@{
+						bool isEmpty = true;
+					}
+					<div id="Fantasy" data-tab-content>
+						<div class="row row-cols-md-1">
+							@{
+								isEmpty = true;
+							}
 
-							<div class="col-md-3">
-								<div class="product-item">
-									<figure class="product-style">
-										<img src="/images/tab-item6.jpg" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart"
-												data-product-tile="add-to-cart">
-											Add to
-											Cart
-										</button>
-									</figure>
-									<figcaption>
-										<h3>Life among the pirates</h3>
-										<span>Armor Ramsey</span>
-										<div class="item-price">$ 40.00</div>
-									</figcaption>
-								</div>
-							</div>
+							@foreach (Book book in Model)
+							{
+								@if(book.CategoryID==1){
+									isEmpty = false;
+								<div class="col-md-3"  >
+									<div class="product-item">
+										<figure class="product-style">
+											<a href="/book/details/@book.BookId">
+												<img src="@book.ImageUrl" alt="Books" class="product-item">
+											</a>
+											<button type="button" class="add-to-cart" data-book-id="@book.BookId">
+												Add To Cart
+											</button>
 
-							<div class="col-md-3">
-								<div class="product-item">
-									<figure class="product-style">
-										<img src="/images/tab-item8.jpg" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart"
-												data-product-tile="add-to-cart">
-											Add to
-											Cart
-										</button>
-									</figure>
-									<figcaption>
-										<h3>Simple way of piece life</h3>
-										<span>Armor Ramsey</span>
-										<div class="item-price">$ 40.00</div>
-									</figcaption>
+										</figure>
+										<figcaption>
+											<h3>@book.Title</h3>
+											<span>@book.Author.AuthorName</span>
+											<div class="item-price">$ @book.Price</div>
+												
+										</figcaption>
+									</div>
 								</div>
-							</div>
-
+}
+							}
+							
+							@if (isEmpty)
+							{
+								<h1 class="text-center text-secondary text-muted mb-5">No Books to show</h1>
+							}
 						</div>
 					</div>
 
-					<div id="technology" data-tab-content>
-						<div class="row">
-							<div class="col-md-3">
-								<div class="product-item">
-									<figure class="product-style">
-										<img src="/images/tab-item1.jpg" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart"
-												data-product-tile="add-to-cart">
-											Add to
-											Cart
-										</button>
-									</figure>
-									<figcaption>
-										<h3>Peaceful Enlightment</h3>
-										<span>Marmik Lama</span>
-										<div class="item-price">$ 40.00</div>
-									</figcaption>
-								</div>
-							</div>
+ 					<div id="MysteryThriller" data-tab-content>
+						@{
+							isEmpty = true;
+						}
 
-							<div class="col-md-3">
-								<div class="product-item">
-									<figure class="product-style">
-										<img src="/images/tab-item3.jpg" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart"
-												data-product-tile="add-to-cart">
-											Add to
-											Cart
-										</button>
-									</figure>
-									<figcaption>
-										<h3>Great travel at desert</h3>
-										<span>Sanchit Howdy</span>
-										<div class="item-price">$ 40.00</div>
-									</figcaption>
-								</div>
-							</div>
+						@foreach (Book book in Model)
+						{
+							@if (book.CategoryID == 2)
+							{
+								isEmpty = false;
+								<div class="col-md-3"  >
+									<div class="product-item">
+										<figure class="product-style">
+											<a href="/book/details/@book.BookId">
+												<img src="@book.ImageUrl" alt="Books" class="product-item">
+											</a>
+											<button type="button" class="add-to-cart" data-book-id="@book.BookId">
+												Add To Cart
+											</button>
 
-							<div class="col-md-3">
-								<div class="product-item">
-									<figure class="product-style">
-										<img src="/images/tab-item5.jpg" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart"
-												data-product-tile="add-to-cart">
-											Add to
-											Cart
-										</button>
-									</figure>
-									<figcaption>
-										<h3>Life among the pirates</h3>
-										<span>Armor Ramsey</span>
-										<div class="item-price">$ 40.00</div>
-									</figcaption>
-								</div>
-							</div>
+										</figure>
+										<figcaption>
+											<h3>@book.Title</h3>
+											<span>@book.Author.AuthorName</span>
+											<div class="item-price">$ @book.Price</div>
 
-							<div class="col-md-3">
-								<div class="product-item">
-									<figure class="product-style">
-										<img src="/images/tab-item7.jpg" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart"
-												data-product-tile="add-to-cart">
-											Add to
-											Cart
-										</button>
-									</figure>
-									<figcaption>
-										<h3>Simple way of piece life</h3>
-										<span>Armor Ramsey</span>
-										<div class="item-price">$ 40.00</div>
-									</figcaption>
+										</figcaption>
+									</div>
 								</div>
-							</div>
-						</div>
+							}
+						}
+						@if (isEmpty)
+						{
+							<h1 class="text-center text-secondary text-muted mb-5">No Books to show</h1>
+						}
 					</div>
+					
+					<div id="Adventure" data-tab-content>
+						@{
+							isEmpty = true;
+						}
 
-					<div id="romantic" data-tab-content>
-						<div class="row">
-							<div class="col-md-3">
-								<div class="product-item">
-									<figure class="product-style">
-										<img src="/images/tab-item1.jpg" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart"
-												data-product-tile="add-to-cart">
-											Add to
-											Cart
-										</button>
-									</figure>
-									<figcaption>
-										<h3>Peaceful Enlightment</h3>
-										<span>Marmik Lama</span>
-										<div class="item-price">$ 40.00</div>
-									</figcaption>
-								</div>
-							</div>
+						@foreach (Book book in Model)
+						{
+							@if (book.CategoryID == 3)
+							{
+								isEmpty = false;
+								<div class="col-md-3"  >
+									<div class="product-item">
+										<figure class="product-style">
+											<a href="/book/details/@book.BookId">
+												<img src="@book.ImageUrl" alt="Books" class="product-item">
+											</a>
+											<button type="button" class="add-to-cart" data-book-id="@book.BookId">
+												Add To Cart
+											</button>
 
-							<div class="col-md-3">
-								<div class="product-item">
-									<figure class="product-style">
-										<img src="/images/tab-item3.jpg" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart"
-												data-product-tile="add-to-cart">
-											Add to
-											Cart
-										</button>
-									</figure>
-									<figcaption>
-										<h3>Great travel at desert</h3>
-										<span>Sanchit Howdy</span>
-										<div class="item-price">$ 40.00</div>
-									</figcaption>
-								</div>
-							</div>
+										</figure>
+										<figcaption>
+											<h3>@book.Title</h3>
+											<span>@book.Author.AuthorName</span>
+											<div class="item-price">$ @book.Price</div>
 
-							<div class="col-md-3">
-								<div class="product-item">
-									<figure class="product-style">
-										<img src="/images/tab-item5.jpg" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart"
-												data-product-tile="add-to-cart">
-											Add to
-											Cart
-										</button>
-									</figure>
-									<figcaption>
-										<h3>Life among the pirates</h3>
-										<span>Armor Ramsey</span>
-										<div class="item-price">$ 40.00</div>
-									</figcaption>
+										</figcaption>
+									</div>
 								</div>
-							</div>
-
-							<div class="col-md-3">
-								<div class="product-item">
-									<figure class="product-style">
-										<img src="/images/tab-item7.jpg" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart"
-												data-product-tile="add-to-cart">
-											Add to
-											Cart
-										</button>
-									</figure>
-									<figcaption>
-										<h3>Simple way of piece life</h3>
-										<span>Armor Ramsey</span>
-										<div class="item-price">$ 40.00</div>
-									</figcaption>
-								</div>
-							</div>
-						</div>
+							}
+						}
+						@if (isEmpty)
+						{
+							<h1 class="text-center text-secondary text-muted mb-5">No Books to show</h1>
+						}
 					</div>
+					<div id="ScienceFiction" data-tab-content>
+						@{
+							isEmpty = true;
+						}
 
-					<div id="adventure" data-tab-content>
-						<div class="row">
-							<div class="col-md-3">
-								<div class="product-item">
-									<figure class="product-style">
-										<img src="/images/tab-item5.jpg" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart"
-												data-product-tile="add-to-cart">
-											Add to
-											Cart
-										</button>
-									</figure>
-									<figcaption>
-										<h3>Life among the pirates</h3>
-										<span>Armor Ramsey</span>
-										<div class="item-price">$ 40.00</div>
-									</figcaption>
-								</div>
-							</div>
+						@foreach (Book book in Model)
+						{
+							@if (book.CategoryID == 4)
+							{
+								isEmpty = false;
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<a href="/book/details/@book.BookId">
+												<img src="@book.ImageUrl" alt="Books" class="product-item">
+											</a>
+											<button type="button" class="add-to-cart" data-book-id="@book.BookId">
+												Add To Cart
+											</button>
 
-							<div class="col-md-3">
-								<div class="product-item">
-									<figure class="product-style">
-										<img src="/images/tab-item7.jpg" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart"
-												data-product-tile="add-to-cart">
-											Add to
-											Cart
-										</button>
-									</figure>
-									<figcaption>
-										<h3>Simple way of piece life</h3>
-										<span>Armor Ramsey</span>
-										<div class="item-price">$ 40.00</div>
-									</figcaption>
+										</figure>
+										<figcaption>
+											<h3>@book.Title</h3>
+											<span>@book.Author.AuthorName</span>
+											<div class="item-price">$ @book.Price</div>
+
+										</figcaption>
+									</div>
 								</div>
-							</div>
-						</div>
+							}
+						}
+						@if (isEmpty)
+						{
+							<h1 class="text-center text-secondary text-muted mb-5">No Books to show</h1>
+						}
 					</div>
+					<div id="HistoricalFiction" data-tab-content>
+						@{
+							isEmpty = true;
+						}
 
-					<div id="fictional" data-tab-content>
-						<div class="row">
-							<div class="col-md-3">
-								<div class="product-item">
-									<figure class="product-style">
-										<img src="/images/tab-item5.jpg" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart"
-												data-product-tile="add-to-cart">
-											Add to
-											Cart
-										</button>
-									</figure>
-									<figcaption>
-										<h3>Life among the pirates</h3>
-										<span>Armor Ramsey</span>
-										<div class="item-price">$ 40.00</div>
-									</figcaption>
-								</div>
-							</div>
+						@foreach (Book book in Model)
+						{
+							@if (book.CategoryID == 5)
+							{
+								isEmpty = false;
+								<div class="col-md-3" >
+									<div class="product-item">
+										<figure class="product-style">
+											<a href="/book/details/@book.BookId">
+												<img src="@book.ImageUrl" alt="Books" class="product-item">
+											</a>
+											<button type="button" class="add-to-cart" data-book-id="@book.BookId">
+												Add To Cart
+											</button>
 
-							<div class="col-md-3">
-								<div class="product-item">
-									<figure class="product-style">
-										<img src="/images/tab-item7.jpg" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart"
-												data-product-tile="add-to-cart">
-											Add to
-											Cart
-										</button>
-									</figure>
-									<figcaption>
-										<h3>Simple way of piece life</h3>
-										<span>Armor Ramsey</span>
-										<div class="item-price">$ 40.00</div>
-									</figcaption>
+										</figure>
+										<figcaption>
+											<h3>@book.Title</h3>
+											<span>@book.Author.AuthorName</span>
+											<div class="item-price">$ @book.Price</div>
+
+										</figcaption>
+									</div>
 								</div>
-							</div>
-						</div>
-					</div> *@
+							}
+						}
+						@if (isEmpty)
+						{
+							<h1 class="text-center text-secondary text-muted mb-5">No Books to show</h1>
+						}
+					</div>
+					<div id="ClassicLiterature" data-tab-content>
+						@{
+							isEmpty = true;
+						}
+
+						@foreach (Book book in Model)
+						{
+							@if (book.CategoryID == 6)
+							{
+								isEmpty = false;
+								<div class="col-md-3" >
+									<div class="product-item">
+										<figure class="product-style">
+											<a href="/book/details/@book.BookId">
+												<img src="@book.ImageUrl" alt="Books" class="product-item">
+											</a>
+											<button type="button" class="add-to-cart" data-book-id="@book.BookId">
+												Add To Cart
+											</button>
+
+										</figure>
+										<figcaption>
+											<h3>@book.Title</h3>
+											<span>@book.Author.AuthorName</span>
+											<div class="item-price">$ @book.Price</div>
+
+										</figcaption>
+									</div>
+								</div>
+							}
+						}
+						@if (isEmpty)
+						{
+							<h1 class="text-center text-secondary text-muted mb-5">No Books to show</h1>
+						}
+					</div>
+					<div id="ModernFiction" data-tab-content>
+						@{
+							isEmpty = true;
+						}
+
+						@foreach (Book book in Model)
+						{
+							@if (book.CategoryID == 7)
+							{
+								isEmpty = false;
+								<div class="col-md-3" >
+									<div class="product-item">
+										<figure class="product-style">
+											<a href="/book/details/@book.BookId">
+												<img src="@book.ImageUrl" alt="Books" class="product-item">
+											</a>
+											<button type="button" class="add-to-cart" data-book-id="@book.BookId">
+												Add To Cart
+											</button>
+
+										</figure>
+										<figcaption>
+											<h3>@book.Title</h3>
+											<span>@book.Author.AuthorName</span>
+											<div class="item-price">$ @book.Price</div>
+
+										</figcaption>
+									</div>
+								</div>
+							}
+						}
+						@if (isEmpty)
+						{
+							<h1 class="text-center text-secondary text-muted mb-5">No Books to show</h1>
+						}
+					</div>
+ 
+				
 
 				</div>
 
