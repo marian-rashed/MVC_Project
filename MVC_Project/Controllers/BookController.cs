@@ -45,7 +45,7 @@ namespace MVC_Project.Controllers
         {
 
 
-            if (boo.Title!=null ||boo.Price!=0||boo.AuthorId!=0||boo.QuantityAvailable!=0)
+            if (boo.Title != null || boo.Price != 0 || boo.AuthorId != 0 || boo.QuantityAvailable != 0)
 
             {
                 if (ImageUrl != null && ImageUrl.Length > 0)
@@ -69,26 +69,11 @@ namespace MVC_Project.Controllers
             return View("AddNewBook", boo);
 
         }
-        public ActionResult SearchByBook(string query)
-        {
-            // Here you would perform your search logic
-            // For simplicity, let's assume you already have a method to fetch authors based on the search query
-            List<Book> books = YourSearchLogicMethod2(query);
 
-            // Pass the list of authors to the view
-            return View("GetBooksByName", books);
-        }
 
-        // This is a placeholder for your search logic
-
-        private List<Book> YourSearchLogicMethod2(string query)
+        public IActionResult GetBooksByName(string query)
         {
-            List<Book> dummybooks = book.GetBooksByName(query);
-            return dummybooks;
-        }
-        public IActionResult GetBooksByName(string name)
-        {
-            var books = book.GetBooksByName(name);
+            var books = book.GetBooksByName(query);
 
             return View("GetBooksByName", books);
         }

@@ -18,28 +18,15 @@ namespace MVC_Project.Controllers
             List<Author> authorList = author.GetAllAuthors();
             return View("Index", authorList);
         }
-        public ActionResult SearchByAuthor(string query)
-        {
-            // Here you would perform your search logic
-            // For simplicity, let's assume you already have a method to fetch authors based on the search query
-            List<Author> authors = YourSearchLogicMethod(query);
 
-            // Pass the list of authors to the view
-            return View("GetAuthorByName", authors);
-        }
-        private List<Author> YourSearchLogicMethod(string query)
-        {
-            List<Author> dummyAuthors = author.GetAuthorsByName(query);
-            return dummyAuthors;
-        }
         /// <summary>
         /// should not return a view
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public IActionResult GetAuthorsByName(string name)
+        public IActionResult GetAuthorsByName(string query)
         {
-            var authors = author.GetAuthorsByName(name);
+            var authors = author.GetAuthorsByName(query);
 
             return View("GetAuthorByName", authors);
         }
