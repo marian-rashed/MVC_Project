@@ -5,7 +5,7 @@ namespace MVC_Project.Models
     public class Review
     { 
         public int Id { get; set; }
-        public string UserName { get; set; }
+        public string UserId { get; set; }
         public ApplicationUser User { get; set; }
 
         [ForeignKey("Book")]

@@ -63,18 +63,20 @@ namespace MVC_Project.Repository
             return orderVM;
         }
 
-        public void InsertOrder(OrderWithCustomerAndOrderListVM orderVM)
+        public void InsertOrder(Order order)
         {
-            var order = new Order
-            {
-                CustomerId = orderVM.Customer.CustomerId,
-                OrderDate = orderVM.OrderDate,
-                TotalAmount = orderVM.TotalAmount,
-                OrderItems = orderVM.OrderItems
-            };
-            bookStoreContext.Orders.Add(order);
+            //var order = new Order
+            //{
+            //    CustomerId = orderVM.Customer.CustomerId,
+            //    OrderDate = orderVM.OrderDate,
+            //    TotalAmount = orderVM.TotalAmount,
+            //    OrderItems = orderVM.OrderItems
+            //};
+            //bookStoreContext.Orders.Add(order);
             //bookStoreContext.SaveChanges();
+            bookStoreContext.Orders.Add(order);
         }
+
 
         public void Save()
         {

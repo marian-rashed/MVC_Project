@@ -130,7 +130,7 @@
 <script src="/lib/microsoft-signalr/signalr.min.js"></script>
 
 <script>
-    var hub = new signalR.HubConnectionBuilder().withUrl("/ReviewHub").build();
+    var hub = new signalR.HubConnectionBuilder().withUrl("/ReviewsHub").build();
 
     hub.start().then(function () {
         console.log("Connection Success.");
