@@ -1,34 +1,113 @@
-﻿@* @model Order
+﻿@model MVC_Project.ViewModel.OrderWithCustomerAndOrderListVM
+<link rel="stylesheet" type="text/css" href="/css/bootstrap-FileUpload.min.css" />
 
-<div class="card">
-    <div class="card-header">Customer Id: @Model.CustomerId</div>
-    <div class="card-body">Order Date: @Model.OrderDate</div>
-    <div class="card-body">Total Amount: @Model.TotalAmount</div>
-</div> *@
-
-@model MVC_Project.ViewModel.OrderWithCustomerAndOrderListVM
-
-<div class="card">
-    <div class="card-header">Order ID: @Model.OrderId</div>
-    <div class="card-body">
-        <h5 class="card-title">Customer Name: @Model.Customer.FullName</h5>
-        <p class="card-text">Order Date: @Model.OrderDate.ToShortDateString()</p>
-        <p class="card-text">Total Amount: @Model.TotalAmount.ToString("C")</p>
-    </div>
-    <div class="card-footer">
-        @if (Model.OrderItems.Any())
-        {
-            <h6>Order Items:</h6>
-            <ul>
-                @foreach (var orderItem in Model.OrderItems)
-                {
-                    <li>@orderItem.Book.Title - Quantity: @orderItem.Quantity</li>
-                }
-            </ul>
+<style>
+    @@media (min-width: 1025px) {
+        .h-custom {
+            height: 100vh !important;
         }
-        else
-        {
-            <p>No items in this order.</p>
+    }
+
+    .horizontal-timeline.items .items {
+        border-top: 2px solid var(--accent-color); /* Removed extra semicolon */
+    }
+
+        .horizontal-timeline.items .items .items-list {
+            position: relative;
+            margin-right: 0;
         }
+
+            .horizontal-timeline.items .items .items-list:before {
+                content: "";
+                position: absolute;
+                height: 8px;
+                width: 8px;
+                border-radius: 50%;
+                background-color: #ddd;
+                top: 0;
+                margin-top: -5px;
+            }
+
+        .horizontal-timeline.items .items .items-list {
+            padding-top: 15px;
+        }
+</style>
+
+<section style="background-color: #eee;">
+    <br />
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-10 col-xl-8 mt-10 mb-10">
+                <div class="card border-top border-bottom border-3" style="border-color: var(--accent-color) !important;">
+                    <div class="card-body p-5">
+
+                        <p class="lead fw-bold mb-5" style="color: var(--accent-color);">Order Details</p>
+
+                        <div class="row">
+                            <div class="col mb-3">
+                                <p class="small text-muted mb-1">Customer Name</p>
+                                <p>@Model.Customer.FullName</p>
+                            </div>
+                            <div class="col mb-3">
+                                <p class="small text-muted mb-1">Date</p>
+                                <p>@Model.OrderDate.ToShortDateString()</p>
+                            </div>
+
+                            <div class="col mb-3">
+                                <p class="small text-muted mb-1">Order No.</p>
+                                <p>@Model.OrderId</p>
+                            </div>
+                        </div>
+
+                        <div class="mx-n5 px-5 py-4" style="background-color: var(--accent-color);">
+                            <div class="row">
+                                @if (Model.OrderItems.Any())
+                                {
+                                    <h4>Order Items:</h4>
+                                    <table>
+                                        <!-- Moved <table> tag outside of the foreach loop -->
+                                        <tr>
+                                            <th>Book Title</th>
+                                            <th>Book Price</th>
+                                        </tr>
+                                        @foreach (var orderItem in Model.OrderItems)
+                                        {
+                                            <tr>
+                                                <td style="width:50%">@orderItem.Book.Title</td>
+                                                <td>@orderItem.Book.Price</td>
+                                            </tr>
+                                        }
+                                    </table>
+                                }
+                                else
+                                {
+                                    <p>No items in this order.</p>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="row my-4">
+                            <div class="col-md-4 offset-md-8 col-lg-3 offset-lg-9">
+                                <p class="lead fw-bold mb-0" style="color: var(--accent-color);">@Model.TotalAmount.ToString("C")</p>
+                            </div>
+                            <div class="btn-wrap">
+                                <a href="/order/index" class="btn btn-outline-accent btn-accent-arrow">
+                                    Browse Order <i class="icon icon-ns-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+
+
+                        @*                         <a href="" class="btn btn-primary" style="color:black;">Back To List</a>
+                        *@
+                        <div class="row">
+                            <div class="col-lg-12">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+    <br />
+</section>

@@ -2,7 +2,7 @@
 
 <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
 <link href="/css/main.css" rel="stylesheet" />
-<link href="/css/search.css" rel="stylesheet" />
+@* <link href="/css/search.css" rel="stylesheet" /> *@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
 <style>
@@ -78,15 +78,15 @@
                 </div>
                 <div class="col-md-6">
                    <form id="searchForm" >
-                <div class="input-group ">
-                    <button class="btnclass " style=" border-radius:  2.3rem 0rem 0rem 2.3rem ;" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-                            <ul class="dropdown-menu" id="searchOption" name="searchOption">
-                                <li class="dropdown-item" value="">search by</li>
-                                <li class="dropdown-item" value="Book">Book</li>
-                                <li class="dropdown-item" value="Author">Author<</li>
-                    </ul>
+                <div class="input-group " >
+
+                            <select style=" color:white; height:auto; border-radius: 2.3rem 0rem 0rem 2.3rem ; margin-top: 19px; margin-right: 0px; background: var(--accent-color);padding: 0.75em 1.5em;" id="searchOption" name="searchOption">
+                                <option style="background: white; color:black;" value="">search by</option>
+                                <option style="background: white;color:black;" value="Book">Book</option>
+                                <option style="background: white;color:black;" value="Author">Author</option>
+                    </select>
                         <input style=" margin-bottom: 1rem; margin-top: 1rem;" type="search" class="form-control"  name="query"  aria-label="Text input with dropdown button">
-                    <button class="btnclass " style=" border-radius: 0rem 2.3rem 2.3rem 0rem;" type="submit" id="button-addon2">
+                    <button  style=" border-radius: 0rem 2.3rem 2.3rem 0rem;" type="submit" id="button-addon2">
                         <i class="fas fa-search"></i>
                     </button>
                 </div>
@@ -130,7 +130,7 @@
                             </span>
                         </a>
 
-                        <div class="action-menu">
+                        @* <div class="action-menu">
 
                             <div class="search-bar">
                                 <a href="#" class="search-button search-toggle" data-selector="#header-wrap">
@@ -145,7 +145,7 @@
                                     </form>
                                 }
                             </div>
-                        </div>
+                        </div> *@
 
                     </div><!--top-right-->
                 </div>
@@ -263,10 +263,10 @@
 
             switch (this.value) {
                 case 'Author':
-                    action = '@Url.Action("SearchByAuthor", "Author")';
+                    action = '@Url.Action("GetAuthorsByName", "Author")';
                     break;
                 case 'Book':
-                    action = '@Url.Action("SearchByBook", "Book")';
+                    action = '@Url.Action("GetBooksByName", "Book")';
                     break;
             }
 
