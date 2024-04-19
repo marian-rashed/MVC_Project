@@ -80,6 +80,18 @@ namespace MVC_Project.Controllers
             return RedirectToAction("Index");
         }
 
+		//edit author
+		public IActionResult Delete(int id)
+		{
+            Author authorToDelete = author.GetAuthorById(id);
+            authorToDelete.isDeleted = true;
+            author.Save();
+            return RedirectToAction("Index");
+        }
+
+
+
+
 
     }
 }

@@ -5,6 +5,7 @@ using MVC_Project.Hubs;
 using MVC_Project.Interfaces;
 using MVC_Project.Models;
 using MVC_Project.Repository;
+using MVC_Project.Hubs;
 
 
 namespace MVC_Project
