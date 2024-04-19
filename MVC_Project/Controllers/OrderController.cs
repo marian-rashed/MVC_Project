@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using MVC_Project.Interfaces;
+using MVC_Project.Models;
 using MVC_Project.ViewModel;
 
 namespace MVC_Project.Controllers
@@ -7,13 +9,14 @@ namespace MVC_Project.Controllers
     public class OrderController : Controller
     {
 
-        private readonly IOrder order;
-        private readonly IOrder orderRepository;
-
-        public OrderController(IOrder order, IOrder orderRepository)
+         private readonly IOrder order;
+         private readonly IBook bookRepository;
+         private readonly UserManager<ApplicationUser> userManager;
+        public OrderController(IOrder order, IBook _bookRepository, UserManager<ApplicationUser> _userManager)
         {
             this.order = order;
-            this.orderRepository = orderRepository;
+            bookRepository = _bookRepository;
+            this.userManager = _userManager;
         }
 
         public IActionResult Index()
@@ -50,7 +53,7 @@ namespace MVC_Project.Controllers
 
         public IActionResult SaveOrder(Order ord)
         {
-            OrderWithCustomerAndOrderListVM ordVM = new OrderWithCustomerAndOrderListVM();
+           Order ordVM = new Order();
             ordVM.Customer.FullName = ord.Customer.FullName;
             ordVM.OrderDate = ord.OrderDate;
             ordVM.TotalAmount = ord.TotalAmount;
@@ -67,19 +70,45 @@ namespace MVC_Project.Controllers
 
         public IActionResult GetOrdersByCustomerName(string customerName)
         {
-            List<OrderWithCustomerAndOrderListVM> orders = orderRepository.GetOrdersByCustomerName(customerName);
+            List<OrderWithCustomerAndOrderListVM> orders = order.GetOrdersByCustomerName(customerName);
             return View("GetOrdersByCustomerName", orders);
         }
         public IActionResult GetOrderByCustomerId(string customerId)
         {
-            List<OrderWithCustomerAndOrderListVM> orders = orderRepository.GetOrderByCustomerId(customerId);
+            List<OrderWithCustomerAndOrderListVM> orders = order.GetOrderByCustomerId(customerId);
             return View("GetOrderByCustomerId", orders);
         }
 
         //save order to database
 
+        public IActionResult addorder([FromBody] Dictionary<string, List<int>> postData)
+        {
+            if (postData != null && postData.ContainsKey("bookIds"))
+            {
+                List<int> bookIds = postData["bookIds"];
+                List<Book> books = new List<Book>();
+               
+                foreach (int bookId in bookIds)
+                {
+                  books.Add(bookRepository.GetBookById(bookId));
+                }
+                foreach (Book book in books)
+                {
+                    book.QuantityAvailable--;
+                    bookRepository.UpdateBook(book);
+                    bookRepository.Save();
+                }
+                Order newOrder= new Order();
+               // newOrder.CustomerId=
+               // order.InsertOrder()
+                    return Json(new { success = true, message = "Order added successfully" });
+            }
 
-
+           
+            return Json(new { success = false, message = "Invalid request data" });
+        }
 
     }
+
+
 }

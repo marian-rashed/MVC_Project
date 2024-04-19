@@ -3,6 +3,7 @@
 @{
     decimal TotalPrice = 0;
     int count = 0;
+
 }
 
 <style>
@@ -128,6 +129,7 @@
                         <td>Total Price</td>
                         <td></td>
                         <td>$ @TotalPrice</td>
+                        
                     
              </tr>
                 </tbody>
@@ -142,7 +144,7 @@
 
                 </div>
                 <div class="btn-wrap">
-                    <a href="#" class="btn btn-outline-accent btn-accent-arrow">
+                    <a href="#" class="btn btn-outline-accent btn-accent-arrow" id="buyNowButton">
                         Buy now <i class="icon icon-ns-arrow-right"></i>
                     </a>
                 </div>
@@ -171,3 +173,59 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
+<!-- Your existing HTML and Razor code -->
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var buyNowButton = document.getElementById('buyNowButton');
+
+        buyNowButton.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            var confirmed = confirm('Are you sure you want to buy ?');
+
+            if (confirmed) {
+                alert('Buy confirmed! Successfully');
+                handlePurchase();
+            } else {
+                alert('Buy canceled.');
+            }
+        });
+
+        function handlePurchase() {
+            // Prepare the list of book IDs to send to the server
+            var bookIds = [];
+    @foreach (var book in Model)
+    {
+      //  @:bookIds.push(parseInt('@book.BookId'));
+         @:bookIds.push(@book.BookId);// Populate book IDs array with Razor syntax
+    }
+
+                // Prepare the data to be sent in the AJAX request
+                var postData = {
+                bookIds: bookIds
+            };
+            console.log(postData)
+
+            // Perform an AJAX POST request to the specified URL
+            $.ajax({
+                type: 'POST',
+                url: '/Order/addorder',
+                contentType: 'application/json',
+                data: JSON.stringify(postData),
+                success: function (response) {
+                    // If the request is successful, redirect the user to the specified URL
+                    window.location.href = '/Order/addorder'; // Redirect to the desired URL
+                },
+                error: function (xhr, status, error) {
+                    // Handle error cases here (if needed)
+                    console.error('Error:', error);
+                    alert('Failed to add order. Please try again.');
+                }
+            });
+        }
+    });
+</script>
+

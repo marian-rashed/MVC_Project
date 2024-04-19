@@ -29,10 +29,13 @@ namespace MVC_Project.Repository
         {
             bookStoreContext.Books.Add(book);
         }
-        public void UpdateBook(int id)
+        public void UpdateBook(Book book)
         {
-            Book book = bookStoreContext.Books.Include(b => b.Author).FirstOrDefault(b => b.BookId == id);
-            bookStoreContext.Books.Update(book);
+            Book bookDB = bookStoreContext.Books.Include(b => b.Author).FirstOrDefault(b => b.BookId == book.BookId);
+            bookDB.QuantityAvailable=book.QuantityAvailable;
+
+            bookStoreContext.Books.Update(bookDB);
+            
         }
         public void DeleteBook(int id)
         {

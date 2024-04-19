@@ -17,12 +17,16 @@ namespace MVC_Project.Hubs
 		public async Task SendReview(string message, int bookId)
 		{
 			var CurrentCustomer = await userManager.GetUserAsync(Context.User);
-			string name = CurrentCustomer.UserName;
+            var loginId = await userManager.GetUserIdAsync(CurrentCustomer);
+            string name = CurrentCustomer.UserName;
+           
 
-			var review = new Review
-			{				
-				User=CurrentCustomer,				
-				Text = message,
+
+            Review review = new Review
+			{
+               
+				UserId= loginId,
+                Text = message,
 				BookID = bookId
 			};
 			bookStore.Reviews.Add(review);
