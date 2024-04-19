@@ -197,7 +197,7 @@
         <div class="row justify-content-center ">
 
             <div class="col-md-10">
-                <div id="review container">
+                <div id="reviewContainer">
                     <div class="row">
                         <div class="card shadow rounded-3" style="padding:1rem;margin-bottom:2rem">
                             <div class="card-body">
@@ -352,7 +352,70 @@
     hub.on("RecieveNewComment", function (name, message, bookID) {
         if (bookID === @Model.BookId) {
             console.log("message");
-           // $("#Conv").append("<li>" + name + ": " + message + "</li>");
+          // $("#Conv").append("<li>" + name + ": " + message + "</li>");
+            $("#reviewContainer").append(`  <div class="row">
+                            <div class="card shadow rounded-3" style="padding:1rem;margin-bottom:2rem">
+                                <div class="card-body">
+                                    <div class="row     align-items-md-start">
+                                        <div class="d-flex flex-start align-items-center col-md-1">
+                                            <img class="rounded-circle shadow-1-strong me-3"
+                                                 src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="60"
+                                                 height="60" />
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <h6 class="text-primary username">${name}</h6>
+                                            <p class="text-muted small mb-0">
+                                                Shared publicly - Jan 2020
+                                            </p>
+                                            <div class="rating-wrapper">
+
+                                                <!-- star 5 -->
+                                                <input type="radio" id="5-star-rating" name="star-rating" value="5">
+                                                <label for="5-star-rating" class="star-rating">
+                                                    <i class="fas fa-star d-inline-block"></i>
+                                                </label>
+
+                                                <!-- star 4 -->
+                                                <input type="radio" id="4-star-rating" name="star-rating" value="4">
+                                                <label for="4-star-rating" class="star-rating star">
+                                                    <i class="fas fa-star d-inline-block"></i>
+                                                </label>
+
+                                                <!-- star 3 -->
+                                                <input type="radio" id="3-star-rating" name="star-rating" value="3">
+                                                <label for="3-star-rating" class="star-rating star">
+                                                    <i class="fas fa-star d-inline-block"></i>
+                                                </label>
+
+                                                <!-- star 2 -->
+                                                <input type="radio" id="2-star-rating" name="star-rating" value="2">
+                                                <label for="2-star-rating" class="star-rating star">
+                                                    <i class="fas fa-star d-inline-block"></i>
+                                                </label>
+
+                                                <!-- star 1 -->
+                                                <input type="radio" id="1-star-rating" name="star-rating" value="1">
+                                                <label for="1-star-rating" class="star-rating star">
+                                                    <i class="fas fa-star d-inline-block"></i>
+                                                </label>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <p class="mt-3 mb-4 pb-2">
+                                           ${message}
+                                        </p>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>`)
         }
     });
 
