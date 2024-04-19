@@ -1,33 +1,90 @@
-﻿@model Book
+@model Book
 @{
     ViewData["Title"] = "GetBookById";
 }
-<div class="section-header align-center" >
+<style>
+    .username {
+        font-size: 1.5em;
+        font-weight: 100;
+        margin: 0px;
+    }
+
+
+    div.rating-wrapper {
+        align-self: center;
+        border-radius: 5rem;
+        display: inline-flex;
+        direction: rtl !important;
+        /*     padding: 1rem 2rem; */
+        margin-left: auto;
+        label
+
+    {
+        color: #E1E6F6;
+        cursor: pointer;
+        display: inline-flex;
+        font-size: 1rem;
+        padding: 0.5rem .3rem;
+        transition: color 0.5s;
+    }
+
+    svg {
+        -webkit-text-fill-color: transparent;
+        -webkit-filter: drop-shadow (4px 1px 6px rgba(198, 206, 237, 1));
+        filter: drop-shadow(5px 1px 3px rgba(198, 206, 237, 1));
+    }
+
+    input {
+        height: auto;
+        width: 25%;
+    }
+
+    input {
+        display: none;
+    }
+
+        label:hover,
+        label:hover ~ label,
+        input:checked ~ label {
+            color: var(--accent-color);
+        }
+
+            label:hover,
+            label:hover ~ label,
+            input:checked ~ label {
+                color: var(--accent-color);
+            }
+
+    }
+</style>
+
+<div class="section-header align-center">
 
     <h3 class="section-title " style="font-size:2rem;margin:45px 0px ">All you need to know</h3>
 </div>
 
 <section id="best-selling" class="leaf-pattern-overlay">
-    
-	<div class="container">
-		<div class="row justify-content-center ">
 
-			<div class="col-md-10">
+    <div class="container">
+        <div class="row justify-content-center ">
 
-				<div class="row">
+            <div class="col-md-10">
 
-					<div class="col-md-6">
-						<figure class="products-thumb pattern-overlay">
-							<img src="@Model.ImageUrl" alt="book" class="single-image">
-						</figure>
-					</div>
+                <div class="row">
 
-					<div class="col-md-6">
-						<div class="product-entry ">
-							<h2 class="section-title divider">@Model.Title</h2>
+                    <div class="col-md-6">
+                        <figure class="products-thumb pattern-overlay">
+                            <img src="@Model.ImageUrl" alt="book" class="single-image">
+                        </figure>
+                    </div>
 
-							<div class="products-content">
+                    <div class="col-md-6">
+                        <div class="product-entry ">
+                            <h2 class="section-title divider">@Model.Title</h2>
+
+                            <div class="products-content">
                                 <div class="author-name"><a href="/author/details/@Model.Author.AuthorId">@Model.Author.AuthorName</a></div>
+
 								<h3 class="item-title"></h3>
 								<p>
 									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero
@@ -61,6 +118,7 @@
 
 		</div>
 	</div>
+
 </section>
 
 @* <section id="featured-books" class="py-5 my-5">
@@ -101,7 +159,7 @@
                                     </div>
                                 </div>
                             }
-                          
+
                         }
 
                     </div><!--ft-books-slider-->
@@ -126,12 +184,161 @@
 </section> *@
 
 
-<!--<input type="text" class="form form-control" id="Name" placeholder="Enter Your Name" />-->
+<div class="section-header align-center">
+    <div class="title">
+        <span>What is everyone saying?</span>
+    </div>
+    <h2 class="section-title">Readers Reviews</h2>
+</div>
+
+<section id="featured-books" class="leaf-pattern-overlay bg-gradient">
+
+    <div class="container">
+        <div class="row justify-content-center ">
+
+            <div class="col-md-10">
+                <div id="review container">
+                    <div class="row">
+                        <div class="card shadow rounded-3" style="padding:1rem;margin-bottom:2rem">
+                            <div class="card-body">
+                                <div class="row     align-items-md-start">
+                                    <div class="d-flex flex-start align-items-center col-md-1">
+                                        <img class="rounded-circle shadow-1-strong me-3"
+                                             src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="60"
+                                             height="60" />
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <h6 class="text-primary username">Lily Coleman</h6>
+                                        <p class="text-muted small mb-0">
+                                            Shared publicly - Jan 2020
+                                        </p>
+                                        <div class="rating-wrapper">
+
+                                            <!-- star 5 -->
+                                            <input type="radio" id="5-star-rating" name="star-rating" value="5">
+                                            <label for="5-star-rating" class="star-rating">
+                                                <i class="fas fa-star d-inline-block"></i>
+                                            </label>
+
+                                            <!-- star 4 -->
+                                            <input type="radio" id="4-star-rating" name="star-rating" value="4">
+                                            <label for="4-star-rating" class="star-rating star">
+                                                <i class="fas fa-star d-inline-block"></i>
+                                            </label>
+
+                                            <!-- star 3 -->
+                                            <input type="radio" id="3-star-rating" name="star-rating" value="3">
+                                            <label for="3-star-rating" class="star-rating star">
+                                                <i class="fas fa-star d-inline-block"></i>
+                                            </label>
+
+                                            <!-- star 2 -->
+                                            <input type="radio" id="2-star-rating" name="star-rating" value="2">
+                                            <label for="2-star-rating" class="star-rating star">
+                                                <i class="fas fa-star d-inline-block"></i>
+                                            </label>
+
+                                            <!-- star 1 -->
+                                            <input type="radio" id="1-star-rating" name="star-rating" value="1">
+                                            <label for="1-star-rating" class="star-rating star">
+                                                <i class="fas fa-star d-inline-block"></i>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <p class="mt-3 mb-4 pb-2">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip consequat.
+                                    </p>
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="card shadow rounded-3" style="padding:1rem ">
+                        <div class="card-body">
+                            <div class="row align-items-md-start">
+                                <div class="d-flex flex-start align-items-center col-md-1">
+                                    <img class="rounded-circle shadow-1-strong me-3"
+                                         src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="60"
+                                         height="60" />
+                                </div>
+                                <div data-mdb-input-init class="form-outline col-md-11">
+
+                                   
+                                    <input type="text" class="form-control" id="Name" placeholder="Enter Your Name"  />
+                                 
+                                    <textarea class="form-control " id="Msg" rows="2" placeholder="write a review" style="margin-bottom:0"></textarea>
+                                    <div class="rating-wrapper">
+
+                                        <!-- star 5 -->
+                                        <input type="radio" id="5-star-rating" name="star-rating" value="5">
+                                        <label for="5-star-rating" class="star-rating">
+                                            <i class="fas fa-star d-inline-block"></i>
+                                        </label>
+
+                                        <!-- star 4 -->
+                                        <input type="radio" id="4-star-rating" name="star-rating" value="4">
+                                        <label for="4-star-rating" class="star-rating star">
+                                            <i class="fas fa-star d-inline-block"></i>
+                                        </label>
+
+                                        <!-- star 3 -->
+                                        <input type="radio" id="3-star-rating" name="star-rating" value="3">
+                                        <label for="3-star-rating" class="star-rating star">
+                                            <i class="fas fa-star d-inline-block"></i>
+                                        </label>
+
+                                        <!-- star 2 -->
+                                        <input type="radio" id="2-star-rating" name="star-rating" value="2">
+                                        <label for="2-star-rating" class="star-rating star">
+                                            <i class="fas fa-star d-inline-block"></i>
+                                        </label>
+
+                                        <!-- star 1 -->
+                                        <input type="radio" id="1-star-rating" name="star-rating" value="1">
+                                        <label for="1-star-rating" class="star-rating star">
+                                            <i class="fas fa-star d-inline-block"></i>
+                                        </label>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="d-flex justify-content-end  btn-wrap" style="margin-bottom:0">
+                                    <button type="button" onclick="Send_Review()" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-accent btn-accent-arrow" style="margin:0">Post Review</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<input type="text" class="form form-control" id="Name" placeholder="Enter Your Name" />
 <input type="text" class="form form-control" id="Msg" placeholder="Enter Your Comment" />
 <input type="button" onclick="Send_Review()" value="Send" class="btn btn-success" />
 <ul id="Conv">
-   
 </ul>
+
+
 <script src="/lib/jquery/dist/jquery.min.js"></script>
 <script src="/lib/microsoft-signalr/signalr.min.js"></script>
 
@@ -144,7 +351,8 @@
 
     hub.on("RecieveNewComment", function (name, message, bookID) {
         if (bookID === @Model.BookId) {
-            $("#Conv").append("<li>" + name + ": " + message + "</li>");
+            console.log("message");
+           // $("#Conv").append("<li>" + name + ": " + message + "</li>");
         }
     });
 
