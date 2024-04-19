@@ -1,7 +1,158 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Contact";
 }
 
-<h1>Contact</h1>
+<style>
+    div#teamcard {
+        h2
 
+    {
+        font-weight: 400;
+        margin: 2rem 0 0.25rem 0;
+    }
+
+    h1 {
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+        opacity: 0.5;
+        margin: 0;
+    }
+   
+
+    figure {
+        /*        #DAA556 to HSL(40, 70%, 60%)
+            #F2A999 to HSL(10, 80%, 80%)
+            #F29863 to HSL(15, 80%, 70%)
+          white  #F3F2EC to HSL(50, 10%, 95%)
+            #F2E7AC to HSL(47, 80%, 80%) */
+        aspect-ratio: 5 / 4;
+        --bg: hsl(47 80% calc(80% - (var(--colorHover) * 15%)));
+        --accent: HSL(10, 85%, 70%);
+        transition: background 2s;
+        background: radial-gradient(circle at top left, var(--accent), transparent 75%), var(--bg);
+        margin: 0;
+        position: relative;
+        overflow: hidden;
+        border-radius: 1.5rem;
+    }
+
+        figure:after {
+            content: "";
+            position: absolute;
+            width: 20%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            bottom: 0%;
+            left: 10%;
+            background: linear-gradient(-65deg, var(--bg) 50%, var(--accent) 50%);
+            filter: blur(25px);
+            transform: translateX(calc(var(--hover) * 15%)) scale(calc(1 + (var(--hover) * 0.2)));
+            transition: transform 2s, background 2s;
+        }
+
+
+    img {
+        filter: grayscale(0%);
+        position: absolute;
+        left: 20%;
+        top: -5%;
+        width: 80%;
+        transform: translateX(calc(var(--hover) * -15%)) scale(calc(1 + (var(--hover) * 0.2)));
+        transition: transform 2s;
+        transition: filter 2s;
+    }
+
+    article {
+        --hover: 0;
+        --colorHover: -0.5;
+    }
+    
+        article:hover {
+            --hover: 1;
+            --colorHover: -0.2;
+        }
+
+            article:hover img {
+                filter: grayscale(100%);
+                transition: filter 2s;
+                transition: transform 2s;
+            }
+
+    }
+</style>
+
+
+
+<div class="container col-11">
+    <div class="section-header align-center">
+        <div class="title">
+            <span>The Faces behind BookSAW</span>
+        </div>
+        <h2 class="section-title">Meet The Team</h2>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4" id="teamcard">
+            <article>
+                <figure class="shadow "><img src="/images/team/temp.png" alt=""></figure>
+                <div class="text-center">
+                    <h2>Nabila Nabil</h2>
+                    <p>Love colors</p>
+                </div>
+
+            </article>
+
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-4" id="teamcard">
+            <article>
+                <figure class="shadow "><img src="/images/team/temp.png" alt=""></figure>
+                <div class="text-center">
+                    <h2>Nabila Nabil</h2>
+                    <p>Love colors</p>
+                </div>
+
+            </article>
+
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4" id="teamcard">
+            <article>
+                <figure class="shadow "><img src="/images/team/temp.png" alt=""></figure>
+                <div class="text-center">
+                    <h2>Nabila Nabil</h2>
+                    <p>Love colors</p>
+                </div>
+
+            </article>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4" id="teamcard">
+            <article>
+                <figure class="shadow "><img src="/images/team/temp.png" alt=""></figure>
+
+                <h2>Nabila Nabil</h2>
+                <p>Love colors</p>
+            </article>
+
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-4" id="teamcard">
+            <article>
+                <figure class="shadow "><img src="/images/team/temp.png" alt=""></figure>
+                <h2>Nabila Nabil</h2>
+                <p>Love colors</p>
+            </article>
+
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4" id="teamcard">
+            <article>
+                <figure class="shadow "><img src="/images/team/temp.png" alt=""></figure>
+                <h2>Nabila Nabil</h2>
+                <p>Love colors</p>
+            </article>
+
+        </div>
+    </div>
+    </div>
