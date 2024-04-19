@@ -13,7 +13,7 @@ namespace MVC_Project.Interfaces
     {
         List<OrderWithCustomerAndOrderListVM> GetAllOrdersWithCustomerAndOrderList();
         OrderWithCustomerAndOrderListVM GetOrderByIdWithCustomerAndOrderList(int id);
-        void InsertOrder(OrderWithCustomerAndOrderListVM orderVM);
+        void InsertOrder(Order order);
         void UpdateOrder(int id);
         void DeleteOrder(int id);
         void Save();

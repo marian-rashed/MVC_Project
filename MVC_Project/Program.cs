@@ -84,7 +84,7 @@ namespace MVC_Project
 
 
 
-            app.MapHub<ReviewsHub>("/ReviewHub");
+            app.MapHub<ReviewsHub>("/ReviewsHub");
             app.MapHub<BookHub>("/BookHub");
 
             app.MapControllerRoute(

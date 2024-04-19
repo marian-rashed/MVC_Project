@@ -11,7 +11,7 @@ namespace MVC_Project.Interfaces
         List<Book> GetAllBooks();
         Book GetBookById(int id);
         void InsertBook(Book book);
-        void UpdateBook(int id);
+        void UpdateBook(Book book);
         void DeleteBook(int id);
         Author GetBookAuthor(string name);
         List<Book> GetBooksByName(string name);
