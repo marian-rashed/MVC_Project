@@ -9,9 +9,9 @@ namespace MVC_Project.Controllers
     public class OrderController : Controller
     {
 
-         private readonly IOrder order;
-         private readonly IBook bookRepository;
-         private readonly UserManager<ApplicationUser> userManager;
+        private readonly IOrder order;
+        private readonly IBook bookRepository;
+        private readonly UserManager<ApplicationUser> userManager;
         public OrderController(IOrder order, IBook _bookRepository, UserManager<ApplicationUser> _userManager)
         {
             this.order = order;
@@ -53,7 +53,7 @@ namespace MVC_Project.Controllers
 
         public IActionResult SaveOrder(Order ord)
         {
-           Order ordVM = new Order();
+            Order ordVM = new Order();
             ordVM.Customer.FullName = ord.Customer.FullName;
             ordVM.OrderDate = ord.OrderDate;
             ordVM.TotalAmount = ord.TotalAmount;
@@ -87,10 +87,10 @@ namespace MVC_Project.Controllers
             {
                 List<int> bookIds = postData["bookIds"];
                 List<Book> books = new List<Book>();
-               
+
                 foreach (int bookId in bookIds)
                 {
-                  books.Add(bookRepository.GetBookById(bookId));
+                    books.Add(bookRepository.GetBookById(bookId));
                 }
                 foreach (Book book in books)
                 {
@@ -98,13 +98,13 @@ namespace MVC_Project.Controllers
                     bookRepository.UpdateBook(book);
                     bookRepository.Save();
                 }
-                Order newOrder= new Order();
-               // newOrder.CustomerId=
-               // order.InsertOrder()
-                    return Json(new { success = true, message = "Order added successfully" });
+                Order newOrder = new Order();
+                // newOrder.CustomerId=
+                // order.InsertOrder()
+                return Json(new { success = true, message = "Order added successfully" });
             }
 
-           
+
             return Json(new { success = false, message = "Invalid request data" });
         }
 
