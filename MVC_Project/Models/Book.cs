@@ -37,5 +37,10 @@ namespace MVC_Project
 
         public bool? isOutOfStock { get; set; }
         public bool? isDeleted { get; set; }
+
+       public Book()
+        {
+            Reviews = new List<Review>();
+        }
     }
 }

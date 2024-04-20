@@ -34,6 +34,10 @@ namespace MVC_Project.Controllers
             };
             return View("Index",model);
         }
+        public IActionResult Contact()
+        {
+            return View("Contact");
+        }
 
         public IActionResult Privacy()
         {
