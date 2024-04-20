@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MVC_Project.Interfaces;
 using MVC_Project.Models;
@@ -8,23 +9,24 @@ using MVC_Project.ViewModel;
 
 namespace MVC_Project.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
 
 
-         private readonly IOrder order;
-         private readonly IBook bookRepository;
-		private readonly IOrderItem orderItemsRepository;
-		private readonly UserManager<ApplicationUser> userManager;
+        private readonly IOrder order;
+        private readonly IBook bookRepository;
+        private readonly IOrderItem orderItemsRepository;
+        private readonly UserManager<ApplicationUser> userManager;
         public OrderController(IOrder order, IBook _bookRepository, UserManager<ApplicationUser> _userManager,
-			IOrderItem _orderItemsRepository
-			)
+            IOrderItem _orderItemsRepository
+            )
 
         {
             this.order = order;
             bookRepository = _bookRepository;
             this.userManager = _userManager;
-            orderItemsRepository= _orderItemsRepository;
+            orderItemsRepository = _orderItemsRepository;
 
         }
 
@@ -33,8 +35,8 @@ namespace MVC_Project.Controllers
             List<OrderWithCustomerAndOrderListVM> orderList = order.GetAllOrdersWithCustomerAndOrderList();
             return View("Index", orderList);
         }
-
-        public IActionResult GetOrderById(int id)
+		[Authorize(Roles = "Admin")]
+		public IActionResult GetOrderById(int id)
         {
             OrderWithCustomerAndOrderListVM orderVM = order.GetOrderByIdWithCustomerAndOrderList(id);
             return View("GetOrderById", orderVM);
@@ -76,12 +78,14 @@ namespace MVC_Project.Controllers
             }
             return View("AddNewOrder", ordVM);
         }
+
         public IActionResult thankyou()
         {
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult GetOrdersByCustomerName(string customerName)
+
         {
             List<OrderWithCustomerAndOrderListVM> orders = order.GetOrdersByCustomerName(customerName);
             return View("GetOrdersByCustomerName", orders);
@@ -96,7 +100,9 @@ namespace MVC_Project.Controllers
 
         public async Task<IActionResult> addorder([FromBody] Dictionary<string, List<int>> postData)
         {
-            if (postData != null && postData.ContainsKey("bookIds"))
+            ApplicationUser currentUser = await userManager.GetUserAsync(HttpContext.User);
+
+            if (postData != null && postData.ContainsKey("bookIds") && currentUser != null)
             {
                 List<int> bookIds = postData["bookIds"];
                 List<Book> books = new List<Book>();
@@ -113,44 +119,47 @@ namespace MVC_Project.Controllers
                     bookRepository.Save();
                 }
 
-                ApplicationUser currentUser = await userManager.GetUserAsync(HttpContext.User);
+
                 string customerID = currentUser.CustomerID;
 
 
+                    Order newOrder = new Order
+                    {
+                        CustomerId = customerID,
+                        OrderDate = DateTime.Now,
+                        TotalAmount = totalPrice,
+                    };
 
-                    order.InsertOrder(newOrder);
-                    order.Save();
+                
 
-                ////////////////////////////////save Order Itmes 
+                order.InsertOrder(newOrder);
+                order.Save();
 
-				int orderID = order.getOrderID(newOrder.CustomerId, newOrder.OrderDate);
-				foreach (Book book in books)
+                    ////////////////////////////////save Order Itmes 
+
+                int orderID = order.getOrderID(newOrder.CustomerId, newOrder.OrderDate);
+                foreach (Book book in books)
                 {
                     OrderItem newOrderItem = new OrderItem
                     {
                         OrderId = orderID,
                         BookId = book.BookId,
                         Quantity = 1,
-                        PricePerUnit=book.Price
+                        PricePerUnit = book.Price
                     };
-					orderItemsRepository.InsertOrderItems(newOrderItem);
+                    orderItemsRepository.InsertOrderItems(newOrderItem);
                     orderItemsRepository.Save();
-                   
-				}
+
+                }
 
 
-					return Json(new { success = true, message = "Order added successfully" });
-
+                return Json(new { success = true, message = "Order added successfully" });
             }
+
+
 
 
             return Json(new { success = false, message = "Invalid request data" });
         }
-
-
-
-
     }
-
-
 }
