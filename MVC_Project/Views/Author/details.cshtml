@@ -37,6 +37,14 @@
                                     Browse Authors <i class="icon icon-ns-arrow-right"></i>
                                 </a>
                             </div>
+
+                            <div class="btn-wrap">
+                                <a href="/author/delete/@Model.AuthorId" class="btn btn-outline-accent btn-accent-arrow">
+                                    Delete Author <i class="icon icon-ns-arrow-right"></i>
+                                </a>
+                            </div>
+                            
+                            
                         </div>
                         <div class="col-md-5 order-md-last order-first">
                             <img src="@Model.ImageUrl" alt="banner" class="banner-image">
@@ -49,7 +57,7 @@
     </div>
 </section>
 
-<section id="featured-books" class="py-5 my-5">
+@* <section id="featured-books" class="py-5 my-5">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

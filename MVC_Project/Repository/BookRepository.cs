@@ -17,6 +17,7 @@ namespace MVC_Project.Repository
             List<Book> books = bookStoreContext.Books
                 .Include(b => b.Author)
                 .Where(b => b.isDeleted != true)
+                .OrderBy(b=>b.Title)
                 .ToList();
             return books;
         }
