@@ -82,7 +82,7 @@ namespace MVC_Project.Controllers
 
         //save order to database
 
-        public async Task <IActionResult>  addorder([FromBody] Dictionary<string, List<int>> postData)
+        public async Task<IActionResult> addorder([FromBody] Dictionary<string, List<int>> postData)
         {
             if (postData != null && postData.ContainsKey("bookIds"))
             {
@@ -100,25 +100,25 @@ namespace MVC_Project.Controllers
                     bookRepository.UpdateBook(book);
                     bookRepository.Save();
                 }
-                
+
                 ApplicationUser currentUser = await userManager.GetUserAsync(HttpContext.User);
                 string customerID = currentUser.CustomerID;
 
-                
-                    Order newOrder = new Order
-                    {
-                        CustomerId = customerID,
-                        OrderDate = DateTime.Now,
-                        TotalAmount = totalPrice,
-                    };
+
+                Order newOrder = new Order
+                {
+                    CustomerId = customerID,
+                    OrderDate = DateTime.Now,
+                    TotalAmount = totalPrice,
+                };
 
 
 
-                    order.InsertOrder(newOrder);
-                    order.Save();
+                order.InsertOrder(newOrder);
+                order.Save();
 
-                    
-                    return Json(new { success = true, message = "Order added successfully" });
+
+                return View();
             }
 
 
