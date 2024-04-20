@@ -139,7 +139,8 @@ namespace MVC_Project.Controllers
 				}
 
 
-					return Json(new { success = true, message = "Order added successfully" });
+                return Json(new { success = true, message = "Order added successfully" });
+                
             }
 
            

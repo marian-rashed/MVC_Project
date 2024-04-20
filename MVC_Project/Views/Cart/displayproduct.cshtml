@@ -212,12 +212,12 @@
             // Perform an AJAX POST request to the specified URL
             $.ajax({
                 type: 'POST',
-                url: '/Order/addorder',
+                url: '/Order/index',
                 contentType: 'application/json',
                 data: JSON.stringify(postData),
                 success: function (response) {
                     // If the request is successful, redirect the user to the specified URL
-                    window.location.href = '/Order/addorder'; // Redirect to the desired URL
+                    window.location.href = '/Order/index'; // Redirect to the desired URL
                 },
                 error: function (xhr, status, error) {
                     // Handle error cases here (if needed)
