@@ -102,7 +102,7 @@
 				
 				<div class="btn-wrap">
 					<div class="item-price"> In stock :@Model.QuantityAvailable Copies</div>
-						<a href="#" class="btn btn-outline-accent btn-accent-arrow">
+                    <a href="#" class="btn btn-outline-accent btn-accent-arrow add-to-cart"  data-book-id="@Model.BookId">
 						Buy now <i class="icon icon-ns-arrow-right"></i>
 					</a>
 				</div>
@@ -431,4 +431,4 @@
 
 </script>
 
-
+<partial name="_SelectedBookParial"></partial>
