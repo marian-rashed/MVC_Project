@@ -18,7 +18,9 @@ namespace MVC_Project.Interfaces
         void DeleteOrder(int id);
         void Save();
 
-        List<OrderWithCustomerAndOrderListVM> GetOrdersByCustomerName(string customername);
+        int getOrderID(string customerID, DateTime orderDate);
+
+		List<OrderWithCustomerAndOrderListVM> GetOrdersByCustomerName(string customername);
         List<OrderWithCustomerAndOrderListVM> GetOrderByCustomerId(string customerid);
         
     }

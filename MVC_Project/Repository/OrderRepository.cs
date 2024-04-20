@@ -126,5 +126,22 @@ namespace MVC_Project.Repository
 
             return orders;
         }
-    }
+
+		public int getOrderID(string customerID, DateTime orderDate)
+		{
+			var order = bookStoreContext.Orders
+				.Where(o => o.CustomerId == customerID && o.OrderDate == orderDate)
+				.FirstOrDefault();
+
+			if (order != null)
+			{
+				return order.OrderId;
+			}
+			else
+			{
+				
+				throw new Exception("Order not found");
+			}
+		}
+	}
 }

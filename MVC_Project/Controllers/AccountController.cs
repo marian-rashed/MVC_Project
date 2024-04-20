@@ -52,7 +52,7 @@ namespace MVC_Project.Controllers
                 IdentityResult result = await userManager.CreateAsync(user, UserVM.Password);
                 if (result.Succeeded)
                 {
-                    IdentityResult ResultRole = await userManager.AddToRoleAsync(user, "Admin");//to register user as admin
+                    IdentityResult ResultRole = await userManager.AddToRoleAsync(user, "User");//to register user as admin
                     await signInManager.SignInAsync(user, false);
                     Customer customer = new Customer()
                     {
