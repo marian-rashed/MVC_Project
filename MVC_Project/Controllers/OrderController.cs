@@ -130,12 +130,7 @@ namespace MVC_Project.Controllers
                         TotalAmount = totalPrice,
                     };
 
-                Order newOrder = new Order
-                {
-                    CustomerId = customerID,
-                    OrderDate = DateTime.Now,
-                    TotalAmount = totalPrice,
-                };
+                
 
                 order.InsertOrder(newOrder);
                 order.Save();
