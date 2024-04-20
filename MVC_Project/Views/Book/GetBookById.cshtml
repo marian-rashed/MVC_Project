@@ -108,18 +108,17 @@
 					
 				</div>
 
+                @if(User.IsInRole("Admin"))
+                {
+                    <div class="btn-wrap">
+                        <a href="/book/delete/@Model.BookId" class="btn btn-outline-accent btn-accent-arrow">
+                            Delete Book <i class="icon icon-ns-arrow-right"></i>
+                        </a>
+                    </div>
+                }
+               
 
-                <div class="btn-wrap">
-                    <a href="/book/delete/@Model.BookId" class="btn btn-outline-accent btn-accent-arrow">
-                        Delete Book <i class="icon icon-ns-arrow-right"></i>
-                    </a>
-                </div>
-
-                <div class="btn-wrap">
-                    <a href="/book/delete/@Model.BookId" class="btn btn-outline-accent btn-accent-arrow">
-                        Delete Book <i class="icon icon-ns-arrow-right"></i>
-                    </a>
-                </div>
+                
                 <div class="btn-wrap">
 
                 

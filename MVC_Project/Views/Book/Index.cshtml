@@ -331,11 +331,14 @@
 
         </div>
     </div>
-	<div class="btn-wrap " style="margin-left:10%">
-		<a href="/book/AddNewBook" style="margin-top:0" class="btn btn-outline-accent btn-accent-arrow" tabindex="0">
-			Add Book <i class="icon icon-ns-arrow-right"></i>
-		</a>
-	</div>
+	@if (User.IsInRole("Admin"))
+	{
+		<div class="btn-wrap " style="margin-left:10%">
+			<a href="/book/AddNewBook" style="margin-top:0" class="btn btn-outline-accent btn-accent-arrow" tabindex="0">
+				Add Book <i class="icon icon-ns-arrow-right"></i>
+			</a>
+		</div>
+	}
 </section>
 
 
