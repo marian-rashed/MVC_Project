@@ -26,7 +26,8 @@ namespace MVC_Project.Controllers
             bookStoreContext = _bookStoreContext;
             customerModel = customer;
         }
-        public IActionResult AddRole()
+		[Authorize(Roles = "Admin")]
+		public IActionResult AddRole()
         {
             return View("AddRole");
         }
@@ -57,8 +58,8 @@ namespace MVC_Project.Controllers
             return View("AddRole");
         }
 
-
-        public IActionResult AssignRole()
+		[Authorize(Roles = "Admin")]
+		public IActionResult AssignRole()
         {
             var roles = roleManager.Roles.Select(r => new SelectListItem
             {
@@ -71,7 +72,8 @@ namespace MVC_Project.Controllers
             return View("AssignRole");
         }
         [HttpPost]
-        public async Task<IActionResult> AssignRole(AssignRoleViewModel UserVM)
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> AssignRole(AssignRoleViewModel UserVM)
         {
             if (ModelState.IsValid == true)
             {

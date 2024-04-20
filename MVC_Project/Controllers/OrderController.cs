@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MVC_Project.Interfaces;
 using MVC_Project.Models;
@@ -8,6 +9,7 @@ using MVC_Project.ViewModel;
 
 namespace MVC_Project.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
 
@@ -33,8 +35,8 @@ namespace MVC_Project.Controllers
             List<OrderWithCustomerAndOrderListVM> orderList = order.GetAllOrdersWithCustomerAndOrderList();
             return View("Index", orderList);
         }
-
-        public IActionResult GetOrderById(int id)
+		[Authorize(Roles = "Admin")]
+		public IActionResult GetOrderById(int id)
         {
             OrderWithCustomerAndOrderListVM orderVM = order.GetOrderByIdWithCustomerAndOrderList(id);
             return View("GetOrderById", orderVM);
@@ -76,12 +78,14 @@ namespace MVC_Project.Controllers
             }
             return View("AddNewOrder", ordVM);
         }
+
         public IActionResult thankyou()
         {
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult GetOrdersByCustomerName(string customerName)
+
         {
             List<OrderWithCustomerAndOrderListVM> orders = order.GetOrdersByCustomerName(customerName);
             return View("GetOrdersByCustomerName", orders);
@@ -96,52 +100,63 @@ namespace MVC_Project.Controllers
 
         public async Task<IActionResult> addorder([FromBody] Dictionary<string, List<int>> postData)
         {
-            if (postData != null && postData.ContainsKey("bookIds"))
-            {
-                List<int> bookIds = postData["bookIds"];
-                List<Book> books = new List<Book>();
-                decimal totalPrice = 0;
-                foreach (int bookId in bookIds)
-                {
-                    books.Add(bookRepository.GetBookById(bookId));
-                }
-                foreach (Book book in books)
-                {
-                    totalPrice += book.Price;
-                    book.QuantityAvailable--;
-                    bookRepository.UpdateBook(book);
-                    bookRepository.Save();
-                }
 
-                ApplicationUser currentUser = await userManager.GetUserAsync(HttpContext.User);
-                string customerID = currentUser.CustomerID;
+			ApplicationUser currentUser = await userManager.GetUserAsync(HttpContext.User);
+            
+                if (postData != null && postData.ContainsKey("bookIds") && currentUser != null)
+                {
+                    List<int> bookIds = postData["bookIds"];
+                    List<Book> books = new List<Book>();
+                    decimal totalPrice = 0;
+                    foreach (int bookId in bookIds)
+                    {
+                        books.Add(bookRepository.GetBookById(bookId));
+                    }
+                    foreach (Book book in books)
+                    {
+                        totalPrice += book.Price;
+                        book.QuantityAvailable--;
+                        bookRepository.UpdateBook(book);
+                        bookRepository.Save();
+                    }
 
+
+                    string customerID = currentUser.CustomerID;
+
+
+                    Order newOrder = new Order
+                    {
+                        CustomerId = customerID,
+                        OrderDate = DateTime.Now,
+                        TotalAmount = totalPrice,
+                    };
 
 
                     order.InsertOrder(newOrder);
                     order.Save();
 
-                ////////////////////////////////save Order Itmes 
+                    ////////////////////////////////save Order Itmes 
 
-				int orderID = order.getOrderID(newOrder.CustomerId, newOrder.OrderDate);
-				foreach (Book book in books)
-                {
-                    OrderItem newOrderItem = new OrderItem
+                    int orderID = order.getOrderID(newOrder.CustomerId, newOrder.OrderDate);
+                    foreach (Book book in books)
                     {
-                        OrderId = orderID,
-                        BookId = book.BookId,
-                        Quantity = 1,
-                        PricePerUnit=book.Price
-                    };
-					orderItemsRepository.InsertOrderItems(newOrderItem);
-                    orderItemsRepository.Save();
-                   
-				}
+                        OrderItem newOrderItem = new OrderItem
+                        {
+                            OrderId = orderID,
+                            BookId = book.BookId,
+                            Quantity = 1,
+                            PricePerUnit = book.Price
+                        };
+                        orderItemsRepository.InsertOrderItems(newOrderItem);
+                        orderItemsRepository.Save();
+
+                    }
 
 
 					return Json(new { success = true, message = "Order added successfully" });
 
             }
+
 
 
             return Json(new { success = false, message = "Invalid request data" });
