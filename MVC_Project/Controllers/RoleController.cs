@@ -8,7 +8,7 @@ using MVC_Project.ViewModel;
 
 namespace MVC_Project.Controllers
 {
-     [Authorize(Roles ="Admin")]
+    [Authorize(Roles = "Admin")]
     public class RoleController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
@@ -26,8 +26,8 @@ namespace MVC_Project.Controllers
             bookStoreContext = _bookStoreContext;
             customerModel = customer;
         }
-		[Authorize(Roles = "Admin")]
-		public IActionResult AddRole()
+        [Authorize(Roles = "Admin")]
+        public IActionResult AddRole()
         {
             return View("AddRole");
         }
@@ -58,8 +58,8 @@ namespace MVC_Project.Controllers
             return View("AddRole");
         }
 
-		[Authorize(Roles = "Admin")]
-		public IActionResult AssignRole()
+        [Authorize(Roles = "Admin")]
+        public IActionResult AssignRole()
         {
             var roles = roleManager.Roles.Select(r => new SelectListItem
             {
@@ -67,18 +67,18 @@ namespace MVC_Project.Controllers
                 Text = r.Name
             }).ToList();
 
-           
+
             ViewBag.Roles = roles;
             return View("AssignRole");
         }
         [HttpPost]
-		[Authorize(Roles = "Admin")]
-		public async Task<IActionResult> AssignRole(AssignRoleViewModel UserVM)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> AssignRole(AssignRoleViewModel UserVM)
         {
             if (ModelState.IsValid == true)
             {
 
-                
+
                 ApplicationUser user = new ApplicationUser()
                 {
                     UserName = UserVM.UserName,
@@ -91,7 +91,7 @@ namespace MVC_Project.Controllers
                 if (result.Succeeded)
                 {
                     IdentityResult ResultRole = await userManager.AddToRoleAsync(user, UserVM.role);//to register user as admin
-                    await signInManager.SignInAsync(user, false);
+                    //await signInManager.SignInAsync(user, false);
                     Customer customer = new Customer()
                     {
                         Username = user.UserName,
@@ -123,7 +123,7 @@ namespace MVC_Project.Controllers
                 foreach (var item in result.Errors)
                     ModelState.AddModelError("", item.Description);
 
-             
+
             }
 
             var roles = roleManager.Roles.Select(r => new SelectListItem
