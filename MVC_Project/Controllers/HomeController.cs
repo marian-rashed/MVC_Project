@@ -29,8 +29,8 @@ namespace MVC_Project.Controllers
                 FeaturedBooksModel = book.GetRandomBooks(4),
                 BestSelling = book.GetRandomBooks(1).FirstOrDefault(),
                 PopularBooks = book.GetRandomBooks(8),
-                SpecialOffer =book.GetRandomBooks(3),
-                Slider=new List<Book>() { book.GetBookById(2),book.GetBookById(24) }
+                SpecialOffer =book.GetRandomBooks(5),
+                Slider=new List<Book>() { book.GetBookById(2),book.GetBookById(34) }
             };
             return View("Index",model);
         }

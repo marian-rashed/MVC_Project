@@ -7,6 +7,7 @@
         public List<Book> PopularBooks { get; set; }
         public List<Book> SpecialOffer {  get; set; }
         public List<Book> Slider { get; set; }
+    
         public Book BestSelling { get; set; }
         public MainViewModel()
         {
@@ -15,6 +16,7 @@
             SpecialOffer = new List<Book>();
             Slider = new List<Book>();
             BestSelling = new Book();
+
         }
     }
 }
