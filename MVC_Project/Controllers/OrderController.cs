@@ -34,8 +34,8 @@ namespace MVC_Project.Controllers
             List<OrderWithCustomerAndOrderListVM> orderList = order.GetAllOrdersWithCustomerAndOrderList();
             return View("Index", orderList);
         }
-		[Authorize(Roles = "Admin")]
-		public IActionResult GetOrderById(int id)
+        [Authorize(Roles = "Admin")]
+        public IActionResult GetOrderById(int id)
         {
             OrderWithCustomerAndOrderListVM orderVM = order.GetOrderByIdWithCustomerAndOrderList(id);
             return View("GetOrderById", orderVM);
@@ -122,11 +122,19 @@ namespace MVC_Project.Controllers
                 string customerID = currentUser.CustomerID;
 
 
+                Order newOrder = new Order
+                {
+                    CustomerId = customerID,
+                    OrderDate = DateTime.Now,
+                    TotalAmount = totalPrice,
+                };
 
-                    order.InsertOrder(newOrder);
-                    order.Save();
 
-                    ////////////////////////////////save Order Itmes 
+
+                order.InsertOrder(newOrder);
+                order.Save();
+
+                ////////////////////////////////save Order Itmes 
 
                 int orderID = order.getOrderID(newOrder.CustomerId, newOrder.OrderDate);
                 foreach (Book book in books)
@@ -149,12 +157,8 @@ namespace MVC_Project.Controllers
 
 
 
-            return Json(new { success = false, message = "Invalid request data" });
+
+            return Json(new { success = false, message = "Invalid request data" });
         }
-
-
-
-
-
     }
 }

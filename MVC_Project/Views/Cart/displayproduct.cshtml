@@ -184,14 +184,11 @@
         buyNowButton.addEventListener('click', function (event) {
             event.preventDefault();
 
-            var confirmed = confirm('Are you sure you want to buy ?');
-
-            if (confirmed) {
-                alert('Buy confirmed! Successfully');
+            
+               
                 handlePurchase();
-            } else {
-                alert('Buy canceled.');
-            }
+            sessionStorage.clear();
+            
         });
 
         function handlePurchase() {
@@ -225,7 +222,9 @@
                     alert('Failed to add order. Please try again.');
                 }
             });
+            
         }
+
     });
 </script>
 
