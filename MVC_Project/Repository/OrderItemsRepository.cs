@@ -23,7 +23,8 @@ namespace MVC_Project.Repository
         {
             bookStoreContext.OrderItems.Add(orderItem);
         }
-        public void UpdateOrderItems(int id)
+
+		public void UpdateOrderItems(int id)
         {
             OrderItem orderItem = bookStoreContext.OrderItems.FirstOrDefault(oi => oi.OrderItemId == id);
             bookStoreContext.OrderItems.Update(orderItem);

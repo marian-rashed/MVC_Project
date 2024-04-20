@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MVC_Project.Interfaces;
 using MVC_Project.Models;
+using MVC_Project.Repository;
 using MVC_Project.ViewModel;
 
 
@@ -10,14 +11,21 @@ namespace MVC_Project.Controllers
     public class OrderController : Controller
     {
 
-        private readonly IOrder order;
-        private readonly IBook bookRepository;
-        private readonly UserManager<ApplicationUser> userManager;
-        public OrderController(IOrder order, IBook _bookRepository, UserManager<ApplicationUser> _userManager)
+
+         private readonly IOrder order;
+         private readonly IBook bookRepository;
+		private readonly IOrderItem orderItemsRepository;
+		private readonly UserManager<ApplicationUser> userManager;
+        public OrderController(IOrder order, IBook _bookRepository, UserManager<ApplicationUser> _userManager,
+			IOrderItem _orderItemsRepository
+			)
+
         {
             this.order = order;
             bookRepository = _bookRepository;
             this.userManager = _userManager;
+            orderItemsRepository= _orderItemsRepository;
+
         }
 
         public IActionResult Index()
@@ -109,18 +117,30 @@ namespace MVC_Project.Controllers
                 string customerID = currentUser.CustomerID;
 
 
-                Order newOrder = new Order
+
+                    order.InsertOrder(newOrder);
+                    order.Save();
+
+                ////////////////////////////////save Order Itmes 
+
+				int orderID = order.getOrderID(newOrder.CustomerId, newOrder.OrderDate);
+				foreach (Book book in books)
                 {
-                    CustomerId = customerID,
-                    OrderDate = DateTime.Now,
-                    TotalAmount = totalPrice,
-                };
+                    OrderItem newOrderItem = new OrderItem
+                    {
+                        OrderId = orderID,
+                        BookId = book.BookId,
+                        Quantity = 1,
+                        PricePerUnit=book.Price
+                    };
+					orderItemsRepository.InsertOrderItems(newOrderItem);
+                    orderItemsRepository.Save();
+                   
+				}
 
 
+					return Json(new { success = true, message = "Order added successfully" });
 
-                order.InsertOrder(newOrder);
-                order.Save();
-                return Json(new { success = true, message = "valid request data" });
             }
 
 
