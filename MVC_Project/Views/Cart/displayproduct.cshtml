@@ -124,14 +124,14 @@
 
                         </tr>
                     }
-             <tr>
-                        
+                    <tr>
+
                         <td>Total Price</td>
                         <td></td>
                         <td>$ @TotalPrice</td>
-                        
-                    
-             </tr>
+
+
+                    </tr>
                 </tbody>
 
             </table>
@@ -199,12 +199,12 @@
             var bookIds = [];
     @foreach (var book in Model)
     {
-      //  @:bookIds.push(parseInt('@book.BookId'));
-         @:bookIds.push(@book.BookId);// Populate book IDs array with Razor syntax
+        //  @:bookIds.push(parseInt('@book.BookId'));
+        @:bookIds.push(@book.BookId);// Populate book IDs array with Razor syntax
     }
 
-                // Prepare the data to be sent in the AJAX request
-                var postData = {
+                    // Prepare the data to be sent in the AJAX request
+                    var postData = {
                 bookIds: bookIds
             };
             console.log(postData)
