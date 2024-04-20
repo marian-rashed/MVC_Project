@@ -11,6 +11,7 @@ namespace MVC_Project.Controllers
     public class OrderController : Controller
     {
 
+
          private readonly IOrder order;
          private readonly IBook bookRepository;
 		private readonly IOrderItem orderItemsRepository;
@@ -18,6 +19,7 @@ namespace MVC_Project.Controllers
         public OrderController(IOrder order, IBook _bookRepository, UserManager<ApplicationUser> _userManager,
 			IOrderItem _orderItemsRepository
 			)
+
         {
             this.order = order;
             bookRepository = _bookRepository;
@@ -60,7 +62,7 @@ namespace MVC_Project.Controllers
 
         public IActionResult SaveOrder(Order ord)
         {
-           Order ordVM = new Order();
+            Order ordVM = new Order();
             ordVM.Customer.FullName = ord.Customer.FullName;
             ordVM.OrderDate = ord.OrderDate;
             ordVM.TotalAmount = ord.TotalAmount;
@@ -73,6 +75,10 @@ namespace MVC_Project.Controllers
 
             }
             return View("AddNewOrder", ordVM);
+        }
+        public IActionResult thankyou()
+        {
+            return View();
         }
 
         public IActionResult GetOrdersByCustomerName(string customerName)
@@ -88,7 +94,7 @@ namespace MVC_Project.Controllers
 
         //save order to database
 
-        public async Task <IActionResult>  addorder([FromBody] Dictionary<string, List<int>> postData)
+        public async Task<IActionResult> addorder([FromBody] Dictionary<string, List<int>> postData)
         {
             if (postData != null && postData.ContainsKey("bookIds"))
             {
@@ -97,7 +103,7 @@ namespace MVC_Project.Controllers
                 decimal totalPrice = 0;
                 foreach (int bookId in bookIds)
                 {
-                  books.Add(bookRepository.GetBookById(bookId));
+                    books.Add(bookRepository.GetBookById(bookId));
                 }
                 foreach (Book book in books)
                 {
@@ -106,17 +112,11 @@ namespace MVC_Project.Controllers
                     bookRepository.UpdateBook(book);
                     bookRepository.Save();
                 }
-                
+
                 ApplicationUser currentUser = await userManager.GetUserAsync(HttpContext.User);
                 string customerID = currentUser.CustomerID;
 
-                
-                    Order newOrder = new Order
-                    {
-                        CustomerId = customerID,
-                        OrderDate = DateTime.Now,
-                        TotalAmount = totalPrice,
-                    };
+
 
                     order.InsertOrder(newOrder);
                     order.Save();
@@ -140,11 +140,15 @@ namespace MVC_Project.Controllers
 
 
 					return Json(new { success = true, message = "Order added successfully" });
+
             }
 
-           
+
             return Json(new { success = false, message = "Invalid request data" });
         }
+
+
+
 
     }
 
