@@ -31,18 +31,35 @@
         .horizontal-timeline.items .items .items-list {
             padding-top: 15px;
         }
+
+    .red-border {
+        border-top: 2px solid var(--accent-color); /* Red border on top */
+        border-bottom: 2px solid var(--accent-color); /* Red border on bottom */
+        border-width: 3px !important; /* Set border width to 3px */
+        border-left: 2px solid beige; /* Red border on top */
+        border-right: 2px solid beige;
+        border-radius:25px;
+        background-color:white;
+    }
+
 </style>
 
 <section style="">
-    
+
+
+    <div class="section-header align-center">
+        <div class="title">
+            <span>Admin Exclusive</span>
+        </div>
+        <h2 class="section-title ">Order Details</h2>
+    </div>
+
+
     <div class="container mt-4">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-10 col-xl-8 mt-10 mb-10">
-                <div class="card border-top border-bottom border-3" style="border-color: var(--accent-color) !important;">
+                <div class="container mt-4 red-border">
                     <div class="card-body p-5">
-
-                        <p class="lead fw-bold mb-5" style="color: var(--accent-color);">Order Details</p>
-
                         <div class="row">
                             <div class="col mb-3">
                                 <p class="small text-muted mb-1">Customer Name</p>
@@ -59,12 +76,12 @@
                             </div>
                         </div>
 
-                        <div class="mx-n5 px-5 py-4" style="background-color: var(--accent-color);">
+                        <div class="mx-n5 px-5 py-4" style="background-color: var(--accent-color);border-radius:15px">
                             <div class="row">
                                 @if (Model.OrderItems.Any())
                                 {
                                     <h4>Order Items:</h4>
-                                    <table>
+                                    <table style="color:black">
                                         <!-- Moved <table> tag outside of the foreach loop -->
                                         <tr>
                                             <th>Book Title</th>
@@ -88,7 +105,7 @@
 
                         <div class="row my-4">
                             <div class="col-md-4 offset-md-8 col-lg-3 offset-lg-9">
-                                <p class="lead fw-bold mb-0" style="color: var(--accent-color);">@Model.TotalAmount.ToString("C")</p>
+                                <p class="lead fw-bold mb-0" style="color: black;">@Model.TotalAmount.ToString("C")</p>
                             </div>
                             <div class="btn-wrap">
                                 <a href="/order/index" class="btn btn-outline-accent btn-accent-arrow">
@@ -110,81 +127,7 @@
     </div>
     <br />
 </section>
-<section id="special-offer" class="bookshelf pb-5 mb-5">
 
-    <div class="section-header align-center">
-        <div class="title">
-            <span>Admin Exclusive</span>
-        </div>
-        <h2 class="section-title ">Order List</h2>
-    </div>
-   
-        <div class="container ">
-            <table class="table table-primary table-striped table-hover shadow">
-                <thead>
-                    <tr>
-
-                        <th scope="col">&nbsp;&nbsp;#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Price</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (OrderItem item in Model.OrderItems)
-                    {
-                        <tr class="p-3">
-                          @*   @{
-                            TotalPrice += item.Book.Price;
-                                count++;
-                            } *@
-                        <td> <a href="/Book/Details/@item.Book.BookId"></a></td>
-
-                        <td>item.Book.Title</td>
-                        <td>item.Book.Price</td>
-
-
-                            <td>
-                                <div class="btn-wrap ">
-                                <a href="/Book/Details/@item.Book.BookId" class="btn btn-outline-accent btn-accent-arrow" style="margin:0px ">
-                                        See Details<i class="icon icon-ns-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </td>
-
-                        </tr>
-                    }
-                    <tr>
-
-                        <td>Total Price</td>
-                        <td></td>
-                    <td>@Model.TotalAmount.ToString("C")</td>
-
-
-                    </tr>
-                </tbody>
-
-            </table>
-
-        </div>
-        <div class="container d-flex text-right">
-            <div class="row md-12">
-                <div>
-                <h2 class="ms-5">Total Price:@Model.TotalAmount.ToString("C")</h2>
-
-                </div>
-                <div class="btn-wrap">
-                    <a href="#" class="btn btn-outline-accent btn-accent-arrow" id="buyNowButton">
-                        Buy now <i class="icon icon-ns-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-
-    
- 
-</section>
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
