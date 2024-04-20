@@ -11,23 +11,26 @@
         <div class="row">
             <div class="col-md-12">
 
-                <div class="section-header align-center">
+                <div class="section-header align-center mt-5">
                     <div class="title">
                         <span>Happy Reading</span>
                     </div>
                     <h2 class="section-title">Our Books</h2>
                 </div>
-<!--
 
-                <ul class="tabs">
-                    <li data-tab-target="#all-genre" class="active tab">All Genre</li>
-                    <li data-tab-target="#business" class="tab">Business</li>
-                    <li data-tab-target="#technology" class="tab">Technology</li>
-                    <li data-tab-target="#romantic" class="tab">Romantic</li>
-                    <li data-tab-target="#adventure" class="tab">Adventure</li>
-                    <li data-tab-target="#fictional" class="tab">Fictional</li>
-                </ul>
-                -->
+				<ul class="tabs">
+					<li data-tab-target="#all-genre" class="active tab">All</li>
+					<li data-tab-target="#Fantasy" class="tab">Fantasy</li>
+					<li data-tab-target="#MysteryThriller" class="tab">Mystery/Thriller</li>
+					<li data-tab-target="#Adventure" class="tab">Adventure</li>
+					<li data-tab-target="#ScienceFiction" class="tab">Sci Fi</li>
+					<li data-tab-target="#HistoricalFiction" class="tab">Historical Fiction</li>
+					<li data-tab-target="#ClassicLiterature" class="tab">Classics</li>
+					<li data-tab-target="#ModernFiction" class="tab">Modern Fiction</li>
+
+
+
+				</ul>
                 <!-- Sidebar for Cart -->
               
 
@@ -36,7 +39,7 @@
                         <div class="row row-cols-md-1">
                             @foreach (Book book in Model)
                             {
-                                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                                <div class="col-md-3" data-aos="fade-up">
                                     <div class="product-item">
                                         <figure class="product-style">
                                             <a href="/book/details/@book.BookId">
@@ -61,40 +64,268 @@
                         </div>
 
                     </div>
-                    <!--
-                    <div id="business" data-tab-content>
-                        <div class="row">
-           
+					@{
+						bool isEmpty = true;
+					}
+					<div id="Fantasy" data-tab-content>
+						<div class="row row-cols-md-1">
+							@{
+								isEmpty = true;
+							}
 
-                        </div>
-                    </div>
+							@foreach (Book book in Model)
+							{
+								@if (book.CategoryID == 1)
+								{
+									isEmpty = false;
+									<div class="col-md-3">
+										<div class="product-item">
+											<figure class="product-style">
+												<a href="/book/details/@book.BookId">
+													<img src="@book.ImageUrl" alt="Books" class="product-item">
+												</a>
+												<button type="button" class="add-to-cart" data-book-id="@book.BookId">
+													Add To Cart
+												</button>
 
-                    <div id="technology" data-tab-content>
-                        <div class="row">
-                  
-                        </div>
-                    </div>
+											</figure>
+											<figcaption>
+												<h3>@book.Title</h3>
+												<span>@book.Author.AuthorName</span>
+												<div class="item-price">$ @book.Price</div>
 
-                    <div id="romantic" data-tab-content>
-                        <div class="row">
-                         
-                        </div>
-                    </div>
+											</figcaption>
+										</div>
+									</div>
+								}
+							}
 
-                    <div id="adventure" data-tab-content>
-                        <div class="row">
-                          
-                        </div>
-                    </div>
+							@if (isEmpty)
+							{
+								<h1 class="text-center text-secondary text-muted mb-5">No Books to show</h1>
+							}
+						</div>
+					</div>
 
-                    <div id="fictional" data-tab-content>
-                        <div class="row">
-                           
-                          
-                        </div>
-                    </div>
-                    -->
-                </div>
+					<div id="MysteryThriller" data-tab-content>
+						@{
+							isEmpty = true;
+						}
+
+						@foreach (Book book in Model)
+						{
+							@if (book.CategoryID == 2)
+							{
+								isEmpty = false;
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<a href="/book/details/@book.BookId">
+												<img src="@book.ImageUrl" alt="Books" class="product-item">
+											</a>
+											<button type="button" class="add-to-cart" data-book-id="@book.BookId">
+												Add To Cart
+											</button>
+
+										</figure>
+										<figcaption>
+											<h3>@book.Title</h3>
+											<span>@book.Author.AuthorName</span>
+											<div class="item-price">$ @book.Price</div>
+
+										</figcaption>
+									</div>
+								</div>
+							}
+						}
+						@if (isEmpty)
+						{
+							<h1 class="text-center text-secondary text-muted mb-5">No Books to show</h1>
+						}
+					</div>
+
+					<div id="Adventure" data-tab-content>
+						@{
+							isEmpty = true;
+						}
+
+						@foreach (Book book in Model)
+						{
+							@if (book.CategoryID == 3)
+							{
+								isEmpty = false;
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<a href="/book/details/@book.BookId">
+												<img src="@book.ImageUrl" alt="Books" class="product-item">
+											</a>
+											<button type="button" class="add-to-cart" data-book-id="@book.BookId">
+												Add To Cart
+											</button>
+
+										</figure>
+										<figcaption>
+											<h3>@book.Title</h3>
+											<span>@book.Author.AuthorName</span>
+											<div class="item-price">$ @book.Price</div>
+
+										</figcaption>
+									</div>
+								</div>
+							}
+						}
+						@if (isEmpty)
+						{
+							<h1 class="text-center text-secondary text-muted mb-5">No Books to show</h1>
+						}
+					</div>
+					<div id="ScienceFiction" data-tab-content>
+						@{
+							isEmpty = true;
+						}
+
+						@foreach (Book book in Model)
+						{
+							@if (book.CategoryID == 4)
+							{
+								isEmpty = false;
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<a href="/book/details/@book.BookId">
+												<img src="@book.ImageUrl" alt="Books" class="product-item">
+											</a>
+											<button type="button" class="add-to-cart" data-book-id="@book.BookId">
+												Add To Cart
+											</button>
+
+										</figure>
+										<figcaption>
+											<h3>@book.Title</h3>
+											<span>@book.Author.AuthorName</span>
+											<div class="item-price">$ @book.Price</div>
+
+										</figcaption>
+									</div>
+								</div>
+							}
+						}
+						@if (isEmpty)
+						{
+							<h1 class="text-center text-secondary text-muted mb-5">No Books to show</h1>
+						}
+					</div>
+					<div id="HistoricalFiction" data-tab-content>
+						@{
+							isEmpty = true;
+						}
+
+						@foreach (Book book in Model)
+						{
+							@if (book.CategoryID == 5)
+							{
+								isEmpty = false;
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<a href="/book/details/@book.BookId">
+												<img src="@book.ImageUrl" alt="Books" class="product-item">
+											</a>
+											<button type="button" class="add-to-cart" data-book-id="@book.BookId">
+												Add To Cart
+											</button>
+
+										</figure>
+										<figcaption>
+											<h3>@book.Title</h3>
+											<span>@book.Author.AuthorName</span>
+											<div class="item-price">$ @book.Price</div>
+
+										</figcaption>
+									</div>
+								</div>
+							}
+						}
+						@if (isEmpty)
+						{
+							<h1 class="text-center text-secondary text-muted mb-5">No Books to show</h1>
+						}
+					</div>
+					<div id="ClassicLiterature" data-tab-content>
+						@{
+							isEmpty = true;
+						}
+
+						@foreach (Book book in Model)
+						{
+							@if (book.CategoryID == 6)
+							{
+								isEmpty = false;
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<a href="/book/details/@book.BookId">
+												<img src="@book.ImageUrl" alt="Books" class="product-item">
+											</a>
+											<button type="button" class="add-to-cart" data-book-id="@book.BookId">
+												Add To Cart
+											</button>
+
+										</figure>
+										<figcaption>
+											<h3>@book.Title</h3>
+											<span>@book.Author.AuthorName</span>
+											<div class="item-price">$ @book.Price</div>
+
+										</figcaption>
+									</div>
+								</div>
+							}
+						}
+						@if (isEmpty)
+						{
+							<h1 class="text-center text-secondary text-muted mb-5">No Books to show</h1>
+						}
+					</div>
+					<div id="ModernFiction" data-tab-content>
+						@{
+							isEmpty = true;
+						}
+
+						@foreach (Book book in Model)
+						{
+							@if (book.CategoryID == 7)
+							{
+								isEmpty = false;
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<a href="/book/details/@book.BookId">
+												<img src="@book.ImageUrl" alt="Books" class="product-item">
+											</a>
+											<button type="button" class="add-to-cart" data-book-id="@book.BookId">
+												Add To Cart
+											</button>
+
+										</figure>
+										<figcaption>
+											<h3>@book.Title</h3>
+											<span>@book.Author.AuthorName</span>
+											<div class="item-price">$ @book.Price</div>
+
+										</figcaption>
+									</div>
+								</div>
+							}
+						}
+						@if (isEmpty)
+						{
+							<h1 class="text-center text-secondary text-muted mb-5">No Books to show</h1>
+						}
+					</div>
+
+				</div>
 
             </div><!--inner-tabs-->
 
@@ -121,4 +352,5 @@
 <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="/js/authorIndexScript.js"></script>
 <link rel="stylesheet" href="/css/AuthorIndex.css"/>
-@Html.RenderPartialAsync("_SelectedBookParial");
+
+<partial name="_SelectedBookParial"></partial>

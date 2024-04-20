@@ -4,6 +4,7 @@ using MVC_Project.Interfaces;
 using MVC_Project.Models;
 using MVC_Project.ViewModel;
 
+
 namespace MVC_Project.Controllers
 {
     public class OrderController : Controller
@@ -81,27 +82,43 @@ namespace MVC_Project.Controllers
 
         //save order to database
 
-        public IActionResult addorder([FromBody] Dictionary<string, List<int>> postData)
+        public async Task <IActionResult>  addorder([FromBody] Dictionary<string, List<int>> postData)
         {
             if (postData != null && postData.ContainsKey("bookIds"))
             {
                 List<int> bookIds = postData["bookIds"];
                 List<Book> books = new List<Book>();
-
+                decimal totalPrice = 0;
                 foreach (int bookId in bookIds)
                 {
                     books.Add(bookRepository.GetBookById(bookId));
                 }
                 foreach (Book book in books)
                 {
+                    totalPrice += book.Price;
                     book.QuantityAvailable--;
                     bookRepository.UpdateBook(book);
                     bookRepository.Save();
                 }
-                Order newOrder = new Order();
-                // newOrder.CustomerId=
-                // order.InsertOrder()
-                return Json(new { success = true, message = "Order added successfully" });
+                
+                ApplicationUser currentUser = await userManager.GetUserAsync(HttpContext.User);
+                string customerID = currentUser.CustomerID;
+
+                
+                    Order newOrder = new Order
+                    {
+                        CustomerId = customerID,
+                        OrderDate = DateTime.Now,
+                        TotalAmount = totalPrice,
+                    };
+
+
+
+                    order.InsertOrder(newOrder);
+                    order.Save();
+
+                    
+                    return Json(new { success = true, message = "Order added successfully" });
             }
 
 
