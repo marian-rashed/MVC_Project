@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "thank you";
+}
+
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .jumbotron {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+    .btn:hover {
+        background-color: var(--light-color);
+        color: rgb(179, 177, 177);
+        }
+    </style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="jumbotron text-center">
+                <h1 class="display-4">Thank You!</h1>
+                <p class="lead">Your order has been done.</p>
+                <hr class="my-4">
+                <p> Have a wonderful day!</p>
+                <a class="btn  btn-lg" href="@Url.Action("Index", "Home")" role="button">Go back to Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+
