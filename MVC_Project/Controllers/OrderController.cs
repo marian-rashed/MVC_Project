@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MVC_Project.Interfaces;
 using MVC_Project.Models;
+using MVC_Project.Repository;
 using MVC_Project.ViewModel;
 
 
@@ -12,12 +13,17 @@ namespace MVC_Project.Controllers
 
          private readonly IOrder order;
          private readonly IBook bookRepository;
-         private readonly UserManager<ApplicationUser> userManager;
-        public OrderController(IOrder order, IBook _bookRepository, UserManager<ApplicationUser> _userManager)
+		private readonly IOrderItem orderItemsRepository;
+		private readonly UserManager<ApplicationUser> userManager;
+        public OrderController(IOrder order, IBook _bookRepository, UserManager<ApplicationUser> _userManager,
+			IOrderItem _orderItemsRepository
+			)
         {
             this.order = order;
             bookRepository = _bookRepository;
             this.userManager = _userManager;
+            orderItemsRepository= _orderItemsRepository;
+
         }
 
         public IActionResult Index()
@@ -112,13 +118,28 @@ namespace MVC_Project.Controllers
                         TotalAmount = totalPrice,
                     };
 
-
-
                     order.InsertOrder(newOrder);
                     order.Save();
 
-                    
-                    return Json(new { success = true, message = "Order added successfully" });
+                ////////////////////////////////save Order Itmes 
+
+				int orderID = order.getOrderID(newOrder.CustomerId, newOrder.OrderDate);
+				foreach (Book book in books)
+                {
+                    OrderItem newOrderItem = new OrderItem
+                    {
+                        OrderId = orderID,
+                        BookId = book.BookId,
+                        Quantity = 1,
+                        PricePerUnit=book.Price
+                    };
+					orderItemsRepository.InsertOrderItems(newOrderItem);
+                    orderItemsRepository.Save();
+                   
+				}
+
+
+					return Json(new { success = true, message = "Order added successfully" });
             }
 
            
