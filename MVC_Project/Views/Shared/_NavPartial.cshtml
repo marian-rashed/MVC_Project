@@ -113,22 +113,12 @@
 
                         }
 
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <a href="/Role/AddRole" class="user-account for-buy">
-                                <i class="icon">&#x1F512;</i><span>Add Role</span>
-                            </a>
-                            <button type="button" onclick="window.location.href='/Dashboard/index'">Dashboard</button>
-
-                            <a href="/Role/AssignRole" class="user-account for-buy">
-                                <i class="icon">&#x1F512;</i><span>Assign Role</span>
-                            </a>
-                        }
+                       
                         <a href="Cart/SelectedBooks" class="cart for-buy">
-
-                            <i class="icon icon-clipboard"></i>
+                            
+                            <i class="icon icon-clipboard" ></i>
                                                        <span>
-                                Cart:<span class="badge bg-primary" id="num-book-cart"> 0 </span>
+                                Cart:<span class="badge " style="background: var(--accent-color);" id="num-book-cart"> 0 </span>
                                 
                             </span>
                         </a>
@@ -202,19 +192,32 @@
                                     </a>
                                 </li>
 
-                                <li class="menu-item">
-                                    <a href="/Customer/Index">
-                                        Customers <span class="badge bg-dark"></span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="/Order/Index" class="nav-link">
-                                        Order <span class="badge bg-dark"></span>
-                                    </a>
-                                </li>
-
                                
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li>
+                                        <a href="/Order/Index" class="nav-link">
+                                            Orders <span class="badge bg-dark"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/Customer/Index" class="nav-link">
+                                            Customers <span class="badge bg-dark"></span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/Role/AddRole" class="nav-link">
+                                           Add Role <span class="badge bg-dark"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/Role/AssignRole" class="nav-link">
+                                            Assign Role <span class="badge bg-dark"></span>
+                                        </a>
+                                    </li>
+                                }
+
                                 <li class="menu-item">
                                     <a href="/home/contact" class="nav-link">
                                         Contact <span class="badge bg-dark"></span>
