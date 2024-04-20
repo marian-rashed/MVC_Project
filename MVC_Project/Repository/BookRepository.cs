@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MVC_Project.Interfaces;
+using MVC_Project.Models;
+using NuGet.Common;
+using System.Net;
 
 namespace MVC_Project.Repository
 {
@@ -24,7 +27,14 @@ namespace MVC_Project.Repository
         public Book GetBookById(int id)
         {
             Book book = bookStoreContext.Books.Include(b => b.Author).FirstOrDefault(b => b.BookId == id);
-            return book;
+            book.Reviews=bookStoreContext.Reviews.Where(r => r.BookID == id).ToList();
+            foreach(Review rev in book.Reviews)
+            {
+                rev.User = new ApplicationUser();
+                rev.User.UserName = bookStoreContext.Users.Where(u=>u.Id==rev.UserId).Select(r => r.UserName).FirstOrDefault();
+				
+			}
+			return book;
         }
         public void InsertBook(Book book)
         {

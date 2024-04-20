@@ -184,14 +184,11 @@
         buyNowButton.addEventListener('click', function (event) {
             event.preventDefault();
 
-            var confirmed = confirm('Are you sure you want to buy ?');
-
-            if (confirmed) {
-                alert('Buy confirmed! Successfully');
+            
+               
                 handlePurchase();
-            } else {
-                alert('Buy canceled.');
-            }
+            sessionStorage.clear();
+            
         });
 
         function handlePurchase() {
@@ -212,12 +209,12 @@
             // Perform an AJAX POST request to the specified URL
             $.ajax({
                 type: 'POST',
-                url: '/Order/addorder',
+                url: '/Order/index',
                 contentType: 'application/json',
                 data: JSON.stringify(postData),
                 success: function (response) {
                     // If the request is successful, redirect the user to the specified URL
-                    window.location.href = '/Order/addorder'; // Redirect to the desired URL
+                    window.location.href = '/Order/thankyou'; // Redirect to the desired URL
                 },
                 error: function (xhr, status, error) {
                     // Handle error cases here (if needed)
@@ -225,7 +222,10 @@
                     alert('Failed to add order. Please try again.');
                 }
             });
+            
         }
+
     });
 </script>
 
+<partial name="_SelectedBookParial"></partial>

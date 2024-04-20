@@ -331,12 +331,21 @@
 
         </div>
     </div>
+	@if (User.IsInRole("Admin"))
+	{
+		<div class="btn-wrap " style="margin-left:10%">
+			<a href="/book/AddNewBook" style="margin-top:0" class="btn btn-outline-accent btn-accent-arrow" tabindex="0">
+				Add Book <i class="icon icon-ns-arrow-right"></i>
+			</a>
+		</div>
+	}
 </section>
 
 
 
 <!-- Pagination -->
 <nav aria-label="Page navigation example">
+
     <ul class="pagination justify-content-center">
         @for (int i = 1; i <= ViewBag.TotalPages; i++)
         {
@@ -353,4 +362,6 @@
 <script src="/js/authorIndexScript.js"></script>
 <link rel="stylesheet" href="/css/AuthorIndex.css"/>
 
+
 <partial name="_SelectedBookParial"></partial>
+
