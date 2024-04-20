@@ -5,6 +5,7 @@ using MVC_Project.Hubs;
 using MVC_Project.Interfaces;
 using MVC_Project.Models;
 using MVC_Project.Repository;
+using MVC_Project.Hubs;
 
 
 namespace MVC_Project
@@ -36,7 +37,11 @@ namespace MVC_Project
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("cs"));
             });
-            builder.Services.AddSession();
+           builder.Services.AddSession(options =>
+            {
+                options.Cookie.Name = "CartSession";
+                options.IdleTimeout = TimeSpan.FromMinutes(30); // Session timeout
+            });
             _ = builder.Services.AddIdentity<ApplicationUser, IdentityRole>(
                options =>
                {
@@ -79,7 +84,7 @@ namespace MVC_Project
 
 
 
-            app.MapHub<ReviewsHub>("/ReviewHub");
+            app.MapHub<ReviewsHub>("/ReviewsHub");
             app.MapHub<BookHub>("/BookHub");
 
             app.MapControllerRoute(

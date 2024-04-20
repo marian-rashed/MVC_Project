@@ -1,38 +1,176 @@
-﻿
+@model Book
+
 @{
-    ViewData["Title"] = "AddNewBook";
+    ViewData["Title"] = "NewBook";
 }
 
-@model Book
-<form class="form form-control" asp-action="SaveBook" asp-controller="Book" enctype="multipart/form-data">
-    <label asp-for="Title"></label>
-    <input asp-for="Title" class="form form-control" />
-    <span asp-validation-for="Title"></span>
-
-    <label asp-for="AuthorId"></label>
-    <input asp-for="AuthorId" class="form form-control" />
-    <span asp-validation-for="AuthorId"></span>
-
-    <label asp-for="Price"></label>
-    <input asp-for="Price" class="form form-control" />
-    <span asp-validation-for="Price"></span>
-
-    <label asp-for="ImageUrl"></label>
-
-    <input asp-for="ImageUrl" class="form form-control" type="file" />
-    <span asp-validation-for="ImageUrl"></span>
-
-
-    <label asp-for="QuantityAvailable"></label>
-    <input asp-for="QuantityAvailable" class="form form-control" />
-    <span asp-validation-for="QuantityAvailable"></span>
-
-    <input type="submit" class="btn btn-info" value="Add"   />
-</form>
-<partial name="_ValidationScriptsPartial"></partial>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap-FileUpload.min.css" />
 <style>
-    span
-    {
-        color:red
+    .cascading-right {
+        margin-right: -40px;
     }
+
+    @@media (max-width: 991.98px) {
+        .cascading-right {
+            margin-right: 0;
+        }
+    }
+
+    .inputValidation {
+        color: var(--accent-color);
+    }
+
+    .form-control[type=file] {
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
+        word-wrap: break-word;
+        box-sizing: border-box;
+        margin: 0;
+        font-family: inherit;
+        outline: 0;
+        display: block;
+        width: 100%;
+        padding: .375rem .75rem;
+        font-weight: 400;
+        line-height: 1.5;
+        appearance: none;
+        background: var(--accent-color);
+        text-decoration: none !important;
+        position: relative;
+        border: 1px solid transparent;
+        border-radius: 1rem;
+        font-size: 15px;
+        text-align: center;
+        color: #fff;
+        z-index: 1;
+        white-space: nowrap;
+        vertical-align: middle;
+        transition: all 0.3s ease-in;
+        touch-action: manipulation;
+        user-select: none;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    input[type="email"],
+    input[type="number"],
+    input[type="search"],
+    input[type="text"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="password"],
+    textarea,
+    select {
+        margin-bottom: 0px;
+    }
+
+    div.btn-wrap .btn.btn-outline-accent {
+        color: var(--dark-color) !important;
+        border-color: var(--accent-color) !important;
+    }
+
+
+        div.btn-wrap .btn.btn-outline-accent:hover {
+            color: var(--accent-color) !important;
+            border-color: var(--dark-color) !important;
+        }
 </style>
+<div class="section-header align-center">
+    <div class="title">
+        <span>Grow Our Treasure</span>
+    </div>
+    <h2 class="section-title">New Book</h2>
+</div>
+<!-- Section: Design Block -->
+<section class="text-center text-lg-start">
+    <!-- Jumbotron -->
+    <div class="container py-4">
+        <div class="row g-0 align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="card cascading-right" style="
+            background: hsla(0, 0%, 100%, 0.15);
+            backdrop-filter: blur(30px);
+            ">
+                    <div class="card-body p-5 shadow-5 ">
+                        <h2 class="fw-bold mb-5 text-center">New Book</h2>
+                        <form class="form" asp-action="SaveBook" asp-controller="Book" enctype="multipart/form-data">
+                            <div data-mdb-input class="form-outline mb-4">
+                                <label asp-for="Title"></label>
+                                <input asp-for="Title" class="form form-control" />
+                                <span asp-validation-for="Title"></span>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label asp-for="Price"></label>
+                                    <input asp-for="Price" class="form form-control" type="number" />
+                                    <span asp-validation-for="Price"></span>
+                                </div>
+
+                                <div class="col-md-6 mb-4">
+                                    <label asp-for="QuantityAvailable">Quantity</label>
+                                    <input asp-for="QuantityAvailable" class="form form-control" />
+                                    <span asp-validation-for="QuantityAvailable"></span>
+                                </div>
+
+
+                            </div>
+
+
+                            <div data-mdb-input-init class="form-outline mb-4">
+                                <label asp-for="AuthorId" class="form-label">Author</label>
+                                <select asp-for="AuthorId" class="form-control dropdown-menu-bottom" asp-items="@ViewBag.Authors"></select>
+                                <span asp-validation-for="AuthorId" class="inputValidation"></span>
+                            </div>
+
+                            <label asp-for="ImageUrl">Image</label>
+                            <input asp-for="ImageUrl" class="form form-control" type="file" />
+                            <span asp-validation-for="ImageUrl"></span>
+
+                            <div class="btn-wrap m-5 text-center">
+                                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-accent btn-accent-arrow" style="margin:0px ;font-family: var(--heading-font);    font-weight: 600; ">
+                                    Add New Book<i class="icon icon-ns-arrow-right"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-lg-0">
+                <div class="">
+                    <img src="/images/Wallpaper/BookBG(1).jpg" class="w-100 rounded-4 shadow-4"
+                         alt="" />
+                    </<div>
+                    </div>
+                </div>
+            </div>
+            <!-- Jumbotron -->
+</section>
+<!-- Section: Design Block -->
+
+<partial name="_ValidationScriptsPartial"></partial>
+<script src="/js/bootstrap-FileUpload.min.js"></script>
+
+@*  <script>
+        $("#input-dim-1").fileinput({
+            uploadUrl: "/file-upload-batch/2",
+            allowedFileExtensions: ["jpg", "png", "gif"],
+            maxImageWidth: 250,
+            maxImageHeight: 250
+        });
+</script> *@
+@* <script>
+    $("#myUpload").bootstrapFileUpload({
+        url: "",
+        fileTypes: {
+            images: [],
+
+        }
+    })
+</script>
+ *@
+
+
+
+

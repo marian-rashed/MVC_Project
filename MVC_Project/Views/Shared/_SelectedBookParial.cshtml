@@ -4,13 +4,42 @@
 
 <script>
     $(document).ready(function () {
+        // Retrieve count and selectedBooksID from sessionStorage if they exist
+        count = sessionStorage.getItem('cartCount') || 0;
+        selectedBooksID = JSON.parse(sessionStorage.getItem('selectedBooksID')) || [];
+
+        $('#num-book-cart').text(count);
+
         $('.add-to-cart').click(function () {
             var bookId = $(this).data('book-id');
             selectedBooksID.push(bookId);
-            console.log(selectedBooksID[count]);
             count++;
+            // Update count and selectedBooksID in sessionStorage
+            sessionStorage.setItem('cartCount', count);
+            sessionStorage.setItem('selectedBooksID', JSON.stringify(selectedBooksID));
             $('#num-book-cart').text(count);
+            console.log("Book IDs stored in sessionStorage:", selectedBooksID);
+        });
+
+        $('.cart').click(function (event) {
+            event.preventDefault(); // Prevent default action of the link
+            console.log("after prevent:", selectedBooksID);
+            // Send selectedBooksID to the server using AJAX
+            $.ajax({
+                url: '/Cart/SelectedBooks',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(selectedBooksID),
+                success: function (response) {
+                    console.log('Selected books sent to the server successfully');
+
+                    // Redirect to the displayproduct page after successful submission
+                    window.location.href = '/Cart/DisplayProduct';
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.error('Error sending selected books to the server:', errorThrown);
+                }
+            });
         });
     });
 </script>
-

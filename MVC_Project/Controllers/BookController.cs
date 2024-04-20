@@ -1,4 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.IdentityModel.Abstractions;
+
 using MVC_Project.Interfaces;
 
 namespace MVC_Project.Controllers
@@ -31,21 +35,34 @@ namespace MVC_Project.Controllers
         public IActionResult details(int id)
         {
             Book boo = book.GetBookById(id);
-            boo.Author = author.GetAuthorById(boo.AuthorId);
+            boo.Author = author.GetAuthorById((int)boo.AuthorId);
             return View("GetBookById", boo);
         }
 
         [HttpGet]
-        public IActionResult AddNewBook(Book book)
+        public IActionResult AddNewBook()
         {
+            var authors = author.GetAllAuthors();
+
+            if (authors != null)
+            {
+                SelectList authorList = new SelectList(authors, "AuthorId", "AuthorName");
+                ViewBag.Authors = authorList;
+            }
+            else
+            {
+                ViewBag.Authors = new SelectList(new List<Author>(), "AuthorId", "AuthorName");
+            }
+
             return View("AddNewBook");
         }
+
         [HttpPost]
         public async Task<IActionResult> SaveBook(Book boo, IFormFile ImageUrl)
         {
 
 
-            if (boo.Title!=null ||boo.Price!=0||boo.AuthorId!=0||boo.QuantityAvailable!=0)
+            if (boo.Title != null || boo.Price != 0 || boo.AuthorId != 0 || boo.QuantityAvailable != 0)
 
             {
                 if (ImageUrl != null && ImageUrl.Length > 0)
@@ -69,28 +86,21 @@ namespace MVC_Project.Controllers
             return View("AddNewBook", boo);
 
         }
-        public ActionResult SearchByBook(string query)
-        {
-            // Here you would perform your search logic
-            // For simplicity, let's assume you already have a method to fetch authors based on the search query
-            List<Book> books = YourSearchLogicMethod2(query);
 
-            // Pass the list of authors to the view
+
+        public IActionResult GetBooksByName(string query)
+        {
+            var books = book.GetBooksByName(query);
+
             return View("GetBooksByName", books);
         }
 
-        // This is a placeholder for your search logic
-
-        private List<Book> YourSearchLogicMethod2(string query)
+        public IActionResult Delete(int id)
         {
-            List<Book> dummybooks = book.GetBooksByName(query);
-            return dummybooks;
-        }
-        public IActionResult GetBooksByName(string name)
-        {
-            var books = book.GetBooksByName(name);
-
-            return View("GetBooksByName", books);
+            Book bookToDelete = book.GetBookById(id);
+            bookToDelete.isDeleted = true;
+            book.Save();
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -124,7 +134,6 @@ namespace MVC_Project.Controllers
         }
 
         //edit book
-        //delete book
     }
 }
 

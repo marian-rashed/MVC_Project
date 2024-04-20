@@ -11,11 +11,12 @@ namespace MVC_Project.Interfaces
         List<Book> GetAllBooks();
         Book GetBookById(int id);
         void InsertBook(Book book);
-        void UpdateBook(int id);
+        void UpdateBook(Book book);
         void DeleteBook(int id);
         Author GetBookAuthor(string name);
         List<Book> GetBooksByName(string name);
-        void EditBook(Book book);
+		List<Book> GetRandomBooks(int count);   
+		void EditBook(Book book);
 
 		void Save();
     }

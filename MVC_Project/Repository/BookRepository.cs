@@ -14,7 +14,10 @@ namespace MVC_Project.Repository
 
         public List<Book> GetAllBooks()
         {
-            List<Book> books = bookStoreContext.Books.Include(b => b.Author).OrderBy(b=>b.Title).ToList();
+            List<Book> books = bookStoreContext.Books
+                .Include(b => b.Author)
+                .Where(b => b.isDeleted != true)
+                .ToList();
             return books;
         }
         public Book GetBookById(int id)
@@ -26,10 +29,13 @@ namespace MVC_Project.Repository
         {
             bookStoreContext.Books.Add(book);
         }
-        public void UpdateBook(int id)
+        public void UpdateBook(Book book)
         {
-            Book book = bookStoreContext.Books.Include(b => b.Author).FirstOrDefault(b => b.BookId == id);
-            bookStoreContext.Books.Update(book);
+            Book bookDB = bookStoreContext.Books.Include(b => b.Author).FirstOrDefault(b => b.BookId == book.BookId);
+            bookDB.QuantityAvailable=book.QuantityAvailable;
+
+            bookStoreContext.Books.Update(bookDB);
+            
         }
         public void DeleteBook(int id)
         {
@@ -74,6 +80,37 @@ namespace MVC_Project.Repository
 			}
 		}
 
+        //random books
+        public List<Book> GetRandomBooks(int count)
+        {
+            Random random = new Random();
+            List<int> validIndices = bookStoreContext.Books.Select(b => b.BookId).ToList();
 
-	}
+            // Ensure count does not exceed totalBooks
+            count = Math.Min(count, validIndices.Count);
+
+            // Shuffle the list of valid indices
+            for (int i = validIndices.Count - 1; i > 0; i--)
+            {
+                int j = random.Next(0, i + 1);
+                int temp = validIndices[i];
+                validIndices[i] = validIndices[j];
+                validIndices[j] = temp;
+            }
+
+            // Take the first 'count' indices
+            List<int> selectedIndices = validIndices.Take(count).ToList();
+
+            // Retrieve books corresponding to the selected indices
+            var randomBooks = bookStoreContext.Books
+                .Where(b => selectedIndices.Contains(b.BookId))
+                .Include(b => b.Author)
+                .ToList();
+
+            return randomBooks;
+        }
+
+
+
+    }
 }
