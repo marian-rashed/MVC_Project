@@ -68,6 +68,10 @@ namespace MVC_Project.Controllers
             }
             return View("AddNewOrder", ordVM);
         }
+        public IActionResult thankyou()
+        {
+            return View();
+        }
 
         public IActionResult GetOrdersByCustomerName(string customerName)
         {
@@ -116,14 +120,15 @@ namespace MVC_Project.Controllers
 
                 order.InsertOrder(newOrder);
                 order.Save();
-
-
-                return View();
+                return Json(new { success = true, message = "valid request data" });
             }
 
 
             return Json(new { success = false, message = "Invalid request data" });
         }
+
+
+
 
     }
 
