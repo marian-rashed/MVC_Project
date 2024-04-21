@@ -72,7 +72,7 @@ namespace MVC_Project.Controllers
             {
                 order.InsertOrder(ordVM);
                 order.Save();
-                return RedirectToAction("Index");
+                return RedirectToAction("addorder");
 
             }
             return View("AddNewOrder", ordVM);
@@ -80,6 +80,7 @@ namespace MVC_Project.Controllers
 
         public IActionResult thankyou()
         {
+            RedirectToAction("Index");
             return View();
         }
         [Authorize(Roles = "Admin")]
@@ -133,6 +134,7 @@ namespace MVC_Project.Controllers
 
                 order.InsertOrder(newOrder);
                 order.Save();
+
 
                 ////////////////////////////////save Order Itmes 
 
