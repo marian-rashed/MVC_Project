@@ -95,6 +95,7 @@
                     <tr>
 
                         <th scope="col">&nbsp;&nbsp;#</th>
+                        <th scope="col">Cover</th>
                         <th scope="col">Title</th>
                         <th scope="col">Price</th>
 
@@ -109,9 +110,9 @@
                                 count++;
                             }
                             <td> <a href="/Book/Details/@book.BookId"><b>&nbsp;&nbsp;#@count</b></a></td>
-
+                            <td class="w-25"><img src="@book.ImageUrl" class="w-50"/></td>
                             <td>@book.Title</td>
-                            <td>@book.Price</td>
+                            <td>$@book.Price</td>
 
 
                             <td>
@@ -126,9 +127,9 @@
                     }
                     <tr>
 
-                        <td>Total Price</td>
-                        <td></td>
-                        <td>$ @TotalPrice</td>
+                        <td colspan="3" class="section-title" style="font-size:2rem!important">Total Price</td>
+
+                        <td colspan="2" class="section-title" style="font-size:2rem!important">$ @TotalPrice</td>
 
 
                     </tr>
@@ -137,15 +138,12 @@
             </table>
 
         </div>
-        <div class="container d-flex text-right">
+        <div class="container d-flex text-right justify-content-end">
             <div class="row md-12">
-                <div>
-                    <h2 class="ms-5">Total Price:@TotalPrice</h2>
-
-                </div>
-                <div class="btn-wrap">
-                    <a href="#" class="btn btn-outline-accent btn-accent-arrow" id="buyNowButton">
-                        Buy now <i class="icon icon-ns-arrow-right"></i>
+                
+                <div class="btn-wrap ">
+                    <a href="#" class="btn btn-accent  btn-accent-arrow" id="buyNowButton">
+                        Buy now 
                     </a>
                 </div>
             </div>
@@ -209,7 +207,7 @@
             // Perform an AJAX POST request to the specified URL
             $.ajax({
                 type: 'POST',
-                url: '/Order/index',
+                url: '/Order/addorder',
                 contentType: 'application/json',
                 data: JSON.stringify(postData),
                 success: function (response) {

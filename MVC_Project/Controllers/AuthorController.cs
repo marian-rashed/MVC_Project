@@ -20,7 +20,7 @@ namespace MVC_Project.Controllers
             return View("Index", authorList);
         }
 
-		[Authorize(Roles = "Admin")]
+		
 		public IActionResult GetAuthorsByName(string query)
         {
             var authors = author.GetAuthorsByName(query);

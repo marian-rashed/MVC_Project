@@ -90,7 +90,6 @@ namespace MVC_Project.Controllers
 
         }
 
-		[Authorize(Roles = "Admin")]
 		public IActionResult GetBooksByName(string query)
         {
             var books = book.GetBooksByName(query);
