@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.IdentityModel.Abstractions;
@@ -40,7 +41,8 @@ namespace MVC_Project.Controllers
         }
 
         [HttpGet]
-        public IActionResult AddNewBook()
+		[Authorize(Roles = "Admin")]
+		public IActionResult AddNewBook()
         {
             var authors = author.GetAllAuthors();
 
@@ -58,7 +60,8 @@ namespace MVC_Project.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SaveBook(Book boo, IFormFile ImageUrl)
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> SaveBook(Book boo, IFormFile ImageUrl)
         {
 
 
@@ -87,15 +90,14 @@ namespace MVC_Project.Controllers
 
         }
 
-
-        public IActionResult GetBooksByName(string query)
+		public IActionResult GetBooksByName(string query)
         {
             var books = book.GetBooksByName(query);
 
             return View("GetBooksByName", books);
         }
-
-        public IActionResult Delete(int id)
+		[Authorize(Roles = "Admin")]
+		public IActionResult Delete(int id)
         {
             Book bookToDelete = book.GetBookById(id);
             bookToDelete.isDeleted = true;
@@ -104,7 +106,8 @@ namespace MVC_Project.Controllers
         }
 
         [HttpGet]
-        public IActionResult EditBook(int id)
+		[Authorize(Roles = "Admin")]
+		public IActionResult EditBook(int id)
         {
             // Retrieve the book by ID
             var book1 = book.GetBookById(id);
@@ -119,7 +122,8 @@ namespace MVC_Project.Controllers
         }
 
         [HttpPost]
-        public IActionResult SaveEditedBook(Book editedBook)
+		[Authorize(Roles = "Admin")]
+		public IActionResult SaveEditedBook(Book editedBook)
         {
             if (ModelState.IsValid)
             {

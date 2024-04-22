@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MVC_Project.Interfaces;
 using MVC_Project.ViewModel;
 
@@ -19,12 +20,8 @@ namespace MVC_Project.Controllers
             return View("Index", authorList);
         }
 
-        /// <summary>
-        /// should not return a view
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        public IActionResult GetAuthorsByName(string query)
+		
+		public IActionResult GetAuthorsByName(string query)
         {
             var authors = author.GetAuthorsByName(query);
 
@@ -39,13 +36,14 @@ namespace MVC_Project.Controllers
             return View("details", author1);
         }
         [HttpGet]
-        //add authorize
-        public IActionResult AddNewAuthor(Author author)
+		[Authorize(Roles = "Admin")]
+		public IActionResult AddNewAuthor()
         {
             return View("AddNewAuthor");
         }
         [HttpPost]
-        public async Task<IActionResult> SaveAuthorAsync(AuthorName_Biography_BD_Country_ImgUrlViewModel AuthModel, IFormFile ImageUrl)
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> SaveAuthorAsync(AuthorName_Biography_BD_Country_ImgUrlViewModel AuthModel, IFormFile ImageUrl)
         {
             if (AuthModel.AuthorName == null || AuthModel.Biography == null ||
                          AuthModel.BirthDate == null || AuthModel.Country == null || ImageUrl == null)
@@ -80,7 +78,7 @@ namespace MVC_Project.Controllers
             return RedirectToAction("Index");
         }
 
-		//edit author
+		[Authorize(Roles = "Admin")]
 		public IActionResult Delete(int id)
 		{
             Author authorToDelete = author.GetAuthorById(id);

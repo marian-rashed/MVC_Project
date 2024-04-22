@@ -14,7 +14,7 @@
         border: none; /* removes any default border */
     }
 
-    #searchOption {
+    select  option#searchOption {
         margin-top: 12px;
         margin-right: 10px; /* space between select box and input */
         padding: 8px; /* padding inside the select box */
@@ -24,6 +24,15 @@
         height: 2.5em;
     }
 
+    #searchOption2 {
+        margin-top: 12px;
+        margin-right: 10px; /* space between select box and input */
+        padding: 8px; /* padding inside the select box */
+        border: 1px solid #ccc; /* light grey border */
+        border-radius: 4px; /* rounded corners for select */
+        background-color: white; /* white background color */
+        height: 2.5em;
+    }
     #searchQuery {
         margin-top: 12px;
         padding: 8px; /* padding inside the input box */
@@ -80,10 +89,9 @@
                     <form id="searchForm" class="mb-0">
                         <div class=" d-flex align-items-stretch input-group " style="height:auto ;font-size: 14px !important;position:relative">
 
-                            <select class="m-0 "  style=" color:white; height:auto; border-radius: 2.3rem 0rem 0rem 2.3rem ;  margin-right: 0px; background: var(--accent-color);padding: 0.75em 1.5em;" id="searchOption" name="searchOption">
-                                <option style="background: white; color:black;" value="">Search By</option>
-                                <option style="background: white;color:black;" value="Book">Book</option>
-                                <option style="background: white;color:black;" value="Author">Author</option>
+                            <select class="m-0 " style="color: white;height:auto; border-radius: 2.3rem 0rem 0rem 2.3rem ;  margin-right: 0px; background: var(--accent-color);padding: 0.75em 1.5em;" id="searchOption" name="searchOption">
+                                <option class="searchOption form-control" value="Book">Search : Book</option>
+                                <option class="searchOption form-control" value="Author">Search : Author</option>
                             </select>
                             <input class="m-0 form-control col-6" type="search" name="query" aria-label="Text input with dropdown button" style="height:auto">
                             <button class="m-0 " style=" border-radius: 0rem 2.3rem 2.3rem 0rem;height:auto" type="submit" id="button-addon2">
@@ -113,22 +121,12 @@
 
                         }
 
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <a href="/Role/AddRole" class="user-account for-buy">
-                                <i class="icon">&#x1F512;</i><span>Add Role</span>
-                            </a>
-                            <button type="button" onclick="window.location.href='/Dashboard/index'">Dashboard</button>
-
-                            <a href="/Role/AssignRole" class="user-account for-buy">
-                                <i class="icon">&#x1F512;</i><span>Assign Role</span>
-                            </a>
-                        }
+                       
                         <a href="Cart/SelectedBooks" class="cart for-buy">
-
-                            <i class="icon icon-clipboard"></i>
+                            
+                            <i class="icon icon-clipboard" ></i>
                                                        <span>
-                                Cart:<span class="badge bg-primary" id="num-book-cart"> 0 </span>
+                                Cart:<span class="badge " style="background: var(--accent-color);" id="num-book-cart"> 0 </span>
                                 
                             </span>
                         </a>
@@ -202,19 +200,32 @@
                                     </a>
                                 </li>
 
-                                <li class="menu-item">
-                                    <a href="/Customer/Index">
-                                        Customers <span class="badge bg-dark"></span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="/Order/Index" class="nav-link">
-                                        Order <span class="badge bg-dark"></span>
-                                    </a>
-                                </li>
-
                                
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li>
+                                        <a href="/Order/Index" class="nav-link">
+                                            Orders <span class="badge bg-dark"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/Customer/Index" class="nav-link">
+                                            Customers <span class="badge bg-dark"></span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/Role/AddRole" class="nav-link">
+                                           Add Role <span class="badge bg-dark"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/Role/AssignRole" class="nav-link">
+                                            Assign Role <span class="badge bg-dark"></span>
+                                        </a>
+                                    </li>
+                                }
+
                                 <li class="menu-item">
                                     <a href="/home/contact" class="nav-link">
                                         Contact <span class="badge bg-dark"></span>

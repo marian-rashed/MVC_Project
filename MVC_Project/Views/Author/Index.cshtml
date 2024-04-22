@@ -1610,7 +1610,16 @@
 
             </div>
         </div>
+        @if(User.IsInRole("Admin"))
+        {
+        <div class="btn-wrap ">
+            <a href="/author/AddNewAuthor" style="margin-top:0" class="btn btn-accent " tabindex="0">
+                Add Author
+            </a>
+            </div>
+        }
     </div>
+   
 </section>
 
 
